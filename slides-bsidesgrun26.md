@@ -279,7 +279,7 @@ section {
   <img src="assets/img/niek.jpg" class="speaker-photo" alt="Niek Palm" />
   <div>
     <div class="speaker-name">Niek Palm</div>
-    <div class="speaker-role">Security Architect</div>
+    <div class="speaker-role">Security Architect @ Philips</div>
   </div>
 </div>
 
@@ -2238,106 +2238,6 @@ h2 {
 
 <!--
 AI as producer, build process, and consumer. 97% of developers use AI coding tools. Walk through the diagram.
--->
-
----
-
-<!-- Slide 3: AI as producer - the new attack surface -->
-
-<style scoped>
-section {
-  background: linear-gradient(135deg, #0f0a1a 0%, #1e1b4b 50%, #0a0a0f 100%);
-  padding: 35px 40px 25px 40px;
-}
-h1 {
-  font-size: 1.8em;
-  margin-bottom: 0.15em;
-  background: linear-gradient(135deg, #e879f9 0%, #c084fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-h2 { font-size: 0.85em; color: #a78bfa; margin-bottom: 0.8em; font-weight: 400; }
-.attacks {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 14px;
-  margin-bottom: 0.8em;
-}
-.attack {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(168, 85, 247, 0.25);
-  border-radius: 10px;
-  padding: 14px 16px;
-}
-.attack .icon { font-size: 1.4em; margin-bottom: 6px; }
-.attack .name {
-  color: #e879f9;
-  font-weight: 700;
-  font-size: 0.72em;
-  margin-bottom: 6px;
-}
-.attack .detail {
-  color: #cbd5e1;
-  font-size: 0.58em;
-  line-height: 1.6;
-}
-.attack .stat {
-  display: inline-block;
-  background: rgba(248, 113, 113, 0.15);
-  border: 1px solid rgba(248, 113, 113, 0.3);
-  color: #fca5a5;
-  font-size: 0.55em;
-  padding: 2px 8px;
-  border-radius: 20px;
-  margin-top: 6px;
-}
-.bottom-bar {
-  background: rgba(248, 113, 113, 0.08);
-  border: 1px solid rgba(248, 113, 113, 0.25);
-  border-radius: 8px;
-  padding: 10px 18px;
-  text-align: center;
-  font-size: 0.65em;
-  color: #fca5a5;
-}
-.bottom-bar strong { color: #f87171; }
-</style>
-
-# AI as producer - the new attack surface
-
-## code generation creates new supply chain risks
-
-<div class="attacks">
-
-<div class="attack">
-<div class="icon">🎭</div>
-<div class="name">Slopsquatting</div>
-<div class="detail">AI hallucinates package names → attackers claim them on npm. <code>react-codeshift</code>: 237 repos, real downloads after claiming.</div>
-<div class="stat">Aikido Security · Mar 2026</div>
-</div>
-
-<div class="attack">
-<div class="icon">🔓</div>
-<div class="name">CamoLeak</div>
-<div class="detail">Hidden comments in GitHub PRs poison Copilot Chat → exfiltrates private repo secrets via image proxy.</div>
-<div class="stat">CVSS 9.6 · Legit Security · Jun 2025</div>
-</div>
-
-<div class="attack">
-<div class="icon">📁</div>
-<div class="name">Rules file backdoor</div>
-<div class="detail">Unicode bidirectional markers in <code>.cursorrules</code> hide malicious instructions. Survives forks.</div>
-<div class="stat">Still unfixed · Pillar Security · Mar 2025</div>
-</div>
-
-</div>
-
-<div class="bottom-bar">
-AI writes code you ship - but it also <strong>introduces dependencies it hallucinated</strong> and <strong>follows instructions you can't see</strong>
-</div>
-
-<!--
-AI as code producer creates supply chain risks. Hallucinated packages (slopsquatting), injected patterns. react-codeshift example.
 -->
 
 ---
