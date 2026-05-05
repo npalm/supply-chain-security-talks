@@ -6,6 +6,7 @@ This repository has slides and demo resources for the talk **GitHub Actions Secu
 
 | When | Conference | Talk |
 |------|-----------|------|
+| May 2026 | [GeeCON Krakow](https://2026.geecon.org/) | [Supply Chain Compromise: The Anatomy of the Attack and the Blueprint for Defense](https://npalm.github.io/supply-chain-security-talks/geecon26/) |
 | Apr 2026 | [BSides Groningen](https://bsidesgrunn.org/) | [Supply Chain Compromise: The Anatomy of the Attack and the Blueprint for Defense](https://npalm.github.io/supply-chain-security-talks/bsidesgrun26/) |
 | Mar 2026 | [040coders.nl](https://www.meetup.com/040coders-nl/events/312818432/) | [Beyond the Commit: Weaponizing and Hardening GitHub Actions](https://npalm.github.io/supply-chain-security-talks/040coders26/) |
 | Jan 2026 | [NDC Security](https://ndcsecurity.com/) | [Beyond the Commit: Weaponizing and Hardening GitHub Actions](https://npalm.github.io/supply-chain-security-talks/ndcsecurity26/) |
@@ -15,6 +16,7 @@ This repository has slides and demo resources for the talk **GitHub Actions Secu
 | Nov 2025 | [040coders.nl (Ignite)](https://www.meetup.com/040coders-nl/) | [Weaponizing GitHub Actions](https://npalm.github.io/supply-chain-security-talks/040codersignite25/) |
 
 ## Demo resources
+- [GeeCON 2026 resources](resources-geecon26.md)
 - [Demo Zizmor (extend version)](https://github.com/codethebuild/gh-actions-security-zizmor-demo-time)
 - [Demo Zizmor](https://github.com/codethebuild/gh-actions-security-zizmor)
 - [Demo GHAS](https://github.com/codethebuild/gh-actions-security-ghas)

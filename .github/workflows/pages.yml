@@ -11,7 +11,7 @@ jobs:
     name: generate and deploy
     strategy:
       matrix:
-        conference: [heapcon25, gotechworld25, 040codersignite25, ndcmanchester25, ndcsecurity26, 040coders26, bsidesgrun26]
+        conference: [heapcon25, gotechworld25, 040codersignite25, ndcmanchester25, ndcsecurity26, 040coders26, bsidesgrun26, geecon26]
       max-parallel: 1  # Ensure jobs run sequentially to avoid GitHub Pages conflicts
     
     concurrency: ci-${{ github.ref }}-${{ matrix.conference }} # Recommended if you intend to make multiple deployments in quick succession.
