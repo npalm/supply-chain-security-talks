@@ -6,7 +6,7 @@
   "author": "Niek Palm",
   "license": "MIT",
   "scripts": {
-    "build:html": "marp slides-${CONFERENCE:-default}.md --html --allow-local-files -o build-${CONFERENCE:-default}/index.html && cp -r assets build-${CONFERENCE:-default}/assets",
+    "build:html": "marp slides-${CONFERENCE:-default}.md --html --allow-local-files -o build-${CONFERENCE:-default}/index.html && mkdir -p build-${CONFERENCE:-default}/assets && cp -r assets/. build-${CONFERENCE:-default}/assets",
     "build:pdf": "node ./scripts/generate-pdf.js",
     "build:all": "npm run build:html && npm run build:pdf",
     "watch": "marp --html slides-${CONFERENCE:-default}.md -w",
