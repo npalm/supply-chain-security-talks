@@ -1,0 +1,84 @@
+site:
+  title: 'Supply Chain Security Talks'
+  subtitle: 'Conference slide decks and companion resources from newest to oldest.'
+
+sessions:
+  - slug: geecon26
+    deck: geecon26
+    title: 'Supply Chain Compromise: The Anatomy of the Attack and the Blueprint for Defense'
+    date: 2026-05-13
+    conference: 'GeeCON Krakow'
+    speaker: 'Niek Palm'
+    tags:
+      - public
+      - conference
+
+  - slug: bsidesgrun26
+    deck: bsidesgrun26
+    title: 'Supply Chain Compromise: The Anatomy of the Attack and the Blueprint for Defense'
+    date: 2026-04-16
+    conference: 'BSides Groningen'
+    speaker: 'Niek Palm'
+    tags:
+      - public
+      - conference
+
+  - slug: 040coders26
+    deck: 040coders26
+    title: 'Beyond the Commit: Weaponizing and Hardening GitHub Actions'
+    date: 2026-03-19
+    conference: '040coders.nl'
+    speaker: 'Niek Palm'
+    tags:
+      - public
+      - meetup
+
+  - slug: ndcsecurity26
+    deck: ndcsecurity26
+    title: 'Beyond the Commit: Weaponizing and Hardening GitHub Actions'
+    date: 2026-03-03
+    conference: 'NDC Security'
+    speaker: 'Niek Palm'
+    tags:
+      - public
+      - conference
+
+  - slug: ndcmanchester25
+    deck: ndcmanchester25
+    title: 'From CI Nightmare to Supply Chain Sentinel'
+    date: 2025-12-03
+    conference: 'NDC Security & AI, Manchester'
+    speaker: 'Niek Palm'
+    tags:
+      - public
+      - conference
+
+  - slug: 040codersignite25
+    deck: 040codersignite25
+    title: 'Weaponizing GitHub Actions'
+    date: 2025-11-20
+    conference: '040coders.nl (Ignite)'
+    speaker: 'Niek Palm'
+    tags:
+      - public
+      - meetup
+
+  - slug: gotechworld25
+    deck: gotechworld25
+    title: 'From CI Nightmare to Supply Chain Sentinel'
+    date: 2025-11-11
+    conference: 'GoTech World'
+    speaker: 'Niek Palm'
+    tags:
+      - public
+      - conference
+
+  - slug: heapcon25
+    deck: heapcon25
+    title: 'From CI Nightmare to Supply Chain Sentinel'
+    date: 2025-10-31
+    conference: 'HeapCon'
+    speaker: 'Niek Palm'
+    tags:
+      - public
+      - conference

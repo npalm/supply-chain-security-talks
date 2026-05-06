@@ -1,52 +1,72 @@
-name: Pages Build and Deploy
+name: Pages
+
 on:
   push:
     branches: [main]
+    paths:
+      - '.github/workflows/**'
+      - 'assets/**'
+      - 'decks/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'scripts/**'
+      - 'sessions.yml'
   pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/**'
+      - 'assets/**'
+      - 'decks/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'scripts/**'
+      - 'sessions.yml'
 
 permissions: {}
 
+concurrency:
+  group: pages-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
 jobs:
-  build-and-deploy:
-    name: generate and deploy
-    strategy:
-      matrix:
-        conference: [heapcon25, gotechworld25, 040codersignite25, ndcmanchester25, ndcsecurity26, 040coders26, bsidesgrun26, geecon26]
-      max-parallel: 1  # Ensure jobs run sequentially to avoid GitHub Pages conflicts
-    
-    concurrency:
-      group: ci-${{ github.ref }}-${{ matrix.conference }} # Recommended if you intend to make multiple deployments in quick succession.
-      cancel-in-progress: true
-
-    permissions:
-      contents: write # requires to push generated slides
-    
+  build:
+    name: Build pages artifact
     runs-on: ubuntu-latest
-    env:
-      CONFERENCE: ${{ matrix.conference }}
-    
+    permissions:
+      contents: read
     steps:
-      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e #v6.4.0
-        with:
-          node-version: 24
-
-      - name: 🛎️ Checkout
+      - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
 
-      - name: 🔧 Install
-        run: |
-          npm ci
-          
-      - name: 🔧 Build pages for ${{ matrix.conference }}
-        run: |
-          npm run build:html
-
-      - name: 🚀 Deploy ${{ matrix.conference }}
-        if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4.8.0
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
-          branch: gh-pages
-          folder: build-${{ matrix.conference }}
-          target-folder: ${{ matrix.conference }}
+          node-version: 24
+          cache: pnpm
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Build site
+        run: pnpm run site
+
+      - name: Upload site artifact
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: site
+          retention-days: 3
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages

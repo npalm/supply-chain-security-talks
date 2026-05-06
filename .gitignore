@@ -3,7 +3,7 @@
 slides*.html
 *.pdf
 *.pptx
-build*
+build-*/
 .env*
 *.zip
 .DS_Store
@@ -201,6 +201,8 @@ github-actions-security
 screenshots/
 *notes*.md
 build-*/
+.build/
+site/
 research/
 tmp/
 abstract*
