@@ -136,10 +136,11 @@ function renderLayout({
     h1 {
       margin: 0 0 12px;
       font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
-      font-size: clamp(1.7rem, 4.2vw, 3.4rem);
+      font-size: clamp(1.35rem, 3vw, 2.55rem);
       line-height: 1;
-      letter-spacing: -0.05em;
-      white-space: nowrap;
+      letter-spacing: -0.04em;
+      white-space: normal;
+      max-width: 100%;
     }
 
     .subtitle,
@@ -361,8 +362,7 @@ function renderLayout({
       }
 
       h1 {
-        font-size: 1.9rem;
-        white-space: normal;
+        font-size: 1.45rem;
       }
 
       .card {
@@ -402,6 +402,34 @@ function renderLayout({
       line-height: 1.8;
     }
 
+    .terminal-command {
+      display: inline-block;
+      position: relative;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 0;
+      animation: terminal-type 1.3s steps(36, end) 0.1s forwards;
+    }
+
+    .terminal-command::after {
+      content: '';
+      display: inline-block;
+      width: 0.62em;
+      height: 1.1em;
+      margin-left: 0.3em;
+      vertical-align: -0.16em;
+      background: var(--accent-strong);
+      animation: cursor-blink 0.9s steps(1, end) infinite;
+    }
+
+    .terminal-output {
+      display: block;
+      margin-top: 0.45rem;
+      opacity: 0;
+      transform: translateY(4px);
+      animation: terminal-fade 420ms ease 1.45s forwards;
+    }
+
     .contact-bar {
       display: flex;
       flex-wrap: wrap;
@@ -424,6 +452,27 @@ function renderLayout({
 
     .contact-kind {
       color: var(--muted);
+    }
+
+    @keyframes terminal-type {
+      from { max-width: 0; }
+      to { max-width: 30ch; }
+    }
+
+    @keyframes terminal-fade {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cursor-blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
     }
   </style>
 </head>
@@ -509,8 +558,8 @@ function buildIndexPage(config, resourceMap) {
           <div class="terminal-strip"><span class="terminal-dot"></span>talk-index ~/published-sessions</div>
           <span class="eyebrow">Field Notes</span>
           <p class="subtitle">${config.site?.subtitle || ''}</p>
-          <div class="terminal-callout">$ ls decks/ | sort --reverse-by=date
-          <br/>Published sessions, resources, and conference variants tracked from newest to oldest.</div>
+          <div class="terminal-callout"><span class="terminal-command">$ ls decks/ | sort --reverse-by=date</span>
+          <span class="terminal-output">Published sessions, resources, and conference variants tracked from newest to oldest.</span></div>
           ${contacts ? `<div class="contact-bar">${contacts}</div>` : ''}
         </div>
       </div>

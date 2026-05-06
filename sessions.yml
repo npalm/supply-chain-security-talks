@@ -1,6 +1,6 @@
 site:
-  title: 'Supply Chain Security Talks'
-  subtitle: 'Conference slide decks and companion resources from newest to oldest.'
+  title: 'Supply chain security in the age of AI'
+  subtitle: 'The most dangerous path is the one your systems already trust.'
   contact:
     - label: '@npalm'
       kind: 'GitHub'
