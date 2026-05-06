@@ -1,23 +1,22 @@
 {
-  "name": "slides",
+  "name": "supply-chain-security-talks",
   "version": "1.0.0",
-  "description": "Beyond the Commit: Weaponizing and Hardening GitHub Actions",
+  "private": true,
+  "description": "Conference slide decks for supply chain security talks",
   "repository": "git@github.com:npalm/supply-chain-security-talks.git",
   "author": "Niek Palm",
   "license": "MIT",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
-    "build:html": "marp slides-${CONFERENCE:-default}.md --html --allow-local-files -o build-${CONFERENCE:-default}/index.html && mkdir -p build-${CONFERENCE:-default}/assets && cp -r assets/. build-${CONFERENCE:-default}/assets",
-    "build:pdf": "node ./scripts/generate-pdf.js",
-    "build:all": "npm run build:html && npm run build:pdf",
-    "watch": "marp --html slides-${CONFERENCE:-default}.md -w",
-    "serve": "http-server . -c-1 -a 127.0.0.1 -o /slides-${CONFERENCE:-default}.html",
-    "dev": "concurrently --raw --kill-others \"npm run watch\" \"npm run serve\""
+    "build": "node ./scripts/build-site.js",
+    "build:deck": "node ./scripts/build-deck.js",
+    "dev": "node ./scripts/dev-deck.js",
+    "site": "node ./scripts/build-site.js"
   },
   "devDependencies": {
     "@marp-team/marp-cli": "^4.3.1",
-    "concurrently": "^9.2.1",
     "http-server": "^14.1.1",
-    "pdf-lib": "^1.17.1",
-    "playwright": "^1.59.1"
+    "js-yaml": "^4.1.0",
+    "markdown-it": "^14.1.0"
   }
 }
