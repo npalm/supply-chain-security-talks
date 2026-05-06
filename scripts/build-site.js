@@ -493,7 +493,12 @@ function copyDeckBuildToSession(session) {
   const sourceDir = path.join(BUILD_ROOT, 'decks', session.deck);
   const targetDir = path.join(SITE_DIR, session.slug);
   fs.mkdirSync(targetDir, { recursive: true });
-  fs.cpSync(path.join(sourceDir, 'index.html'), path.join(targetDir, 'index.html'));
+  const sourceHtml = path.join(sourceDir, 'index.html');
+  const targetHtml = path.join(targetDir, 'index.html');
+  const html = fs
+    .readFileSync(sourceHtml, 'utf8')
+    .replaceAll('../../assets/shared/', '../assets/shared/');
+  fs.writeFileSync(targetHtml, html, 'utf8');
   const deckAssets = path.join(sourceDir, 'assets');
   if (fs.existsSync(deckAssets)) {
     fs.cpSync(deckAssets, path.join(targetDir, 'assets'), { recursive: true });
