@@ -23,15 +23,14 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@fc06bc129f633b3d4b19ea8a665e1e119ccf65b9 # v5.0.0
+
       - name: Setup Node.js
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: 24
-
-      - name: Enable Corepack
-        run: |
-          corepack enable
-          corepack prepare pnpm@9.15.9 --activate
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

@@ -6,7 +6,7 @@
   "repository": "git@github.com:npalm/supply-chain-security-talks.git",
   "author": "Niek Palm",
   "license": "MIT",
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
     "build": "node ./scripts/build-site.js",
     "build:deck": "node ./scripts/build-deck.js",

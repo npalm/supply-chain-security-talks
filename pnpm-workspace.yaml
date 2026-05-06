@@ -1,0 +1,7 @@
+minimumReleaseAge: 10080
+blockExoticSubdeps: true
+minimumReleaseAgeExclude:
+  - '@marp-team/marp-cli'
+  - 'http-server'
+  - 'js-yaml'
+  - 'markdown-it'
