@@ -1,6 +1,13 @@
 site:
   title: 'Supply Chain Security Talks'
   subtitle: 'Conference slide decks and companion resources from newest to oldest.'
+  contact:
+    - label: '@npalm'
+      kind: 'GitHub'
+      url: 'https://github.com/npalm'
+    - label: 'niekpalm'
+      kind: 'LinkedIn'
+      url: 'https://www.linkedin.com/in/niekpalm/'
 
 sessions:
   - slug: geecon26

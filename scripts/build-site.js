@@ -401,6 +401,30 @@ function renderLayout({
       font-size: 0.92rem;
       line-height: 1.8;
     }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(126, 240, 195, 0.18);
+      background: rgba(4, 9, 18, 0.45);
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.82rem;
+    }
+
+    .contact-kind {
+      color: var(--muted);
+    }
   </style>
 </head>
 <body class="${pageClass}">
@@ -450,6 +474,12 @@ function renderResourcesPage(session) {
 
 function buildIndexPage(config, resourceMap) {
   const sessions = [...(config.sessions || [])].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const contacts = (config.site?.contact || [])
+    .map(
+      (contact) =>
+        `<a class="contact-link" href="${contact.url}" target="_blank" rel="noopener noreferrer"><span>${contact.label}</span><span class="contact-kind">(${contact.kind})</span></a>`,
+    )
+    .join('');
   const cards = sessions
     .map((session) => {
       const links = [
@@ -481,6 +511,7 @@ function buildIndexPage(config, resourceMap) {
           <p class="subtitle">${config.site?.subtitle || ''}</p>
           <div class="terminal-callout">$ ls decks/ | sort --reverse-by=date
           <br/>Published sessions, resources, and conference variants tracked from newest to oldest.</div>
+          ${contacts ? `<div class="contact-bar">${contacts}</div>` : ''}
         </div>
       </div>
       <div class="section-head">
