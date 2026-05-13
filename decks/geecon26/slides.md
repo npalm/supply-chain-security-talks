@@ -1739,6 +1739,328 @@ Full-screen Shai-Hulud 2 kill chain image. Details are in the image.
 
 ---
 
+<!-- Mini Shai-Hulud: transition / last update before conference -->
+
+![bg](assets/img/mini-shai-hulud-not-again.png)
+
+<style scoped>
+section {
+  padding: 0;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  background: #05070d;
+}
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(3, 7, 18, 0.94) 0%, rgba(3, 7, 18, 0.82) 28%, rgba(3, 7, 18, 0.28) 58%, rgba(3, 7, 18, 0.08) 100%);
+}
+section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.28;
+}
+.copy {
+  position: absolute;
+  left: 72px;
+  top: 76px;
+  z-index: 2;
+  width: 560px;
+}
+.eyebrow {
+  color: #fbbf24;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.44em;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1.15em;
+}
+h1 {
+  font-size: 4.35em;
+  line-height: 0.9;
+  margin: 0;
+  color: #f8fafc;
+  background: linear-gradient(135deg, #f8fafc 0%, #fde68a 42%, #f87171 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 24px 60px rgba(0,0,0,0.48);
+}
+.sub {
+  margin-top: 0.8em;
+  color: #fecaca;
+  font-size: 0.72em;
+  line-height: 1.35;
+}
+.pulse {
+  position: absolute;
+  left: 72px;
+  bottom: 62px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fbbf24;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.5em;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.pulse::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: #f87171;
+  box-shadow: 0 0 28px rgba(248, 113, 113, 0.85);
+}
+</style>
+
+<div class="copy">
+<div class="eyebrow">Last deck update</div>
+<h1>Not again</h1>
+<div class="sub">one more supply-chain worm before the talk</div>
+</div>
+
+<div class="pulse">live incident insert</div>
+
+<!--
+Short transition into the May 2026 Mini Shai-Hulud update. The slide uses a generated supply-chain-compromise illustration and keeps the visible copy intentionally short.
+-->
+
+---
+
+<!-- Mini Shai-Hulud: May 2026 update -->
+
+<style scoped>
+section {
+  background: radial-gradient(circle at 78% 20%, rgba(248, 113, 113, 0.22), transparent 30%),
+              radial-gradient(circle at 12% 80%, rgba(251, 191, 36, 0.14), transparent 28%),
+              linear-gradient(135deg, #12090a 0%, #33100f 48%, #090a12 100%);
+  padding: 42px 58px;
+  font-family: 'Inter', sans-serif;
+}
+.kicker {
+  color: #fbbf24;
+  font-size: 0.56em;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.24em;
+}
+h1 {
+  font-size: 2.55em;
+  line-height: 0.98;
+  margin: 0 0 0.16em;
+  background: linear-gradient(135deg, #fef3c7 0%, #fb923c 48%, #f87171 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.sub {
+  color: #fecaca;
+  font-size: 0.72em;
+  margin-bottom: 0.75em;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 13px;
+}
+.stat {
+  min-height: 118px;
+  border-radius: 10px;
+  border: 1px solid rgba(251, 191, 36, 0.27);
+  background: rgba(5, 10, 18, 0.76);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 12px 8px;
+  box-shadow: 0 18px 38px rgba(0,0,0,0.28);
+}
+.stat strong {
+  color: #fbbf24;
+  display: block;
+  font-size: 1.48em;
+  line-height: 0.95;
+}
+.stat span {
+  color: #e2e8f0;
+  display: block;
+  font-size: 0.48em;
+  line-height: 1.28;
+  margin-top: 0.38em;
+}
+.ecosystems {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.eco {
+  border: 1px solid rgba(248, 113, 113, 0.28);
+  border-radius: 9px;
+  background: rgba(64, 11, 18, 0.56);
+  color: #fecaca;
+  font-size: 0.48em;
+  text-align: center;
+  padding: 9px 8px;
+}
+.takeaway {
+  border: 1px solid rgba(251, 191, 36, 0.36);
+  border-radius: 10px;
+  background: rgba(251, 191, 36, 0.1);
+  color: #fde68a;
+  font-size: 0.64em;
+  line-height: 1.35;
+  padding: 12px 15px;
+}
+.takeaway strong { color: #fbbf24; }
+</style>
+
+<div class="kicker">May 2026 update</div>
+
+# Mini Shai-Hulud
+
+<div class="sub">The sequel crossed npm and PyPI, then used trusted publishing against us.</div>
+
+<div class="stats">
+<div class="stat"><strong>170+</strong><span>npm packages</span></div>
+<div class="stat"><strong>2</strong><span>PyPI packages</span></div>
+<div class="stat"><strong>200M+</strong><span>weekly downloads</span></div>
+<div class="stat"><strong>9.6</strong><span>CVSS<br>CVE-2026-45321</span></div>
+</div>
+
+<div class="ecosystems">
+<div class="eco">TanStack</div>
+<div class="eco">OpenSearch</div>
+<div class="eco">Mistral AI</div>
+<div class="eco">UiPath</div>
+<div class="eco">SAP CAP</div>
+</div>
+
+<div class="takeaway"><strong>Same pattern, sharper tool:</strong> a package install or import became the path from developer and CI machines to release identity.</div>
+
+<!--
+New May 2026 wave. JFrog reports 170+ npm packages, 2 PyPI packages, and more than 200M weekly downloads affected. NVD tracks the TanStack wave as CVE-2026-45321 with CVSS 9.6.
+-->
+
+---
+
+<!-- Mini Shai-Hulud: trusted publisher abuse -->
+
+<style scoped>
+section {
+  background: linear-gradient(135deg, #070b18 0%, #18223d 48%, #240b12 100%);
+  padding: 40px 54px;
+  font-family: 'Inter', sans-serif;
+}
+h1 {
+  font-size: 2.15em;
+  line-height: 1.02;
+  margin: 0 0 0.2em;
+  background: linear-gradient(135deg, #f8fafc 0%, #a5b4fc 45%, #f87171 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.subtitle {
+  color: #cbd5e1;
+  font-size: 0.66em;
+  margin-bottom: 0.9em;
+}
+.flow {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-bottom: 13px;
+}
+.node {
+  min-height: 146px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(5, 10, 18, 0.75);
+  padding: 12px 10px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.3);
+}
+.node .num {
+  color: #fbbf24;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.48em;
+  font-weight: 800;
+  margin-bottom: 0.4em;
+}
+.node h2 {
+  color: #f8fafc;
+  font-size: 0.58em;
+  margin: 0 0 0.35em;
+  line-height: 1.12;
+}
+.node p {
+  color: #cbd5e1;
+  font-size: 0.42em;
+  line-height: 1.42;
+  margin: 0;
+}
+.node.hot {
+  border-color: rgba(248, 113, 113, 0.38);
+  background: rgba(64, 11, 18, 0.66);
+}
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+}
+.box {
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 0.58em;
+  line-height: 1.38;
+}
+.box.bad {
+  border: 1px solid rgba(248, 113, 113, 0.34);
+  background: rgba(248, 113, 113, 0.1);
+  color: #fecaca;
+}
+.box.good {
+  border: 1px solid rgba(34, 197, 94, 0.32);
+  background: rgba(34, 197, 94, 0.08);
+  color: #bbf7d0;
+}
+.box strong { color: #fbbf24; }
+code { font-size: 0.86em; }
+</style>
+
+# When trusted publishing is not enough
+
+<div class="subtitle">The TanStack wave did not need a stolen long-lived npm token.</div>
+
+<div class="flow">
+<div class="node"><div class="num">01</div><h2>Fork PR</h2><p><code>pull_request_target</code> ran fork-controlled work in base-repo context.</p></div>
+<div class="node"><div class="num">02</div><h2>Cache poison</h2><p>The PR path saved a poisoned package-manager cache.</p></div>
+<div class="node"><div class="num">03</div><h2>Release restore</h2><p>The legitimate release workflow restored that cache later.</p></div>
+<div class="node hot"><div class="num">04</div><h2>OIDC in memory</h2><p>Malware extracted runtime identity material from the runner.</p></div>
+<div class="node hot"><div class="num">05</div><h2>Publish token</h2><p>OIDC was exchanged for npm publishing credentials.</p></div>
+<div class="node hot"><div class="num">06</div><h2>Valid provenance</h2><p>The package could still carry trusted-publisher provenance.</p></div>
+</div>
+
+<div class="bottom">
+<div class="box bad"><strong>Failure mode:</strong> repository-scoped trust lets the wrong code path spend release identity.</div>
+<div class="box good"><strong>Better boundary:</strong> keep untrusted PR work, cache state, and release publishing in separate trust zones.</div>
+</div>
+
+<!--
+Main talk point: provenance proves where the artifact was built. It does not prove the trusted workflow was clean at runtime.
+-->
+
+---
+
 <!-- Six places to break the chain -->
 
 ![bg brightness:0.72](assets/img/break-chain-visual-b.png)
@@ -4018,7 +4340,7 @@ h1 {
 
 <div class="metrics">
 <div class="metric"><strong>15</strong><span class="label">major incidents</span><span class="period">in 2025</span></div>
-<div class="metric"><strong>23+</strong><span class="label">major incidents</span><span class="period">Jan-April 2026</span></div>
+<div class="metric"><strong>24+</strong><span class="label">major incidents</span><span class="period">Jan-May 2026</span></div>
 <div class="metric"><strong>13+</strong><span class="label">ecosystems</span><span class="period">and toolchains</span></div>
 </div>
 
@@ -4790,7 +5112,7 @@ h2 {
 </div>
 
 <div class="tag">
-🛡️ <strong>would have prevented:</strong> Axios (3hr window), Shai-Hulud, any fast-publish attack
+🛡️ <strong>would have prevented:</strong> Axios (3hr window), Mini Shai-Hulud (&lt;24h detection), fast-publish attacks
 </div>
 
 </div>
@@ -4932,7 +5254,7 @@ h2 {
 <h3>🛡️ Stops fast-publish attacks</h3>
 <ul>
 <li><strong class="red">Axios</strong> - malicious version live for only ~3 hours</li>
-<li><strong class="red">Shai-Hulud</strong> - rapid publish and exploit</li>
+<li><strong class="red">Mini Shai-Hulud</strong> - flagged within 24h; lockfiles and caches still matter</li>
 <li>Any <strong>zero-day package takeover</strong></li>
 </ul>
 </div>
@@ -5631,7 +5953,7 @@ h2 {
 </div>
 
 <div class="tag">
-🛡️ <strong>reduces blast radius:</strong> Axios detected in 6 min, contained in 3 hrs vs Shai-Hulud ran for days
+🛡️ <strong>reduces blast radius:</strong> Mini Shai-Hulud shows response order matters: isolate, remove persistence, then rotate
 </div>
 
 <!--

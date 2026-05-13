@@ -4,11 +4,11 @@ Talk: **Supply Chain Compromise: The Anatomy of the Attack and the Blueprint for
 
 ## Monday Morning Checklist
 
-1. Search workflows for `pull_request_target`, unchecked PR data, and `${{ github.event.* }}` inside `run:`.
+1. Search workflows for `pull_request_target`, unchecked PR data, cache writes that cross fork/release boundaries, and `${{ github.event.* }}` inside `run:`.
 2. Set default `GITHUB_TOKEN` permissions to read-only and grant write only per job.
 3. Pin GitHub Actions to full commit SHAs.
 4. Add dependency update cooldowns for automated dependency PRs.
-5. Replace long-lived publish secrets with OIDC where possible, plus protected release branches and environment approvals.
+5. Replace long-lived publish secrets with OIDC where possible, but scope trusted publishing to release workflows with protected branches and environment approvals.
 6. Separate release jobs from untrusted build/test jobs.
 7. Run risky installs and AI agents in a sandbox with limited filesystem, network, and token access.
 8. Review MCP, IDE extension, agent skill, `.github/copilot-instructions.md`, `.cursor`, `.claude`, and similar automation config.
@@ -25,6 +25,9 @@ Talk: **Supply Chain Compromise: The Anatomy of the Attack and the Blueprint for
 ## Talk Incidents
 
 - [Shai-Hulud v2 analysis](https://socket.dev/blog/shai-hulud-strikes-again-v2)
+- [Mini Shai-Hulud / Here We Go Again analysis](https://research.jfrog.com/post/shai-hulud-here-we-go-again/)
+- [TanStack npm supply-chain compromise postmortem](https://tanstack.com/blog/npm-supply-chain-compromise-postmortem)
+- [CVE-2026-45321](https://nvd.nist.gov/vuln/detail/CVE-2026-45321)
 - [PostHog Shai-Hulud postmortem](https://posthog.com/blog/nov-24-shai-hulud-attack-post-mortem)
 - [tj-actions / changed-files CISA alert](https://www.cisa.gov/news-events/alerts/2025/03/18/supply-chain-compromise-third-party-tj-actionschanged-files-cve-2025-30066-and-reviewdogaction)
 - [Trivy tag poisoning advisory](https://nvd.nist.gov/vuln/detail/CVE-2026-33634)
