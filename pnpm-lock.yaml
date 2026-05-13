@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@marp-team/marp-cli':
-        specifier: ^4.3.1
-        version: 4.3.1
+        specifier: ^4.4.0
+        version: 4.4.0
       http-server:
         specifier: ^14.1.1
         version: 14.1.1
@@ -49,8 +49,8 @@ packages:
     peerDependencies:
       postcss-selector-parser: ^7.0.0
 
-  '@marp-team/marp-cli@4.3.1':
-    resolution: {integrity: sha512-REj2PUTDhHiFsKxzh8AF90YrApEbNcOU7eZ8TKF3sF0b5O91lyaZMH2E5y7o/bfdFP70N8l7vyqXA4pdVQ+EIA==}
+  '@marp-team/marp-cli@4.4.0':
+    resolution: {integrity: sha512-fLBOZpi0mi7IoN+fXiCyGklbdROSE40DKv7LZa7en1mBd1XlQe5O7mE9KEzuYRKVbUMK4swrQqgcQ9WNNNoY6Q==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -844,7 +844,7 @@ snapshots:
     dependencies:
       postcss-selector-parser: 7.1.1
 
-  '@marp-team/marp-cli@4.3.1':
+  '@marp-team/marp-cli@4.4.0':
     dependencies:
       '@marp-team/marp-core': 4.3.0
       '@marp-team/marpit': 3.2.1
@@ -854,7 +854,6 @@ snapshots:
       serve-index: 1.9.2
       tmp: 0.2.5
       ws: 8.20.0
-      yargs: 17.7.2
     transitivePeerDependencies:
       - bare-abort-controller
       - bare-buffer
