@@ -1739,9 +1739,9 @@ Full-screen Shai-Hulud 2 kill chain image. Details are in the image.
 
 ---
 
-<!-- Mini Shai-Hulud: transition / last update before conference -->
+<!-- Mini Shai-Hulud intro: Wednesday early morning -->
 
-![bg](assets/img/mini-shai-hulud-not-again.png)
+![bg](assets/img/mini-shai-hulud-inbox-head-desk.png)
 
 <style scoped>
 section {
@@ -1754,85 +1754,116 @@ section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(3, 7, 18, 0.94) 0%, rgba(3, 7, 18, 0.82) 28%, rgba(3, 7, 18, 0.28) 58%, rgba(3, 7, 18, 0.08) 100%);
+  background:
+    linear-gradient(90deg, rgba(3, 7, 18, 0.96) 0%, rgba(3, 7, 18, 0.86) 30%, rgba(3, 7, 18, 0.32) 62%, rgba(3, 7, 18, 0.08) 100%),
+    linear-gradient(180deg, rgba(3, 7, 18, 0.08), rgba(3, 7, 18, 0.36));
 }
 section::after {
   content: "";
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.28;
+    linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: 25px 25px;
+  opacity: 0.24;
 }
 .copy {
   position: absolute;
   left: 72px;
-  top: 76px;
-  z-index: 2;
-  width: 560px;
+  top: 70px;
+  z-index: 3;
+  width: 540px;
 }
 .eyebrow {
   color: #fbbf24;
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.44em;
+  font-size: 0.42em;
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  margin-bottom: 1.15em;
+  margin-bottom: 1.1em;
 }
 h1 {
-  font-size: 4.35em;
+  font-size: 4.2em;
   line-height: 0.9;
   margin: 0;
-  color: #f8fafc;
-  background: linear-gradient(135deg, #f8fafc 0%, #fde68a 42%, #f87171 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #fde68a 45%, #f87171 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 24px 60px rgba(0,0,0,0.48);
 }
 .sub {
-  margin-top: 0.8em;
   color: #fecaca;
   font-size: 0.72em;
   line-height: 1.35;
+  margin-top: 0.85em;
 }
-.pulse {
+.date {
   position: absolute;
   left: 72px;
-  bottom: 62px;
-  z-index: 2;
-  display: flex;
+  bottom: 66px;
+  z-index: 3;
+  display: inline-flex;
   align-items: center;
   gap: 12px;
-  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.36);
+  border-radius: 999px;
+  background: rgba(5, 10, 18, 0.82);
+  color: #fde68a;
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.5em;
+  font-size: 0.48em;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  padding: 10px 15px;
+  box-shadow: 0 16px 38px rgba(0,0,0,0.34);
 }
-.pulse::before {
+.date::before {
   content: "";
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 999px;
   background: #f87171;
-  box-shadow: 0 0 28px rgba(248, 113, 113, 0.85);
+  box-shadow: 0 0 26px rgba(248,113,113,0.8);
+}
+.message {
+  position: absolute;
+  left: 72px;
+  bottom: 124px;
+  z-index: 3;
+  width: 410px;
+  border-radius: 16px;
+  border: 1px solid rgba(248, 113, 113, 0.34);
+  background: rgba(15, 23, 42, 0.78);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.42);
+  padding: 15px 17px;
+  transform: rotate(-1.2deg);
+}
+.message strong {
+  display: block;
+  color: #fbbf24;
+  font-size: 0.54em;
+  margin-bottom: 0.28em;
+}
+.message span {
+  display: block;
+  color: #e2e8f0;
+  font-size: 0.48em;
+  line-height: 1.35;
 }
 </style>
 
 <div class="copy">
-<div class="eyebrow">Last deck update</div>
+<div class="eyebrow">Wednesday early morning</div>
 <h1>Not again</h1>
-<div class="sub">one more supply-chain worm before the talk</div>
+<div class="sub">we keep learning this lesson the hard way</div>
 </div>
 
-<div class="pulse">live incident insert</div>
-
+<div class="message"><strong>Hi Niek, have you seen this?</strong><span>Yes. Same boundary. Same controls. New incident.</span></div>
+<div class="date">May 12</div>
 <!--
-Short transition into the May 2026 Mini Shai-Hulud update. The slide uses a generated supply-chain-compromise illustration and keeps the visible copy intentionally short.
+Generated visual intro. The illustration carries the head-on-desk frustration and message overload; HTML keeps the title and date editable.
 -->
 
 ---
@@ -1939,17 +1970,17 @@ h1 {
 </div>
 
 <div class="ecosystems">
-<div class="eco">TanStack</div>
+<div class="eco">TanStack<br>84 artifacts</div>
 <div class="eco">OpenSearch</div>
 <div class="eco">Mistral AI</div>
 <div class="eco">UiPath</div>
 <div class="eco">SAP CAP</div>
 </div>
 
-<div class="takeaway"><strong>Same pattern, sharper tool:</strong> a package install or import became the path from developer and CI machines to release identity.</div>
+<div class="takeaway"><strong>Same pattern, sharper tool:</strong> Socket flagged the TanStack artifacts within six minutes, but valid provenance still did not mean safe.</div>
 
 <!--
-New May 2026 wave. JFrog reports 170+ npm packages, 2 PyPI packages, and more than 200M weekly downloads affected. NVD tracks the TanStack wave as CVE-2026-45321 with CVSS 9.6.
+New May 2026 wave. JFrog reports 170+ npm packages, 2 PyPI packages, and more than 200M weekly downloads affected. Socket reports 84 compromised TanStack artifacts, all flagged within six minutes. NVD tracks the TanStack wave as CVE-2026-45321 with CVSS 9.6.
 -->
 
 ---
@@ -2039,24 +2070,24 @@ code { font-size: 0.86em; }
 
 # When trusted publishing is not enough
 
-<div class="subtitle">The TanStack wave did not need a stolen long-lived npm token.</div>
+<div class="subtitle">No npm token stolen. The publish workflow itself was not compromised.</div>
 
 <div class="flow">
 <div class="node"><div class="num">01</div><h2>Fork PR</h2><p><code>pull_request_target</code> ran fork-controlled work in base-repo context.</p></div>
 <div class="node"><div class="num">02</div><h2>Cache poison</h2><p>The PR path saved a poisoned package-manager cache.</p></div>
 <div class="node"><div class="num">03</div><h2>Release restore</h2><p>The legitimate release workflow restored that cache later.</p></div>
-<div class="node hot"><div class="num">04</div><h2>OIDC in memory</h2><p>Malware extracted runtime identity material from the runner.</p></div>
-<div class="node hot"><div class="num">05</div><h2>Publish token</h2><p>OIDC was exchanged for npm publishing credentials.</p></div>
-<div class="node hot"><div class="num">06</div><h2>Valid provenance</h2><p>The package could still carry trusted-publisher provenance.</p></div>
+<div class="node hot"><div class="num">04</div><h2>OIDC in memory</h2><p>Malware extracted the runner's OIDC request material.</p></div>
+<div class="node hot"><div class="num">05</div><h2>Direct publish</h2><p>The token path was used to post malicious tarballs to npm.</p></div>
+<div class="node hot"><div class="num">06</div><h2>Valid provenance</h2><p>The malicious package could still carry Sigstore provenance.</p></div>
 </div>
 
 <div class="bottom">
-<div class="box bad"><strong>Failure mode:</strong> repository-scoped trust lets the wrong code path spend release identity.</div>
-<div class="box good"><strong>Better boundary:</strong> keep untrusted PR work, cache state, and release publishing in separate trust zones.</div>
+<div class="box bad"><strong>Failure mode:</strong> attacker-controlled test/cleanup code spent release identity through trusted publishing.</div>
+<div class="box good"><strong>Better boundary:</strong> no cross-trust cache, repo-owner guards, and <code>id-token: write</code> only on the publish job.</div>
 </div>
 
 <!--
-Main talk point: provenance proves where the artifact was built. It does not prove the trusted workflow was clean at runtime.
+Main talk point: provenance proves where the artifact was built. It does not prove the trusted workflow was clean at runtime. Socket and TanStack both note no npm token was stolen; the attacker abused the trusted-publisher OIDC path.
 -->
 
 ---
@@ -5254,7 +5285,7 @@ h2 {
 <h3>🛡️ Stops fast-publish attacks</h3>
 <ul>
 <li><strong class="red">Axios</strong> - malicious version live for only ~3 hours</li>
-<li><strong class="red">Mini Shai-Hulud</strong> - flagged within 24h; lockfiles and caches still matter</li>
+<li><strong class="red">Mini Shai-Hulud</strong> - TanStack artifacts flagged in six minutes; delay still blocks first installs</li>
 <li>Any <strong>zero-day package takeover</strong></li>
 </ul>
 </div>
