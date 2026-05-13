@@ -26,6 +26,7 @@ Talk: **Supply Chain Compromise: The Anatomy of the Attack and the Blueprint for
 
 - [Shai-Hulud v2 analysis](https://socket.dev/blog/shai-hulud-strikes-again-v2)
 - [Mini Shai-Hulud / Here We Go Again analysis](https://research.jfrog.com/post/shai-hulud-here-we-go-again/)
+- [Socket TanStack Mini Shai-Hulud analysis](https://socket.dev/blog/tanstack-npm-packages-compromised-mini-shai-hulud-supply-chain-attack)
 - [TanStack npm supply-chain compromise postmortem](https://tanstack.com/blog/npm-supply-chain-compromise-postmortem)
 - [CVE-2026-45321](https://nvd.nist.gov/vuln/detail/CVE-2026-45321)
 - [PostHog Shai-Hulud postmortem](https://posthog.com/blog/nov-24-shai-hulud-attack-post-mortem)
