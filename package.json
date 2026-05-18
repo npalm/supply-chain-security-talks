@@ -14,7 +14,7 @@
     "site": "node ./scripts/build-site.js"
   },
   "devDependencies": {
-    "@marp-team/marp-cli": "^4.3.1",
+    "@marp-team/marp-cli": "^4.4.0",
     "http-server": "^14.1.1",
     "js-yaml": "^4.1.0",
     "markdown-it": "^14.1.0"
