@@ -372,12 +372,12 @@ section {
   <img src="../../assets/shared/img/niek.jpg" class="speaker-photo" alt="Niek Palm" />
   <div>
     <div class="speaker-name">Niek Palm</div>
-    <div class="speaker-role">Security Architect</div>
+    <div class="speaker-role">Security Architect @ Philips</div>
   </div>
 </div>
 
 <!--
-Hi, I'm Niek Palm, Security Architect. That demo was real. Let's dig into the full picture.
+Hi, I'm Niek Palm, Security Architect at Philips. That demo was real. Let's dig into the full picture.
 -->
 
 ---
@@ -466,7 +466,7 @@ h1 {
 </div>
 <div class="step">
 <div class="n">2</div>
-<div><h2>Trusted automation</h2><p>CI, release jobs, package managers, agents.</p></div>
+<div><h2>Trusted environment</h2><p>CI, release jobs, package managers, agents.</p></div>
 </div>
 <div class="step">
 <div class="n">3</div>
@@ -478,7 +478,7 @@ h1 {
 </div>
 
 <!--
-This is the lens for the whole talk. Keep returning to it: untrusted input, trusted automation, identity.
+This is the lens for the whole talk. Keep returning to it: untrusted input, trusted environment, identity.
 -->
 
 ---
