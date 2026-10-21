@@ -433,7 +433,7 @@ Advance once and point to the changed lines.
 ## Slide 50
 
 Say:
-Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources. Review the actual source and artifact entering the job.
+Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources. Review the actual source and artifact entering the job. LiteLLM's October update reports stolen owner credentials were used to disable branch protection. Protect the identities that can change these rules too.
 
 Delivery:
 Point to exact subject matching, branch selection, approval and bypass changes. Environment subject and role permissions answer different questions.

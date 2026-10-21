@@ -2835,19 +2835,20 @@ section { padding:0; background:linear-gradient(135deg,#101819,#17211E); }
 .oidc-side p { font-size:19.5px; line-height:1.3; margin:12px 0 0; }
 .oidc-change { color:#A5D7BB; font-weight:700; }
 .oidc-bottom { position:absolute!important; left:64px; right:64px; bottom:25px; border-top:1px solid #A5D7BB55; padding-top:15px; font-size:21px; color:#E6C797; }
+.oidc-case-source { color:var(--green); font-weight:600; text-decoration:underline; text-underline-offset:4px; }
 </style>
 <div class="oidc-head"><div class="oidc-kicker">04 · IDENTITY → ACTION · 02 · SCOPED TRUST</div><h1>OIDC release controls</h1></div>
 <div class="oidc-grid">
 <div class="oidc-side"><h2>GitHub release gates</h2><div class="oidc-file">github-release-controls.example.tf · excerpts</div><pre><code># environment.release&#10;environment         = &quot;release&quot;&#10;reviewers { <span class="oidc-change">teams = [123456]</span> }&#10;<span class="oidc-change">prevent_self_review = true</span>&#10;<span class="oidc-change">can_admins_bypass   = false</span>&#10;# environment_deployment_policy.main&#10;<span class="oidc-change">branch_pattern = &quot;main&quot;</span>&#10;# branch_protection.main&#10;pattern        = &quot;main&quot;&#10;<span class="oidc-change">enforce_admins = true</span>&#10;required_pull_request_reviews {&#10;  required_approving_review_count = 1&#10;  pull_request_bypassers          = []&#10;}</code></pre><p>Only main can enter release, with approval<br>Admin bypass is disabled</p></div>
 <div class="oidc-side"><h2>AWS role trust</h2><div class="oidc-file">oidc-trust.example.json · Condition excerpt</div><pre><code>&quot;Condition&quot;: {&#10;  &quot;<span class="oidc-change">StringEquals</span>&quot;: {&#10;    &quot;token.actions.githubusercontent.com:aud&quot;:&#10;      &quot;sts.amazonaws.com&quot;,&#10;    &quot;token.actions.githubusercontent.com:sub&quot;:&#10;      &quot;<span class="oidc-change">repo:example-org@123456/lunch-poll@654321:environment:release</span>&quot;&#10;  }&#10;}</code></pre><p>Exact audience, repository IDs and environment<br>GitHub enforces the branch and approval gates</p></div>
 </div>
-<div class="oidc-bottom">Review the source entering this job, then limit the role’s actions and resources</div>
+<div class="oidc-bottom"><a class="oidc-case-source" href="https://github.com/BerriAI/litellm/issues/47826#issuecomment-6326854488" target="_blank" rel="noopener noreferrer">LiteLLM · 21 Oct 2026</a>: reports stolen owner credentials used to disable branch protection</div>
 
 <!--
 SLIDE 50 · SPEAKER NOTES
 
 Say:
-Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources. Review the actual source and artifact entering the job.
+Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources. Review the actual source and artifact entering the job. LiteLLM's October update reports stolen owner credentials were used to disable branch protection. Protect the identities that can change these rules too.
 
 Delivery:
 Point to exact subject matching, branch selection, approval and bypass changes. Environment subject and role permissions answer different questions.
@@ -2862,9 +2863,10 @@ The environment-form subject does NOT also encode ref:refs/heads/main. GitHub en
 
 The environment is configured outside workflow YAML. environment: release references it; that line alone creates no approval requirement. Job-level id-token: write permits requesting a token, not access to AWS resources. AWS role permissions remain a third, separate limit: examples/oidc-permissions.example.json grants only s3:PutObject on the intended release prefix. Its resource suffix wildcard has a different purpose from a wildcard trust subject.
 
-Disabling runtime bypass does not stop an authorized administrator from editing/deleting the protection policy itself. Restrict configuration/workflow edit rights and review/audit changes; use organization-managed rules where appropriate. Review checkout and promoted artifacts: a main-branch event can still check out untrusted fork code, as the preceding openapi incident demonstrates. Do not imply that these gates prove arbitrary checked-out code safe, or that OIDC stops immediate misuse inside an authorized job. These examples are presentation material; no infrastructure or repository settings were changed.
+Disabling runtime bypass does not stop an authorized administrator from editing/deleting the protection policy itself. LiteLLM's 21 October owner update reports that branch protection first blocked an attempted release-workflow change, then a stolen organization-owner identity disabled protection and force-pushed it. Keep this as an attributed controls example. The suspected route by which tokens were obtained remains provisional; no March/October actor linkage is asserted. The example's enforce_admins/can_admins_bypass settings govern runtime enforcement and do not prevent an authorized owner from changing the policy itself. Restrict configuration/workflow edit rights and review/audit changes; use organization-managed rules where appropriate. Review checkout and promoted artifacts: a main-branch event can still check out untrusted fork code, as the preceding openapi incident demonstrates. Do not imply that these gates prove arbitrary checked-out code safe, or that OIDC stops immediate misuse inside an authorized job. These examples are presentation material; no infrastructure or repository settings were changed.
 
-Sources fetched 21 October 2026:
+Sources: GitHub/Terraform fetched 21 October; LiteLLM owner update fetched 22 October.
+- https://github.com/BerriAI/litellm/issues/47826#issuecomment-6326854488
 - https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws
 - https://docs.github.com/en/actions/reference/security/oidc
 - https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments
