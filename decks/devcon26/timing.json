@@ -1,0 +1,667 @@
+{
+  "planned_seconds": 2490,
+  "main_slides": 53,
+  "slides": [
+    {
+      "slide": 1,
+      "start": "00:00",
+      "duration": "00:15",
+      "end": "00:15",
+      "backup": false,
+      "source_composition": "Selected non-kitchen engineering title"
+    },
+    {
+      "slide": 2,
+      "start": "00:15",
+      "duration": "00:00",
+      "end": "00:15",
+      "backup": false,
+      "source_composition": "DevOps under-floor cutaway title alternative; visible app and hidden delivery machinery",
+      "optional_alternative": true,
+      "replaces_slide": 1
+    },
+    {
+      "slide": 3,
+      "start": "00:15",
+      "duration": "00:00",
+      "end": "00:15",
+      "backup": false,
+      "source_composition": "Typographic code-iceberg title alternative; native HTML/CSS, what ships above the waterline, what runs below",
+      "optional_alternative": true,
+      "replaces_slide": 1
+    },
+    {
+      "slide": 4,
+      "start": "00:15",
+      "duration": "00:00",
+      "end": "00:15",
+      "backup": false,
+      "source_composition": "Iceberg artwork title alternative (Codex image_gen); small lit tip ships, large submerged machinery runs",
+      "optional_alternative": true,
+      "replaces_slide": 1
+    },
+    {
+      "slide": 5,
+      "start": "00:15",
+      "duration": "00:00",
+      "end": "00:15",
+      "backup": false,
+      "source_composition": "Iceberg artwork with native terminal-font toolchain labels in the submerged mass",
+      "optional_alternative": true,
+      "replaces_slide": 1
+    },
+    {
+      "slide": 6,
+      "start": "00:15",
+      "duration": "00:00",
+      "end": "00:15",
+      "backup": false,
+      "source_composition": "Iceberg artwork with terminal-style labels rendered in the image (Codex image_gen)",
+      "optional_alternative": true,
+      "replaces_slide": 1
+    },
+    {
+      "slide": 7,
+      "start": "00:15",
+      "duration": "00:45",
+      "end": "01:00",
+      "backup": false,
+      "source_composition": "Prompt to Product 2"
+    },
+    {
+      "slide": 8,
+      "start": "01:00",
+      "duration": "00:30",
+      "end": "01:30",
+      "backup": false,
+      "source_composition": "Prompt to Product 3"
+    },
+    {
+      "slide": 9,
+      "start": "01:30",
+      "duration": "01:00",
+      "end": "02:30",
+      "backup": false,
+      "source_composition": "Prompt to Product 4"
+    },
+    {
+      "slide": 10,
+      "start": "02:30",
+      "duration": "01:00",
+      "end": "03:30",
+      "backup": false,
+      "source_composition": "Prompt to Product 5"
+    },
+    {
+      "slide": 11,
+      "start": "03:30",
+      "duration": "00:30",
+      "end": "04:00",
+      "backup": false,
+      "source_composition": "Prompt to Product 6"
+    },
+    {
+      "slide": 12,
+      "start": "04:00",
+      "duration": "01:30",
+      "end": "05:30",
+      "backup": false,
+      "source_composition": "Prompt to Product 7"
+    },
+    {
+      "slide": 13,
+      "start": "05:30",
+      "duration": "01:00",
+      "end": "06:30",
+      "backup": false,
+      "source_composition": "Prompt to Product 8"
+    },
+    {
+      "slide": 14,
+      "start": "06:30",
+      "duration": "01:30",
+      "end": "08:00",
+      "backup": false,
+      "source_composition": "GEECon mental model; Prompt to Product visual continuity"
+    },
+    {
+      "slide": 15,
+      "start": "08:00",
+      "duration": "00:15",
+      "end": "08:15",
+      "backup": false,
+      "source_composition": "Selected artwork: GEECon 18"
+    },
+    {
+      "slide": 16,
+      "start": "08:15",
+      "duration": "01:00",
+      "end": "09:15",
+      "backup": false,
+      "source_composition": "Selected artwork: GEECon 19"
+    },
+    {
+      "slide": 17,
+      "start": "09:15",
+      "duration": "01:00",
+      "end": "10:15",
+      "backup": false,
+      "source_composition": "Selected artwork: GEECon 20"
+    },
+    {
+      "slide": 18,
+      "start": "10:15",
+      "duration": "01:30",
+      "end": "11:45",
+      "backup": false,
+      "source_composition": "Selected artwork: Additional requested cartoon artwork variant"
+    },
+    {
+      "slide": 19,
+      "start": "11:45",
+      "duration": "00:45",
+      "end": "12:30",
+      "backup": false,
+      "source_composition": "Selected artwork: GEECon 22"
+    },
+    {
+      "slide": 20,
+      "start": "12:30",
+      "duration": "01:00",
+      "end": "13:30",
+      "backup": false,
+      "source_composition": "Selected artwork: Additional requested cartoon artwork variant"
+    },
+    {
+      "slide": 21,
+      "start": "13:30",
+      "duration": "00:30",
+      "end": "14:00",
+      "backup": false,
+      "source_composition": "Selected artwork: GEECon 24"
+    },
+    {
+      "slide": 22,
+      "start": "14:00",
+      "duration": "01:00",
+      "end": "15:00",
+      "backup": false,
+      "source_composition": "Selected sharper full kill chain"
+    },
+    {
+      "slide": 23,
+      "start": "15:00",
+      "duration": "01:00",
+      "end": "16:00",
+      "backup": false,
+      "source_composition": "Prompt to Product 10"
+    },
+    {
+      "slide": 24,
+      "start": "16:00",
+      "duration": "00:45",
+      "end": "16:45",
+      "backup": false,
+      "source_composition": "GEECon 30 mechanism with cinematic composition"
+    },
+    {
+      "slide": 25,
+      "start": "16:45",
+      "duration": "01:15",
+      "end": "18:00",
+      "backup": false,
+      "source_composition": "Prompt to Product 12"
+    },
+    {
+      "slide": 26,
+      "start": "18:00",
+      "duration": "01:00",
+      "end": "19:00",
+      "backup": false,
+      "source_composition": "Selected artwork: Prompt to Product 11 composition, updated disclosure evidence"
+    },
+    {
+      "slide": 27,
+      "start": "19:00",
+      "duration": "00:15",
+      "end": "19:15",
+      "backup": false,
+      "source_composition": "GEECon 35"
+    },
+    {
+      "slide": 28,
+      "start": "19:15",
+      "duration": "01:15",
+      "end": "20:30",
+      "backup": false,
+      "source_composition": "GEECon 36 retained terminal"
+    },
+    {
+      "slide": 29,
+      "start": "20:30",
+      "duration": "01:00",
+      "end": "21:30",
+      "backup": false,
+      "source_composition": "GEECon 40"
+    },
+    {
+      "slide": 30,
+      "start": "21:30",
+      "duration": "01:30",
+      "end": "23:00",
+      "backup": false,
+      "source_composition": "GEECon 46 retained WED terminals"
+    },
+    {
+      "slide": 31,
+      "start": "23:00",
+      "duration": "00:30",
+      "end": "23:30",
+      "backup": false,
+      "source_composition": "GEECon 47, retained with dated incident names"
+    },
+    {
+      "slide": 32,
+      "start": "23:30",
+      "duration": "00:45",
+      "end": "24:15",
+      "backup": false,
+      "source_composition": "GEECon 48, updated evidence and corrected background"
+    },
+    {
+      "slide": 33,
+      "start": "24:15",
+      "duration": "00:00",
+      "end": "24:15",
+      "backup": false,
+      "source_composition": "Selected order-ticket pattern alternative; replaces slide 29 narration",
+      "optional_alternative": true,
+      "replaces_slide": 32
+    },
+    {
+      "slide": 34,
+      "start": "24:15",
+      "duration": "00:45",
+      "end": "25:00",
+      "backup": false,
+      "source_composition": "Selected order-ticket adaptation pair; bounded September observations"
+    },
+    {
+      "slide": 35,
+      "start": "25:00",
+      "duration": "00:15",
+      "end": "25:15",
+      "backup": false,
+      "source_composition": "Order-ticket kitchen variation with an intentional break in the rail"
+    },
+    {
+      "slide": 36,
+      "start": "25:15",
+      "duration": "00:30",
+      "end": "25:45",
+      "backup": false,
+      "source_composition": "Kitchen receiving principle; GEECon intake and immutable-selection mechanisms"
+    },
+    {
+      "slide": 37,
+      "start": "25:45",
+      "duration": "00:45",
+      "end": "26:30",
+      "backup": false,
+      "source_composition": "Cooldown examples: pnpm, Renovate and Dependabot"
+    },
+    {
+      "slide": 38,
+      "start": "26:30",
+      "duration": "00:45",
+      "end": "27:15",
+      "backup": false,
+      "source_composition": "Immutable selection habits and automated maintenance/checks"
+    },
+    {
+      "slide": 39,
+      "start": "27:15",
+      "duration": "01:00",
+      "end": "28:15",
+      "backup": false,
+      "source_composition": "Kitchen prep-to-serving separation; ephemeral execution and release trust boundary"
+    },
+    {
+      "slide": 40,
+      "start": "28:15",
+      "duration": "01:30",
+      "end": "29:45",
+      "backup": false,
+      "source_composition": "GEECon hardening terminal adapted to shared animation controller"
+    },
+    {
+      "slide": 41,
+      "start": "29:45",
+      "duration": "00:50",
+      "end": "30:35",
+      "backup": false,
+      "source_composition": "Bounded kitchen preparation bay; development execution rather than agent-only sandbox"
+    },
+    {
+      "slide": 42,
+      "start": "30:35",
+      "duration": "01:00",
+      "end": "31:35",
+      "backup": false,
+      "source_composition": "Prompt to Product 16"
+    },
+    {
+      "slide": 43,
+      "start": "31:35",
+      "duration": "01:10",
+      "end": "32:45",
+      "backup": false,
+      "source_composition": "Concrete coding-boundary choices for one lunch-poll task"
+    },
+    {
+      "slide": 44,
+      "start": "32:45",
+      "duration": "01:00",
+      "end": "33:45",
+      "backup": false,
+      "source_composition": "Kitchen station-specific access; least privilege as identity and resource design"
+    },
+    {
+      "slide": 45,
+      "start": "33:45",
+      "duration": "01:15",
+      "end": "35:00",
+      "backup": false,
+      "source_composition": "Practical identity matrix for coding, build and release"
+    },
+    {
+      "slide": 46,
+      "start": "35:00",
+      "duration": "00:45",
+      "end": "35:45",
+      "backup": false,
+      "source_composition": "Two-part OIDC example: trust conditions and resource-scoped role permissions"
+    },
+    {
+      "slide": 47,
+      "start": "35:45",
+      "duration": "01:00",
+      "end": "36:45",
+      "backup": false,
+      "source_composition": "Kitchen intake callback with a concrete instruction-to-helper audit path"
+    },
+    {
+      "slide": 48,
+      "start": "36:45",
+      "duration": "00:45",
+      "end": "37:30",
+      "backup": false,
+      "source_composition": "Kitchen isolation and clean replacement scene; recovery principle"
+    },
+    {
+      "slide": 49,
+      "start": "37:30",
+      "duration": "01:00",
+      "end": "38:30",
+      "backup": false,
+      "source_composition": "Worked recovery rehearsal with owners, evidence and downstream artifact decisions"
+    },
+    {
+      "slide": 50,
+      "start": "38:30",
+      "duration": "01:00",
+      "end": "39:30",
+      "backup": false,
+      "source_composition": "GEECon 62 retained checklist"
+    },
+    {
+      "slide": 51,
+      "start": "39:30",
+      "duration": "01:00",
+      "end": "40:30",
+      "backup": false,
+      "source_composition": "GEECon 63 retained checklist"
+    },
+    {
+      "slide": 52,
+      "start": "40:30",
+      "duration": "00:45",
+      "end": "41:15",
+      "backup": false,
+      "source_composition": "GEECon 64 retained checklist"
+    },
+    {
+      "slide": 53,
+      "start": "41:15",
+      "duration": "00:15",
+      "end": "41:30",
+      "backup": false,
+      "source_composition": "GEECon closing rhythm"
+    },
+    {
+      "slide": 54,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Research-backed backup from first draft"
+    },
+    {
+      "slide": 55,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Research-backed backup from first draft"
+    },
+    {
+      "slide": 56,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Research-backed backup from first draft"
+    },
+    {
+      "slide": 57,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Research-backed backup from first draft"
+    },
+    {
+      "slide": 58,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Research-backed backup from first draft"
+    },
+    {
+      "slide": 59,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived controls design: GEECon 54/56 mechanisms; cinematic intake visual"
+    },
+    {
+      "slide": 60,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived controls design: GEECon 52 mechanism; cinematic release visual"
+    },
+    {
+      "slide": 61,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived controls design: GEECon 60 / Prompt to Product 17 evolved for build execution"
+    },
+    {
+      "slide": 62,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived controls design: Prompt to Product 17 composition; paired build/agent control"
+    },
+    {
+      "slide": 63,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived controls design: GEECon workflow hardening, cinematic release separation"
+    },
+    {
+      "slide": 64,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived controls design: GEECon 58 mechanism; cinematic scoped-identity visual"
+    },
+    {
+      "slide": 65,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived controls design: GEECon 57 retained terminal"
+    },
+    {
+      "slide": 66,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived controls design: GEECon 61 mechanism; cinematic recovery bench"
+    },
+    {
+      "slide": 67,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Preserved static PR-workflow example"
+    },
+    {
+      "slide": 68,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived inspectable coding-boundary contract"
+    },
+    {
+      "slide": 69,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived artwork comparison: GEECon 18"
+    },
+    {
+      "slide": 70,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived artwork comparison: GEECon 19"
+    },
+    {
+      "slide": 71,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived artwork comparison: GEECon 20"
+    },
+    {
+      "slide": 72,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived artwork comparison: GEECon 21"
+    },
+    {
+      "slide": 73,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived artwork comparison: GEECon 21; adjacent artwork alternative"
+    },
+    {
+      "slide": 74,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived artwork comparison: GEECon 22"
+    },
+    {
+      "slide": 75,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived artwork comparison: GEECon 23"
+    },
+    {
+      "slide": 76,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived artwork comparison: GEECon 23; adjacent artwork alternative"
+    },
+    {
+      "slide": 77,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived artwork comparison: GEECon 24"
+    },
+    {
+      "slide": 78,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived artwork comparison: Prompt to Product 11 composition, updated disclosure evidence"
+    },
+    {
+      "slide": 79,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived artwork comparison: GEECon 40; adjacent artwork alternative"
+    },
+    {
+      "slide": 80,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived kitchen title comparison: Prompt to Product 2 composition"
+    },
+    {
+      "slide": 81,
+      "start": "41:30",
+      "duration": "00:00",
+      "end": "41:30",
+      "backup": true,
+      "source_composition": "Archived kitchen title comparison: Prompt to Product 2 composition; adjacent artwork alternative"
+    }
+  ],
+  "optional_alternatives": 6
+}

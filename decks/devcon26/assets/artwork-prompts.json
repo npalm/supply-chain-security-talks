@@ -1,0 +1,32 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-19",
+  "assets": [
+    {
+      "file": "img/kitchen-wide.png",
+      "prompt": "Use case: stylized-concept. Asset type: full-bleed 16:9 conference slide hero, 2048x1152. Primary request: a distinctive cinematic architectural cutaway of a real commercial kitchen, making visible the surprising scale of machinery behind a single finished dish. This is an editorial artwork about unseen software supply chains. One small ivory plate of elegantly made fresh pasta at the serving pass on the far right; beneath and behind it a vast physically credible network of stainless steel work benches, copper pipes, prep stations, induction cooking equipment, ingredient crates, refrigeration, extraction ducts, overhead rails. The kitchen is clean, intricate, industrial, human-scale, entirely empty of people. A precise sliced cross-section with one wall removed, three-quarter architectural perspective, photographed as an extraordinary large physical architectural model at life scale, all depths sharply resolved. NOT a cartoon, NOT a game isometric tile. Composition: kitchen mass occupies right 65 percent and bottom third, left 38 percent falls into uninterrupted charcoal darkness with usable text space. Camera low enough to feel cinematic not dollhouse, 35mm perspective. Lighting: warm copper practical lamps and cool neutral steel bounce, black shadows, tactile brushed steel, worn slate and copper, restrained rich contrast, subtle film grain. Palette graphite #151618, ivory #F4F0E8, copper #D98B52. No blue lighting. No text, no labels, no logo, no people, no robots, no padlocks, no cyberspace, no spark effects. A singular carefully art-directed image, not a generic futuristic kitchen.",
+      "role": "Opening and kitchen reveal"
+    },
+    {
+      "file": "img/kitchen-cover.png",
+      "prompt": "Use case: precise-object-edit. Edit target: supplied kitchen cutaway image. Create the final conference title composition from this established artwork. Preserve its architectural section, copper pipes, ivory plate, convincing materials and light. Recompose so the LEFT 43% is almost uninterrupted charcoal negative space for a large six-line title, while the intricate kitchen concentrates in the RIGHT 57%. Reduce the repeated refrigerators below; make the scale of one working kitchen easier to read at projection size. Keep the small finished plate clearly visible at the right serving pass. Quiet industrial elegance, no dramatic smoke. No text or logos. Preserve the 16:9 aspect ratio and warm steel/copper palette. This is a targeted art-direction refinement, not a different kitchen.",
+      "reference": "img/kitchen-wide.png",
+      "role": "Refined cover"
+    },
+    {
+      "file": "img/ingredients.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: cinematic 16:9 conference artwork. Macro editorial still life in a commercial kitchen: an open heavy steel ingredient drawer seen at a low oblique angle. Inside are carefully arranged ingredient trays, garlic, herbs, pasta, flour, a copper scale and unmarked kraft delivery cartons. One tiny red wax seal has been broken on one carton, a subtle clue, no visible poison or horror. Finished plate is out of focus only far back. Image subject on right 65%, left 35% charcoal negative space for slide title. A believable tactile photographed scene lit by single copper worklamp, graphite, warm ivory, brushed steel and copper, restrained coral red at broken seal. Precise material details, subtle film grain. Match high-end architectural commercial-kitchen art direction. No people, robots, text, labels, neon, blue, padlocks, icons or logos. 16:9 landscape.",
+      "role": "ingredients"
+    },
+    {
+      "file": "img/propagation.png",
+      "prompt": "Use case: stylized-concept. Asset type: 16:9 conference chapter artwork. A remarkable life-size mechanical printmaking workshop at night, shot as premium editorial architectural photography. A single narrow coral-red ink trace enters a copper and dark steel roller press, then branches across hundreds of ivory paper strips exiting several interlinked presses and disappearing into the distance. An optical metaphor for a software worm republishing itself using existing machines. Machines are tangible mechanical equipment, no computers or magical cables, no actual words on paper. Wide asymmetric composition: machinery on right 65%, left third deep graphite negative space. Brushed steel and warm copper, ivory paper, minimal coral accent. Grazing practical light, sharp resolved materials, slight film grain. No people, no literal worms, no robots, no locks, no cyber grid, no text or logos. Unusual, quiet, unsettling, beautiful. 16:9 landscape.",
+      "role": "propagation"
+    },
+    {
+      "file": "img/monday.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: 16:9 full-bleed background for Monday morning checklist slide. An engineer's real workbench early on a quiet Monday morning, premium cinematic editorial photography. A broad matte-black ultra-wide computer monitor occupies the left 70% of frame, screen perfectly blank dark charcoal with no glare, viewed directly front on so overlaid real terminal text will be readable. On the right: a closed ivory notebook, copper desk lamp, ceramic coffee, a few carefully arranged precision tools and a second smaller monitor turned away. No person. Slate work surface, warm grey wall, soft morning window light plus warm copper practical light. Restrained charcoal, steel, warm ivory and copper color palette matching an architectural kitchen cutaway. Monitor almost fills left two thirds from 12% down to 80% frame height. No text, no code, no logos, no padlocks, no neon, no RGB lighting, no blue wash. Tactile surfaces, subtle film grain, human and practical, not a gaming desk. 16:9 landscape.",
+      "role": "monday"
+    }
+  ]
+}

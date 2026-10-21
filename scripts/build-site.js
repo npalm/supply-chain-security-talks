@@ -526,6 +526,18 @@ function renderResourcesPage(session) {
   return true;
 }
 
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (character) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[character]);
+}
+
+function renderSessionLink(url, label) {
+  return url
+    ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`
+    : escapeHtml(label);
+}
+
 function buildIndexPage(config, resourceMap) {
   const sessions = [...(config.sessions || [])].sort((a, b) => new Date(b.date) - new Date(a.date));
   const contacts = (config.site?.contact || [])
@@ -542,13 +554,16 @@ function buildIndexPage(config, resourceMap) {
       if (resourceMap.get(session.slug)) {
         links.push(`<a class="button" href="./${session.slug}/resources/index.html">Resources</a>`);
       }
+      const conference = renderSessionLink(session.conference_url, session.conference);
+      const speaker = renderSessionLink(session.speaker_url, session.speaker);
+      const slot = session.time ? ` · ${escapeHtml(session.time)}` : '';
       return `<article class="card">
         <div class="card-topline">
-          <span class="card-date">${formatDate(session.date)}</span>
-          <span class="card-kind">${session.conference}</span>
+          <span class="card-date">${formatDate(session.date)}${slot}</span>
+          <span class="card-kind">${conference}</span>
         </div>
         <h2>${session.title}</h2>
-        <p class="meta">${session.speaker}</p>
+        <p class="meta">${speaker}</p>
         <div class="card-actions">${links.join('')}</div>
       </article>`;
     })

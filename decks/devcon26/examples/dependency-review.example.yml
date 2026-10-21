@@ -1,0 +1,11 @@
+# Presentation excerpt only: place under a reviewed, full-SHA-pinned
+# actions/dependency-review-action step in a pull_request workflow.
+# Not a complete workflow and not installed in .github/workflows.
+# Requires dependency graph coverage and the applicable private-repository entitlement.
+# Require the resulting check using branch rules/rulesets.
+with:
+  fail-on-severity: high
+  show-openssf-scorecard: true
+  warn-on-openssf-scorecard-level: 3
+# The Scorecard threshold warns; it does not fail the Action.
+# Prefer individual findings over a universal aggregate-score gate.

@@ -1,0 +1,9 @@
+{
+  "created": "2026-10-21",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "asset": "img/catalogue-archive-background-v1.png",
+  "source_file": "/Users/niek/.codex/generated_images/01a15dee-ee26-70d0-ae32-e27ab31399a8/exec-a0b98fae-69ee-4e88-be6d-c7be4409f556.png",
+  "purpose": "Shared research catalogue appendix background; editable names, dates and links remain in slides.md",
+  "prompt": "Use case: productivity-visual. Asset type: shared background artwork for a 16:9 conference-talk research catalogue appendix, 1280x720 composition. Primary request: a refined cinematic kitchen/workshop research archive, matching a talk with charcoal steel worktops, burgundy storage and restrained warm amber practical lighting. Wide almost top-down view of a vast dark charcoal slate workbench, subtle tactile brushed and worn material. Keep the entire central 90 percent exceptionally quiet, matte, low contrast and empty, so three columns of twenty-four editable incident names and month labels can sit legibly over it. Atmospheric archive details only at the outermost edges: a few worn index-card corners and a closed burgundy ledger just entering the far lower right edge, narrow brass rail and a small pool of warm light at the upper right edge. Restrained dark pine undertone in shadows, fine natural grain. Sophisticated archival/editorial mood, realistic materials, painterly cinematic craft compatible with kitchen workshop artwork. No people, no diagrams, no rendered text or letters, no symbols or numerals, no logos, no watermark, no fake UI panels, no lines or objects crossing the central writing area. Background is a framing texture and visual callback, not a representation of an attack or a quantitative chart. Landscape 16:9."
+}

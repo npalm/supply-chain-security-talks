@@ -1,0 +1,60 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-19",
+  "assets": [
+    {
+      "file": "img/tag-selection-v2.png",
+      "generated_file": "/Users/niek/.codex/generated_images/01a155aa-7582-7190-9cf4-36a2c07ff650/exec-04d6f27e-1b82-4af2-a4e7-eef454dbfee7.png",
+      "prompt": "Use case: style-transfer / precise-object-edit. Edit target: supplied tag-hijacking illustration. Preserve its key explanatory layout: dark left 38% reserved for slide text, on the right two parallel paths where a movable label selects different content while a fixed content reference stays attached. Replace the entire neon holographic cybersecurity rendering with a cinematic tactile photograph of a precision engineering bench. Two small physical branched test rigs on right: one loose burgundy paper tag on a sliding clamp can be moved between two unmarked artifact modules; beside it an engraved metal content card is rigidly bolted to one ivory artifact module. Actual metal rails and restrained physical wiring make the selection paths legible. No skull, shield, fingerprint, padlock, brain, floating icons, cyber grid or glowing conduits. No words or numbers; real editable labels are added by the slide. Charcoal metal, warm ivory, muted sea-green, amber practical light, subtle film grain. Match the neighboring cinematic build sandbox and release workbench scenes. Strong composition and negative space. Landscape 16:9.",
+      "references": [
+        "geecon/tag-hijacking-visual-b.png"
+      ]
+    },
+    {
+      "file": "img/opening-kitchen-v2.png",
+      "generated_file": "/Users/niek/.codex/generated_images/01a155aa-7582-7190-9cf4-36a2c07ff650/exec-16859d36-dc00-49c4-a492-802c48206e07.png",
+      "prompt": "Edit the supplied original kitchen scene into a new public-conference sibling. Preserve the composition, left text space, scale of finished dishes, ingredient jars and angled app display on right. Replace the large humanoid robot with an elegant stainless preparation station and small industrial cooking equipment; no people. Change the pervasive corporate blue to charcoal steel with warm ivory lamps, restrained burgundy shadows and natural herb green. Keep the polished cinematic photographic style. Screen shows abstract lunch voting bars without letters. This should feel recognizably like the source composition and far more richly authored than a generic AI kitchen. 16:9. No text or logos.",
+      "references": [
+        "generated-kitchen-ai-app.png"
+      ]
+    },
+    {
+      "file": "img/poison-kitchen-v2.png",
+      "generated_file": "/Users/niek/.codex/generated_images/01a155aa-7582-7190-9cf4-36a2c07ff650/exec-3574f007-b4f9-4565-8a01-875b4df7c8e8.png",
+      "prompt": "Edit the supplied poisoned-ingredient scene into a cinematic photographic sibling of the original kitchen. Preserve its asymmetric composition, uncluttered dark left half, ordinary ingredients and still-healthy finished dish on the right, with small app display behind. Replace the cartoon glove and glowing green potion with one opened ordinary ingredient carton bearing a subtly broken burgundy tamper seal, visibly placed among other healthy ingredients; no foreground person or hand. Brushed steel, charcoal, warm ivory practical light and muted herb green, no corporate blue. Photoreal material details, no text, icons or logos. The unease comes from the altered supplier package while the dish still looks normal. 16:9.",
+      "references": [
+        "generated-tainted-ingredient-kitchen.png"
+      ]
+    },
+    {
+      "file": "img/sandbox-build-v2.png",
+      "generated_file": "/Users/niek/.codex/generated_images/01a155aa-7582-7190-9cf4-36a2c07ff650/exec-b056c5ef-d9ad-485c-89d2-923053bdfbc6.png",
+      "prompt": "Cinematic 16:9 conference illustration, photographed tangible engineering environment with extraordinary composition, matte charcoal and gunmetal, warm ivory practical light, restrained amber and sea-green accents, subtle film grain, strong depth and carefully darkened negative space on LEFT 42 percent for a large slide headline. Not generic cybersecurity stock art. No people, no humanoid robots, no glowing padlocks, shields, brains, floating icons, neon grids, text, labels, numbers, logos or watermark. Hardware is an editorial metaphor; it must look like a plausible precision engineering lab. Main physical subject on RIGHT. Sharp purposeful details, enough simplicity to understand from the back of a conference room. Subject: a precise isolated build/test cell, an enclosed clear glass and steel cube inside a larger engineering workshop. Inside: one bare computing module with a small terminal, an unmarked package carton being inspected by a mechanical test jig, a completely clean floor. Outside: the developer workstation, disconnected source archives and an unlit credential reader remain separated. Three carefully designed small physical service ports on the cube's right wall, each with a closed mechanical valve or removable cable. No writing anywhere. The enclosure is the clear central subject, with the external world visible behind it. A restrained green work light inside. Camera three-quarter perspective, cube occupies right 55 percent. Make actual separation visually obvious, no force field.",
+      "references": []
+    },
+    {
+      "file": "img/sandbox-agent-v2.png",
+      "generated_file": "/Users/niek/.codex/generated_images/01a155aa-7582-7190-9cf4-36a2c07ff650/exec-e260c369-3235-4da2-937a-077c60771d7e.png",
+      "prompt": "Cinematic 16:9 conference illustration, photographed tangible engineering environment with extraordinary composition, matte charcoal and gunmetal, warm ivory practical light, restrained amber and sea-green accents, subtle film grain, strong depth and carefully darkened negative space on LEFT 42 percent for a large slide headline. Not generic cybersecurity stock art. No people, no humanoid robots, no glowing padlocks, shields, brains, floating icons, neon grids, text, labels, numbers, logos or watermark. Hardware is an editorial metaphor; it must look like a plausible precision engineering lab. Main physical subject on RIGHT. Sharp purposeful details, enough simplicity to understand from the back of a conference room. Subject: a companion view of the SAME isolated glass-and-steel computing cell from the build scene. Inside: a compact workstation with a terminal, a small open instruction notebook and a few unmarked tool modules connected only within the cell. Outside the glass: shelves of private project folders, the larger network room and an unconnected credential reader. One narrow deliberate cable passes through an engineered service port; the other ports remain physically closed. No chatbot robot, no faces or brains. Visual point is limited workspace and explicit tool connections. Use the same precision lab, enclosure shape, camera height and lighting as an isolated build cell. Editorial photography, not a diagram.",
+      "references": []
+    },
+    {
+      "file": "img/release-boundary-v2.png",
+      "generated_file": "/Users/niek/.codex/generated_images/01a155aa-7582-7190-9cf4-36a2c07ff650/exec-d4277447-2913-4a35-8619-489cede6f877.png",
+      "prompt": "Cinematic 16:9 conference illustration, photographed tangible engineering environment with extraordinary composition, matte charcoal and gunmetal, warm ivory practical light, restrained amber and sea-green accents, subtle film grain, strong depth and carefully darkened negative space on LEFT 42 percent for a large slide headline. Not generic cybersecurity stock art. No people, no humanoid robots, no glowing padlocks, shields, brains, floating icons, neon grids, text, labels, numbers, logos or watermark. Hardware is an editorial metaphor; it must look like a plausible precision engineering lab. Main physical subject on RIGHT. Sharp purposeful details, enough simplicity to understand from the back of a conference room. Subject: a wide cross-section through a software delivery engineering lab. On the far right an independent pristine release station on its own raised bench, with a small metal signing tool and one sealed ivory artifact. In the middle a floor-to-ceiling glass partition with a narrow inspection transfer hatch. On the test side raw unmarked packages and test fixtures stay separate; a single reviewed artifact rests in the hatch. The release station has its own power and network conduits, visibly no shared cables or disks. No security guards or physical padlocks. Human-scale industrial elegance, the partition is real architecture, artifact transfer is the story.",
+      "references": []
+    },
+    {
+      "file": "img/identity-scope-v2.png",
+      "generated_file": "/Users/niek/.codex/generated_images/01a155aa-7582-7190-9cf4-36a2c07ff650/exec-b96c5daa-c480-4c61-9299-89117f723532.png",
+      "prompt": "Cinematic 16:9 conference illustration, photographed tangible engineering environment with extraordinary composition, matte charcoal and gunmetal, warm ivory practical light, restrained amber and sea-green accents, subtle film grain, strong depth and carefully darkened negative space on LEFT 42 percent for a large slide headline. Not generic cybersecurity stock art. No people, no humanoid robots, no glowing padlocks, shields, brains, floating icons, neon grids, text, labels, numbers, logos or watermark. Hardware is an editorial metaphor; it must look like a plausible precision engineering lab. Main physical subject on RIGHT. Sharp purposeful details, enough simplicity to understand from the back of a conference room. Subject: macro editorial photograph of one narrow, precisely machined metal access token seated in a small reader beside a single active workstation. Behind it a row of many other systems and connection sockets stays dark and disconnected, emphasizing the one permitted route. A short paper receipt emerging from the reader has entirely blank lines, no letters or numbers. Avoid oversized keys, padlocks or glowing circuit motifs. Low oblique camera, brushed graphite, warm ivory receipt, sea-green indicator on the one active port. Beautiful tactile, selective focus limited enough to keep the permitted route clear.",
+      "references": []
+    },
+    {
+      "file": "img/recovery-v2.png",
+      "generated_file": "/Users/niek/.codex/generated_images/01a155aa-7582-7190-9cf4-36a2c07ff650/exec-c831aec5-97a1-439d-909a-7120a570a665.png",
+      "prompt": "Cinematic 16:9 conference illustration, photographed tangible engineering environment with extraordinary composition, matte charcoal and gunmetal, warm ivory practical light, restrained amber and sea-green accents, subtle film grain, strong depth and carefully darkened negative space on LEFT 42 percent for a large slide headline. Not generic cybersecurity stock art. No people, no humanoid robots, no glowing padlocks, shields, brains, floating icons, neon grids, text, labels, numbers, logos or watermark. Hardware is an editorial metaphor; it must look like a plausible precision engineering lab. Main physical subject on RIGHT. Sharp purposeful details, enough simplicity to understand from the back of a conference room. Subject: a carefully prepared engineering recovery bench. One suspect compact computer sits disconnected in a transparent evidence tray behind a burgundy isolation divider; a clean identical replacement unit sits beside a sealed source archive and a neatly written but illegible open logbook. Cables from the suspect unit are physically unplugged. The replacement is not yet connected to the release rack in the background. A calm, deliberate workspace ready for reconstruction, not a disaster scene. No people, hazmat, padlocks or shields. Camera wide, main workbench right 55 percent, dark left space. Cinematic quiet confidence.",
+      "references": []
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Presentation example for pnpm >= 10.26; not this repository's configuration.
+# Merge into a project's pnpm-workspace.yaml only after reviewing compatibility.
+minimumReleaseAge: 10080
+strictDepBuilds: true
+allowBuilds: {}
+# Add only reviewed script exceptions, preferably qualified to exact versions.
+# Review registry metadata behavior and existing lockfiles as well as settings.

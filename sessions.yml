@@ -10,6 +10,19 @@ site:
       url: 'https://www.linkedin.com/in/niekpalm/'
 
 sessions:
+  - slug: devcon26
+    deck: devcon26
+    title: 'You Trust More Code Than You Ship'
+    date: 2026-11-04
+    conference: 'DevCon Bucharest · DevOps Con'
+    conference_url: 'https://www.dev-con.ro/'
+    speaker: 'Niek Palm'
+    speaker_url: 'https://www.dev-con.ro/speakers/4-Niek+Palm'
+    time: '10:15–11:00'
+    tags:
+      - public
+      - conference
+
   - slug: geecon26
     deck: geecon26
     title: 'Supply Chain Compromise: The Anatomy of the Attack and the Blueprint for Defense'

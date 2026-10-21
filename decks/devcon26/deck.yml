@@ -1,0 +1,17 @@
+slug: devcon26
+title: 'You Trust More Code Than You Ship'
+tags:
+  - supply-chain
+  - github-actions
+  - ai-agents
+  - conference-talk
+site:
+  title: 'You Trust More Code Than You Ship'
+  subtitle: 'Untrusted input. Trusted automation. An identity already there.'
+  contact:
+    - label: '@npalm'
+      kind: 'GitHub'
+      url: 'https://github.com/npalm'
+    - label: 'niekpalm'
+      kind: 'LinkedIn'
+      url: 'https://www.linkedin.com/in/niekpalm/'

@@ -1,0 +1,25 @@
+# Presentation example for an npm project with package-lock.json and a test script.
+# This file is outside .github/workflows and is not executed by this repository.
+name: Unprivileged PR build
+on: pull_request
+permissions: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Check out PR source
+        # Official v6.0.2 tag verified on 2026-10-20; review the selected code.
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Install from the reviewed lockfile
+        run: npm ci
+      - name: Test
+        run: npm test
+# A fresh hosted runner still has network access and a job token.
+# Enforce required egress/filesystem policy separately and supply no release identity.
+# Keep publishing in a protected job/workflow with validated inputs and distinct
+# runner/cache trust scopes. Do not execute PR-controlled scripts there.
