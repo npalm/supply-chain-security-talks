@@ -1,6 +1,6 @@
 # Speaker notes — You Trust More Code Than You Ship
 
-Current sequence: 58 main slides and eight appendix slides. Updated 21 October 2026. Rehearse timing; timing.json is the earlier baseline. Evidence and technical detail remain in the native slide notes.
+Current sequence: 58 main slides and eight appendix slides. Updated 22 October 2026. Rehearse timing; timing.json is the earlier baseline. Evidence and technical detail remain in the native slide notes.
 
 ## Slide 1
 
@@ -264,7 +264,7 @@ Explain what the inventory does and does not count.
 ## Slide 30
 
 Say:
-The selected reviews contain 23 incidents and waves for 2025 and 93 for 2026, across 20 and 59 conservative campaign groups. Coverage differs; this is not a growth rate or an operator count. Across the examples, the trust relationship repeats.
+The selected reviews contain 23 incidents and waves for 2025 and 94 for 2026, across 20 and 60 conservative campaign groups. Coverage differs; this is not a growth rate or an operator count. Across the examples, the trust relationship repeats.
 
 Next:
 Separate individual AI observations from annual inventory totals.
@@ -433,7 +433,7 @@ Advance once and point to the changed lines.
 ## Slide 50
 
 Say:
-Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources. Review the actual source and artifact entering the job.
+Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources. Review the actual source and artifact entering the job. LiteLLM's October update reports stolen owner credentials were used to disable branch protection. Protect the identities that can change these rules too.
 
 Delivery:
 Point to exact subject matching, branch selection, approval and bypass changes. Environment subject and role permissions answer different questions.
@@ -534,7 +534,7 @@ Open the relevant year or delivery example.
 ## Slide 60
 
 Say:
-This first 2026 page covers early-year entries. Pick the relevant incident and open its source. The page is part of the selected 93-record inventory, not an additional count.
+This first 2026 page covers early-year entries. Pick the relevant incident and open its source. The page is part of the selected 94-record inventory, not an additional count.
 
 Next:
 Continue chronologically if the question needs it.
@@ -558,7 +558,7 @@ Continue to the remaining 2026 entries.
 ## Slide 63
 
 Say:
-This is the final selected 2026 catalogue page. The cutoff is 20 October, reconciled on 21 October. Absence from this selection does not establish that another incident never happened.
+This is the final selected 2026 catalogue page. The activity cutoff is 21 October, reconciled on 22 October; this latest pass adds the LiteLLM recurrence, not a complete new-day sweep. Absence from this selection does not establish that another incident never happened.
 
 Next:
 Use the earlier-year pages for historical examples.

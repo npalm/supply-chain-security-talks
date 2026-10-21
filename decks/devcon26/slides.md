@@ -137,9 +137,42 @@ style: |
   .c3step h2 { color:#F7F2E8; font-size:32px; line-height:1.15; margin:20px 0; }
   .c3step p { color:#C3CFC4; font-size:23px; line-height:1.4; margin:0; }
   .c3step small { display:block; color:#D4BDA0; font-size:19px; margin-top:27px; line-height:1.4; }
+
+  /* Chapter colours: opening amber, attacks coral, controls sage. */
+  section.chapter-opening { --title-color:#E6B65E; --chapter-color:#E6B65E; --accent:#E6B65E; }
+  section.chapter-attacks { --title-color:#ED8A85; --chapter-color:#ED8A85; --accent:#ED8A85; }
+  section.chapter-controls { --title-color:#A5D7BB; --chapter-color:#A5D7BB; --accent:#A5D7BB; }
+  section.chapter-catalogue { --title-color:#F7F2E8; --chapter-color:#E6B65E; --accent:#E6B65E; }
+  section.neutral-title { --title-color:#F7F2E8; }
+  section:is(.chapter-opening,.chapter-attacks,.chapter-controls,.chapter-catalogue) h1 {
+    color:var(--title-color)!important;
+    background:none!important;
+    -webkit-text-fill-color:var(--title-color)!important;
+    font-family:Inter,Arial,sans-serif;
+    font-weight:900;
+  }
+  section:is(.chapter-opening,.chapter-attacks,.chapter-controls,.chapter-catalogue) :is(.eyebrow,.kicker,.art-label,.draft-label,.oidc-kicker,.ht-kicker,.c3kicker) {
+    color:var(--chapter-color)!important;
+  }
+  section.attack-step { justify-content:flex-start; padding-top:50px; padding-bottom:40px; }
+  .attack-step-label { color:var(--coral); font:600 14px/1.4 'JetBrains Mono',Menlo,monospace; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 14px; }
+  section.attack-step h1 { font-size:48px; line-height:1.08; letter-spacing:-1.4px; margin:0 0 16px; }
+  section.attack-step h2 { color:#D5DDD6!important; font-size:24px; line-height:1.3; margin:0 0 24px; }
+  section.attack-step :is(h3,h4) { color:var(--coral)!important; }
+  section.attack-step :is(.hook-box,.hunt-item,.exfil-method,.rce-box) { background:#1C2523!important; border-color:#ED8A8544!important; }
+  section.attack-step .exfil-method { border-left-color:#ED8A8599!important; }
+  section.attack-step .irony { color:var(--coral)!important; }
+  section.chapter-attacks .art-line { border-left-color:#ED8A85!important; }
+  section.chapter-attacks :is(.sub,.wed-sub) { color:#C7D1CB!important; }
+  section.chapter-attacks .ai-badge { color:#EDB1AC!important; background:#ED8A851F!important; border-radius:4px!important; }
+  section.chapter-attacks .chain-title { color:var(--coral)!important; font-size:38px!important; }
+  section.chapter-attacks .chain-caption { color:#CAD4CD!important; }
+  section.chapter-controls .agent-reach strong { color:var(--green)!important; }
+  section.chapter-controls .ascii-title { color:var(--green)!important; }
+
 ---
 
-<!-- _class: cinema title working-iceberg -->
+<!-- _class: cinema title working-iceberg chapter-opening neutral-title -->
 ![bg](assets/img/cover-working-iceberg-v1.png)
 <style scoped>
 section.working-iceberg { padding:0; }
@@ -169,7 +202,7 @@ Artwork: built-in image_gen.imagegen; full prompt and provenance in assets/artwo
 
 ---
 
-<!-- _class: demo -->
+<!-- _class: demo chapter-opening -->
 
 ![bg brightness:0.72](assets/img/opening-kitchen-v2.png)
 
@@ -210,7 +243,7 @@ Composition source: Prompt to Product 2
 
 ---
 
-<!-- _class: demo -->
+<!-- _class: demo chapter-opening -->
 
 ![bg brightness:0.68](assets/img/opening-kitchen-v2.png)
 
@@ -255,7 +288,7 @@ Composition source: Prompt to Product 3
 
 ---
 
-<!-- _class: demo -->
+<!-- _class: demo chapter-opening -->
 
 ![bg brightness:0.48](assets/img/opening-kitchen-v2.png)
 
@@ -294,7 +327,7 @@ Composition source: Prompt to Product 4
 
 ---
 
-<!-- _class: demo -->
+<!-- _class: demo chapter-opening -->
 
 ![bg brightness:0.48](assets/img/opening-kitchen-v2.png)
 
@@ -360,7 +393,7 @@ Composition source: Prompt to Product 5; engineering-target callout redesigned f
 
 ---
 
-<!-- _class: risk -->
+<!-- _class: risk chapter-opening -->
 
 ![bg brightness:0.76](assets/img/poison-kitchen-v2.png)
 
@@ -402,7 +435,7 @@ Composition source: Prompt to Product 6
 
 ---
 
-<!-- _class: demo-video -->
+<!-- _class: demo-video chapter-opening -->
 <!-- _footer: '' -->
 
 <style scoped>
@@ -463,7 +496,7 @@ Composition source: Prompt to Product 7
 
 ---
 
-<!-- _class: risk -->
+<!-- _class: risk chapter-opening -->
 
 ![bg](assets/img/poison-kitchen-v2.png)
 
@@ -522,6 +555,7 @@ Composition source: Prompt to Product 8
 
 ---
 
+<!-- _class: chapter-opening neutral-title -->
 <style scoped>
 section {
   background: radial-gradient(ellipse at 80% 20%, #26342F 0%, transparent 60%), linear-gradient(135deg, #101116, #171A1D);
@@ -580,7 +614,7 @@ Composition source: decks/geecon26/slides.md, slide 5. The shared portrait path 
 
 ---
 
-<!-- _class: cinema risk -->
+<!-- _class: cinema risk chapter-opening -->
 ![bg brightness:0.35](assets/img/opening-kitchen-v2.png)
 <div class="eyebrow">Behind the working application</div><div class="pattern"><span>Untrusted input</span><span>Trusted automation</span><span>Existing identity</span></div><div class="bottom-line">The input gets to act with the access already there.</div>
 
@@ -601,7 +635,7 @@ Composition source: GEECon mental model; Prompt to Product visual continuity
 
 ---
 
-<!-- _class: cinema risk section-divider -->
+<!-- _class: cinema risk section-divider chapter-attacks -->
 ![bg](assets/img/shai-divider-cartoon-alternative-v1.png)
 <div class="copy">
 <div class="eyebrow">02 · Real-world attacks</div>
@@ -638,15 +672,10 @@ Artwork selected by the speaker; previous artwork files are retained as unused a
 
 ---
 
+<!-- _class: chapter-attacks attack-step -->
 ![bg left:38%](assets/img/shai-step-1-cartoon-alternative-v1.png)
 
 <style scoped>
-h1 { font-size: 1.6em; margin-bottom: 0.2em;
-  background: linear-gradient(135deg, #fcd34d 0%, #f97316 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-h2 { font-size: 0.85em; color: #f97316; margin-bottom: 0.8em; }
 p { font-size: 0.8em; margin: 0.5em 0; }
 .hook-box {
   background: rgba(249, 115, 22, 0.1);
@@ -660,7 +689,9 @@ p { font-size: 0.8em; margin: 0.5em 0; }
 pre { font-size: 0.6em; margin: 0.8em 0; }
 </style>
 
-# Step 1: npm preinstall hook
+<div class="attack-step-label">Shai-Hulud 2.0 · Step 1</div>
+
+# npm preinstall hook
 
 ## Using the system against itself
 
@@ -710,15 +741,10 @@ Artwork selected by the speaker; previous artwork files are retained as unused a
 
 ---
 
+<!-- _class: chapter-attacks attack-step -->
 ![bg left:38%](assets/img/shai-step-2-cartoon-alternative-v1.png)
 
 <style scoped>
-h1 { font-size: 1.6em; margin-bottom: 0.2em;
-  background: linear-gradient(135deg, #fcd34d 0%, #f97316 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-h2 { font-size: 0.8em; color: #fbbf24; margin-bottom: 0.6em; }
 .hunt-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -736,7 +762,9 @@ code { font-size: 0.8em; }
 .irony { color: #f87171; font-style: italic; font-size: 0.75em; margin-top: 0.8em; text-align: center; }
 </style>
 
-# Step 2: Secret hunting
+<div class="attack-step-label">Shai-Hulud 2.0 · Step 2</div>
+
+# Secret hunting
 
 ## Every trick in the book - including security tools
 
@@ -788,15 +816,10 @@ Artwork selected by the speaker; previous artwork files are retained as unused a
 
 ---
 
+<!-- _class: chapter-attacks attack-step -->
 ![bg left:38%](assets/img/shai-step-3-distinct-npm-alternative-v2.png)
 
 <style scoped>
-h1 { font-size:1.6em; margin-bottom: 0.3em;
-  background: linear-gradient(135deg, #fcd34d 0%, #f97316 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-h2 { font-size:23px; line-height:1.3; color:#86EFAC; margin-bottom:16px; }
 .worm-flow {
   display:flex;
   flex-direction:column;
@@ -831,7 +854,9 @@ h2 { font-size:23px; line-height:1.3; color:#86EFAC; margin-bottom:16px; }
 .stat-box .lbl { font-size: 0.85em; color: #fde68a; }
 </style>
 
-# Step 3: Worm propagation
+<div class="attack-step-label">Shai-Hulud 2.0 · Step 3</div>
+
+# Worm propagation
 
 ## A usable publishing token lets the worm distribute itself
 
@@ -883,15 +908,10 @@ Artwork selected by the speaker; previous artwork files are retained as unused a
 
 ---
 
+<!-- _class: chapter-attacks attack-step -->
 ![bg left:38%](assets/img/shai-step-4-cartoon-alternative-v1.png)
 
 <style scoped>
-h1 { font-size: 1.4em; margin-bottom: 0.2em;
-  background: linear-gradient(135deg, #fcd34d 0%, #f97316 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-h2 { font-size: 0.8em; color: #a855f7; margin-bottom: 0.6em; }
 .exfil-method {
   background: rgba(168, 85, 247, 0.1);
   border-left: 3px solid #a855f7;
@@ -904,7 +924,9 @@ h2 { font-size: 0.8em; color: #a855f7; margin-bottom: 0.6em; }
 .stat { color: #fbbf24; font-weight: 600; }
 </style>
 
-# Step 4: Exfiltration via GitHub
+<div class="attack-step-label">Shai-Hulud 2.0 · Step 4</div>
+
+# Exfiltration via GitHub
 
 ## Using the platform as the escape route
 
@@ -954,15 +976,10 @@ Artwork selected by the speaker; previous artwork files are retained as unused a
 
 ---
 
+<!-- _class: chapter-attacks attack-step -->
 ![bg left:38%](assets/img/shai-step-5-clear-backdoor-alternative-v2.png)
 
 <style scoped>
-h1 { font-size: 1.6em; margin-bottom: 0.2em;
-  background: linear-gradient(135deg, #fcd34d 0%, #f97316 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-h2 { font-size: 0.8em; color: #ef4444; margin-bottom: 0.6em; }
 .rce-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -978,7 +995,9 @@ h2 { font-size: 0.8em; color: #ef4444; margin-bottom: 0.6em; }
 .rce-box p { margin: 0; font-size: 0.68em; color: #cbd5e1; line-height: 1.4; }
 </style>
 
-# Step 5: Persistent RCE
+<div class="attack-step-label">Shai-Hulud 2.0 · Step 5</div>
+
+# Persistent RCE
 
 ## Register runner, create backdoor workflow
 
@@ -1033,15 +1052,10 @@ Artwork selected by the speaker; previous artwork files are retained as unused a
 
 ---
 
+<!-- _class: chapter-attacks attack-step -->
 ![bg left:38%](assets/img/shai-step-6-cartoon-alternative-v1.png)
 
 <style scoped>
-h1 { font-size: 1.6em; margin-bottom: 0.2em;
-  background: linear-gradient(135deg, #fcd34d 0%, #f97316 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-h2 { font-size: 0.8em; color: #dc2626; margin-bottom: 0.6em; }
 .warning-box {
   background: rgba(220, 38, 38, 0.15);
   border: 2px solid rgba(220, 38, 38, 0.4);
@@ -1067,7 +1081,9 @@ h2 { font-size: 0.8em; color: #dc2626; margin-bottom: 0.6em; }
 .method p { margin: 0; font-size: 0.65em; color: #94a3b8; margin-top: 5px; }
 </style>
 
-# Step 6: Kill switch
+<div class="attack-step-label">Shai-Hulud 2.0 · Step 6</div>
+
+# Kill switch
 
 ## A destructive fallback with specific conditions
 
@@ -1115,6 +1131,7 @@ Artwork selected by the speaker; previous artwork files are retained as unused a
 
 ---
 
+<!-- _class: chapter-attacks -->
 <style scoped>
 section { padding:0; background:#02060B; }
 .chain-image { position:absolute; top:20px; left:0; width:100%; height:calc(100% - 40px); object-fit:contain; }
@@ -1158,7 +1175,7 @@ Selected by the speaker: use this full-chain design. The former original slide h
 
 ---
 
-<!-- _class: risk -->
+<!-- _class: risk chapter-attacks -->
 
 ![bg](assets/img/reference/trivy-poisoned-ingredient-food-factory.png)
 
@@ -1207,7 +1224,7 @@ Composition source: Prompt to Product 10
 
 ---
 
-<!-- _class: cinema risk -->
+<!-- _class: cinema risk chapter-attacks -->
 ![bg](assets/img/tag-selection-v2.png)
 <div class="copy"><div class="eyebrow">tj-actions 2025 · Trivy 2026</div><h1>Tag hijacking</h1><div class="scene-line"><strong>Any Git tag can move</strong><small><code>@v1</code>, <code>@v1.2.3</code>, release tags.<br>Same workflow. Different commit.</small></div></div>
 
@@ -1234,7 +1251,7 @@ Composition source: GEECon 30 mechanism with cinematic composition
 
 ---
 
-<!-- _class: risk -->
+<!-- _class: risk chapter-attacks -->
 
 ![bg](assets/img/reference/litellm-lateral-trust-spread.png)
 
@@ -1275,7 +1292,7 @@ Next:
 Separate later exposure reconstruction from confirmed breaches.
 
 Reference detail (not read aloud):
-LiteLLM reported its belief that upstream Trivy initiated the compromise. Its later account describes the shared CI environment and publishing credentials. Reports differ on the precise upload path; keep that boundary clear rather than inventing a confirmed sequence of commands. Versions 1.82.7 and 1.82.8 were malicious PyPI releases. The official proxy Docker image was outside that stated scope.
+LiteLLM reported its belief that upstream Trivy initiated the compromise. Its later account describes the shared CI environment and publishing credentials. Reports differ on the precise upload path; keep that boundary clear rather than inventing a confirmed sequence of commands. Versions 1.82.7 and 1.82.8 were malicious PyPI releases. The official proxy Docker image was outside that stated March scope. A separate 21 October incident affected 1.107.0 wheels and container images; it is listed separately in the appendix, with no established link to March.
 
 Sources:
 - https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23
@@ -1288,7 +1305,7 @@ Composition source: Prompt to Product 12
 
 ---
 
-<!-- _class: cinema risk -->
+<!-- _class: cinema risk chapter-attacks -->
 ![bg](assets/img/scale-kitchen-coldstore-alternative-v1.png)
 <div class="copy"><div class="eyebrow">August disclosure · March activity</div><h1>The scale emerged<br>months later</h1><div class="metric">2,500+</div><div class="lede">organizations potentially exposed</div><p class="fact-caption">CloudSEK’s August reconstruction<br>of the March campaign</p></div>
 
@@ -1320,7 +1337,7 @@ Artwork selected by the speaker; previous artwork files are retained as unused a
 
 ---
 
-<!-- _class: risk -->
+<!-- _class: risk chapter-attacks -->
 ![bg](assets/img/axios-social-art-v1.png)
 <style scoped>
 section { padding:0; }
@@ -1368,7 +1385,7 @@ Sources:
 
 ---
 
-<!-- _class: risk -->
+<!-- _class: risk chapter-attacks -->
 ![bg](assets/img/nx-editor-art-v1.png)
 <style scoped>
 section { padding:0; }
@@ -1412,7 +1429,7 @@ Sources:
 
 ---
 
-<!-- _class: cinema ai section-divider -->
+<!-- _class: cinema ai section-divider chapter-attacks -->
 ![bg brightness:0.65](assets/img/reference/attackers-ai-superpowers-food-factory.png)
 <div class="copy">
 <div class="eyebrow">03 · AI amplification</div>
@@ -1438,6 +1455,7 @@ Composition source: GEECon 35
 
 ---
 
+<!-- _class: chapter-attacks -->
 <!-- _footer: "" -->
 
 <style scoped>
@@ -1564,15 +1582,13 @@ Composition source: GEECon 36 retained terminal
 
 ---
 
+<!-- _class: chapter-attacks -->
 ![bg left:38%](assets/img/geecon/hackerbot.png)
 
 <style scoped>
 h1 {
   font-size: 2.2em;
   margin-bottom: 0.15em;
-  background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .sub { font-size: 0.75em; color: #c4b5fd; margin-bottom: 0.5em; }
 .ai-badge {
@@ -1637,6 +1653,7 @@ Composition source: GEECon 40
 
 ---
 
+<!-- _class: chapter-attacks -->
 <style scoped>
 section {
   background: #0c0c0c;
@@ -1648,9 +1665,6 @@ section {
 h1 {
   font-size: 1.5em;
   margin-bottom: 0.2em;
-  background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .wed-sub {
   font-size: 0.5em;
@@ -1858,7 +1872,7 @@ Composition source: GEECon 46 retained WED terminals
 
 ---
 
-<!-- _class: risk -->
+<!-- _class: risk chapter-attacks -->
 ![bg](assets/img/incident-workshop-panorama-v1.png)
 <style scoped>
 section { padding:0; }
@@ -1901,7 +1915,7 @@ Sources:
 -->
 
 ---
-<!-- _class: pattern-alt -->
+<!-- _class: pattern-alt chapter-attacks -->
 
 
 <style scoped>
@@ -1936,7 +1950,7 @@ h1 { color:#F7F2E8; font-size:60px; font-weight:900; line-height:1.04; letter-sp
 <div class="shade"></div>
 
 <div class="head"><div class="kicker">Across the software supply chain</div><h1>The pattern is clear</h1><div class="subtitle">Software supply-chain attacks</div></div>
-<div class="annual"><div class="row"><b>23</b><div class="year">2025<span>Across 20 campaign groups</span></div></div><div class="row current"><b>93</b><div class="year">2026<span>Across 59 campaign groups so far</span></div></div></div>
+<div class="annual"><div class="row"><b>23</b><div class="year">2025<span>Across 20 campaign groups</span></div></div><div class="row current"><b>94</b><div class="year">2026<span>Across 60 campaign groups so far</span></div></div></div>
 <div class="path"><b>Untrusted input</b><i>→</i><b>Trusted automation</b><i>→</i><b>Existing identity</b></div>
 <div class="amplifier">AI adds input, reach and adaptation.</div>
 
@@ -1944,13 +1958,13 @@ h1 { color:#F7F2E8; font-size:60px; font-weight:900; line-height:1.04; letter-sp
 SLIDE 30 · SPEAKER NOTES
 
 Say:
-The selected reviews contain 23 incidents and waves for 2025 and 93 for 2026, across 20 and 59 conservative campaign groups. Coverage differs; this is not a growth rate or an operator count. Across the examples, the trust relationship repeats.
+The selected reviews contain 23 incidents and waves for 2025 and 94 for 2026, across 20 and 60 conservative campaign groups. Coverage differs; this is not a growth rate or an operator count. Across the examples, the trust relationship repeats.
 
 Next:
 Separate individual AI observations from annual inventory totals.
 
 Reference detail (not read aloud):
-VISIBLE COUNTS: 2025 has 23 incident/wave records in research-2025-audit.md; 2026 has 93 records in the selected talk inventory, reconciled 21 October with activity cutoff 20 October. design/incident-overview.md maps all 93, represented once in four catalogue slides. The broader JSON ledger is 112 records / 74 campaign bundles / 17 delivery surfaces; its broader scope is not displayed here. The selected 2026 records span 59 distinct ledger bundles; the 2025 records span 20 bundles. Visible campaign groups means these conservative family bundles, not independently attributed operators or operations. Confidence varies by record.
+VISIBLE COUNTS: 2025 has 23 incident/wave records in research-2025-audit.md; 2026 has 94 records in the selected talk inventory, reconciled 22 October with activity cutoff 21 October. design/incident-overview.md maps all 94, represented once in four catalogue slides. The broader JSON ledger is 113 records / 75 campaign bundles / 17 delivery surfaces; its broader scope is not displayed here. The selected 2026 records span 60 distinct ledger bundles; the 2025 records span 20 bundles. Visible campaign groups means these conservative family bundles, not independently attributed operators or operations. Confidence varies by record.
 
 Count distinct incidents and documented dated waves, not campaign lifetimes, articles, packages or versions. Related waves can share a family. The selected 2026 view excludes downstream organizations, vendor update channels and speaker exclusions. K21 belongs to 2025 (Y18); K18/PhantomRaven is disputed research activity outside both attack totals. Five 2025 additions and seven 2026 additions were reconciled against names, carriers and dated episodes; CanisterSprawl was already J22.
 
@@ -1959,7 +1973,7 @@ No global growth rate, worldwide total, independent-operator count or AI-causati
 Design: the order-ticket artwork is shared with the following adaptation slide. The paper slips are conceptual, not a count or proportional chart. Native editable counts and the input → automation → identity path carry the explanation.
 
 Counting sources:
-- https://github.com/npalm/supply-chain-security/blob/main/devcon26/design/incident-overview.md (93 selected record IDs and exclusions)
+- https://github.com/npalm/supply-chain-security/blob/main/devcon26/design/incident-overview.md (94 selected record IDs and exclusions)
 - https://github.com/npalm/supply-chain-security/blob/main/devcon26/research-ledger-2026.json (broader counting source)
 - https://github.com/npalm/supply-chain-security/blob/main/devcon26/research-2025-audit.md (23 records, 20 conservative bundles)
 - https://github.com/npalm/supply-chain-security/blob/main/devcon26/counting-guide.md (current unit definitions and selection scope)
@@ -1968,7 +1982,7 @@ Artwork prompt/provenance: assets/artwork-kitchen-pair-options.json.
 -->
 
 ---
-<!-- _class: ai kitchen-pair -->
+<!-- _class: ai kitchen-pair chapter-attacks -->
 
 <style scoped>
 section { padding:0; color:#F7F2E8; background:#121416; font-family:Inter,Arial,sans-serif; }
@@ -2034,7 +2048,7 @@ Composition source: Selected order-ticket pair with native case metrics. Built-i
 
 ---
 
-<!-- _class: cinema safe section-divider -->
+<!-- _class: cinema safe section-divider chapter-controls -->
 ![bg](assets/img/kitchen-ticket-break-v1.png)
 <div class="copy"><div class="eyebrow">04 · Engineering controls</div><h1>Breaking<br>the chain</h1><div class="divider-caption">Every attack step gives us<br>an engineering decision.</div></div>
 
@@ -2057,7 +2071,7 @@ Composition source: Selected order-ticket kitchen variation, deliberately separa
 
 
 ---
-<!-- _class: control-scene safe -->
+<!-- _class: control-scene safe chapter-controls -->
 ![bg](assets/img/controls-kitchen-intake-v1.png)
 <div class="c3shade"></div>
 <div class="c3head"><div class="c3kicker">01 · Input → execution · principle</div><h1>Control<br>what enters</h1><div class="c3lede">Review before<br>the first execution.</div><div class="c3points"><div>Review inputs; allowlist Actions</div><div>Lock reviewed dependencies</div><div>Delay fresh releases</div><div>Enforce intake through a mirror</div></div></div>
@@ -2084,7 +2098,7 @@ Composition source: Kitchen receiving principle; GEECon intake and immutable-sel
 -->
 
 ---
-<!-- _class: control-example safe -->
+<!-- _class: control-example safe chapter-controls -->
 <style scoped>
 .c3layout { grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; top:205px; }
 .c3panel pre { font-size:22px; line-height:1.6; padding:26px 20px; min-height:180px; }
@@ -2129,7 +2143,7 @@ Sources:
 Composition source: Separate cooldown examples, requested by the speaker
 -->
 ---
-<!-- _class: control-example safe -->
+<!-- _class: control-example safe chapter-controls -->
 <style scoped>
 .pin-rows { position:absolute; left:64px; right:64px; top:198px; }
 .pin-row { display:grid; grid-template-columns:190px 1fr; gap:35px; padding:20px 0; border-top:1px solid #84978C44; }
@@ -2177,7 +2191,7 @@ Composition source: Immutable selection habits and automated maintenance/checks
 -->
 ---
 
-<!-- _class: control-example safe -->
+<!-- _class: control-example safe chapter-controls -->
 <style scoped>
 .review-layout { position:absolute!important; left:64px; right:64px; top:196px; display:grid; grid-template-columns:1.08fr 1fr; gap:48px; }
 .review-row { padding:17px 0 19px; border-top:1px solid #71816C55; }
@@ -2217,7 +2231,7 @@ Sources fetched 21 October 2026:
 
 ---
 
-<!-- _class: control-example safe -->
+<!-- _class: control-example safe chapter-controls -->
 <style scoped>
 .mirror-flow { position:absolute!important; left:64px; right:64px; top:204px; display:grid; grid-template-columns:1fr 52px 1.22fr 52px 1fr; align-items:center; gap:14px; border-top:1px solid #71816C55; border-bottom:1px solid #71816C55; padding:24px 0; }
 .mirror-flow h2 { font-size:29px; color:#F7F2E8; margin:0 0 9px; }
@@ -2254,7 +2268,7 @@ Sources fetched in the intake review:
 
 ---
 
-<!-- _class: control-example safe -->
+<!-- _class: control-example safe chapter-controls -->
 <style scoped>
 .sbom-question { position:absolute!important; left:64px; right:64px; top:187px; color:#E6C797; font-size:30px; margin:0; }
 .sbom-command { position:absolute!important; left:64px; right:64px; top:258px; }
@@ -2291,7 +2305,7 @@ Sources fetched 21 October 2026:
 -->
 
 ---
-<!-- _class: control-scene safe -->
+<!-- _class: control-scene safe chapter-controls -->
 ![bg](assets/img/controls-kitchen-workflow-v1.png)
 <div class="c3shade"></div>
 <div class="c3head"><div class="c3kicker">02 · Trusted automation · principle</div><h1>Harden builds<br>and workflows</h1><div class="c3lede">Separate the work from the authority.</div><div class="c3points"><div>Fresh execution for each job<small>Dispose of the environment afterward</small></div><div>Sandbox each job<small>Files, network and identities</small></div></div></div>
@@ -2318,7 +2332,7 @@ Composition source: Kitchen prep-to-serving separation; ephemeral execution and 
 
 ---
 
-<!-- _class: control-example safe -->
+<!-- _class: control-example safe chapter-controls -->
 <style scoped>
 .script-layout { top:214px; grid-template-columns:1.15fr 1fr; gap:55px; }
 .script-layout .c3panel pre { font-size:24px; line-height:1.65; padding:29px 25px; }
@@ -2350,12 +2364,12 @@ Source fetched 21 October 2026:
 -->
 
 ---
-<!-- _class: defense-harden-example -->
+<!-- _class: defense-harden-example chapter-controls -->
 
 <style scoped>
-section { background:#101414; color:#E6EDF3; padding:33px 50px; font-family:'JetBrains Mono',Menlo,monospace; }
+section { background:#101414; color:#E6EDF3; padding:36px 64px; font-family:'JetBrains Mono',Menlo,monospace; }
 .ht-kicker { color:#A5D7BB; font:600 13px/1.3 'JetBrains Mono',Menlo,monospace; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px; }
-h2 { color:#EAF1E8; font:700 43px/1.15 'JetBrains Mono',Menlo,monospace; letter-spacing:-1.5px; margin:0 0 18px; }
+h2 { color:var(--green); font:900 48px/1.08 Inter,Arial,sans-serif; letter-spacing:-1.5px; margin:0 0 18px; }
 .terminal { background:#0D1415; border:1px solid #586D625E; border-radius:10px; overflow:hidden; box-shadow:0 16px 48px #0005; }
 .title-bar { display:flex; align-items:center; gap:8px; background:#202C27; border-bottom:1px solid #586D625E; padding:9px 15px; }
 .dot { display:block; width:10px; height:10px; border-radius:50%; }
@@ -2447,7 +2461,7 @@ Composition source: GEECon hardening terminal, adapted to the shared animation c
 -->
 
 ---
-<!-- _class: control-scene safe c3long -->
+<!-- _class: control-scene safe c3long chapter-controls -->
 ![bg](assets/img/controls-kitchen-workspace-v1.png)
 <div class="c3shade"></div>
 <div class="c3head"><div class="c3kicker">03 · Developer execution · principle</div><h1>Isolate the<br>coding environment</h1><div class="c3lede">The IDE, agent and install scripts share the workspace.</div><div class="c3points"><div>Expose the project they need</div><div>Choose reachable tools and services</div><div>Keep unrelated identities outside</div></div></div>
@@ -2473,7 +2487,7 @@ Composition source: Bounded kitchen preparation bay; development execution rathe
 
 ---
 
-<!-- _class: risk -->
+<!-- _class: risk chapter-controls -->
 
 ![bg](assets/img/reference/borrowed-trust-cutaway.png)
 
@@ -2520,7 +2534,7 @@ Composition source: Prompt to Product 16
 
 
 ---
-<!-- _class: control-example safe -->
+<!-- _class: control-example safe chapter-controls -->
 <style scoped>
 .boundary-options { position:absolute; left:64px; right:64px; top:195px; }
 .boundary-option { display:grid; grid-template-columns:285px 300px 1fr; gap:28px; padding:17px 0; min-height:58px; border-top:1px solid #A5D7BB44; align-items:start; }
@@ -2580,7 +2594,7 @@ Additional primary sources fetched 21 October 2026:
 Composition source: One coding task, concrete environment choices and inspection actions
 -->
 ---
-<!-- _class: control-scene safe -->
+<!-- _class: control-scene safe chapter-controls -->
 ![bg](assets/img/controls-kitchen-privilege-v1.png)
 <div class="c3shade"></div>
 <div class="c3head"><div class="c3kicker">04 · Identity → action · principle</div><h1>Least privilege<br>is a design task</h1><div class="c3lede">Which process can spend which identity?</div><div class="c3points"><div>For this resource and action</div><div>For this job and time window</div><div>Through an explicit trust boundary</div></div></div>
@@ -2606,7 +2620,7 @@ Composition source: Kitchen station-specific access; least privilege as identity
 
 ---
 
-<!-- _class: control-example safe -->
+<!-- _class: control-example safe chapter-controls -->
 <style scoped>
 .identity-default { position:absolute!important; left:64px; right:64px; top:180px; display:flex; align-items:center; gap:30px; padding:12px 22px; border:1px solid #84978C55; background:#192820; }
 .identity-default b { color:#B9C8BC; font-size:20px; font-weight:500; }
@@ -2662,10 +2676,10 @@ Sources fetched 21 October 2026:
 
 ---
 
-<!-- _class: control-example -->
+<!-- _class: control-example chapter-controls -->
 <style scoped>
 section { background:linear-gradient(135deg,#11181A,#171D1C); padding:0; }
-.draft-head { position:absolute!important; top:54px; left:64px; right:64px; }
+.draft-head { position:absolute!important; top:48px; left:64px; right:64px; }
 .draft-head h1 { font-size:61px; max-width:1110px; }
 .draft-label { color:#A5D7BB; font:600 16px/1.4 'JetBrains Mono',monospace; margin-bottom:20px; }
 .draft-steps { position:absolute!important; top:249px; left:64px; right:64px; display:grid; grid-template-columns:repeat(3,1fr); gap:38px; }
@@ -2708,10 +2722,10 @@ Sources:
 
 ---
 
-<!-- _class: control-example -->
+<!-- _class: control-example chapter-controls -->
 <style scoped>
 section { background:linear-gradient(135deg,#11181A,#171D1C); padding:0; }
-.draft-head { position:absolute!important; top:54px; left:64px; right:64px; }
+.draft-head { position:absolute!important; top:48px; left:64px; right:64px; }
 .draft-head h1 { font-size:61px; max-width:1110px; }
 .draft-label { color:#E6B65E; font:600 16px/1.4 'JetBrains Mono',monospace; margin-bottom:20px; }
 .draft-steps { position:absolute!important; top:249px; left:64px; right:64px; display:grid; grid-template-columns:repeat(3,1fr); gap:38px; }
@@ -2755,7 +2769,7 @@ Sources:
 -->
 
 ---
-<!-- _class: control-example risk -->
+<!-- _class: control-example risk chapter-controls -->
 <style scoped>
 section { padding:0; background:linear-gradient(135deg,#101819,#17211E); }
 .oidc-head { position:absolute!important; left:64px; right:64px; top:45px; }
@@ -2806,7 +2820,7 @@ Sources:
 -->
 
 ---
-<!-- _class: control-example safe -->
+<!-- _class: control-example safe chapter-controls -->
 <style scoped>
 section { padding:0; background:linear-gradient(135deg,#101819,#17211E); }
 .oidc-head { position:absolute!important; left:64px; right:64px; top:45px; }
@@ -2821,19 +2835,20 @@ section { padding:0; background:linear-gradient(135deg,#101819,#17211E); }
 .oidc-side p { font-size:19.5px; line-height:1.3; margin:12px 0 0; }
 .oidc-change { color:#A5D7BB; font-weight:700; }
 .oidc-bottom { position:absolute!important; left:64px; right:64px; bottom:25px; border-top:1px solid #A5D7BB55; padding-top:15px; font-size:21px; color:#E6C797; }
+.oidc-case-source { color:var(--green); font-weight:600; text-decoration:underline; text-underline-offset:4px; }
 </style>
 <div class="oidc-head"><div class="oidc-kicker">04 · IDENTITY → ACTION · 02 · SCOPED TRUST</div><h1>OIDC release controls</h1></div>
 <div class="oidc-grid">
 <div class="oidc-side"><h2>GitHub release gates</h2><div class="oidc-file">github-release-controls.example.tf · excerpts</div><pre><code># environment.release&#10;environment         = &quot;release&quot;&#10;reviewers { <span class="oidc-change">teams = [123456]</span> }&#10;<span class="oidc-change">prevent_self_review = true</span>&#10;<span class="oidc-change">can_admins_bypass   = false</span>&#10;# environment_deployment_policy.main&#10;<span class="oidc-change">branch_pattern = &quot;main&quot;</span>&#10;# branch_protection.main&#10;pattern        = &quot;main&quot;&#10;<span class="oidc-change">enforce_admins = true</span>&#10;required_pull_request_reviews {&#10;  required_approving_review_count = 1&#10;  pull_request_bypassers          = []&#10;}</code></pre><p>Only main can enter release, with approval<br>Admin bypass is disabled</p></div>
 <div class="oidc-side"><h2>AWS role trust</h2><div class="oidc-file">oidc-trust.example.json · Condition excerpt</div><pre><code>&quot;Condition&quot;: {&#10;  &quot;<span class="oidc-change">StringEquals</span>&quot;: {&#10;    &quot;token.actions.githubusercontent.com:aud&quot;:&#10;      &quot;sts.amazonaws.com&quot;,&#10;    &quot;token.actions.githubusercontent.com:sub&quot;:&#10;      &quot;<span class="oidc-change">repo:example-org@123456/lunch-poll@654321:environment:release</span>&quot;&#10;  }&#10;}</code></pre><p>Exact audience, repository IDs and environment<br>GitHub enforces the branch and approval gates</p></div>
 </div>
-<div class="oidc-bottom">Review the source entering this job, then limit the role’s actions and resources</div>
+<div class="oidc-bottom"><a class="oidc-case-source" href="https://github.com/BerriAI/litellm/issues/47826#issuecomment-6326854488" target="_blank" rel="noopener noreferrer">LiteLLM · 21 Oct 2026</a>: reports stolen owner credentials used to disable branch protection</div>
 
 <!--
 SLIDE 50 · SPEAKER NOTES
 
 Say:
-Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources. Review the actual source and artifact entering the job.
+Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources. Review the actual source and artifact entering the job. LiteLLM's October update reports stolen owner credentials were used to disable branch protection. Protect the identities that can change these rules too.
 
 Delivery:
 Point to exact subject matching, branch selection, approval and bypass changes. Environment subject and role permissions answer different questions.
@@ -2848,9 +2863,10 @@ The environment-form subject does NOT also encode ref:refs/heads/main. GitHub en
 
 The environment is configured outside workflow YAML. environment: release references it; that line alone creates no approval requirement. Job-level id-token: write permits requesting a token, not access to AWS resources. AWS role permissions remain a third, separate limit: examples/oidc-permissions.example.json grants only s3:PutObject on the intended release prefix. Its resource suffix wildcard has a different purpose from a wildcard trust subject.
 
-Disabling runtime bypass does not stop an authorized administrator from editing/deleting the protection policy itself. Restrict configuration/workflow edit rights and review/audit changes; use organization-managed rules where appropriate. Review checkout and promoted artifacts: a main-branch event can still check out untrusted fork code, as the preceding openapi incident demonstrates. Do not imply that these gates prove arbitrary checked-out code safe, or that OIDC stops immediate misuse inside an authorized job. These examples are presentation material; no infrastructure or repository settings were changed.
+Disabling runtime bypass does not stop an authorized administrator from editing/deleting the protection policy itself. LiteLLM's 21 October owner update reports that branch protection first blocked an attempted release-workflow change, then a stolen organization-owner identity disabled protection and force-pushed it. Keep this as an attributed controls example. The suspected route by which tokens were obtained remains provisional; no March/October actor linkage is asserted. The example's enforce_admins/can_admins_bypass settings govern runtime enforcement and do not prevent an authorized owner from changing the policy itself. Restrict configuration/workflow edit rights and review/audit changes; use organization-managed rules where appropriate. Review checkout and promoted artifacts: a main-branch event can still check out untrusted fork code, as the preceding openapi incident demonstrates. Do not imply that these gates prove arbitrary checked-out code safe, or that OIDC stops immediate misuse inside an authorized job. These examples are presentation material; no infrastructure or repository settings were changed.
 
-Sources fetched 21 October 2026:
+Sources: GitHub/Terraform fetched 21 October; LiteLLM owner update fetched 22 October.
+- https://github.com/BerriAI/litellm/issues/47826#issuecomment-6326854488
 - https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws
 - https://docs.github.com/en/actions/reference/security/oidc
 - https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments
@@ -2861,7 +2877,7 @@ Sources fetched 21 October 2026:
 
 
 ---
-<!-- _class: control-scene safe c3long -->
+<!-- _class: control-scene safe c3long chapter-controls -->
 ![bg](assets/img/controls-kitchen-intake-v1.png)
 <div class="c3shade"></div>
 <div class="c3head"><div class="c3kicker">05 · Instructions → tools · principle</div><h1>Follow instructions<br>into the code</h1><div class="c3lede">Review what the instructions cause to run.</div><div class="c3points"><div>Project instructions<small>TrapDoor: .cursorrules and CLAUDE.md</small></div><div>Workspace settings<small>OX report: MCP listing linked a poisoned repo</small></div><div>Helpers and downloads<small>Match command, destination and access to the task</small></div></div></div>
@@ -2893,7 +2909,7 @@ Composition source: Kitchen intake callback with a concrete instruction-to-helpe
 -->
 
 ---
-<!-- _class: control-scene safe -->
+<!-- _class: control-scene safe chapter-controls -->
 ![bg](assets/img/controls-kitchen-recovery-v1.png)
 <div class="c3shade"></div>
 <div class="c3head"><div class="c3kicker">06 · Persistence → recovery · principle</div><h1>Prepare<br>to recover</h1><div class="c3lede">Know what to distrust,<br>revoke and rebuild.</div><div class="c3points"><div>Detect unexpected execution and changes</div><div>Keep evidence and logs outside the host</div><div>Restore from a clean environment</div></div></div>
@@ -2918,7 +2934,7 @@ Composition source: Kitchen isolation and clean replacement scene; recovery prin
 -->
 
 ---
-<!-- _class: control-example safe -->
+<!-- _class: control-example safe chapter-controls -->
 <div class="c3head"><div class="c3kicker">06 · Persistence → recovery · in practice</div><h1>Rehearse one compromised publisher</h1></div>
 <div class="c3steps">
 <div class="c3step"><div class="c3num">DEVELOPER + PLATFORM</div><h2>Contain<br>execution</h2><p>Isolate the host.<br>Pause affected automation.<br>Preserve useful evidence.</p><small>Which hosts, jobs and logs?</small></div>
@@ -2948,6 +2964,7 @@ Composition source: Worked recovery rehearsal with owners, evidence and downstre
 
 ---
 
+<!-- _class: chapter-controls -->
 ![bg brightness:0.66](assets/img/geecon/monday-checklist-terminal-workbench-woman-clean-monitor.png)
 
 <style scoped>
@@ -3060,6 +3077,7 @@ Sources:
 
 ---
 
+<!-- _class: chapter-controls -->
 ![bg brightness:0.66](assets/img/geecon/monday-checklist-terminal-workbench-woman-clean-monitor.png)
 
 <style scoped>
@@ -3173,6 +3191,7 @@ Sources:
 
 ---
 
+<!-- _class: chapter-controls -->
 ![bg brightness:0.66](assets/img/geecon/monday-checklist-terminal-workbench-woman-clean-monitor.png)
 
 <style scoped>
@@ -3287,8 +3306,7 @@ Sources:
 
 ---
 
-
-
+<!-- _class: chapter-controls -->
 ![bg brightness:0.66](assets/img/geecon/monday-checklist-terminal-workbench-woman-clean-monitor.png)
 
 <style scoped>
@@ -3490,9 +3508,9 @@ section.answer-on .answer-panel {
 
 <div class="lines">
 <div class="al" data-delay="250"><span class="comment"># keep the agent away from your host identity</span></div>
-<div class="al" data-delay="420" data-type="980"><span class="prompt">$</span> <span class="typed" data-text="devcontainer up --workspace-folder ."></span></div>
+<div class="al" data-delay="420" data-type="980"><span class="prompt">$</span> <span class="typed" data-text="devcontainer up --workspace-folder .">devcontainer up --workspace-folder .</span></div>
 <div class="al" data-delay="360"><span class="ok">sandbox ready: isolated filesystem, scoped tokens, locked network</span></div>
-<div class="al" data-delay="520" data-type="1080"><span class="prompt">$</span> <span class="typed" data-text="devcontainer exec --workspace-folder . copilot"></span></div>
+<div class="al" data-delay="520" data-type="1080"><span class="prompt">$</span> <span class="typed" data-text="devcontainer exec --workspace-folder . copilot">devcontainer exec --workspace-folder . copilot</span></div>
 <div class="al" data-delay="360"><span class="agent">starting GitHub Copilot inside the container...</span></div>
 </div>
 </div>
@@ -3506,20 +3524,20 @@ section.answer-on .answer-panel {
 
 <div class="input-area">
 <div class="rule"></div>
-<div class="copilot-prompt">&gt;&nbsp;<span class="question" data-text="What principles keep this repo safe from supply chain attacks?"></span><span class="cursor"></span></div>
+<div class="copilot-prompt">&gt;&nbsp;<span class="question" data-text="What principles keep this repo safe from supply chain attacks?">What principles keep this repo safe from supply chain attacks?</span><span class="cursor"></span></div>
 <div class="rule"></div>
 <div class="copilot-footer"><span>/ comments - ? help</span><span class="model">Claude Opus 4.7</span></div>
 </div>
 
 <div class="answer-panel">
 <div class="answer-head">Copilot</div>
-<div class="answer-line lead" data-delay="180" data-type="700" data-text="Keep untrusted code away from trusted identity."></div>
-<div class="answer-line" data-delay="260" data-type="620" data-text="- Delay new dependencies before first install."></div>
-<div class="answer-line" data-delay="170" data-type="520" data-text="- Pin what runs in CI."></div>
-<div class="answer-line" data-delay="170" data-type="680" data-text="- Review workflow permissions before tokens exist."></div>
-<div class="answer-line" data-delay="170" data-type="760" data-text="- Run agents in an isolated environment with scoped credentials."></div>
-<div class="answer-line" data-delay="170" data-type="760" data-text="- Assume install scripts and AI tools can execute code."></div>
-<div class="answer-line" data-delay="170" data-type="720" data-text="- Rotate secrets when the boundary was crossed."></div>
+<div class="answer-line lead" data-delay="180" data-type="700" data-text="Keep untrusted code away from trusted identity.">Keep untrusted code away from trusted identity.</div>
+<div class="answer-line" data-delay="260" data-type="620" data-text="- Delay new dependencies before first install.">- Delay new dependencies before first install.</div>
+<div class="answer-line" data-delay="170" data-type="520" data-text="- Pin what runs in CI.">- Pin what runs in CI.</div>
+<div class="answer-line" data-delay="170" data-type="680" data-text="- Review workflow permissions before tokens exist.">- Review workflow permissions before tokens exist.</div>
+<div class="answer-line" data-delay="170" data-type="760" data-text="- Run agents in an isolated environment with scoped credentials.">- Run agents in an isolated environment with scoped credentials.</div>
+<div class="answer-line" data-delay="170" data-type="760" data-text="- Assume install scripts and AI tools can execute code.">- Assume install scripts and AI tools can execute code.</div>
+<div class="answer-line" data-delay="170" data-type="720" data-text="- Rotate secrets when the boundary was crossed.">- Rotate secrets when the boundary was crossed.</div>
 </div>
 </div>
 </div>
@@ -3559,7 +3577,7 @@ Composition source: decks/geecon26/slides.md, slide 64.
 
 ---
 
-<!-- _class: center safe -->
+<!-- _class: center safe chapter-controls neutral-title -->
 ![bg brightness:0.25](assets/img/opening-kitchen-v2.png)
 <h1>You Trust More Code<br>Than You Ship</h1><div class="lede">Make that trust an engineering decision.</div><p style="margin-top:35px;font-size:25px">Niek Palm · @npalm</p><p style="font:17px Menlo,monospace;color:#A5D7BB">npalm.github.io/supply-chain-security-talks/devcon26/resources/</p>
 
@@ -3584,7 +3602,7 @@ Composition source: GEECon closing rhythm.
 
 ---
 
-<!-- _class: cinema section-divider safe -->
+<!-- _class: cinema section-divider safe chapter-catalogue -->
 ![bg](assets/img/catalogue-divider-cinematic-v1.png)
 <style scoped>
 section::before { background:linear-gradient(90deg,#0C0F12B8 0%,#0C0F1266 32%,#0C0F1211 52%,transparent 70%); }
@@ -3614,7 +3632,7 @@ Artwork is a metaphorical archive/receiving bench, not incident evidence. Built-
 
 ---
 
-<!-- _class: catalogue-archive -->
+<!-- _class: catalogue-archive chapter-catalogue -->
 ![bg](assets/img/catalogue-divider-cinematic-v1.png)
 <style scoped>
 section { padding:0; background:#151411; color:#F7F2E8; }
@@ -3632,13 +3650,13 @@ section { padding:0; background:#151411; color:#F7F2E8; }
 .catalog-foot { position:absolute!important; bottom:35px; left:64px; right:64px; font-size:16px; color:#D1C4B0; border-top:1px solid #B7A58166; padding-top:15px; }
 </style>
 <div class="catalog-shade"></div>
-<div class="catalog-head"><h1>Incidents</h1><div class="catalog-year">2026</div></div><div class="catalog-grid"><div><div class="catalog-row"><div class="catalog-date">JAN</div><a href="https://socket.dev/blog/malicious-dydx-packages-published-to-npm-and-pypi" target="_blank" rel="noopener noreferrer" title="dYdX npm/PyPI compromise — 27 Jan 2026">dYdX (npm / PyPI)</a></div><div class="catalog-row"><div class="catalog-date">JAN</div><a href="https://socket.dev/blog/glassworm-loader-hits-open-vsx-via-suspected-developer-account-compromise" target="_blank" rel="noopener noreferrer" title="GlassWorm Open VSX publisher compromise — 30 Jan 2026">GlassWorm publisher compromise</a></div><div class="catalog-row"><div class="catalog-date">JAN</div><a href="https://socket.dev/blog/malicious-go-module-exposes-github-malware-lure-network" target="_blank" rel="noopener noreferrer" title="Muck and Load Go/GitHub lure network — 2026 malicious module releases; first module version 24 Jan">Muck and Load</a></div><div class="catalog-row"><div class="catalog-date">JAN–MAR</div><a href="https://opensourcemalware.com/blog/active-malware-campaigns-in-january-may-2026" target="_blank" rel="noopener noreferrer" title="TasksJacker: malicious .vscode/tasks.json repository wave — 15 Jan-late Mar 2026 (peak 29 Jan; DataStax 31 Jan)">TasksJacker</a></div><div class="catalog-row"><div class="catalog-date">JAN<small>report</small></div><a href="https://www.bleepingcomputer.com/news/security/malicious-ai-extensions-on-vscode-marketplace-steal-developer-data/" target="_blank" rel="noopener noreferrer" title="MaliciousCorgi AI coding extensions — Reported 23 Jan 2026">MaliciousCorgi</a></div><div class="catalog-row"><div class="catalog-date">JAN–JUN<small>ongoing</small></div><a href="https://www.aikido.dev/blog/multiple-jetbrains-ide-plugins-caught-stealing-ai-keys" target="_blank" rel="noopener noreferrer" title="Fifteen malicious JetBrains Marketplace plugins — Oct 2025-Jun 2026">JetBrains malicious AI plugins</a></div><div class="catalog-row"><div class="catalog-date">FEB<small>by</small></div><a href="https://socket.dev/blog/sandworm-mode-npm-worm-ai-toolchain-poisoning" target="_blank" rel="noopener noreferrer" title="SANDWORM_MODE — Active malicious artifacts by 20 Feb 2026; exact onset unresolved">SANDWORM_MODE</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://adnanthekhan.com/posts/clinejection/" target="_blank" rel="noopener noreferrer" title="Cline malicious CLI release / Clinejection — 17 Feb 2026 malicious release; earlier researcher demonstration is separate">Cline / Clinejection</a></div></div><div><div class="catalog-row"><div class="catalog-date">FEB<small>by</small></div><a href="https://socket.dev/blog/stegabin-26-malicious-npm-packages-use-pastebin-steganography" target="_blank" rel="noopener noreferrer" title="Contagious Interview / StegaBin wave — Malicious packages verified in Feb 2026">Contagious Interview / StegaBin</a></div><div class="catalog-row"><div class="catalog-date">FEB–MAY</div><a href="https://unit42.paloaltonetworks.com/openclaw-ai-supply-chain-risk/" target="_blank" rel="noopener noreferrer" title="ClawHavoc malicious agent skills — Feb 2026; continuing delivery observed through May">ClawHavoc</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://www.stepsecurity.io/blog/hackerbot-claw-github-actions-exploitation" target="_blank" rel="noopener noreferrer" title="hackerbot-claw workflow exploitation — 21–28 Feb 2026">hackerbot-claw</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://socket.dev/blog/unauthorized-ai-agent-execution-code-published-to-openvsx-in-aqua-trivy-vs-code-extension" target="_blank" rel="noopener noreferrer" title="Aqua Trivy Open VSX prompt-injection follow-on — 27–28 Feb 2026; owner incident dated 1 Mar">Aqua Trivy Open VSX follow-on</a></div><div class="catalog-row"><div class="catalog-date">FEB–MAR</div><a href="https://socket.dev/blog/5-malicious-rust-crates-posed-as-time-utilities-to-exfiltrate-env-files" target="_blank" rel="noopener noreferrer" title="Rust time-utility credential-stealer cluster — Late Feb–early Mar 2026">Rust time-utility cluster</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://rustsec.org/advisories/RUSTSEC-2026-0010.html" target="_blank" rel="noopener noreferrer" title="polymarket-clients-sdk Rust typosquat — 5 Feb 2026">polymarket-clients-sdk</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push" target="_blank" rel="noopener noreferrer" title="ForceMemo / GlassWorm repository wave — Mar 2026">ForceMemo / GlassWorm</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.aikido.dev/blog/glassworm-strikes-react-packages-phone-numbers" target="_blank" rel="noopener noreferrer" title="GlassWorm React Native dependency wave — 16 Mar 2026">GlassWorm React Native</a></div></div><div><div class="catalog-row"><div class="catalog-date">MAR<small>by</small></div><a href="https://www.aikido.dev/blog/fast-draft-open-vsx-bloktrooper" target="_blank" rel="noopener noreferrer" title="fast-draft / BlokTrooper — Mar 2026 malicious extension verified">fast-draft / BlokTrooper</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23" target="_blank" rel="noopener noreferrer" title="Trivy March security-tool cascade — 19–22 Mar 2026">Trivy security-tool cascade</a></div><div class="catalog-row"><div class="catalog-date">MAR–APR</div><a href="https://checkmarx.com/blog/checkmarx-security-update/" target="_blank" rel="noopener noreferrer" title="Checkmarx AST/KICS delivery-channel compromise — Mar 2026; Apr recurrence">Checkmarx AST / KICS</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://docs.litellm.ai/blog/security-update-march-2026" target="_blank" rel="noopener noreferrer" title="LiteLLM poisoned PyPI releases — 24 Mar 2026">LiteLLM</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://github.com/axios/axios/issues/10636" target="_blank" rel="noopener noreferrer" title="Axios npm compromise — 31 Mar 2026 UTC">Axios</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://telnyx.com/resources/telnyx-python-sdk-supply-chain-security-notice-march-2026" target="_blank" rel="noopener noreferrer" title="Telnyx Python SDK compromise — 27 Mar 2026">Telnyx (PyPI)</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://opensourcemalware.com/blog/neutralinojs-compromised-in-dprk-attack" target="_blank" rel="noopener noreferrer" title="Neutralinojs org repository compromise (early PolinRider) — 2 Mar 2026 04:38-04:40 UTC (commits backdated 26 Jan-27 Feb)">Neutralinojs</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.wiz.io/blog/six-accounts-one-actor-inside-the-prt-scan-supply-chain-campaign" target="_blank" rel="noopener noreferrer" title="prt-scan pull_request_target campaign — First 11 Mar 2026; six waves">prt-scan</a></div></div></div><div class="catalog-foot">Month: activity · by: verified availability · report: disclosure · names link to sources</div>
+<div class="catalog-head"><h1>Incidents</h1><div class="catalog-year">2026</div></div><div class="catalog-grid"><div><div class="catalog-row"><div class="catalog-date">JAN</div><a href="https://socket.dev/blog/malicious-dydx-packages-published-to-npm-and-pypi" target="_blank" rel="noopener noreferrer" title="dYdX npm/PyPI compromise — 27 Jan 2026">dYdX (npm / PyPI)</a></div><div class="catalog-row"><div class="catalog-date">JAN</div><a href="https://socket.dev/blog/glassworm-loader-hits-open-vsx-via-suspected-developer-account-compromise" target="_blank" rel="noopener noreferrer" title="GlassWorm Open VSX publisher compromise — 30 Jan 2026">GlassWorm publisher compromise</a></div><div class="catalog-row"><div class="catalog-date">JAN</div><a href="https://socket.dev/blog/malicious-go-module-exposes-github-malware-lure-network" target="_blank" rel="noopener noreferrer" title="Muck and Load Go/GitHub lure network — 2026 malicious module releases; first module version 24 Jan">Muck and Load</a></div><div class="catalog-row"><div class="catalog-date">JAN–MAR</div><a href="https://opensourcemalware.com/blog/active-malware-campaigns-in-january-may-2026" target="_blank" rel="noopener noreferrer" title="TasksJacker: malicious .vscode/tasks.json repository wave — 15 Jan-late Mar 2026 (peak 29 Jan; DataStax 31 Jan)">TasksJacker</a></div><div class="catalog-row"><div class="catalog-date">JAN<small>report</small></div><a href="https://www.bleepingcomputer.com/news/security/malicious-ai-extensions-on-vscode-marketplace-steal-developer-data/" target="_blank" rel="noopener noreferrer" title="MaliciousCorgi AI coding extensions — Reported 23 Jan 2026">MaliciousCorgi</a></div><div class="catalog-row"><div class="catalog-date">JAN–JUN<small>ongoing</small></div><a href="https://www.aikido.dev/blog/multiple-jetbrains-ide-plugins-caught-stealing-ai-keys" target="_blank" rel="noopener noreferrer" title="Fifteen malicious JetBrains Marketplace plugins — Oct 2025-Jun 2026">JetBrains malicious AI plugins</a></div><div class="catalog-row"><div class="catalog-date">FEB<small>by</small></div><a href="https://socket.dev/blog/sandworm-mode-npm-worm-ai-toolchain-poisoning" target="_blank" rel="noopener noreferrer" title="SANDWORM_MODE — Active malicious artifacts by 20 Feb 2026; exact onset unresolved">SANDWORM_MODE</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://adnanthekhan.com/posts/clinejection/" target="_blank" rel="noopener noreferrer" title="Cline malicious CLI release / Clinejection — 17 Feb 2026 malicious release; earlier researcher demonstration is separate">Cline / Clinejection</a></div></div><div><div class="catalog-row"><div class="catalog-date">FEB<small>by</small></div><a href="https://socket.dev/blog/stegabin-26-malicious-npm-packages-use-pastebin-steganography" target="_blank" rel="noopener noreferrer" title="Contagious Interview / StegaBin wave — Malicious packages verified in Feb 2026">Contagious Interview / StegaBin</a></div><div class="catalog-row"><div class="catalog-date">FEB–MAY</div><a href="https://unit42.paloaltonetworks.com/openclaw-ai-supply-chain-risk/" target="_blank" rel="noopener noreferrer" title="ClawHavoc malicious agent skills — Feb 2026; continuing delivery observed through May">ClawHavoc</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://www.stepsecurity.io/blog/hackerbot-claw-github-actions-exploitation" target="_blank" rel="noopener noreferrer" title="hackerbot-claw workflow exploitation — 21–28 Feb 2026">hackerbot-claw</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://socket.dev/blog/unauthorized-ai-agent-execution-code-published-to-openvsx-in-aqua-trivy-vs-code-extension" target="_blank" rel="noopener noreferrer" title="Aqua Trivy Open VSX prompt-injection follow-on — 27–28 Feb 2026; owner incident dated 1 Mar">Aqua Trivy Open VSX follow-on</a></div><div class="catalog-row"><div class="catalog-date">FEB–MAR</div><a href="https://socket.dev/blog/5-malicious-rust-crates-posed-as-time-utilities-to-exfiltrate-env-files" target="_blank" rel="noopener noreferrer" title="Rust time-utility credential-stealer cluster — Late Feb–early Mar 2026">Rust time-utility cluster</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://rustsec.org/advisories/RUSTSEC-2026-0010.html" target="_blank" rel="noopener noreferrer" title="polymarket-clients-sdk Rust typosquat — 5 Feb 2026">polymarket-clients-sdk</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push" target="_blank" rel="noopener noreferrer" title="ForceMemo / GlassWorm repository wave — Mar 2026">ForceMemo / GlassWorm</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.aikido.dev/blog/glassworm-strikes-react-packages-phone-numbers" target="_blank" rel="noopener noreferrer" title="GlassWorm React Native dependency wave — 16 Mar 2026">GlassWorm React Native</a></div></div><div><div class="catalog-row"><div class="catalog-date">MAR<small>by</small></div><a href="https://www.aikido.dev/blog/fast-draft-open-vsx-bloktrooper" target="_blank" rel="noopener noreferrer" title="fast-draft / BlokTrooper — Mar 2026 malicious extension verified">fast-draft / BlokTrooper</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23" target="_blank" rel="noopener noreferrer" title="Trivy March security-tool cascade — 19–22 Mar 2026">Trivy security-tool cascade</a></div><div class="catalog-row"><div class="catalog-date">MAR–APR</div><a href="https://checkmarx.com/blog/checkmarx-security-update/" target="_blank" rel="noopener noreferrer" title="Checkmarx AST/KICS delivery-channel compromise — Mar 2026; Apr recurrence">Checkmarx AST / KICS</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://docs.litellm.ai/blog/security-update-march-2026" target="_blank" rel="noopener noreferrer" title="LiteLLM poisoned PyPI releases — 24 Mar 2026">LiteLLM · March</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://github.com/axios/axios/issues/10636" target="_blank" rel="noopener noreferrer" title="Axios npm compromise — 31 Mar 2026 UTC">Axios</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://telnyx.com/resources/telnyx-python-sdk-supply-chain-security-notice-march-2026" target="_blank" rel="noopener noreferrer" title="Telnyx Python SDK compromise — 27 Mar 2026">Telnyx (PyPI)</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://opensourcemalware.com/blog/neutralinojs-compromised-in-dprk-attack" target="_blank" rel="noopener noreferrer" title="Neutralinojs org repository compromise (early PolinRider) — 2 Mar 2026 04:38-04:40 UTC (commits backdated 26 Jan-27 Feb)">Neutralinojs</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.wiz.io/blog/six-accounts-one-actor-inside-the-prt-scan-supply-chain-campaign" target="_blank" rel="noopener noreferrer" title="prt-scan pull_request_target campaign — First 11 Mar 2026; six waves">prt-scan</a></div></div></div><div class="catalog-foot">Month: activity · by: verified availability · report: disclosure · names link to sources</div>
 
 <!--
 SLIDE 60 · APPENDIX
 
 Say:
-This first 2026 page covers early-year entries. Pick the relevant incident and open its source. The page is part of the selected 93-record inventory, not an additional count.
+This first 2026 page covers early-year entries. Pick the relevant incident and open its source. The page is part of the selected 94-record inventory, not an additional count.
 
 Next:
 Continue chronologically if the question needs it.
@@ -3646,7 +3664,7 @@ Continue chronologically if the question needs it.
 Reference detail (not read aloud):
 Chronological presentation of selected incident/wave records, not a global annual census or an operator count. Month labels do not imply first publication when marked by/report/ongoing. A range may include successive episodes; it does not establish continuous compromise. Dates preserve uncertainties and conflicts in the underlying records. Older malicious artifacts with verified availability in the year qualify. No growth-rate inference from differing annual coverage. Names retain fetched source links; one source is not independent corroboration. Background artwork reuses the cinematic catalogue divider under a strong dark gradient for legibility. It is a conceptual archive, not evidence. Generated with built-in imagegen; prompt/provenance in assets/artwork-catalogue-divider-cinematic-v1.json. Text, dates and source links remain native and editable.
 
-Selected 2026 inventory remains 93 records across 59 conservative campaign groups. K18 disputed research activity excluded, K21 assigned to 2025. J35 uses 8 June per Socket body; later reporting also labels July. K04 uses 2 March real activity, not backdated commits. K08 May and September are separate episodes within one current record. K24 started October 2025; January–June labels only the 2026 portion. I17 label includes the mid-June organization compromise through September Packagist disclosure and does not establish malicious Packagist availability every day.
+Selected 2026 inventory has 94 records across 60 conservative campaign groups; K51 is the separate 21 October LiteLLM episode in F79. K18 disputed research activity excluded, K21 assigned to 2025. J35 uses 8 June per Socket body; later reporting also labels July. K04 uses 2 March real activity, not backdated commits. K08 May and September are separate episodes within one current record. K24 started October 2025; January–June labels only the 2026 portion. I17 label includes the mid-June organization compromise through September Packagist disclosure and does not establish malicious Packagist availability every day.
 
 - J01 · dYdX npm/PyPI compromise
   - Month: JAN (activity)
@@ -3754,7 +3772,7 @@ Selected 2026 inventory remains 93 records across 59 conservative campaign group
 
 ---
 
-<!-- _class: catalogue-archive -->
+<!-- _class: catalogue-archive chapter-catalogue -->
 ![bg](assets/img/catalogue-divider-cinematic-v1.png)
 <style scoped>
 section { padding:0; background:#151411; color:#F7F2E8; }
@@ -3786,7 +3804,7 @@ Move to the next page of the same inventory.
 Reference detail (not read aloud):
 Chronological presentation of selected incident/wave records, not a global annual census or an operator count. Month labels do not imply first publication when marked by/report/ongoing. A range may include successive episodes; it does not establish continuous compromise. Dates preserve uncertainties and conflicts in the underlying records. Older malicious artifacts with verified availability in the year qualify. No growth-rate inference from differing annual coverage. Names retain fetched source links; one source is not independent corroboration. Background artwork reuses the cinematic catalogue divider under a strong dark gradient for legibility. It is a conceptual archive, not evidence. Generated with built-in imagegen; prompt/provenance in assets/artwork-catalogue-divider-cinematic-v1.json. Text, dates and source links remain native and editable.
 
-Selected 2026 inventory remains 93 records across 59 conservative campaign groups. K18 disputed research activity excluded, K21 assigned to 2025. J35 uses 8 June per Socket body; later reporting also labels July. K04 uses 2 March real activity, not backdated commits. K08 May and September are separate episodes within one current record. K24 started October 2025; January–June labels only the 2026 portion. I17 label includes the mid-June organization compromise through September Packagist disclosure and does not establish malicious Packagist availability every day.
+Selected 2026 inventory has 94 records across 60 conservative campaign groups; K51 is the separate 21 October LiteLLM episode in F79. K18 disputed research activity excluded, K21 assigned to 2025. J35 uses 8 June per Socket body; later reporting also labels July. K04 uses 2 March real activity, not backdated commits. K08 May and September are separate episodes within one current record. K24 started October 2025; January–June labels only the 2026 portion. I17 label includes the mid-June organization compromise through September Packagist disclosure and does not establish malicious Packagist availability every day.
 
 - K19 · xygeni-action tag poisoning
   - Month: MAR (activity)
@@ -3894,7 +3912,7 @@ Selected 2026 inventory remains 93 records across 59 conservative campaign group
 
 ---
 
-<!-- _class: catalogue-archive -->
+<!-- _class: catalogue-archive chapter-catalogue -->
 ![bg](assets/img/catalogue-divider-cinematic-v1.png)
 <style scoped>
 section { padding:0; background:#151411; color:#F7F2E8; }
@@ -3926,7 +3944,7 @@ Continue to the remaining 2026 entries.
 Reference detail (not read aloud):
 Chronological presentation of selected incident/wave records, not a global annual census or an operator count. Month labels do not imply first publication when marked by/report/ongoing. A range may include successive episodes; it does not establish continuous compromise. Dates preserve uncertainties and conflicts in the underlying records. Older malicious artifacts with verified availability in the year qualify. No growth-rate inference from differing annual coverage. Names retain fetched source links; one source is not independent corroboration. Background artwork reuses the cinematic catalogue divider under a strong dark gradient for legibility. It is a conceptual archive, not evidence. Generated with built-in imagegen; prompt/provenance in assets/artwork-catalogue-divider-cinematic-v1.json. Text, dates and source links remain native and editable.
 
-Selected 2026 inventory remains 93 records across 59 conservative campaign groups. K18 disputed research activity excluded, K21 assigned to 2025. J35 uses 8 June per Socket body; later reporting also labels July. K04 uses 2 March real activity, not backdated commits. K08 May and September are separate episodes within one current record. K24 started October 2025; January–June labels only the 2026 portion. I17 label includes the mid-June organization compromise through September Packagist disclosure and does not establish malicious Packagist availability every day.
+Selected 2026 inventory has 94 records across 60 conservative campaign groups; K51 is the separate 21 October LiteLLM episode in F79. K18 disputed research activity excluded, K21 assigned to 2025. J35 uses 8 June per Socket body; later reporting also labels July. K04 uses 2 March real activity, not backdated commits. K08 May and September are separate episodes within one current record. K24 started October 2025; January–June labels only the 2026 portion. I17 label includes the mid-June organization compromise through September Packagist disclosure and does not establish malicious Packagist availability every day.
 
 - J31 · IronWorm initial npm/repository wave
   - Month: MAY–JUN (activity)
@@ -4037,7 +4055,7 @@ Selected 2026 inventory remains 93 records across 59 conservative campaign group
 
 ---
 
-<!-- _class: catalogue-archive -->
+<!-- _class: catalogue-archive chapter-catalogue -->
 ![bg](assets/img/catalogue-divider-cinematic-v1.png)
 <style scoped>
 section { padding:0; background:#151411; color:#F7F2E8; }
@@ -4055,13 +4073,13 @@ section { padding:0; background:#151411; color:#F7F2E8; }
 .catalog-foot { position:absolute!important; bottom:35px; left:64px; right:64px; font-size:16px; color:#D1C4B0; border-top:1px solid #B7A58166; padding-top:15px; }
 </style>
 <div class="catalog-shade"></div>
-<div class="catalog-head"><h1>Incidents</h1><div class="catalog-year">2026</div></div><div class="catalog-grid"><div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://socket.dev/blog/asyncapi-supply-chain-attack" target="_blank" rel="noopener noreferrer" title="AsyncAPI trusted-publishing releases — 14 July publication and disclosure. Confirmed source and package implants.">AsyncAPI</a></div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://socket.dev/blog/braintree-nuget-typosquat-skims-credit-cards" target="_blank" rel="noopener noreferrer" title="Braintree.Net NuGet implant — first malicious version 3 July; report 9 July. Confirmed malicious packages, successful production victim count unknown.">Braintree.Net</a></div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://www.aikido.dev/blog/sleepergem-rubygems-supply-chain-attack" target="_blank" rel="noopener noreferrer" title="SleeperGem RubyGems dormant-account hijack — 19-22 Jul 2026">SleeperGem</a></div><div class="catalog-row"><div class="catalog-date">JUL–AUG<small>by</small></div><a href="https://www.bleepingcomputer.com/news/security/77-open-vsx-extensions-found-harvesting-developer-info/" target="_blank" rel="noopener noreferrer" title="Evil Twin Open VSX extensions (77) — Detected 26 Jul-1 Aug 2026; removed by 3 Aug">Evil Twin Open VSX</a></div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://socket.dev/blog/popular-npm-packages-in-the-keyv-and-cacheable-namespaces-compromised-in-active-supply-chain" target="_blank" rel="noopener noreferrer" title="keyv / Cacheable / ChainDrop — 4 August activity and report. Confirmed malicious publishing wave.">keyv / Cacheable / ChainDrop</a></div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://blog.rust-lang.org/2026/08/20/supply-chain-attack-on-arrayref/" target="_blank" rel="noopener noreferrer" title="arrayref, internment, append-only-vec / proc-macro1 — 20 August attack, removal and Rust disclosure. Confirmed registry incident.">Rust proc-macro cluster</a></div><div class="catalog-row"><div class="catalog-date">AUG–SEP</div><a href="https://www.aikido.dev/blog/graphalgo-terraform-go-modules" target="_blank" rel="noopener noreferrer" title="Graphalgo Terraform and Go expansion — orderedbtree published 11 August; Terraform carriers in early September; btreex first published 8 September; report 22 September. Confirmed malicious artifacts.">Graphalgo (Go / Terraform)</a></div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://github.com/coder/coder/security/advisories/GHSA-vx42-ghc9-gw65" target="_blank" rel="noopener noreferrer" title="Coder registry (registry.coder.com) module tampering — 31 Aug 2026 07:35-21:45 UTC">Coder module registry</a></div></div><div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://socket.dev/blog/openapi-react-query-codegen-npm-compromise" target="_blank" rel="noopener noreferrer" title="@7nohe/openapi-react-query-codegen trusted-publishing abuse — 28 Aug 2026 (two waves ~20 min apart)">openapi-react-query-codegen</a></div><div class="catalog-row"><div class="catalog-date">AUG<small>report</small></div><a href="https://www.ox.security/blog/shai-hulud-outbreak-debrief-the-worm-evolves-into-mcp/" target="_blank" rel="noopener noreferrer" title="Shai-Hulud variant via the official MCP Registry — Reported ~9-10 Aug 2026">MCP Registry Shai-Hulud</a></div><div class="catalog-row"><div class="catalog-date">AUG<small>by</small></div><a href="https://www.sonatype.com/blog/flooding-dropper-hits-npm-with-850-malicious-packages" target="_blank" rel="noopener noreferrer" title="Flooding Dropper August npm distribution wave — Malicious packages verified on 5 Aug 2026; onset unresolved">Flooding Dropper</a></div><div class="catalog-row"><div class="catalog-date">AUG<small>by</small></div><a href="https://www.sonatype.com/blog/six-npm-packages-use-ethereum-transactions-to-retrieve-malicious-payloads" target="_blank" rel="noopener noreferrer" title="NullReceiver six-carrier Ethereum payload wave — Six malicious artifacts identified 10 Aug 2026; first publication unresolved">NullReceiver Ethereum carriers</a></div><div class="catalog-row"><div class="catalog-date">SEP</div><a href="https://www.aikido.dev/blog/shai-hulud-npm-resurfaces" target="_blank" rel="noopener noreferrer" title="September replay of May @antv payload — 7 September publication and report. Confirmed new releases containing an old payload.">@antv September replay</a></div><div class="catalog-row"><div class="catalog-date">SEP</div><a href="https://www.aikido.dev/blog/supplychain-local-memtensor-npm-pypi" target="_blank" rel="noopener noreferrer" title="MemTensor / MemoryOS supplychain.local — 23 September malicious publications and report, updated 24 September. Confirmed carriers, preliminary payload analysis.">MemTensor / MemoryOS</a></div><div class="catalog-row"><div class="catalog-date">SEP<small>report</small></div><a href="https://checkmarx.com/zero-post/npm-btree-malware-campaign-affects-millions-of-downloads-no-need-for-install-script/" target="_blank" rel="noopener noreferrer" title="indexed-btree runtime loader (sorted-btree impersonation) — Reported 17-20 Sep 2026">indexed-btree</a></div><div class="catalog-row"><div class="catalog-date">SEP<small>report</small></div><a href="https://www.aikido.dev/blog/compromised-flutter-package-on-pub-dev-contains-xcsset-malware" target="_blank" rel="noopener noreferrer" title="pub.dev universal_file_viewer 0.1.5 (XCSSET) — Reported 8 Sep 2026">universal_file_viewer</a></div></div><div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://socket.dev/blog/tensorlake-compromise" target="_blank" rel="noopener noreferrer" title="Tensorlake SDK / ChainDrop — 8 October, publish 01:12:07 UTC, Socket flag 01:23:10 UTC; report 8 October. Confirmed malicious version 0.5.144.">Tensorlake / ChainDrop</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://www.stepsecurity.io/blog/ghostaction-returns" target="_blank" rel="noopener noreferrer" title="GhostAction October return — activity since 7 October, detailed 8 October burst; report 9 October. Confirmed workflow implants and successful runs, with theft dependent on available secrets.">GhostAction October</a></div><div class="catalog-row"><div class="catalog-date">OCT<small>report</small></div><a href="https://socket.dev/blog/glassworm-vscode-themes" target="_blank" rel="noopener noreferrer" title="GlassWorm themes on VS Code Marketplace and Open VSX — Reported 2 Oct 2026">GlassWorm themes</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://thehackernews.com/2026/10/malfex-npm-package-imgdecode-hides.html" target="_blank" rel="noopener noreferrer" title="MALFEX imgdecode npm package — imgdecode 1.0.3 published 11 Oct 2026 (campaign since Aug 2023)">MALFEX / imgdecode</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://www.stepsecurity.io/blog/subql-ecosystem-compromised" target="_blank" rel="noopener noreferrer" title="@subql/common 5.8.3 release-workflow compromise — 5 Oct 2026 11:56:29 UTC">@subql/common</a></div></div></div><div class="catalog-foot">Month: activity · by: verified availability · report: disclosure · names link to sources</div>
+<div class="catalog-head"><h1>Incidents</h1><div class="catalog-year">2026</div></div><div class="catalog-grid"><div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://socket.dev/blog/asyncapi-supply-chain-attack" target="_blank" rel="noopener noreferrer" title="AsyncAPI trusted-publishing releases — 14 July publication and disclosure. Confirmed source and package implants.">AsyncAPI</a></div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://socket.dev/blog/braintree-nuget-typosquat-skims-credit-cards" target="_blank" rel="noopener noreferrer" title="Braintree.Net NuGet implant — first malicious version 3 July; report 9 July. Confirmed malicious packages, successful production victim count unknown.">Braintree.Net</a></div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://www.aikido.dev/blog/sleepergem-rubygems-supply-chain-attack" target="_blank" rel="noopener noreferrer" title="SleeperGem RubyGems dormant-account hijack — 19-22 Jul 2026">SleeperGem</a></div><div class="catalog-row"><div class="catalog-date">JUL–AUG<small>by</small></div><a href="https://www.bleepingcomputer.com/news/security/77-open-vsx-extensions-found-harvesting-developer-info/" target="_blank" rel="noopener noreferrer" title="Evil Twin Open VSX extensions (77) — Detected 26 Jul-1 Aug 2026; removed by 3 Aug">Evil Twin Open VSX</a></div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://socket.dev/blog/popular-npm-packages-in-the-keyv-and-cacheable-namespaces-compromised-in-active-supply-chain" target="_blank" rel="noopener noreferrer" title="keyv / Cacheable / ChainDrop — 4 August activity and report. Confirmed malicious publishing wave.">keyv / Cacheable / ChainDrop</a></div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://blog.rust-lang.org/2026/08/20/supply-chain-attack-on-arrayref/" target="_blank" rel="noopener noreferrer" title="arrayref, internment, append-only-vec / proc-macro1 — 20 August attack, removal and Rust disclosure. Confirmed registry incident.">Rust proc-macro cluster</a></div><div class="catalog-row"><div class="catalog-date">AUG–SEP</div><a href="https://www.aikido.dev/blog/graphalgo-terraform-go-modules" target="_blank" rel="noopener noreferrer" title="Graphalgo Terraform and Go expansion — orderedbtree published 11 August; Terraform carriers in early September; btreex first published 8 September; report 22 September. Confirmed malicious artifacts.">Graphalgo (Go / Terraform)</a></div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://github.com/coder/coder/security/advisories/GHSA-vx42-ghc9-gw65" target="_blank" rel="noopener noreferrer" title="Coder registry (registry.coder.com) module tampering — 31 Aug 2026 07:35-21:45 UTC">Coder module registry</a></div></div><div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://socket.dev/blog/openapi-react-query-codegen-npm-compromise" target="_blank" rel="noopener noreferrer" title="@7nohe/openapi-react-query-codegen trusted-publishing abuse — 28 Aug 2026 (two waves ~20 min apart)">openapi-react-query-codegen</a></div><div class="catalog-row"><div class="catalog-date">AUG<small>report</small></div><a href="https://www.ox.security/blog/shai-hulud-outbreak-debrief-the-worm-evolves-into-mcp/" target="_blank" rel="noopener noreferrer" title="Shai-Hulud variant via the official MCP Registry — Reported ~9-10 Aug 2026">MCP Registry Shai-Hulud</a></div><div class="catalog-row"><div class="catalog-date">AUG<small>by</small></div><a href="https://www.sonatype.com/blog/flooding-dropper-hits-npm-with-850-malicious-packages" target="_blank" rel="noopener noreferrer" title="Flooding Dropper August npm distribution wave — Malicious packages verified on 5 Aug 2026; onset unresolved">Flooding Dropper</a></div><div class="catalog-row"><div class="catalog-date">AUG<small>by</small></div><a href="https://www.sonatype.com/blog/six-npm-packages-use-ethereum-transactions-to-retrieve-malicious-payloads" target="_blank" rel="noopener noreferrer" title="NullReceiver six-carrier Ethereum payload wave — Six malicious artifacts identified 10 Aug 2026; first publication unresolved">NullReceiver Ethereum carriers</a></div><div class="catalog-row"><div class="catalog-date">SEP</div><a href="https://www.aikido.dev/blog/shai-hulud-npm-resurfaces" target="_blank" rel="noopener noreferrer" title="September replay of May @antv payload — 7 September publication and report. Confirmed new releases containing an old payload.">@antv September replay</a></div><div class="catalog-row"><div class="catalog-date">SEP</div><a href="https://www.aikido.dev/blog/supplychain-local-memtensor-npm-pypi" target="_blank" rel="noopener noreferrer" title="MemTensor / MemoryOS supplychain.local — 23 September malicious publications and report, updated 24 September. Confirmed carriers, preliminary payload analysis.">MemTensor / MemoryOS</a></div><div class="catalog-row"><div class="catalog-date">SEP<small>report</small></div><a href="https://checkmarx.com/zero-post/npm-btree-malware-campaign-affects-millions-of-downloads-no-need-for-install-script/" target="_blank" rel="noopener noreferrer" title="indexed-btree runtime loader (sorted-btree impersonation) — Reported 17-20 Sep 2026">indexed-btree</a></div><div class="catalog-row"><div class="catalog-date">SEP<small>report</small></div><a href="https://www.aikido.dev/blog/compromised-flutter-package-on-pub-dev-contains-xcsset-malware" target="_blank" rel="noopener noreferrer" title="pub.dev universal_file_viewer 0.1.5 (XCSSET) — Reported 8 Sep 2026">universal_file_viewer</a></div></div><div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://socket.dev/blog/tensorlake-compromise" target="_blank" rel="noopener noreferrer" title="Tensorlake SDK / ChainDrop — 8 October, publish 01:12:07 UTC, Socket flag 01:23:10 UTC; report 8 October. Confirmed malicious version 0.5.144.">Tensorlake / ChainDrop</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://www.stepsecurity.io/blog/ghostaction-returns" target="_blank" rel="noopener noreferrer" title="GhostAction October return — activity since 7 October, detailed 8 October burst; report 9 October. Confirmed workflow implants and successful runs, with theft dependent on available secrets.">GhostAction October</a></div><div class="catalog-row"><div class="catalog-date">OCT<small>report</small></div><a href="https://socket.dev/blog/glassworm-vscode-themes" target="_blank" rel="noopener noreferrer" title="GlassWorm themes on VS Code Marketplace and Open VSX — Reported 2 Oct 2026">GlassWorm themes</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://thehackernews.com/2026/10/malfex-npm-package-imgdecode-hides.html" target="_blank" rel="noopener noreferrer" title="MALFEX imgdecode npm package — imgdecode 1.0.3 published 11 Oct 2026 (campaign since Aug 2023)">MALFEX / imgdecode</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://www.stepsecurity.io/blog/subql-ecosystem-compromised" target="_blank" rel="noopener noreferrer" title="@subql/common 5.8.3 release-workflow compromise — 5 Oct 2026 11:56:29 UTC">@subql/common</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://socket.dev/blog/litellm-compromise" target="_blank" rel="noopener noreferrer" title="LiteLLM October release compromise — 21 Oct 2026; 1.107.0 wheels and containers; initial access provisional">LiteLLM · October</a></div></div></div><div class="catalog-foot">Month: activity · by: verified availability · report: disclosure · names link to sources</div>
 
 <!--
 SLIDE 63 · APPENDIX
 
 Say:
-This is the final selected 2026 catalogue page. The cutoff is 20 October, reconciled on 21 October. Absence from this selection does not establish that another incident never happened.
+This is the final selected 2026 catalogue page. The activity cutoff is 21 October, reconciled on 22 October; this latest pass adds the LiteLLM recurrence, not a complete new-day sweep. Absence from this selection does not establish that another incident never happened.
 
 Next:
 Use the earlier-year pages for historical examples.
@@ -4069,7 +4087,7 @@ Use the earlier-year pages for historical examples.
 Reference detail (not read aloud):
 Chronological presentation of selected incident/wave records, not a global annual census or an operator count. Month labels do not imply first publication when marked by/report/ongoing. A range may include successive episodes; it does not establish continuous compromise. Dates preserve uncertainties and conflicts in the underlying records. Older malicious artifacts with verified availability in the year qualify. No growth-rate inference from differing annual coverage. Names retain fetched source links; one source is not independent corroboration. Background artwork reuses the cinematic catalogue divider under a strong dark gradient for legibility. It is a conceptual archive, not evidence. Generated with built-in imagegen; prompt/provenance in assets/artwork-catalogue-divider-cinematic-v1.json. Text, dates and source links remain native and editable.
 
-Selected 2026 inventory remains 93 records across 59 conservative campaign groups. K18 disputed research activity excluded, K21 assigned to 2025. J35 uses 8 June per Socket body; later reporting also labels July. K04 uses 2 March real activity, not backdated commits. K08 May and September are separate episodes within one current record. K24 started October 2025; January–June labels only the 2026 portion. I17 label includes the mid-June organization compromise through September Packagist disclosure and does not establish malicious Packagist availability every day.
+Selected 2026 inventory has 94 records across 60 conservative campaign groups; K51 is the separate 21 October LiteLLM episode in F79. K18 disputed research activity excluded, K21 assigned to 2025. J35 uses 8 June per Socket body; later reporting also labels July. K04 uses 2 March real activity, not backdated commits. K08 May and September are separate episodes within one current record. K24 started October 2025; January–June labels only the 2026 portion. I17 label includes the mid-June organization compromise through September Packagist disclosure and does not establish malicious Packagist availability every day.
 
 - I12 · AsyncAPI trusted-publishing releases
   - Month: JUL (activity)
@@ -4162,11 +4180,22 @@ Selected 2026 inventory remains 93 records across 59 conservative campaign group
   - Month: OCT (activity)
   - Activity/evidence: 5 Oct 2026 11:56:29 UTC
   - https://www.stepsecurity.io/blog/subql-ecosystem-compromised
+
+- K51 · LiteLLM October 1.107.0 PyPI/container release compromise · F79
+  - Month: OCT (activity, 21 October); separate from March J17/F01.
+  - Seven wheels and container images. Owner reports stolen GitHub CLI OAuth identities used to override branch protection and approve publishing. Its initial-access reconstruction remains provisional.
+  - Socket validates a lookalike source in recorded build provenance; provenance is not proof of trustworthy input. Wiz reports subsequent AWS credential use. No attacker attribution or AI-causation claim.
+  - Owner: PyPI until 13:23 UTC, GHCR unavailable by 13:51, Docker Hub cleared 14:20. Wiz: PyPI by 13:20, containers ~13:53. These are attributed channel snapshots, not one silently selected removal time.
+  - https://socket.dev/blog/litellm-compromise
+  - https://docs.litellm.ai/blog/security-incident-oct-21-2026
+  - https://github.com/BerriAI/litellm/issues/47826
+  - https://github.com/BerriAI/litellm/issues/47826#issuecomment-6326854488
+  - https://www.wiz.io/blog/litellm-compromised-steals-credentials
 -->
 
 ---
 
-<!-- _class: catalogue-archive -->
+<!-- _class: catalogue-archive chapter-catalogue -->
 ![bg](assets/img/catalogue-divider-cinematic-v1.png)
 <style scoped>
 section { padding:0; background:#151411; color:#F7F2E8; }
@@ -4306,7 +4335,7 @@ Selected 2025 inventory remains 23 records across 20 conservative campaign group
 
 ---
 
-<!-- _class: catalogue-archive -->
+<!-- _class: catalogue-archive chapter-catalogue -->
 ![bg](assets/img/catalogue-divider-cinematic-v1.png)
 <style scoped>
 section { padding:0; background:#151411; color:#F7F2E8; }
@@ -4439,7 +4468,7 @@ Ultralytics correction: first round used existing Trusted Publishing workflow an
 
 ---
 
-<!-- _class: catalogue-archive -->
+<!-- _class: catalogue-archive chapter-catalogue -->
 ![bg](assets/img/catalogue-divider-cinematic-v1.png)
 <style scoped>
 section { padding:0; background:#151411; color:#F7F2E8; }
