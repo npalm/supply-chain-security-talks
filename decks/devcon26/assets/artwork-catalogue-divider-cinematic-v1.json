@@ -1,0 +1,9 @@
+{
+  "created": "2026-10-21",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "asset": "img/catalogue-divider-cinematic-v1.png",
+  "source_file": "/Users/niek/.codex/generated_images/01a15dee-ee26-70d0-ae32-e27ab31399a8/exec-f3a86a0a-a6a9-4daf-8997-463ed0ab6007.png",
+  "purpose": "Incident catalogue appendix divider only; native editable title/year remain separate",
+  "prompt": "Use case: productivity-visual. Asset type: cinematic full-background artwork for a 16:9 conference slide titled Incident catalogue. Primary request: a visually striking archival receiving room in the same refined industrial kitchen/workshop world as a software supply-chain security talk. Scene: a long charcoal steel receiving bench leads into a deep archive of dark pine and burgundy shelves on the RIGHT half; stacked worn shipping crates, closed burgundy ledgers and a loose shipment manifest with no readable writing, a few hanging paper cargo tags and a warm brass inspection lamp. One subtly opened crate under the lamp suggests careful inspection of incoming deliveries. Filmic wide 24mm lens, low eye-level, strong depth and volumetric amber light through a little dust, tactile brushed steel, worn timber and paper, dramatic chiaroscuro, sophisticated painterly photoreal cinema. Composition: right two thirds carry the detailed archive/receiving scene, far left 40 percent quiet very dark charcoal negative space for large editable ivory title text. The left must remain uncluttered and low contrast. Landscape 16:9. Palette: charcoal, desaturated dark green, burgundy and restrained warm amber, compatible with an editorial kitchen/workshop slide deck. No people, no skulls, no hacker hoodies, no neon, no screens, no diagrams, no logos, no text, no letters or numerals, no watermark. A metaphorical archive of shipments, not forensic evidence or a data chart. Render artwork only, no slide layout or baked-in title."
+}

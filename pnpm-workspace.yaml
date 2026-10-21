@@ -5,3 +5,9 @@ minimumReleaseAgeExclude:
   - 'http-server'
   - 'js-yaml'
   - 'markdown-it'
+
+# speech-rule-engine pins an affected parser; retain a compatible security patch.
+overrides:
+  "speech-rule-engine>@xmldom/xmldom": 0.9.12
+  # Marp currently requests 0.17; 0.18.2 fixes GHSA-238p-pmpm-9mq7.
+  "@marp-team/marp-core>katex": 0.18.2

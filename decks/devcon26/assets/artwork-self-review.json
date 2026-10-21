@@ -1,0 +1,31 @@
+{
+  "tool": "built-in image_gen",
+  "purpose": "Targeted artwork and section-divider fixes from screenshot self-review.",
+  "date": "2026-10-20",
+  "assets": [
+    {
+      "file": "img/chapter-real-attacks-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: cinematic 16:9 full-bleed conference chapter divider. Create a distinctive editorial photograph-like scene about trusted software publishing spreading a poisoned artifact, with no cooking metaphor and no literal hacker. A dark, tactile dispatch/archive workshop: on the RIGHT half a single partly opened ivory package with a broken burgundy seal sits at an inspection bench. Behind it, a branching set of ordinary physical dispatch shelves carries many nearly identical small parcels into deep perspective, a subtle repeated burgundy seal detail connecting them. One slim unmarked credential card lies on the bench, not an oversized key. The machinery is functioning normally. Carefully designed warm amber practical lights, charcoal steel, worn paper, restrained plum shadows and photographic film grain. Left 48 percent is very dark, simple negative space for a large two-line title and date, with no important objects there. Rich, authored asymmetric composition, camera low and oblique, real materials, not glossy stock cybersecurity. The scene is an editorial metaphor, not a real incident photograph. No people, hoodies, robots, locks, shields, skulls, holographic icons, circuit grids, flames, sandworms, code, text, labels or logos. Landscape 16:9.",
+      "references": [],
+      "generated_file": "/Users/niek/.codex/generated_images/01a155aa-7582-7190-9cf4-36a2c07ff650/exec-798b9309-8ef4-4e95-b3b5-ed3e9b304dcc.png"
+    },
+    {
+      "file": "img/geecon/sh-step-3-propagation-v1.png",
+      "prompt": "Use case: illustration-story. Asset: new portrait companion artwork for a GEECon-style illustrated attack chapter, about token-enabled package-worm propagation. The supplied images are STYLE REFERENCES, not edit targets. Match their expressive ink outlines, warm paper texture, subtle halftone, dark teal setting and amber highlights. Create a cleverly staged tiny package-publishing workshop: a mischievous small worm/gremlin tucked inside one ordinary cardboard parcel uses a stolen brass publishing token at a mechanical dispatch press. That press produces several outwardly ordinary parcels with the same tiny burgundy seal, departing along a curving dispatch track toward other small workstation silhouettes. The track curves back visually to the publishing station, suggesting another maintainer can supply the next usable identity. Keep this an evocative illustration; exact technical loop and labels are added as editable slide text. Strong readable silhouette, one clear action, humorous authored detail, not a generic villain portrait. No large foreground human or hooded hacker. Do not draw real access keys, valid credentials, code snippets, arrows, numbers, pseudo-hashes or any lettering whatsoever. Portrait about 5:8, all important objects safely inside the middle 80 percent so the image can crop into a 38-percent-wide 16:9 slide sidebar. Avoid giant faces, neon padlocks and overcomplicated cyber scenery.",
+      "references": [
+        "/Users/niek/projects/github/npalm/talks/supply-chain-security-talks/decks/devcon26/assets/img/geecon/sh-step-1.png",
+        "/Users/niek/projects/github/npalm/talks/supply-chain-security-talks/decks/devcon26/assets/img/geecon/sh-step-2.png"
+      ],
+      "generated_file": "/Users/niek/.codex/generated_images/01a155aa-7582-7190-9cf4-36a2c07ff650/exec-5c9f7dd7-db67-4c43-98d3-37790cea7c9c.png"
+    },
+    {
+      "file": "img/chapter-controls-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: cinematic 16:9 conference chapter divider introducing engineering controls. Supplied images are references for materials, light and photographic style, not edit targets. Create a new wide establishing shot of their same precision engineering workshop. On the RIGHT 55 percent, reveal clearly separate build/test and release work areas through floor-to-ceiling glass and graphite-steel partitions. A small ivory artifact rests in a narrow inspection transfer hatch between them. Each work area has its own deliberate power/network routing; one disconnected service coupling lies on a bench in the lower right foreground. A warm ivory task light illuminates the separate release bench deeper in the room, while restrained sea-green light marks the isolated test cell. Make separation and deliberate connection the physical subject, not security emblems. Main composition should feel calm, capable and tangible after the attack section. The LEFT 45 percent is simple near-black negative space for a large two-line chapter title. Camera wider than the reference control slides, human-scale architecture, deliberate depth, subtle photographic grain. Charcoal, brushed steel, ivory, restrained green and amber. This is an editorial metaphor. No people, humanoid robots, floating icons, arrows, charts, code, typography, words, labels, logos, padlocks, shields or glowing barriers. Landscape 16:9.",
+      "references": [
+        "/Users/niek/projects/github/npalm/talks/supply-chain-security-talks/decks/devcon26/assets/img/sandbox-build-v2.png",
+        "/Users/niek/projects/github/npalm/talks/supply-chain-security-talks/decks/devcon26/assets/img/release-boundary-v2.png"
+      ],
+      "generated_file": "/Users/niek/.codex/generated_images/01a155aa-7582-7190-9cf4-36a2c07ff650/exec-81b9c28c-7430-4a19-a576-8fd721e2c447.png"
+    }
+  ]
+}

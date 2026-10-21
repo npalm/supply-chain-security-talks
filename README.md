@@ -6,6 +6,7 @@ This repository has slides and demo resources for talks on software supply chain
 
 | When | Conference | Talk |
 |------|-----------|------|
+| 4 Nov 2026 | [DevCon Bucharest · DevOps Con](https://www.dev-con.ro/) | [You Trust More Code Than You Ship](https://www.dev-con.ro/speakers/4-Niek+Palm) · 10:15–11:00 · [Slides](https://npalm.github.io/supply-chain-security-talks/devcon26/) |
 | May 2026 | [GeeCON Krakow](https://2026.geecon.org/) | [Supply Chain Compromise: The Anatomy of the Attack and the Blueprint for Defense](https://npalm.github.io/supply-chain-security-talks/geecon26/) |
 | Apr 2026 | [BSides Groningen](https://bsidesgrunn.org/) | [Supply Chain Compromise: The Anatomy of the Attack and the Blueprint for Defense](https://npalm.github.io/supply-chain-security-talks/bsidesgrun26/) |
 | Mar 2026 | [040coders.nl](https://www.meetup.com/040coders-nl/events/312818432/) | [Beyond the Commit: Weaponizing and Hardening GitHub Actions](https://npalm.github.io/supply-chain-security-talks/040coders26/) |
@@ -86,6 +87,7 @@ npx http-server site -c-1 -a 127.0.0.1
 
 - `sessions.yml` is the source of truth for the public timeline and homepage ordering.
 - Each published session keeps its own public slug, such as `geecon26`.
+- Optional `conference_url` and `speaker_url` link to the event and official speaker/talk page. Optional `time` shows the event-local session slot.
 - A session can optionally expose a resources page. If `resources:` is omitted, the site builder looks for `decks/<deck>/resources.md`.
 - The homepage is generated from newest to oldest.
 

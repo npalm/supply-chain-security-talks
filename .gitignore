@@ -208,3 +208,9 @@ tmp/
 abstract*
 .claude/
 *-backup-*
+
+# Public DevCon talk metadata
+!decks/devcon26/abstract.md
+
+# Reviewed DevCon rehearsal script; full evidence also remains in slide notes.
+!decks/devcon26/speaker-notes.md
