@@ -5,3 +5,7 @@ minimumReleaseAgeExclude:
   - 'http-server'
   - 'js-yaml'
   - 'markdown-it'
+
+# speech-rule-engine pins an affected parser; retain a compatible security patch.
+overrides:
+  "speech-rule-engine>@xmldom/xmldom": 0.9.12
