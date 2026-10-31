@@ -2,7 +2,7 @@
 
 ## Selected delivery
 
-**Live, as the published abstract promises** (confirmed by Niek, 21 October 2026). The recording on slide 7 is the fallback only. Budget **4:00** for the live segment; the recorded block was 1:30, so live adds **2:30**. The main-deck timing has **not yet been rebalanced**. The recording-based baseline was 41:30; live alone adds 2:30. Additional incident/OIDC content, including a two-step control example, adds further content. No cuts are selected yet. The candidate savings below offset the live-demo increase only; additional slides require additional savings or later removal. `timing.json` remains the earlier baseline.
+**Live, as the published abstract promises** (confirmed by Niek, 21 October 2026). The recording on slide 8 is the fallback only. Budget **4:00** for the live segment; the recorded block was 1:30, so live adds **2:30**. The main-deck timing has **not yet been rebalanced**. The recording-based baseline was 41:30; live alone adds 2:30. Additional incident/OIDC content, including a two-step control example, adds further content. No cuts are selected yet. The candidate savings below offset the live-demo increase only; additional slides require additional savings or later removal. `timing.json` remains the earlier baseline.
 
 ## Media
 
@@ -10,10 +10,10 @@ The four requested originals were copied intact from the merged Prompt to Produc
 
 ## Playback cues
 
-1. Slide 3: play the working lunch-poll loop once, then pause.
-2. After slide 6: switch to the live environment. Only return to slide 7 for the fallback; identify it as a recording and play with controls. The video is silent.
+1. Slide 4: play the working lunch-poll loop once, then pause.
+2. After slide 7: switch to the live environment. Only return to slide 8 for the fallback; identify it as a recording and play with controls. The video is silent.
 3. Narrate repository instructions and cloning, local installation, callback monitor, received demonstration values, and the working app. Use visible transitions instead of relying on exact timecodes.
-4. Slide 8: the application still works. Name the demonstrated boundary: local install, repository identity, workflow and callback.
+4. Slide 9: the application still works. Name the demonstrated boundary: local install, repository identity, workflow and callback.
 5. If playback fails, explain those steps using the poster; do not spend the safety margin troubleshooting.
 
 ## Claim boundaries
