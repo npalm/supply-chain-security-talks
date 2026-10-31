@@ -73,12 +73,16 @@ A mirror with configured blocking policies can centralize artifact review and in
 
 ## Research and source deck
 
-The [research inventory in the repository](https://github.com/npalm/supply-chain-security/blob/main/devcon26/research.md) records activity and disclosure dates, counting rules, primary evidence, uncertainty and excluded disclosures. Cutoff: **20 October 2026**. The full-year [review and counting method](https://github.com/npalm/supply-chain-security/blob/main/devcon26/research-year-review.md) covers 112 records / 74 conservative campaign bundles / 17 delivery surfaces. The selected talk catalogue contains 93 of these records across 59 campaign groups; the separate 2025 review contains 23 records across 20 groups. The [machine-readable ledger](https://github.com/npalm/supply-chain-security/blob/main/devcon26/research-ledger-2026.json) reproduces the totals; they are not a global census or an AI-attributed total. A final refresh is planned before delivery.
+The research inventory records activity and disclosure dates, counting rules, primary evidence, uncertainty and excluded disclosures. The deck's selected 2026 catalogue now contains **95 records across 61 conservative campaign groups**: the 94-record / 60-group baseline reconciled on 22 October through the 21 October LiteLLM episode, plus one deck-local addition for [Cursor's 29 October Claude Code extension compromise](https://cursor.com/blog/claude-code-extension-security-notice). This targeted refresh was checked on **31 October 2026**; it is not a complete daily sweep. Individual incidents link to public sources in the deck's appendix.
+
+The broader research baseline is 113 records / 75 conservative campaign bundles / 17 delivery surfaces. That baseline has not been updated here for the deck-local Cursor entry. The separate 2025 review contains 23 records across 20 groups. None of these totals is a global census or an AI-attributed count.
 
 The technical narrative evolves the [GEECon Krakow deck](https://npalm.github.io/supply-chain-security-talks/geecon26/) from 13 May 2026. The opening controlled demonstration is recorded. Its visible values and environment belong to the demonstration, and do not establish access to production systems.
 
-Plain-English explanation of records, campaign bundles, delivery surfaces and the 2025 comparison: [counting guide](https://github.com/npalm/supply-chain-security/blob/main/devcon26/counting-guide.md).
-
 ## Historical appendix
 
-The bounded [2023 audit](https://github.com/npalm/supply-chain-security/blob/main/devcon26/research-2023-audit.md) has 14 incidents/waves; the [2024 audit](https://github.com/npalm/supply-chain-security/blob/main/devcon26/research-2024-audit.md) has 18. These historical samples have different coverage from the 2025/2026 selections and do not establish a worldwide trend.
+The bounded 2023 audit has 14 incidents/waves; the 2024 audit has 18. These historical samples have different coverage from the 2025/2026 selections and do not establish a worldwide trend.
+
+## Image attribution
+
+The Eindhoven speaker background incorporates ["Klokgebouw en Ketelhuisplein"](https://commons.wikimedia.org/wiki/File:Klokgebouw_en_Ketelhuisplein.jpg) by **Peter Beekmans**, licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/). The building was isolated, resized, desaturated, graded for an evening scene and composited into the illustrated skyline, with an added reflection and vignette. The result is an illustrative city composite, not a documentary viewpoint. The original speaker background is preserved separately as an asset.

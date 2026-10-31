@@ -72,6 +72,7 @@ corepack enable
 pnpm install
 pnpm run build:deck -- --deck geecon26
 pnpm run build:deck -- --deck geecon26 --standalone
+pnpm run dev                      # first deck in sessions.yml
 pnpm run dev -- --deck geecon26
 pnpm run site
 ```

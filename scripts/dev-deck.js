@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
+const yaml = require('js-yaml');
 const { buildDeck, copySharedAssets, getDeckDir, parseArgs } = require('./build-deck');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -22,11 +23,14 @@ function copyDeckAssets(deck) {
   }
 }
 
+function defaultDeck() {
+  const config = yaml.load(fs.readFileSync(path.join(ROOT, 'sessions.yml'), 'utf8'));
+  return config.sessions[0].deck;
+}
+
 function main() {
   const args = parseArgs(process.argv.slice(2));
-  if (!args.deck) {
-    throw new Error('Usage: node scripts/dev-deck.js --deck <deck-slug>');
-  }
+  args.deck = args.deck || defaultDeck();
 
   buildDeck(args.deck);
   const deckDir = getDeckDir(args.deck);

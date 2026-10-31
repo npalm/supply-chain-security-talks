@@ -1,0 +1,24 @@
+{
+  "created": "2026-10-31",
+  "tool": "ImageMagick",
+  "mode": "local-photo-composite",
+  "asset": "img/speaker-eindhoven-cinematic-v2.png",
+  "purpose": "Second speaker-slide background option with a more accurate Klokgebouw clock tower",
+  "base_asset": "img/speaker-eindhoven-cinematic-v1.png",
+  "preserved_original": "img/speaker-eindhoven-cinematic.png",
+  "photo": {
+    "title": "Klokgebouw en Ketelhuisplein",
+    "creator": "Peter Beekmans",
+    "source": "https://commons.wikimedia.org/wiki/File:Klokgebouw_en_Ketelhuisplein.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Klokgebouw_en_Ketelhuisplein.jpg",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/"
+  },
+  "changes": [
+    "Replaced the invented brown clock tower with the real metal clock enclosure, Philips shield and white factory facade",
+    "Isolated and resized the photographic building cutout",
+    "Desaturated and color graded the cutout to match the evening skyline",
+    "Rebuilt the mirrored reflection and faded it into the dark foreground"
+  ],
+  "limitation": "Illustrative city composite, not a documentary or geographically exact viewpoint; the Evoluon and wider skyline retain the original illustration"
+}

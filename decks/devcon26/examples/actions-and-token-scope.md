@@ -1,6 +1,6 @@
 # Actions allowlist and token scope
 
-Teaching excerpts for slides 32, 34 and 45. These are not active repository policy or complete workflows.
+Teaching excerpts for slides 33, 35 and 46. These are not active repository policy or complete workflows.
 
 ## Review which Actions may run
 

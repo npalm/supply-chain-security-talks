@@ -1,6 +1,6 @@
 # Speaker notes — You Trust More Code Than You Ship
 
-Current sequence: 58 main slides and eight appendix slides. Updated 22 October 2026. Rehearse timing; timing.json is the earlier baseline. Evidence and technical detail remain in the native slide notes.
+Current sequence: 58 main slides and eight appendix slides. The selected closing returns to the opening iceberg with explicit trust checkpoints, one deck QR and short profile links. The speaker introduction uses the realistic Klokgebouw background. Updated 31 October 2026. Rehearse timing; timing.json is the earlier baseline. Evidence and technical detail remain in the native slide notes.
 
 ## Slide 1
 
@@ -8,9 +8,20 @@ Say:
 What we ship is the visible tip. Underneath is the code and automation that builds and delivers it, often with access to much more than this application.
 
 Next:
-Start with a small application.
+Introduce yourself briefly.
 
 ## Slide 2
+
+Say:
+Hi, I'm Niek Palm, Security Architect. Today we'll follow how code uses the access already present in engineering environments. Let's start with a small application.
+
+Delivery:
+Keep the introduction short. The portrait and name sit on the dark left side; the realistic Klokgebouw clock and Eindhoven skyline remain visible above and to the right.
+
+Next:
+Start with a small application.
+
+## Slide 3
 
 Say:
 One prompt asks for an app, a repository, tests and automation. How many of you have built something this way? The visible result arrives before we have examined everything that ran.
@@ -18,7 +29,7 @@ One prompt asks for an app, a repository, tests and automation. How many of you 
 Next:
 Show the lunch poll.
 
-## Slide 3
+## Slide 4
 
 Say:
 The lunch poll works: add an option and vote. This is the result we wanted. Now look underneath it.
@@ -29,7 +40,7 @@ Let the app loop run once, then pause.
 Next:
 Reveal the dependency inventory.
 
-## Slide 4
+## Slide 5
 
 Say:
 Even this small app uses three direct runtime dependencies and eight indirect packages. The development tooling is separate. This is an inventory of other people's code, not a risk score.
@@ -37,15 +48,15 @@ Even this small app uses three direct runtime dependencies and eight indirect pa
 Next:
 Look at the environment preparing the application.
 
-## Slide 5
+## Slide 6
 
 Say:
-Build tools, workflows and agents run alongside repository sessions, tokens and cloud access. The poll needs none of that production authority, but its engineering environment may already have it.
+The build relied on other people's tooling as well as their packages: tests and bundlers, CI and workflows, agent instructions, registries and services. Tokens and approvals connected that toolchain. These helped produce the app even though they are not all shipped in it.
 
 Next:
 Change one development dependency.
 
-## Slide 6
+## Slide 7
 
 Say:
 Keep the app the same and change one development dependency. Watch what happens during installation, then look at the callback monitor.
@@ -54,9 +65,9 @@ Delivery:
 Switch after this slide. Follow demo-runbook.md; do not execute the hook while preparing the deck.
 
 Next:
-Switch to the controlled live demonstration; slide 7 is the fallback.
+Switch to the controlled live demonstration; slide 8 is the fallback.
 
-## Slide 7
+## Slide 8
 
 Say:
 Watch the boundaries: local install, repository identity, a new workflow, then the callback. The application still works. These are demonstration values; we have not shown access to production systems.
@@ -65,23 +76,19 @@ Delivery:
 Live is primary. Use this recording only on failure or after 90 seconds without the callback; identify it as recorded. Cap the live segment at four minutes. Use the poster if media also fails.
 
 Next:
-Return to the functioning app on slide 8.
-
-## Slide 8
-
-Say:
-Nothing broke. The install ran code, and that code used access already present to create another execution path. A working app did not tell us whether the preparation was safe.
-
-Next:
-Introduce yourself, then name the recurring relationship.
+Return to the demo recap on slide 9.
 
 ## Slide 9
 
 Say:
-Hi, I'm Niek Palm, Security Architect. We have just seen one controlled example of code using access already present in the engineering environment. Let us use that to understand the broader pattern.
+Nothing broke. Our dependency's postinstall hook ran locally, used the repository identity already available, committed and pushed a workflow, and that workflow sent the Actions secrets context to our controlled callback. The application still worked.
+
+Dependency preinstall and postinstall hooks have been blocked by default in pnpm since version 10, and npm 12 now blocks them too unless explicitly allowed. Our demo used postinstall; preinstall is another hook covered by the same protection.
+
+But Node 26 became LTS on 28 October, and its first LTS release, 26.13.0, still ships npm 11.20.0. A stock install therefore still runs these dependency hooks by default. Upgrading Node to the new LTS does not automatically give you npm 12's protection. The hook is the entry point; local identity is what let it reach trusted automation.
 
 Delivery:
-Keep the introduction short. Original GEECon speaker portrait/layout, copied from slide 5. The demonstration does not establish production-system compromise.
+Recap the left-hand demo chain first. Click or advance once to reveal the right-hand install-hook protections. The Node 26/npm 11 default reminder stays visible.
 
 Next:
 Introduce untrusted input, trusted automation and existing identity.
@@ -175,7 +182,10 @@ Explain how existing users received changed code.
 ## Slide 20
 
 Say:
-A tag can point to different code tomorrow. Review and pin the full commit, then review updates deliberately. The Action may download helpers at runtime, so its pin is only one input boundary.
+An unprotected tag can point to different code tomorrow. GitHub's immutable releases lock their associated tags, but Actions has no built-in policy to allow only immutable-release tags. Review and pin the full commit, then review updates deliberately. The Action may download helpers at runtime, so its pin is only one input boundary.
+
+Delivery:
+Distinguish publisher-side immutability from consumer-side enforcement. Require full-length Action SHAs; pin reusable workflows separately.
 
 Next:
 Follow release access into LiteLLM.
@@ -264,7 +274,7 @@ Explain what the inventory does and does not count.
 ## Slide 30
 
 Say:
-The selected reviews contain 23 incidents and waves for 2025 and 94 for 2026, across 20 and 60 conservative campaign groups. Coverage differs; this is not a growth rate or an operator count. Across the examples, the trust relationship repeats.
+The selected reviews contain 23 incidents and waves for 2025 and 95 for 2026, across 20 and 61 conservative campaign groups. Coverage differs; this is not a growth rate or an operator count. Across the examples, the trust relationship repeats.
 
 Next:
 Separate individual AI observations from annual inventory totals.
@@ -357,8 +367,11 @@ Apply the same deliberate decisions to the workflow.
 Say:
 Review the mutable Action reference and excessive token grants. Inspect available scanner fixes and the diff, then audit again. Trigger handling, release isolation and runner boundaries remain design work.
 
+The September GitHub issue/comment campaign is a concrete input-handling example: attacker-controlled event text became shell code. Do not interpolate it into run scripts; pass it as data and keep untrusted-event jobs away from release credentials.
+
 Delivery:
 Scripted terminal, not a live scan. Point to one finding and its boundary at a time.
+Use the campaign as workflow-abuse context, not another counted package compromise. Compromised accounts were suspected; reuse of earlier stolen tokens is unconfirmed.
 
 Next:
 Apply those boundaries during coding too.
@@ -505,6 +518,7 @@ Start the reviewed devcontainer and launch Copilot inside it. Ask: What principl
 
 Delivery:
 Keep the original GEECon shell → Copilot transition, typed question and answer reveal. The smaller banner omits the version and two requested tips. Click to replay.
+After devcontainer exec, hold the terminal for 3.5 seconds before Copilot appears. Use that pause to explain shared access and configuration.
 
 Next:
 Close on making trust an engineering decision.
@@ -512,10 +526,11 @@ Close on making trust an engineering decision.
 ## Slide 58
 
 Say:
-You trust more code than you ship. Make that trust an engineering decision. Choose one project, one workflow or one coding setup and make one reviewed improvement. The resources collect the examples and sources. Thank you.
+You trust more code than you ship. The hidden machinery is still there. Review what enters it, constrain what can execute, and scope the identity it can use. Make that trust an engineering decision. Scan for the deck and resources. Thank you.
 
 Delivery:
-End prepared content here. Timing is for rehearsal; do not use the old baseline checkpoints as a promise.
+Selected closing: the opening iceberg returns with three explicit trust checkpoints and a reviewed route toward the shipped application. Keep the same strong message. One large QR emphasizes the deck; LinkedIn appears as linkedin.com/in/niekpalm and both profiles remain clickable.
+End prepared content here and leave this slide visible for questions. Timing is for rehearsal; timing.json remains the earlier baseline.
 
 Next:
 Take questions; use the catalogue only when useful.
@@ -534,7 +549,7 @@ Open the relevant year or delivery example.
 ## Slide 60
 
 Say:
-This first 2026 page covers early-year entries. Pick the relevant incident and open its source. The page is part of the selected 94-record inventory, not an additional count.
+This first 2026 page covers early-year entries. Pick the relevant incident and open its source. The page is part of the selected 95-record inventory, not an additional count.
 
 Next:
 Continue chronologically if the question needs it.
@@ -558,7 +573,7 @@ Continue to the remaining 2026 entries.
 ## Slide 63
 
 Say:
-This is the final selected 2026 catalogue page. The activity cutoff is 21 October, reconciled on 22 October; this latest pass adds the LiteLLM recurrence, not a complete new-day sweep. Absence from this selection does not establish that another incident never happened.
+This is the final selected 2026 catalogue page. The 21 October baseline was reconciled on 22 October. A targeted refresh checked on 31 October adds the vendor-confirmed 29 October Cursor/Claude Code extension compromise after LiteLLM. This is not a complete daily sweep; absence from this selection does not establish that another incident never happened.
 
 Next:
 Use the earlier-year pages for historical examples.
