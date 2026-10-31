@@ -1,6 +1,6 @@
 # Speaker notes — You Trust More Code Than You Ship
 
-Current sequence: 58 main slides and eight appendix slides. The speaker introduction uses the realistic Klokgebouw background. Updated 31 October 2026. Rehearse timing; timing.json is the earlier baseline. Evidence and technical detail remain in the native slide notes.
+Current sequence: 58 main slides and eight appendix slides. The selected closing returns to the opening iceberg with explicit trust checkpoints, one deck QR and short profile links. The speaker introduction uses the realistic Klokgebouw background. Updated 31 October 2026. Rehearse timing; timing.json is the earlier baseline. Evidence and technical detail remain in the native slide notes.
 
 ## Slide 1
 
@@ -526,10 +526,11 @@ Close on making trust an engineering decision.
 ## Slide 58
 
 Say:
-You trust more code than you ship. Make that trust an engineering decision. Choose one project, one workflow or one coding setup and make one reviewed improvement. The resources collect the examples and sources. Thank you.
+You trust more code than you ship. The hidden machinery is still there. Review what enters it, constrain what can execute, and scope the identity it can use. Make that trust an engineering decision. Scan for the deck and resources. Thank you.
 
 Delivery:
-End prepared content here. Timing is for rehearsal; do not use the old baseline checkpoints as a promise.
+Selected closing: the opening iceberg returns with three explicit trust checkpoints and a reviewed route toward the shipped application. Keep the same strong message. One large QR emphasizes the deck; LinkedIn appears as linkedin.com/in/niekpalm and both profiles remain clickable.
+End prepared content here and leave this slide visible for questions. Timing is for rehearsal; timing.json remains the earlier baseline.
 
 Next:
 Take questions; use the catalogue only when useful.

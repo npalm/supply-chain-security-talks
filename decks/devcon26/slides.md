@@ -3630,28 +3630,53 @@ Composition source: decks/geecon26/slides.md, slide 64.
 
 ---
 
-<!-- _class: center safe chapter-controls neutral-title -->
-![bg brightness:0.25](assets/img/opening-kitchen-v2.png)
-<h1>You Trust More Code<br>Than You Ship</h1><div class="lede">Make that trust an engineering decision.</div><p style="margin-top:35px;font-size:25px">Niek Palm · @npalm</p><p style="font:17px Menlo,monospace;color:#A5D7BB">npalm.github.io/supply-chain-security-talks/devcon26/resources/</p>
+<!-- _class: closing-slide closing-cinematic safe chapter-controls neutral-title -->
+![bg](assets/img/cover-working-iceberg-v1.png)
+<style>
+section.closing-slide { padding:0; }
+.closing-head { position:absolute!important; top:76px; left:64px; right:64px; }
+.closing-head h1 { margin:0; font-size:76px; line-height:1.04; }
+.closing-message { margin-top:27px; font-size:29px; line-height:1.35; color:#A5D7BB; }
+.closing-links { position:absolute!important; left:64px; right:64px; bottom:42px; display:flex; gap:36px; align-items:flex-end; }
+.closing-qr { display:flex; flex-direction:column; align-items:center; gap:12px; color:#F7F2E8; text-decoration:none; font-size:18px; font-weight:600; white-space:nowrap; }
+.closing-qr img { display:block; width:196px; height:196px; border-radius:8px; background:white; }
+.closing-profile { margin-bottom:33px; color:#C6D1CA; font-size:18px; line-height:1.5; }
+.closing-profile b { display:block; color:#F7F2E8; font-size:27px; margin-bottom:14px; }
+.closing-profile a { display:block; color:#A5D7BB; text-decoration:none; margin-top:9px; }
+section.closing-cinematic::before { content:''; position:absolute; inset:0; z-index:0; background:linear-gradient(90deg,#080D10AA,transparent 56%); }
+section.closing-cinematic .closing-head { top:82px; width:570px; right:auto; }
+section.closing-cinematic .closing-head h1 { font-size:70px; }
+section.closing-cinematic .closing-message { width:500px; font-size:27px; }
+section.closing-cinematic .closing-links { right:auto; width:565px; gap:30px; }
+section.closing-cinematic .closing-profile { width:320px; margin-bottom:13px; }
+section.closing-cinematic .closing-qr img { width:180px; height:180px; }
+.closing-trust-overlay { position:absolute!important; inset:0; width:1280px; height:720px; z-index:1!important; pointer-events:none; }
+.closing-trust-overlay img { display:block; width:100%; height:100%; }
+</style>
+<div class="closing-trust-overlay"><img src="assets/img/closing-iceberg-reviewed-overlay.svg" alt="The hidden build system now has explicit checkpoints for reviewing inputs, constraining execution and scoping identity before delivery." /></div>
+<div class="closing-head"><h1>You Trust<br>More Code<br>Than You Ship</h1><div class="closing-message">Make that trust<br>an engineering decision.</div></div>
+<div class="closing-links">
+<a class="closing-qr closing-deck" href="https://npalm.github.io/supply-chain-security-talks/devcon26/" target="_blank" rel="noopener noreferrer"><img src="assets/img/closing-deck-qr.png" alt="QR code: open the DevCon deck and resources" /><span>Slides + resources</span></a>
+<div class="closing-profile"><b>Niek Palm</b><a href="https://github.com/npalm" target="_blank" rel="noopener noreferrer">github.com/npalm</a><a href="https://www.linkedin.com/in/niekpalm/" target="_blank" rel="noopener noreferrer">linkedin.com/in/niekpalm</a><a href="https://npalm.github.io/supply-chain-security-talks/devcon26/resources/" target="_blank" rel="noopener noreferrer">Examples, sources + credits</a></div>
+</div>
 
 <!--
 SLIDE 58 · SPEAKER NOTES
 
 Say:
-You trust more code than you ship. Make that trust an engineering decision. Choose one project, one workflow or one coding setup and make one reviewed improvement. The resources collect the examples and sources. Thank you.
+You trust more code than you ship. The hidden machinery is still there. Review what enters it, constrain what can execute, and scope the identity it can use. Make that trust an engineering decision. Scan for the deck and resources. Thank you.
 
 Delivery:
-End prepared content here. Timing is for rehearsal; do not use the old baseline checkpoints as a promise.
+Selected closing: the opening iceberg returns with three explicit trust checkpoints and a reviewed route toward the shipped application. Keep the same strong message. One large QR emphasizes the deck; LinkedIn appears as linkedin.com/in/niekpalm and both profiles remain clickable.
+End prepared content here and leave this slide visible for questions. Timing is for rehearsal; timing.json remains the earlier baseline.
 
 Next:
 Take questions; use the catalogue only when useful.
 
 Reference detail (not read aloud):
-Published slot: DevCon Bucharest / DevOps Con, 4 November 2026, 10:15–11:00 event local time. The selected live opening and additional material need rehearsal; timing.json is the unchanged earlier baseline. The recording fallback is on slide 8.
-
-Composition source: GEECon closing rhythm.
+The image reuses the original opening artwork unchanged. A local SVG overlay adds conceptual review checkpoints and a bounded route. These illustrate engineering controls, not a verified architecture, complete remediation or a guarantee that the system is safe. All original hidden dependencies remain present.
+Artwork and QR provenance: assets/artwork-closing-options-v1.json.
 -->
-
 
 ---
 

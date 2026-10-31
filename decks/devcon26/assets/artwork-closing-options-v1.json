@@ -1,0 +1,26 @@
+{
+  "created": "2026-10-31",
+  "mode": "local-image-reuse-and-vector-overlay",
+  "opening_asset": "img/cover-working-iceberg-v1.png",
+  "original_provenance": "artwork-title-working-iceberg.json",
+  "options": [
+    {
+      "slide": 58,
+      "name": "Reviewed iceberg",
+      "background": "img/cover-working-iceberg-v1.png",
+      "overlay": "img/closing-iceberg-reviewed-overlay.svg",
+      "changes": "Reuse the opening image unchanged with a local vector route and three explicit input, execution and identity checkpoints."
+    }
+  ],
+  "qr_codes": {
+    "tool": "qrencode",
+    "error_correction": "M",
+    "quiet_zone_modules": 4,
+    "module_pixels": 12,
+    "deck": {
+      "asset": "img/closing-deck-qr.png",
+      "url": "https://npalm.github.io/supply-chain-security-talks/devcon26/"
+    }
+  },
+  "limitation": "Conceptual engineering-control illustrations, not evidence of complete remediation, a verified architecture or guaranteed safety. Preserve the original opening image."
+}
