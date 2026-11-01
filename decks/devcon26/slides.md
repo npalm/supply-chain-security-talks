@@ -3631,7 +3631,7 @@ Composition source: decks/geecon26/slides.md, slide 64.
 ---
 
 <!-- _class: closing-slide closing-cinematic safe chapter-controls neutral-title -->
-![bg](assets/img/cover-working-iceberg-v1.png)
+![bg](assets/img/closing-engineered-iceberg-v1.png)
 <style>
 section.closing-slide { padding:0; }
 .closing-head { position:absolute!important; top:76px; left:64px; right:64px; }
@@ -3650,14 +3650,11 @@ section.closing-cinematic .closing-message { width:500px; font-size:27px; }
 section.closing-cinematic .closing-links { right:auto; width:565px; gap:30px; }
 section.closing-cinematic .closing-profile { width:320px; margin-bottom:13px; }
 section.closing-cinematic .closing-qr img { width:180px; height:180px; }
-.closing-trust-overlay { position:absolute!important; inset:0; width:1280px; height:720px; z-index:1!important; pointer-events:none; }
-.closing-trust-overlay img { display:block; width:100%; height:100%; }
 </style>
-<div class="closing-trust-overlay"><img src="assets/img/closing-iceberg-reviewed-overlay.svg" alt="The hidden build system now has explicit checkpoints for reviewing inputs, constraining execution and scoping identity before delivery." /></div>
 <div class="closing-head"><h1>You Trust<br>More Code<br>Than You Ship</h1><div class="closing-message">Make that trust<br>an engineering decision.</div></div>
 <div class="closing-links">
 <a class="closing-qr closing-deck" href="https://npalm.github.io/supply-chain-security-talks/devcon26/" target="_blank" rel="noopener noreferrer"><img src="assets/img/closing-deck-qr.png" alt="QR code: open the DevCon deck and resources" /><span>Slides + resources</span></a>
-<div class="closing-profile"><b>Niek Palm</b><a href="https://github.com/npalm" target="_blank" rel="noopener noreferrer">github.com/npalm</a><a href="https://www.linkedin.com/in/niekpalm/" target="_blank" rel="noopener noreferrer">linkedin.com/in/niekpalm</a><a href="https://npalm.github.io/supply-chain-security-talks/devcon26/resources/" target="_blank" rel="noopener noreferrer">Examples, sources + credits</a></div>
+<div class="closing-profile"><b>Niek Palm</b><a href="https://github.com/npalm" target="_blank" rel="noopener noreferrer">github.com/npalm</a><a href="https://www.linkedin.com/in/niekpalm/" target="_blank" rel="noopener noreferrer">linkedin.com/in/niekpalm</a></div>
 </div>
 
 <!--
@@ -3667,15 +3664,15 @@ Say:
 You trust more code than you ship. The hidden machinery is still there. Review what enters it, constrain what can execute, and scope the identity it can use. Make that trust an engineering decision. Scan for the deck and resources. Thank you.
 
 Delivery:
-Selected closing: the opening iceberg returns with three explicit trust checkpoints and a reviewed route toward the shipped application. Keep the same strong message. One large QR emphasizes the deck; LinkedIn appears as linkedin.com/in/niekpalm and both profiles remain clickable.
+Selected closing: alternative A, detailed hidden machinery with review gates integrated into the workshops and delivery paths. Keep the same strong message. One large QR emphasizes the deck; LinkedIn appears as linkedin.com/in/niekpalm and both profiles remain clickable.
 End prepared content here and leave this slide visible for questions. Timing is for rehearsal; timing.json remains the earlier baseline.
 
 Next:
 Take questions; use the catalogue only when useful.
 
 Reference detail (not read aloud):
-The image reuses the original opening artwork unchanged. A local SVG overlay adds conceptual review checkpoints and a bounded route. These illustrate engineering controls, not a verified architecture, complete remediation or a guarantee that the system is safe. All original hidden dependencies remain present.
-Artwork and QR provenance: assets/artwork-closing-options-v1.json.
+Dedicated closing artwork references the opening iceberg, with detailed hidden machinery and mint-lit physical review gates integrated into the workshops and delivery paths. It illustrates engineering controls conceptually, not a verified architecture, complete remediation or a guarantee that the system is safe.
+Artwork provenance: assets/artwork-closing-alternatives-v2.json (alternative A). QR provenance: assets/artwork-closing-options-v1.json. Original closing preserved in closing-alternatives.md.
 -->
 
 ---

@@ -1,0 +1,20 @@
+{
+  "created": "2026-11-01",
+  "tool": "image_gen.imagegen",
+  "reference": "img/cover-working-iceberg-v1.png",
+  "purpose": "Closing-slide alternatives; alternative A selected for main deck slide 58. Original closing preserved in closing-alternatives.md.",
+  "options": [
+    {
+      "name": "A · Integrated engineering boundaries",
+      "asset": "img/closing-engineered-iceberg-v1.png",
+      "prompt": "Use case: stylized-concept. Asset type: cinematic 16:9 widescreen conference closing slide background, 1920x1080 composition. Reference image is the existing iceberg opening artwork, for visual continuity only. Recreate the concept with a fresh composition dedicated to the final takeaway: an iceberg containing the vast hidden machinery of software building, small shipped artifact above the surface. Put the entire iceberg in the RIGHT 52% of the canvas, all the way within frame. LEFT 46% must remain extremely quiet nearly black navy negative space from top to bottom for editable headline, final message and QR/contact information added later. Ocean surface near upper fifth. Inside the submerged translucent ice, show clearly organized warm illuminated industrial workshops, package conveyors, server racks and vertical delivery machinery. Distinct visible review gates and bounded work areas integrated physically in the machinery, restrained mint-green indicator lighting at three boundaries, no floating badges or drawn connector lines. One small warm luminous finished cube at the tip. Premium cinematic realistic 3D matte painting, intricate but legible, dark navy and blue ice with amber workshop glow, subtle mint accents. Mood: deliberate engineering, calm closing resolution. No text, letters, numbers, logos, QR codes, UI panels, padlocks or shields. No objects intruding into the left copy area. Preserve the metaphor of substantial hidden complexity, not an entirely safe certified system."
+    },
+    {
+      "name": "B · Quiet architectural iceberg",
+      "asset": "img/closing-quiet-iceberg-v1.png",
+      "prompt": "Use case: stylized-concept. Asset type: 16:9 widescreen closing slide background, cinematic illustration. Create a SECOND ALTERNATIVE to the reference iceberg artwork, with a simpler quieter composition dedicated to an engineering conference final message. The reference defines the visual world of dark blue ocean, crystalline iceberg with warm software-factory machinery hidden below and tiny finished luminous cube above. Keep this metaphor but redesign the iceberg as a sculptural asymmetric angular form entirely in the RIGHT HALF of the canvas. LEFT 48% is a uniform very dark midnight navy ocean-and-sky field for editable title and contact details, minimal texture, no bright horizon on left. Place the waterline at upper quarter, small warm white glowing cube on the tip. Underwater show three broad architectural terraces carved in translucent blue ice: incoming packages at lower right, isolated assembly workshop in middle, a narrow controlled lift toward the tip. Restrained mint light accents at physical doorways, amber warm workshop pools, visible cables and dependencies, generous dark breathing room between terraces. Cleaner shapes and fewer tiny components than the reference, elegant high-end cinematic cutaway, dramatic restrained light, calm decisive ending. Entire iceberg visible within frame, occupies x=53%-97%, y=6%-95%. No labels, text, badges, arrows, connectors, logos, QR, shields, padlocks. Do not make the entire iceberg glow green. Background only; headline and QR will be real editable elements later."
+    }
+  ],
+  "limitation": "Conceptual metaphors; gates and lighting do not establish a verified architecture or guarantee security.",
+  "selected": "img/closing-engineered-iceberg-v1.png"
+}
