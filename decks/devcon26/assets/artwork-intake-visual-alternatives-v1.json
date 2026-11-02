@@ -1,0 +1,23 @@
+{
+  "created": "2026-11-02",
+  "tool": "image_gen.imagegen",
+  "reference": "img/controls-kitchen-intake-v1.png",
+  "purpose": "Selected illustrated cooldown and fixed-input designs for main slides 33 and 34; previous designs preserved in intake-visual-alternatives.md.",
+  "options": [
+    {
+      "name": "Cooldown before intake",
+      "asset": "img/intake-cooldown-kitchen-v1.png",
+      "prompt": "Use case: stylized-concept. Asset type: 16:9 widescreen conference slide background, cinematic realistic kitchen editorial illustration, companion to the reference. Primary request: illustrate a deliberate waiting period for fresh software releases before intake, using a professional kitchen's receiving area. Fresh sealed ingredient crates rest on a clearly separated waiting rack; a large understated mechanical timer beside the rack indicates waiting without any numerals or writing. Beyond the rack, a closed physical intake gate separates the waiting crates from the clean preparation counter. Show calm observation and deliberately delayed admission, not refrigeration as a guarantee of food or code safety. Composition: the meaningful rack, timer and closed gate are entirely in the RIGHT HALF between x=56%-96%, y=24%-71%; lower right should remain uncluttered enough for native slide labels. LEFT HALF nearly black dark warm kitchen wall, clean negative space for a large title and a short message. Bottom 24% uniformly dark, quiet, no major subjects, reserved for three small configuration examples added as editable HTML. Match reference's premium photoreal cinematic kitchen, warm pendant lighting, stainless steel, burgundy totes, amber highlights and subtle sage accents. No text, no labels, no digits, no checkmarks, no locks, no shields, no people, no logos, no arrows. Keep the physical separation and timer visually legible at projection size. Background only."
+    },
+    {
+      "name": "Exact selected input",
+      "asset": "img/intake-fixed-selection-kitchen-v1.png",
+      "prompt": "Use case: stylized-concept. Asset type: 16:9 cinematic conference slide background, companion to the kitchen receiving reference. Illustrate fixing the exact selected software inputs after review, using an evocative physical kitchen workshop metaphor. In the RIGHT HALF of the image, on a stainless receiving bench, one specific sealed ingredient container is seated precisely in a beautifully engineered fixed registration jig: matte steel guides, brass locating pins and two adjustable clamps hold this particular container firmly in its selected position. A small rectangular blank metal reference plate is bolted permanently beside it. Other slightly different containers sit out of focus on a shelf behind, outside the selected jig. The metaphor is fixed selection of a particular input, not proof the ingredient is safe. No padlocks, security shields or checkmarks. Warm professional kitchen, dark burgundy accents, amber lamp, stainless surfaces, realistic restrained editorial photography/render matching the supplied kitchen reference. Composition: hero fixed container and jig centered near x=76%, y=47%, entirely within x=56%-96%, y=25%-71%. Keep LEFT HALF quiet near-black warm navy for native title and short message. Bottom 24% dark and minimally textured for three compact editable reference examples. No people, text, labels, numbers, logos, arrows or interface elements. Crisp understandable fixed mounting geometry; no surreal tangled hardware. Background only."
+    }
+  ],
+  "limitations": "Editorial metaphors for delayed admission and fixed selection. Neither waiting nor fixed selection certifies safety. All labels and configuration examples are native editable slide content.",
+  "selected_slides": {
+    "33": "img/intake-cooldown-kitchen-v1.png",
+    "34": "img/intake-fixed-selection-kitchen-v1.png"
+  }
+}

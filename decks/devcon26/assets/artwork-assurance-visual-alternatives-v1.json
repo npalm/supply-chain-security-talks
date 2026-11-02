@@ -1,0 +1,29 @@
+{
+  "created": "2026-11-02",
+  "tool": "image_gen.imagegen",
+  "reference": "img/controls-kitchen-intake-v1.png",
+  "purpose": "Selected illustrated assessment, mirror intake and release inventory designs for main slides 35\u201337. Previous designs preserved in assurance-visual-alternatives.md.",
+  "options": [
+    {
+      "name": "Assessment before admission",
+      "asset": "img/intake-assess-kitchen-v1.png",
+      "prompt": "Use case: stylized-concept. Asset type: 16:9 widescreen conference slide background, cinematic kitchen editorial illustration. Create a companion to the supplied professional kitchen receiving artwork. Illustrate inspecting a changed ingredient BEFORE admitting it to preparation: on the RIGHT HALF of a stainless receiving bench, two shallow sample trays with slightly different dry ingredients sit side by side under one warm articulated inspection lamp; a modest optical loupe and an open notebook with faint blank ruled lines suggest deliberate comparison of old and new input. A sealed burgundy incoming ingredient tote waits behind the samples, separate from the working preparation area. No green checkmarks or claims that inspection proves safety. Style: realistic premium cinematic photography/3D matte painting, restrained amber light, brushed steel, dark burgundy and quiet sage accents, consistent with the reference. Composition: meaningful trays, loupe and notebook occupy x=57%-96%, y=27%-70%; LEFT HALF must remain clean nearly black navy/brown wall negative space for large editable title and a short message. Bottom 25% dark and calm for three compact native slide labels added later. No people, text, letters, numbers, logos, shields, padlocks, arrows or computer screens. Avoid a science lab; this is a chef's receiving and review bench. Background only."
+    },
+    {
+      "name": "Enforced mirror intake",
+      "asset": "img/intake-mirror-kitchen-v1.png",
+      "prompt": "Use case: stylized-concept. Asset type: 16:9 cinematic conference slide background matching the reference kitchen. Illustrate enforced package intake through a policy mirror using a professional kitchen's sole controlled receiving hatch, NOT a literal reflective mirror. On the RIGHT HALF of the scene, a sturdy full-height dividing wall separates incoming supplies from the clean preparation kitchen. A single small stainless pass-through intake hatch is the only visible route in the wall. Closed burgundy ingredient totes approach the hatch on a short receiving conveyor; a mechanically controlled shutter regulates passage, and a visibly separate recessed side bay holds one pending tote. Beyond the hatch, a clean preparation counter receives one admitted tote. The physical route and separation should read immediately at a glance, without depicting a guarantee of safety. No open side corridor around the wall. Warm pendant lights, brushed stainless, burgundy totes and restrained sage accents; cinematic realistic photography/3D matte painting consistent with the supplied kitchen. Layout: primary hatch and waiting/admitted totes within x=56%-97%, y=22%-70%. LEFT HALF nearly black quiet kitchen wall for editable two-line title and a short message; bottom 25% dark minimal space for three native flow labels. No text, letters, digits, checkmarks, shields, padlocks, logos, arrows, people or screens. No mirror glass. Background only."
+    },
+    {
+      "name": "Release batch inventory",
+      "asset": "img/intake-release-ledger-kitchen-v1.png",
+      "prompt": "Use case: stylized-concept. Asset type: 16:9 widescreen cinematic conference slide background, matching the supplied professional kitchen receiving artwork. Illustrate release traceability and ingredient inventory with a kitchen batch ledger: on the RIGHT HALF of a stainless packing counter, three finished meal boxes or covered catering trays each have a small blank batch tag attached. Beside them, an open substantial bound batch ledger has neat ruled inventory rows and small plain sample swatches, with one pale amber ribbon/bookmark marking a specific row. A single sealed ingredient jar stands beside the ledger so the relationship between ingredient inventory and finished batches is visually suggested. No readable writing or digits anywhere. Make the ledger, batch tags and three finished packages the clear visual subject, not a computer dashboard. Premium realistic cinematic kitchen photography/3D matte painting, warm pendant lamp, brushed steel, muted burgundy, dark navy shadows and restrained sage accents. Layout: primary ledger and finished batches occupy x=55%-97%, y=28%-69%; LEFT HALF clean nearly black wall negative space for editable title and a short question. Bottom 25% quiet dark space for three compact native labels added later. No people, brands, arrows, checkmarks, locks or shields. Avoid implying the ledger proves that code ran or certifies safety; this is a metaphor for an inventory tied to delivered batches. Background only."
+    }
+  ],
+  "limitations": "Editorial metaphors. Inspection does not certify safety; intake requires actual policy and bypass controls; inventory does not establish execution, complete coverage or breach. All typography and practical labels are native editable content.",
+  "selected_slides": {
+    "35": "img/intake-assess-kitchen-v1.png",
+    "36": "img/intake-mirror-kitchen-v1.png",
+    "37": "img/intake-release-ledger-kitchen-v1.png"
+  }
+}

@@ -2,7 +2,16 @@
 
 ## Selected delivery
 
-**Live, as the published abstract promises** (confirmed by Niek, 21 October 2026). The recording on slide 8 is the fallback only. Budget **4:00** for the live segment; the recorded block was 1:30, so live adds **2:30**. The main-deck timing has **not yet been rebalanced**. The recording-based baseline was 41:30; live alone adds 2:30. Additional incident/OIDC content, including a two-step control example, adds further content. No cuts are selected yet. The candidate savings below offset the live-demo increase only; additional slides require additional savings or later removal. `timing.json` remains the earlier baseline.
+**Live, as the published abstract promises** (confirmed by Niek, 21 October 2026). The current plan is **40:00**, retaining every slide. `timing.json` matches the 65-slide sequence: 57 prepared slides including the recording fallback, plus eight appendix slides. It reserves **4:00** for the live demo after slide 7. Slide 8 replaces live execution within that same slot if needed; it adds no time. Terminal animations and transitions are included in the slide budgets. This is a speaking plan to validate in rehearsal, leaving five minutes for questions in the 45-minute session.
+
+| Checkpoint | Elapsed |
+| --- | --- |
+| Opening and demo complete · slide 10 | 07:00 |
+| Incident mechanisms complete · slide 23 | 16:00 |
+| AI and pattern complete · slide 30 | 20:30 |
+| Input and execution controls complete · slide 43 | 29:30 |
+| Identity and recovery complete · slide 52 | 37:00 |
+| Closing visible · end of slide 57 | 40:00 |
 
 ## Media
 
@@ -22,4 +31,4 @@ The inspected ci-checkr hook can create/push a workflow through an authenticated
 
 ## Live version (primary)
 
-Use a fresh disposable repository and narrowly scoped disposable identity, synthetic data and an isolated environment. Review the actual hook, workflow, callback and displayed fields. Reserve four minutes and use the recording as immediate fallback. Switch after 90 seconds without the expected callback; cap the whole segment at four minutes. The current recording/narration block is 1:30, so a four-minute live segment adds 2:30. Candidate savings are omitting hackerbot-claw (27, 1:00), shortening the Shai recap (18) by 0:30, the Trivy inventory (19) by 0:30, and the August reconstruction (22) by 0:30. These offset only the extra live-demo time. The speaker will choose cuts after reviewing the added incident/OIDC drafts; do not treat 41:30 or the old intermediate checkpoints as the current running time. Rehearse and document cleanup before presenting live.
+Use a fresh disposable repository and narrowly scoped disposable identity, synthetic data and an isolated environment. Review the actual hook, workflow, callback and displayed fields. The four-minute slot includes the introduction on slide 7, switching environments and returning to the deck. Switch to the recording after 90 seconds without the expected callback; cap the whole segment at four minutes. Use the remaining slot for recorded narration and return to slide 9. Keep all slides; use the checkpoints above to pace delivery. Rehearse and document cleanup before presenting live.

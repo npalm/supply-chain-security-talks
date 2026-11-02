@@ -38,7 +38,7 @@ A mirror with configured blocking policies can centralize artifact review and in
 - [Workflow/job token permissions](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax)
 - [GitHub App token scoping](https://github.com/actions/create-github-app-token)
 - [GitHub Actions secure use](https://docs.github.com/en/actions/reference/security/secure-use)
-- [Workflow dependency lockfiles](https://docs.github.com/en/actions/concepts/security/workflow-dependency-lockfiles) — public preview; includes transitive action selection and source identity. Reusable workflow dependencies follow the defining repository's lockfile. Reviewed full SHAs remain an option where the lockfile is not adopted.
+- [Workflow dependency lockfiles](https://docs.github.com/en/actions/concepts/security/workflow-dependency-lockfiles) — includes transitive action selection and source identity. Calls to reusable workflows are not pinned by the lockfile; pin those references to reviewed full commit SHAs separately. Action dependencies inside a reusable workflow follow the defining repository's lockfile. Reviewed full SHAs remain an option where the lockfile is not adopted.
 - [GitHub OIDC concepts](https://docs.github.com/en/actions/concepts/security/openid-connect)
 - [npm trusted publishers](https://docs.npmjs.com/trusted-publishers)
 - [pnpm settings](https://pnpm.io/settings) and [installation options](https://pnpm.io/cli/install)
@@ -77,7 +77,7 @@ The research inventory records activity and disclosure dates, counting rules, pr
 
 The broader research baseline is 113 records / 75 conservative campaign bundles / 17 delivery surfaces. That baseline has not been updated here for the deck-local Cursor entry. The separate 2025 review contains 23 records across 20 groups. None of these totals is a global census or an AI-attributed count.
 
-The technical narrative evolves the [GEECon Krakow deck](https://npalm.github.io/supply-chain-security-talks/geecon26/) from 13 May 2026. The opening controlled demonstration is recorded. Its visible values and environment belong to the demonstration, and do not establish access to production systems.
+The technical narrative evolves the [GEECon Krakow deck](https://npalm.github.io/supply-chain-security-talks/geecon26/) from 13 May 2026. The opening controlled demonstration is delivered live, with a recording available as fallback. Its visible values and environment belong to the demonstration, and do not establish access to production systems.
 
 ## Historical appendix
 
