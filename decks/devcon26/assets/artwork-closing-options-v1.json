@@ -19,8 +19,9 @@
     "module_pixels": 12,
     "deck": {
       "asset": "img/closing-deck-qr.png",
-      "url": "https://npalm.github.io/supply-chain-security-talks/devcon26/"
-    }
+      "url": "https://tinyurl.com/secure-software-supply-chain"
+    },
+    "updated": "2026-11-02"
   },
   "limitation": "Conceptual engineering-control illustrations, not evidence of complete remediation, a verified architecture or guaranteed safety. Preserve the original opening image."
 }

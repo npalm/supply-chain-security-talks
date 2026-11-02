@@ -11,3 +11,9 @@ overrides:
   "speech-rule-engine>@xmldom/xmldom": 0.9.12
   # Marp currently requests 0.17; 0.18.2 fixes GHSA-238p-pmpm-9mq7.
   "@marp-team/marp-core>katex": 0.18.2
+  # Marp's Puppeteer 24 tree includes unpatched extract-zip and vulnerable FTP/Zod dependencies.
+  # Puppeteer 25 removes the old extraction/proxy chain; compatible with our Node 24 tooling.
+  "@marp-team/marp-cli>puppeteer-core": 25.16.0
+  # Security patches for the local preview server's transitive dependencies.
+  "http-proxy>follow-redirects": 1.16.2
+  "union>qs": 6.16.1
