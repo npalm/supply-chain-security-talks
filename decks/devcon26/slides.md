@@ -1277,7 +1277,7 @@ section::before { background: linear-gradient(90deg, rgba(1,8,20,.99), rgba(1,8,
 </style>
 
 <div class="gateway-copy">
-<div class="eyebrow">Lateral movement through trusted automation</div>
+<div class="eyebrow">Lateral movement via trusted environments</div>
 
 # One trusted package opened another's release path
 
@@ -2451,7 +2451,7 @@ section { padding:0; }
 </style>
 
 <div class="wb-shade"></div>
-<div class="wb-head"><div class="eyebrow">02 · Trusted automation</div><h1>Harden builds<br>and workflows</h1></div>
+<div class="wb-head"><div class="eyebrow">02 · Trusted environment</div><h1>Harden builds<br>and workflows</h1></div>
 <p class="wb-message">Separate the work<br>from the authority.</p>
 
 <div class="wb-options">
@@ -2510,7 +2510,7 @@ section { padding:0; }
 </style>
 
 <div class="sa-shade"></div>
-<div class="sa-head"><div class="eyebrow">02 · Trusted automation</div><h1>Approve dependency<br>install scripts</h1></div>
+<div class="sa-head"><div class="eyebrow">02 · Trusted environment</div><h1>Approve dependency<br>install scripts</h1></div>
 <p class="sa-message">Choose what may execute.</p>
 <div class="sa-panel"><div class="sa-file">pnpm ≥ 10.26 · pnpm-workspace.yaml</div><pre><code>strictDepBuilds: <span class="sa-value">true</span>
 allowBuilds: <span class="sa-value">{}</span></code></pre></div>
@@ -2574,7 +2574,7 @@ section.playing .wh-terminal .al.v { opacity:1; }
 .wh-caption { position:absolute!important; left:54px; right:54px; bottom:32px; margin:0; color:#B6C5BC; font:15px/1.3 'JetBrains Mono',monospace; }
 </style>
 
-<div class="wh-head"><div class="eyebrow">02 · Trusted automation</div><h1>Harden your workflow</h1></div>
+<div class="wh-head"><div class="eyebrow">02 · Trusted environment</div><h1>Harden your workflow</h1></div>
 <p class="wh-message">Inspect. Change. Verify.</p>
 
 <div class="terminal wh-terminal">
@@ -2821,7 +2821,7 @@ Composition source: One coding task, concrete environment choices and inspection
 <!-- _class: control-scene safe chapter-controls -->
 ![bg](assets/img/controls-kitchen-privilege-v1.png)
 <div class="c3shade"></div>
-<div class="c3head"><div class="c3kicker">04 · Identity → action · principle</div><h1>Least privilege<br>is a design task</h1><div class="c3lede">Which process can spend which identity?</div><div class="c3points"><div>For this resource and action</div><div>For this job and time window</div><div>Through an explicit trust boundary</div></div></div>
+<div class="c3head"><div class="c3kicker">04 · Identity → action · principle</div><h1>Least privilege<br>is a design task</h1><div class="c3lede">Which process can spend which&nbsp;identity?</div><div class="c3points"><div>For this resource and action</div><div>For this job and time window</div><div>Through an explicit trust boundary</div></div></div>
 <div class="c3edge">Credential theft · token reuse · propagation</div>
 
 <!--
@@ -3109,7 +3109,7 @@ Sources: GitHub/Terraform fetched 21 October; LiteLLM owner update fetched 22 Oc
 <!-- _class: control-scene safe c3long chapter-controls -->
 ![bg](assets/img/controls-kitchen-intake-v1.png)
 <div class="c3shade"></div>
-<div class="c3head"><div class="c3kicker">05 · Instructions → tools · principle</div><h1>Follow instructions<br>into the code</h1><div class="c3lede">Review what the instructions cause to run.</div><div class="c3points"><div>Project instructions<small>TrapDoor: .cursorrules and CLAUDE.md</small></div><div>Workspace settings<small>OX report: MCP listing linked a poisoned repo</small></div><div>Helpers and downloads<small>Match command, destination and access to the task</small></div></div></div>
+<div class="c3head"><div class="c3kicker">05 · Instructions → tools · principle</div><h1>Follow instructions<br>into the code</h1><div class="c3lede">Review what the instructions cause&nbsp;to&nbsp;run.</div><div class="c3points"><div>Project instructions<small>TrapDoor: .cursorrules and CLAUDE.md</small></div><div>Workspace settings<small>OX report: MCP listing linked a poisoned repo</small></div><div>Helpers and downloads<small>Match command, destination and access to the task</small></div></div></div>
 <div class="c3edge">Skills · MCP · repo instructions · IDE extensions</div>
 
 <!--
