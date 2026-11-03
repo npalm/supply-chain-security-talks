@@ -178,7 +178,7 @@ Follow the compromised scanner into LiteLLM’s release path.
 ## Slide 20
 
 Say:
-LiteLLM said it believed upstream Trivy initiated the compromise. Its account describes shared CI and exposed publishing credentials. The malicious PyPI versions were 1.82.7 and 1.82.8; do not invent a more precise upload sequence than the evidence supports. CloudSEK’s August reconstruction identified 2,500+ organizations potentially exposed. Each match still needs validation.
+LiteLLM said it believed upstream Trivy initiated the compromise. Its account describes shared CI and exposed publishing credentials. The malicious PyPI versions were 1.82.7 and 1.82.8; do not invent a more precise upload sequence than the evidence supports. CloudSEK’s August reconstruction identified 2.500+ organizations potentially exposed. Each match still needs validation.
 
 Next:
 Explain how existing users received changed Trivy code through trusted tags.

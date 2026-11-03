@@ -1297,7 +1297,7 @@ section::before { background: linear-gradient(90deg, rgba(1,8,20,.99), rgba(1,8,
 SLIDE 20 · SPEAKER NOTES
 
 Say:
-LiteLLM said it believed upstream Trivy initiated the compromise. Its account describes shared CI and exposed publishing credentials. The malicious PyPI versions were 1.82.7 and 1.82.8; do not invent a more precise upload sequence than the evidence supports. CloudSEK’s August reconstruction identified 2,500+ organizations potentially exposed. Each match still needs validation.
+LiteLLM said it believed upstream Trivy initiated the compromise. Its account describes shared CI and exposed publishing credentials. The malicious PyPI versions were 1.82.7 and 1.82.8; do not invent a more precise upload sequence than the evidence supports. CloudSEK’s August reconstruction identified 2.500+ organizations potentially exposed. Each match still needs validation.
 
 Next:
 Explain how existing users received changed Trivy code through trusted tags.
@@ -1305,7 +1305,7 @@ Explain how existing users received changed Trivy code through trusted tags.
 Reference detail (not read aloud):
 LiteLLM reported its belief that upstream Trivy initiated the compromise. Its later account describes the shared CI environment and publishing credentials. Reports differ on the precise upload path; keep that boundary clear rather than inventing a confirmed sequence of commands. Versions 1.82.7 and 1.82.8 were malicious PyPI releases. The official proxy Docker image was outside that stated March scope. A separate 21 October incident affected 1.107.0 wheels and container images; it is listed separately in the appendix, with no established link to March.
 
-The small box folds in the former standalone exposure slide. CloudSEK’s 11 August report reconstructs organization-level exposure matches associated with March activity; high confidence describes the match, not independently verified malicious execution or downstream access. Do not present 2,500+ as confirmed organizational breaches. SOCRadar’s attributable records mostly predate the malicious LiteLLM releases, and overlapping datasets cannot be added together. The disputed 434,000 file/pipeline unit is omitted.
+The small box folds in the former standalone exposure slide. CloudSEK’s 11 August report reconstructs organization-level exposure matches associated with March activity; high confidence describes the match, not independently verified malicious execution or downstream access. Do not present 2.500+ as confirmed organizational breaches. SOCRadar’s attributable records mostly predate the malicious LiteLLM releases, and overlapping datasets cannot be added together. The disputed 434.000 file/pipeline unit is omitted.
 
 Sources:
 - https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23
@@ -1392,7 +1392,7 @@ Follow another workstation identity into an editor release.
 Reference detail (not read aloud):
 The Axios maintainer describes a convincing recruitment-style invitation, staged company Slack workspace and apparent Teams meeting. An error prompted him to install a supposed update, which was a RAT. The attacker then published Axios 1.14.1 and 0.30.4 on 31 March through the compromised account. These depended on plain-crypto-js. The owner says about three hours of availability; avoid exact endpoints here because the owner and Google differ by several minutes.
 
-Download scale: npm registry API reports 18,057,508 axios downloads on 31 March 2026 (101,032,032 for 24–30 March). The owner's window is 00:21–03:15 UTC (~2.9 h); at the daily average that is roughly 2M downloads of any axios version. This is an exposure estimate, not a victim count: npm counts every version, and lockfile-pinned installs did not resolve the malicious releases. Say "fetches" or "downloads", never "infections".
+Download scale: npm registry API reports 18.057.508 axios downloads on 31 March 2026 (101.032.032 for 24–30 March). The owner's window is 00:21–03:15 UTC (~2.9 h); at the daily average that is roughly 2M downloads of any axios version. This is an exposure estimate, not a victim count: npm counts every version, and lockfile-pinned installs did not resolve the malicious releases. Say "fetches" or "downloads", never "infections".
 
 BleepingComputer describes authenticated-session reuse as effectively bypassing a fresh MFA challenge. The maintainer primary directly establishes device compromise and npm credential access; do not imply we have independent forensic proof of a particular MFA bypass technique. Phishing-resistant login does not by itself contain malware on an authenticated workstation.
 
@@ -1445,7 +1445,7 @@ Nx's owner postmortem traces a malicious TanStack dependency installed on 11 May
 
 Do not confuse the May 2026 Nx Console extension with the August 2025 Nx npm/S1ngularity incident shown later on slide 25. The owner scopes the 2026 incident to the extension; Nx CLI, official @nx plugins and Nx Cloud were outside that stated scope. Both marketplaces were affected, correcting the earlier StepSecurity report that Open VSX was unaffected.
 
-Keep disputed install/activation numbers out of the slide: the owner lists 28 Marketplace installs, 41 Open VSX downloads and approximately 6,000 extension activations, which are different units. Its headline 11-minute Marketplace description also differs from the upload/unpublish timeline. The date and cross-surface mechanism are sufficient here. Link back to cooldown enforcement and forward to coding isolation: extensions also run beside workstation identity. A devcontainer does not automatically isolate every extension or inherited session; inspect where extension hosts run.
+Keep disputed install/activation numbers out of the slide: the owner lists 28 Marketplace installs, 41 Open VSX downloads and approximately 6.000 extension activations, which are different units. Its headline 11-minute Marketplace description also differs from the upload/unpublish timeline. The date and cross-surface mechanism are sufficient here. Link back to cooldown enforcement and forward to coding isolation: extensions also run beside workstation identity. A devcontainer does not automatically isolate every extension or inherited session; inspect where extension hosts run.
 
 Sources:
 - https://nx.dev/blog/nx-console-v18-95-0-postmortem
@@ -2846,10 +2846,10 @@ Composition source: Kitchen station-specific access; least privilege as identity
 
 <!-- _class: control-example safe chapter-controls -->
 <style scoped>
-.identity-default { position:absolute!important; left:64px; right:64px; top:180px; display:flex; align-items:center; gap:30px; padding:12px 22px; border:1px solid #84978C55; background:#192820; }
+.identity-default { position:absolute!important; left:64px; right:64px; top:172px; display:flex; align-items:center; gap:30px; padding:10px 22px; border:1px solid #84978C55; background:#192820; }
 .identity-default b { color:#B9C8BC; font-size:20px; font-weight:500; }
 .identity-default code { color:#A5D7BB; font:24px/1.35 'JetBrains Mono',monospace; background:none; padding:0; }
-.identity-jobs { position:absolute!important; left:64px; right:64px; top:259px; display:grid; grid-template-columns:minmax(0,1fr) 110px minmax(0,1fr); gap:26px; }
+.identity-jobs { position:absolute!important; left:64px; right:64px; top:242px; display:grid; grid-template-columns:minmax(0,1fr) 110px minmax(0,1fr); gap:26px; }
 .identity-job h2 { color:#F7F2E8; font-size:31px; margin:0 0 13px; }
 .identity-job .c3panel pre { font-size:22px; line-height:1.42; padding:12px 22px; min-height:126px; }
 .identity-job .c3file { font-size:14px; }
@@ -2858,7 +2858,7 @@ Composition source: Kitchen station-specific access; least privilege as identity
 .identity-handoff b { display:block; font:600 14px/1.4 'JetBrains Mono',Menlo,monospace; color:#D3C1A4; }
 .identity-handoff span { display:block; color:#A5D7BB; font-size:53px; line-height:1.2; margin:8px 0; }
 .identity-handoff small { display:block; color:#B9C8BC; font-size:16px; line-height:1.4; }
-.identity-app { position:absolute!important; left:64px; right:64px; top:563px; border-top:1px solid #84978C55; padding-top:12px; display:grid; grid-template-columns:340px 1fr; gap:25px; }
+.identity-app { position:absolute!important; left:64px; right:64px; top:540px; border-top:1px solid #84978C55; padding-top:12px; display:grid; grid-template-columns:340px 1fr; gap:25px; }
 .identity-app b { display:block; color:#E6B65E; font-size:21px; font-weight:600; }
 .identity-app small { display:block; color:#B9C8BC; font-size:16px; margin-top:6px; }
 .identity-app pre { margin:0; padding:0; background:transparent; border:0; box-shadow:none; color:#DCE9E0; font:18px/1.45 'JetBrains Mono',monospace; }
