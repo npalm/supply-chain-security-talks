@@ -73,8 +73,8 @@ style: |
   .reality { display:grid; grid-template-columns:1fr 1fr; gap:55px; margin-top:40px; } .reality h2 { color:#F4F1E8; font-size:44px; margin-bottom:22px; } .reality p { font-size:28px; margin:13px 0; }
   .control-bottom { position:absolute!important; bottom:52px; left:70px; color:#A5D7BB; font:18px Menlo,monospace; border-top:1px solid #A5D7BB55; padding-top:15px; width:480px; }
   .port-labels { position:absolute!important; right:45px; bottom:60px; display:flex; gap:18px; } .port-labels span { color:#D6EFE2; background:#101713ED; border-top:3px solid #A5D7BB; padding:10px 14px; font:18px Menlo,monospace; }
-  section.export .tl, section.export .wl, section.export .al { opacity:1!important; }
-  @media print { .tl,.wl,.al { opacity:1!important; } }
+  section.export .tl, section.export .wl, section.export .al, section.export .seq { opacity:1!important; }
+  @media print { .tl,.wl,.al,.seq { opacity:1!important; } }
   section.section-divider .copy { width:58%; margin-top:25px; }
   section.section-divider h1 { color:#F7F4EE; font-size:86px; line-height:1.04; letter-spacing:-2px; margin:0 0 28px; }
   section.section-divider .divider-caption { color:#E0DED8; font-size:26px; line-height:1.4; margin:18px 0; }
@@ -485,11 +485,6 @@ section::before { background: linear-gradient(90deg, rgba(1,8,20,.98), rgba(1,8,
 
 # What if one ingredient is poisoned?
 
-<div class="risk-list">
-<div>Same lunch poll</div>
-<div>One development dependency</div>
-<div>Install triggers trusted automation</div>
-</div>
 </div>
 
 <!--
@@ -629,7 +624,7 @@ Delivery:
 First trace the four steps without discussing versions. Advance once to reveal the install-hook protection and bundled-default reminder together. pnpm 10+ and npm 12 block unapproved dependency install hooks; Node 26 LTS still bundles npm 11. Check the package manager as well as Node. Keep exact patch versions in the reference detail.
 
 Next:
-Introduce untrusted input, trusted automation and existing identity.
+Introduce untrusted input, trusted environment and existing identity.
 
 Reference detail (not read aloud):
 The demonstration uses postinstall and the repository identity/Actions authority actually available in its reviewed environment. Dependency hook approval is separate from execution isolation; project scripts, approved scripts and later imports can still execute code. Synthetic demonstration values and any genuine ephemeral job token do not establish access to production systems. Do not execute the hook during slide preparation.
@@ -651,19 +646,19 @@ Composition: existing poison-kitchen-v2.png artwork, editable native HTML/CSS, o
 
 <!-- _class: cinema risk chapter-opening -->
 ![bg brightness:0.35](assets/img/opening-kitchen-v2.png)
-<div class="eyebrow">Behind the working application</div><div class="pattern"><span>Untrusted input</span><span>Trusted automation</span><span>Existing identity</span></div><div class="bottom-line">The input gets to act with the access already there.</div>
+<div class="eyebrow">Behind the working application</div><div class="pattern"><span>Untrusted input</span><span>Trusted environment</span><span>Existing identity</span></div><div class="bottom-line">The input gets to act with the access already there.</div>
 
 <!--
 SLIDE 10 · SPEAKER NOTES
 
 Say:
-Untrusted input reaches trusted automation and gets to use an identity already there. The input might be a package, a comment or an instruction file; the identity might be a token, session or role.
+Untrusted input runs inside a trusted environment and gets to use an identity already there. The input might be a package, a comment or an instruction file; the environment might be your laptop, a CI runner or an agent sandbox; the identity might be a token, session or role.
 
 Next:
 Use Shai-Hulud 2.0 to walk the full chain.
 
 Reference detail (not read aloud):
-Use the three lines as a spoken reveal. Package or instruction is input; installer, workflow or agent is automation; token, session or role is identity. Point to the relationship rather than enumerating more products. This is the GEECon lens for the rest of the talk.
+Use the three lines as a spoken reveal. Package or instruction is input; laptop, CI runner or agent sandbox is the trusted environment; token, session or role is identity. Point to the relationship rather than enumerating more products. This is the GEECon lens for the rest of the talk.
 Composition source: GEECon mental model; Prompt to Product visual continuity
 -->
 
@@ -1296,7 +1291,7 @@ section::before { background: linear-gradient(90deg, rgba(1,8,20,.99), rgba(1,8,
 </div>
 </div>
 
-<aside class="lateral-exposure"><a href="https://www.cloudsek.com/blog/ai-supply-chain-breach-2500-companies-434000-cicd-pipelines" target="_blank" rel="noopener noreferrer">CloudSEK · August 2026</a><b>2,500+</b><p>organizations potentially exposed</p><small>Reconstruction of March activity</small></aside>
+<aside class="lateral-exposure"><a href="https://www.cloudsek.com/blog/ai-supply-chain-breach-2500-companies-434000-cicd-pipelines" target="_blank" rel="noopener noreferrer">CloudSEK · August 2026</a><b>2.500+</b><p>organizations potentially exposed</p><small>Reconstruction of March activity</small></aside>
 
 <!--
 SLIDE 20 · SPEAKER NOTES
@@ -1368,10 +1363,10 @@ Composition source: GEECon 30 mechanism with cinematic composition
 <style scoped>
 section { padding:0; }
 .art-shade { position:absolute!important; inset:0; z-index:0!important; background:linear-gradient(90deg,#0B1111F2 0%,#0B1111D9 34%,#0B111100 63%); }
-.art-copy { position:absolute!important; top:54px; left:64px; width:495px; }
+.art-copy { position:absolute!important; top:44px; left:64px; width:495px; }
 .art-label { font:600 15px/1.4 'JetBrains Mono',monospace; color:#E6B65E; margin-bottom:27px; }
-.art-copy h1 { font-size:59px; line-height:1.04; margin-bottom:34px; }
-.art-line { border-left:3px solid #E6B65E; padding-left:17px; margin:22px 0; }
+.art-copy h1 { font-size:59px; line-height:1.04; margin-bottom:22px; }
+.art-line { border-left:3px solid #E6B65E; padding-left:17px; margin:14px 0; }
 .art-line b { display:block; color:#F7F4EE; font-size:25px; margin-bottom:5px; }
 .art-line span { display:block; color:#C9D4CD; font-size:21px; line-height:1.4; }
 .art-foot { position:absolute!important; bottom:41px; left:64px; right:64px; background:#101819E8; border-top:1px solid #A5D7BB66; padding:16px 20px; color:#E6C797; font-size:21px; }
@@ -1381,14 +1376,15 @@ section { padding:0; }
 <div class="art-copy"><div class="art-label">AXIOS · 31 MARCH 2026</div><h1>A fake meeting<br>A real release</h1>
 <div class="art-line"><b>The invitation looked credible</b><span>Staged Slack. An apparent Teams call.</span></div>
 <div class="art-line"><b>“Install this update”</b><span>A RAT reached the maintainer’s machine.</span></div>
-<div class="art-line"><b>The publishing identity was there</b><span>Two releases added <code>plain-crypto-js</code>.</span></div></div>
+<div class="art-line"><b>The publishing identity was there</b><span>Two releases added <code>plain-crypto-js</code>.</span></div>
+<div class="art-line"><b>Live for about three hours</b><span>~18M downloads a day: roughly 2M.</span></div></div>
 <div class="art-foot">Protect the publishing session as well as the login.<small>Mastra, June: a separate account takeover introduced <code>easy-day-js</code>.</small></div>
 
 <!--
 SLIDE 22 · SPEAKER NOTES
 
 Say:
-The Axios maintainer describes a fake meeting and supposed Teams update that compromised his workstation. The attacker published through his account on 31 March. Mastra is a separate account-takeover example. Microsoft attributes Mastra with high confidence; Amazon's Axios attribution is medium confidence. Keep those assessments separate.
+The Axios maintainer describes a fake meeting and supposed Teams update that compromised his workstation. The attacker published through his account on 31 March. The bad versions were live for only about three hours, but Axios is downloaded around 18 million times a day, so that short window still meant roughly two million fetches. Mastra is a separate account-takeover example. Microsoft attributes Mastra with high confidence; Amazon's Axios attribution is medium confidence. Keep those assessments separate.
 
 Next:
 Follow another workstation identity into an editor release.
@@ -1396,12 +1392,15 @@ Follow another workstation identity into an editor release.
 Reference detail (not read aloud):
 The Axios maintainer describes a convincing recruitment-style invitation, staged company Slack workspace and apparent Teams meeting. An error prompted him to install a supposed update, which was a RAT. The attacker then published Axios 1.14.1 and 0.30.4 on 31 March through the compromised account. These depended on plain-crypto-js. The owner says about three hours of availability; avoid exact endpoints here because the owner and Google differ by several minutes.
 
+Download scale: npm registry API reports 18,057,508 axios downloads on 31 March 2026 (101,032,032 for 24–30 March). The owner's window is 00:21–03:15 UTC (~2.9 h); at the daily average that is roughly 2M downloads of any axios version. This is an exposure estimate, not a victim count: npm counts every version, and lockfile-pinned installs did not resolve the malicious releases. Say "fetches" or "downloads", never "infections".
+
 BleepingComputer describes authenticated-session reuse as effectively bypassing a fresh MFA challenge. The maintainer primary directly establishes device compromise and npm credential access; do not imply we have independent forensic proof of a particular MFA bypass technique. Phishing-resistant login does not by itself contain malware on an authenticated workstation.
 
 Mastra is a SEPARATE June example of publishing-account takeover, not evidence that the same fake meeting was used. Microsoft reports 140+ affected packages and the easy-day-js dependency. Microsoft attributes Mastra to Sapphire Sleet with HIGH confidence. Amazon assesses the Axios/debug/chalk/typo-crypto thread as Sapphire Sleet with MEDIUM confidence. Google's March Axios report uses UNC1069; a later July report calls it MIDNIGHT NEPTUNE, formerly UNC1069. These vendor cluster labels are not automatically one-to-one. Microsoft's Mastra post labels Axios as April, whereas the Axios owner dates publication to 31 March. Keep the owner date. No AI-causation claim.
 
 Sources:
 - https://github.com/axios/axios/issues/10636
+- https://api.npmjs.org/downloads/range/2026-03-30:2026-04-01/axios
 - https://www.bleepingcomputer.com/news/security/axios-npm-hack-used-fake-teams-error-fix-to-hijack-maintainer-account/
 - https://www.microsoft.com/en-us/security/blog/2026/06/17/postinstall-payload-inside-mastra-npm-supply-chain-compromise/
 - https://aws.amazon.com/blogs/security/amazon-identifies-north-korean-hacker-group-behind-open-source-supply-chain-attacks/
@@ -1471,16 +1470,16 @@ section { padding:0; }
 
 <div class="ai3-shade"></div>
 <div class="ai3-head"><div class="eyebrow">03 · AI amplification</div><h1>AI joined<br>the attack chain</h1></div>
-<div class="ai3-slogans"><h2>Build and adapt<br>attacks</h2><h2>Turn instructions<br>into actions</h2></div>
+<div class="ai3-slogans"><h2>Build and adapt<br>attacks</h2><h2>Turn our AI<br>against us</h2></div>
 
 <!--
 SLIDE 24 · SPEAKER NOTES
 
 Say:
-AI plays two roles here. It can help attackers build and adapt an attack. And inside our environment, it can turn incoming instructions into actions using our access.
+AI plays two roles here. It can help attackers build and adapt an attack. And attackers can turn our own AI against us: a prompt injection steers an agent that already has our access, or malware runs the AI tools on a developer's machine to hunt for secrets.
 
 Delivery:
-Point to the first slogan for attacker assistance and the second for AI acting inside our environment. Keep the explanation spoken; the slide carries only the chapter title and the two slogans.
+Point to the first slogan for attacker assistance and the second for our own AI used as the attacker's tool (prompt injection, or S1ngularity-style use of local AI tools). Keep the explanation spoken; the slide carries only the chapter title and the two slogans.
 
 Next:
 Start with S1ngularity, an August 2025 precedent for attempted use of local AI tools. Introduce the backward step in time explicitly.
@@ -1921,13 +1920,14 @@ section { padding:0; }
 .names-group { border-top:2px solid #E6B65E88; padding-top:12px; }
 .names-group h2 { font-size:19px; color:#E6B65E; margin:0 0 12px; white-space:nowrap; }
 .names-group p { font-size:20px; line-height:1.45; color:#F7F4EE; margin:0; font-weight:600; }
+.names-group p.seq.v { transition:opacity .35s ease-out; }
 .names-foot { position:absolute!important; bottom:30px; left:64px; right:64px; border-top:1px solid #A5D7BB44; padding-top:13px; font-size:20px; color:#C9D4CD; }
 </style>
 <div class="names-shade"></div><div class="names-head"><h1>We could keep going</h1><p>Selected 2026 incidents across the open-source toolchain</p></div>
-<div class="names-grid"><div class="names-group"><h2>Package registries</h2><p>Axios</p><p>TanStack / Mistral</p><p>LiteLLM / Telnyx</p><p>Mastra / easy-day-js</p><p>keyv / Cacheable</p><p>@antv</p><p>Jscrambler</p><p>openapi codegen</p></div>
-<div class="names-group"><h2>Other delivery paths</h2><p>arrayref / onering</p><p>Laravel-Lang</p><p>Sicoob / Braintree.Net</p><p>Muck and Load</p><p>SleeperGem</p><p>universal_file_viewer</p><p>Graphalgo modules</p><p>Cemu release assets</p></div>
-<div class="names-group"><h2>Automation</h2><p>Trivy / KICS</p><p>hackerbot-claw</p><p>prt-scan</p><p>GhostAction</p><p>Megalodon</p><p>actions-cool</p><p>xygeni-action</p><p>kubernetes-el</p></div>
-<div class="names-group"><h2>Editors and agent context</h2><p>Nx Console</p><p>GlassWorm / GlassWASM</p><p>Cline</p><p>JetBrains plugins</p><p>MaliciousCorgi</p><p>TasksJacker</p><p>TrapDoor</p><p>ClawHavoc</p></div>
+<div class="names-grid seq-reveal" data-order="random"><div class="names-group"><h2>Package registries</h2><p class="seq" data-delay="250">Axios</p><p class="seq" data-delay="250">TanStack / Mistral</p><p class="seq" data-delay="250">LiteLLM / Telnyx</p><p class="seq" data-delay="250">Mastra / easy-day-js</p><p class="seq" data-delay="250">keyv / Cacheable</p><p class="seq" data-delay="250">@antv</p><p class="seq" data-delay="250">Jscrambler</p><p class="seq" data-delay="250">openapi codegen</p></div>
+<div class="names-group"><h2>Other delivery paths</h2><p class="seq" data-delay="250">arrayref / onering</p><p class="seq" data-delay="250">Laravel-Lang</p><p class="seq" data-delay="250">Sicoob / Braintree.Net</p><p class="seq" data-delay="250">Muck and Load</p><p class="seq" data-delay="250">SleeperGem</p><p class="seq" data-delay="250">universal_file_viewer</p><p class="seq" data-delay="250">Graphalgo modules</p><p class="seq" data-delay="250">Cemu release assets</p></div>
+<div class="names-group"><h2>Automation</h2><p class="seq" data-delay="250">Trivy / KICS</p><p class="seq" data-delay="250">hackerbot-claw</p><p class="seq" data-delay="250">prt-scan</p><p class="seq" data-delay="250">GhostAction</p><p class="seq" data-delay="250">Megalodon</p><p class="seq" data-delay="250">actions-cool</p><p class="seq" data-delay="250">xygeni-action</p><p class="seq" data-delay="250">kubernetes-el</p></div>
+<div class="names-group"><h2>Editors and agent context</h2><p class="seq" data-delay="250">Nx Console</p><p class="seq" data-delay="250">GlassWorm / GlassWASM</p><p class="seq" data-delay="250">Cline</p><p class="seq" data-delay="250">JetBrains plugins</p><p class="seq" data-delay="250">MaliciousCorgi</p><p class="seq" data-delay="250">TasksJacker</p><p class="seq" data-delay="250">TrapDoor</p><p class="seq" data-delay="250">ClawHavoc</p></div>
 </div>
 <div class="names-foot">Different entry points. Code execution. An identity already there.</div>
 
@@ -1938,7 +1938,7 @@ Say:
 Do not read every name. Packages, automation, editors and agent context give attackers different routes to execution and available identity. Names can cover multiple recorded waves, and some records cross surfaces.
 
 Delivery:
-Sweep across delivery areas; do not narrate the full name list.
+On entry the 32 names appear one by one in random order, every 0.25 s (about 8 s in total); click the grid to replay. Keep talking over the reveal; do not narrate the full name list.
 
 Next:
 Explain what the inventory does and does not count.
@@ -1988,7 +1988,7 @@ h1 { color:#F7F2E8; font-size:60px; font-weight:900; line-height:1.04; letter-sp
 
 <div class="head"><div class="kicker">Across the software supply chain</div><h1>The pattern is clear</h1><div class="subtitle">Selected incidents and waves<br>Different annual coverage; not a growth rate.</div></div>
 <div class="annual"><div class="row"><b>23</b><div class="year">2025<span>Across 20 campaign groups</span></div></div><div class="row current"><b>95</b><div class="year">2026<span>Across 61 campaign groups so far</span></div></div></div>
-<div class="path"><b>Untrusted input</b><i>→</i><b>Trusted automation</b><i>→</i><b>Existing identity</b></div>
+<div class="path"><b>Untrusted input</b><i>→</i><b>Trusted environment</b><i>→</i><b>Existing identity</b></div>
 <div class="amplifier">AI adds input, reach and adaptation.</div>
 
 <!--
@@ -2220,8 +2220,8 @@ section { padding:0; }
 </style>
 
 <div class="ip-shade"></div>
-<div class="ip-head"><div class="eyebrow">01 · Input → execution</div><h1>Keep reviewed<br>inputs fixed</h1></div>
-<p class="ip-message">Review first.<br>Fix the selection.</p>
+<div class="ip-head"><div class="eyebrow">01 · Input → execution</div><h1>Pin to immutable<br>references</h1></div>
+<p class="ip-message">Review first.<br>Pin what you reviewed.</p>
 
 <div class="ip-options">
 <div class="ip-option"><h2>Packages</h2><p>Lockfile + integrity</p><code>pnpm install --frozen-lockfile</code></div>
@@ -2234,10 +2234,10 @@ section { padding:0; }
 SLIDE 34 · SPEAKER NOTES
 
 Say:
-Review first, then fix which input runs. Packages use committed lockfiles and integrity data, Actions use reviewed full commit SHAs, and images use reviewed digests. Keep those selections maintained through reviewed updates.
+Review first, then pin which input runs to an immutable reference. Packages use committed lockfiles and integrity data, Actions use reviewed full commit SHAs, and images use reviewed digests. Keep those selections maintained through reviewed updates.
 
 Delivery:
-The fixed jig represents an exact selection that cannot drift when a name or tag moves. It does not establish the selected input's safety. Use the three examples as corresponding mechanisms; the full reviewed Action pin remains in the existing examples and original comparison slide.
+The fixed jig represents an exact selection that cannot drift when a name or tag moves. Immutable describes the reference, not the code: it does not establish the selected input's safety. Do not confuse this consumer-side pinning with GitHub's publisher-side immutable releases. Use the three examples as corresponding mechanisms; the full reviewed Action pin remains in the existing examples and original comparison slide.
 
 Next:
 Assess the change before merging it.
@@ -4836,8 +4836,8 @@ This sample has 14 records in 14 conservative bundles. These totals are delibera
 /* Presentation-only reconstructions. No displayed command is executed. */
 (() => {
   const boot = () => {
-    const roots = [...document.querySelectorAll('.terminal,.wed-term,.screen')]
-      .filter(root => root.querySelector('.tl,.wl,.al'));
+    const roots = [...document.querySelectorAll('.terminal,.wed-term,.screen,.seq-reveal')]
+      .filter(root => root.querySelector('.tl,.wl,.al,.seq'));
     const runs = new WeakMap();
     const fullText = root => root.querySelectorAll('[data-text]').forEach(node => {
       node.textContent = node.dataset.text;
@@ -4847,7 +4847,7 @@ This sample has 14 records in 14 conservative bundles. These totals are delibera
       const section = root.closest('section');
       section.classList.remove('playing', 'copilot-on', 'answer-on');
       root.classList.remove('in-vim', 'after-vim');
-      root.querySelectorAll('.tl,.wl,.al').forEach(line => {
+      root.querySelectorAll('.tl,.wl,.al,.seq').forEach(line => {
         line.style.removeProperty('opacity');
         line.classList.remove('v');
       });
@@ -4890,9 +4890,16 @@ This sample has 14 records in 14 conservative bundles. These totals are delibera
           Number(line.dataset.type || line.dataset.t || 450));
       };
       const revealAll = async selector => {
-        for (const line of root.querySelectorAll(selector)) await reveal(line);
+        const lines = [...root.querySelectorAll(selector)];
+        if (root.dataset.order === 'random') {
+          for (let i = lines.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [lines[i], lines[j]] = [lines[j], lines[i]];
+          }
+        }
+        for (const line of lines) await reveal(line);
       };
-      root.querySelectorAll('.tl,.wl,.al').forEach(line => { line.style.opacity = '0'; });
+      root.querySelectorAll('.tl,.wl,.al,.seq').forEach(line => { line.style.opacity = '0'; });
       section.classList.add('playing');
       try {
         await wait(250);
@@ -4931,7 +4938,7 @@ This sample has 14 records in 14 conservative bundles. These totals are delibera
             await type(line, line.dataset.text, Number(line.dataset.type || 600));
           }
         } else {
-          await revealAll('.tl,.wl,.al');
+          await revealAll('.tl,.wl,.al,.seq');
         }
       } catch (error) {
         if (!signal.aborted) console.error('Terminal animation failed', error);
@@ -4955,7 +4962,7 @@ This sample has 14 records in 14 conservative bundles. These totals are delibera
     });
     observer.observe(document.body, { attributes: true, attributeFilter: ['data-bespoke-view'] });
     document.addEventListener('click', event => {
-      const root = event.target.closest('.terminal,.wed-term,.screen');
+      const root = event.target.closest('.terminal,.wed-term,.screen,.seq-reveal');
       if (root && roots.includes(root)) play(root);
     });
     sync();

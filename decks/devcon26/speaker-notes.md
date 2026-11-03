@@ -87,12 +87,12 @@ Delivery:
 First trace the four steps without discussing versions. Advance once to reveal the install-hook protection and bundled-default reminder together. pnpm 10+ and npm 12 block unapproved dependency install hooks; Node 26 LTS still bundles npm 11. Check the package manager as well as Node. Keep exact patch versions in the reference detail.
 
 Next:
-Introduce untrusted input, trusted automation and existing identity.
+Introduce untrusted input, trusted environment and existing identity.
 
 ## Slide 10
 
 Say:
-Untrusted input reaches trusted automation and gets to use an identity already there. The input might be a package, a comment or an instruction file; the identity might be a token, session or role.
+Untrusted input runs inside a trusted environment and gets to use an identity already there. The input might be a package, a comment or an instruction file; the environment might be your laptop, a CI runner or an agent sandbox; the identity might be a token, session or role.
 
 Next:
 Use Shai-Hulud 2.0 to walk the full chain.
@@ -197,7 +197,7 @@ Follow another route into publishing authority: the maintainer’s workstation.
 ## Slide 22
 
 Say:
-The Axios maintainer describes a fake meeting and supposed Teams update that compromised his workstation. The attacker published through his account on 31 March. Mastra is a separate account-takeover example. Microsoft attributes Mastra with high confidence; Amazon's Axios attribution is medium confidence. Keep those assessments separate.
+The Axios maintainer describes a fake meeting and supposed Teams update that compromised his workstation. The attacker published through his account on 31 March. The bad versions were live for only about three hours, but Axios is downloaded around 18 million times a day, so that short window still meant roughly two million fetches. Mastra is a separate account-takeover example. Microsoft attributes Mastra with high confidence; Amazon's Axios attribution is medium confidence. Keep those assessments separate.
 
 Next:
 Follow another workstation identity into an editor release.
@@ -213,7 +213,7 @@ Introduce the AI section without changing the trust model.
 ## Slide 24
 
 Say:
-AI plays two roles here. It can help attackers build and adapt an attack. And inside our environment, it can turn incoming instructions into actions using our access.
+AI plays two roles here. It can help attackers build and adapt an attack. And attackers can turn our own AI against us: a prompt injection steers an agent that already has our access, or malware runs the AI tools on a developer's machine to hunt for secrets.
 
 Delivery:
 Point to the first slogan for attacker assistance and the second for AI acting inside our environment. Keep the explanation spoken; the slide carries only the chapter title and the two slogans.
@@ -257,7 +257,7 @@ Say:
 Do not read every name. Packages, automation, editors and agent context give attackers different routes to execution and available identity. Names can cover multiple recorded waves, and some records cross surfaces.
 
 Delivery:
-Sweep across delivery areas; do not narrate the full name list.
+The 32 names appear one by one in random order, every 0.25 s (about 8 s); click the grid to replay.
 
 Next:
 Explain what the inventory does and does not count.
@@ -311,7 +311,7 @@ Decide which exact reviewed input may run.
 ## Slide 34
 
 Say:
-Review first, then fix which input runs. Packages use committed lockfiles and integrity data, Actions use reviewed full commit SHAs, and images use reviewed digests. Keep those selections maintained through reviewed updates.
+Review first, then pin which input runs to an immutable reference. Packages use committed lockfiles and integrity data, Actions use reviewed full commit SHAs, and images use reviewed digests. Keep those selections maintained through reviewed updates.
 
 Delivery:
 The fixed jig represents an exact selection that cannot drift when a name or tag moves. It does not establish the selected input's safety. Use the three examples as corresponding mechanisms; the full reviewed Action pin remains in the existing examples and original comparison slide.

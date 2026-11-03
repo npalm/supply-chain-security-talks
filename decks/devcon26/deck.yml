@@ -7,7 +7,7 @@ tags:
   - conference-talk
 site:
   title: 'You Trust More Code Than You Ship'
-  subtitle: 'Untrusted input. Trusted automation. An identity already there.'
+  subtitle: 'Untrusted input. Trusted environment. An identity already there.'
   contact:
     - label: '@npalm'
       kind: 'GitHub'
