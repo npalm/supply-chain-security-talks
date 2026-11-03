@@ -1,6 +1,6 @@
 # Speaker notes — You Trust More Code Than You Ship
 
-Current sequence: 57 main slides (including the recording fallback) and eight appendix slides. The selected closing uses dedicated iceberg artwork with review gates integrated into the machinery, one deck QR and short profile links. The speaker introduction uses the realistic Klokgebouw background. Updated 2 November 2026. timing.json plans 40 minutes, including the live demo and animations, with the appendix reserved for questions; validate pacing in rehearsal. Evidence and technical detail remain in the native slide notes.
+Current sequence: 58 main slides (including the recording fallback) and eight appendix slides. The selected closing uses dedicated iceberg artwork with review gates integrated into the machinery, one deck QR and short profile links. The speaker introduction uses the realistic Klokgebouw background. Updated 3 November 2026. timing.json plans 40 minutes, including the live demo and animations, with the appendix reserved for questions; validate pacing in rehearsal. Evidence and technical detail remain in the native slide notes.
 
 ## Slide 1
 
@@ -432,23 +432,26 @@ Say:
 Start with workflow-level permissions: {} and give each job only its required GITHUB_TOKEN rights. Here the release writes a GitHub Release. Separately narrow an App token's repositories and permissions. Keep its private key away from untrusted execution.
 
 Next:
-Introduce the workload identity exchange.
+Name the stored-secret problem, then the workload identity exchange.
 
 ## Slide 46
 
 Say:
-OIDC lets a job present GitHub-signed identity claims to a provider instead of storing a long-lived publishing secret. The provider checks trust and grants temporary access. Requesting a token is separate from permission to use a target resource.
+The job finishes. Its stored publishing token or cloud key may remain valid. If malicious code copies that credential while it is available, ending the job does not revoke the copy. It can still authorize the actions and resources that credential permits, until it expires or is revoked.
+
+Delivery:
+Pause on the two matching kitchen keys. The kitchen has closed, but a duplicate still opens the same cabinet. This is a conceptual illustration of reusable access, not incident evidence.
 
 Next:
-What if an accepted job runs a stranger's code?
+What if the workflow proved which job it was, instead of carrying a stored long-lived secret?
 
 ## Slide 47
 
 Say:
-An unauthorised comment triggered openapi's release job, which checked out fork code and published using the repository's OIDC identity. All ten malicious versions had valid provenance. The job identity was genuine; its input selection was unsafe.
+The previous slide showed a credential that outlives its job. OIDC changes how the job gets access: the job presents GitHub-signed identity claims, a registry or cloud provider checks them against its trust rules and grants short-lived access. Requesting a token is separate from permission to use a target resource.
 
 Next:
-Separate provider trust from GitHub release enforcement.
+How broad is the trust behind that exchange?
 
 ## Slide 48
 
@@ -470,9 +473,17 @@ Delivery:
 Point to exact subject matching, branch selection, approval and bypass changes, then the compact role-permissions box. Trust controls who can assume the role; permissions control what that role can do.
 
 Next:
-Apply input review to instructions and their helpers.
+Even a genuine job identity can publish a stranger's code.
 
 ## Slide 50
+
+Say:
+A real case shows why. An unauthorised comment triggered openapi's release job, which checked out fork code and published using the repository's OIDC identity. All ten malicious versions had valid provenance. The job identity was genuine; its input selection was unsafe.
+
+Next:
+Apply input review to instructions and their helpers.
+
+## Slide 51
 
 Say:
 TrapDoor placed malicious project instructions; OX reported an MCP listing linked to a poisoned repository. Keep observed artifacts separate from proof an agent obeyed them. Follow instructions into commands, downloaded helpers, destinations and access.
@@ -480,7 +491,7 @@ TrapDoor placed malicious project instructions; OX reported an MCP listing linke
 Next:
 Prepare for a boundary being crossed anyway.
 
-## Slide 51
+## Slide 52
 
 Say:
 Removing the package does not revoke copied sessions or remove installed persistence. Keep useful evidence outside the suspect host, identify recovery owners and restore from a clean environment.
@@ -488,7 +499,7 @@ Removing the package does not revoke copied sessions or remove installed persist
 Next:
 Rehearse one compromised publisher.
 
-## Slide 52
+## Slide 53
 
 Say:
 Take one laptop that installed malware while holding publishing access. Who contains execution, revokes each identity and validates downstream artifacts? These are coordinated workstreams, not a universal fixed response order.
@@ -496,7 +507,7 @@ Take one laptop that installed malware while holding publishing access. Who cont
 Next:
 Offer a small starting action within one person's scope.
 
-## Slide 53
+## Slide 54
 
 Say:
 Choose one project you maintain. Propose a supported cooldown, review the diff and open a small PR. Seven days is an example; preserve a route for urgent fixes. Pick one action rather than attempting the whole programme on Monday.
@@ -507,7 +518,7 @@ This begins a choice of small individual actions; the audience need not complete
 Next:
 Another option is one workflow finding.
 
-## Slide 54
+## Slide 55
 
 Say:
 Run zizmor on one existing workflow and understand one finding. Pin a reviewed Action commit or reduce token access. Use permissions: {} as the workflow default and grant each job only what it needs. Review behavior and open one focused PR.
@@ -518,7 +529,7 @@ The scan and edits are illustrative. No all-clear output is implied.
 Next:
 Inspect the coding setup before starting the next task.
 
-## Slide 55
+## Slide 56
 
 Say:
 List tracked setup and instruction files, then use cat to read devcontainer.json. Follow startup commands and downloads. Check the actual mounts, tools and forwarded credentials, including local settings the tracked files do not show.
@@ -529,7 +540,7 @@ Read-only inspection first. cat displays the settings file; it does not establis
 Next:
 Use the original devcontainer-to-agent closing example.
 
-## Slide 56
+## Slide 57
 
 Say:
 Start the reviewed devcontainer and launch Copilot inside it. Ask: What principles keep this repo safe from supply chain attacks? Let the answer recap the controls, ending with revoking exposed access and restoring trusted execution. This is an illustrative session; the boundary comes from reviewed configuration, not the startup command alone.
@@ -541,7 +552,7 @@ After devcontainer exec, hold the terminal for 3.5 seconds before Copilot appear
 Next:
 Close on making trust an engineering decision.
 
-## Slide 57
+## Slide 58
 
 Say:
 You trust more code than you ship. The hidden machinery is still there. Review what enters it, constrain what can execute, and scope the identity it can use. Make that trust an engineering decision. Scan for the deck and resources. Thank you.
@@ -553,7 +564,7 @@ End prepared content here and leave this slide visible for questions. The 40-min
 Next:
 Take questions; use the catalogue only when useful.
 
-## Slide 58
+## Slide 59
 
 Say:
 The appendix contains the incident catalogue. Names link to sources and the dates preserve activity, verified availability and disclosure distinctions. Use it for a specific question rather than reading every entry.
@@ -564,7 +575,7 @@ Appendix only; the seven entry pages use the dimmed divider artwork.
 Next:
 Open the relevant year or delivery example.
 
-## Slide 59
+## Slide 60
 
 Say:
 This first 2026 page covers early-year entries. Pick the relevant incident and open its source. The page is part of the selected 95-record inventory, not an additional count.
@@ -572,7 +583,7 @@ This first 2026 page covers early-year entries. Pick the relevant incident and o
 Next:
 Continue chronologically if the question needs it.
 
-## Slide 60
+## Slide 61
 
 Say:
 Continue the 2026 catalogue with the next dated entries. Distinguish individual compromise episodes from recurring family names and preserve the qualifiers on dates.
@@ -580,7 +591,7 @@ Continue the 2026 catalogue with the next dated entries. Distinguish individual 
 Next:
 Move to the next page of the same inventory.
 
-## Slide 61
+## Slide 62
 
 Say:
 These are further entries in the same selected 2026 inventory. Use the linked source and detailed record when a date or affected scope is in question.
@@ -588,7 +599,7 @@ These are further entries in the same selected 2026 inventory. Use the linked so
 Next:
 Continue to the remaining 2026 entries.
 
-## Slide 62
+## Slide 63
 
 Say:
 This is the final selected 2026 catalogue page. The 21 October baseline was reconciled on 22 October. A targeted refresh checked on 31 October adds the vendor-confirmed 29 October Cursor/Claude Code extension compromise after LiteLLM. This is not a complete daily sweep; absence from this selection does not establish that another incident never happened.
@@ -596,7 +607,7 @@ This is the final selected 2026 catalogue page. The 21 October baseline was reco
 Next:
 Use the earlier-year pages for historical examples.
 
-## Slide 63
+## Slide 64
 
 Say:
 The 2025 review has 23 records across 20 conservative groups. Some malicious artifacts were published earlier but were verified available during 2025. Do not add annual groups as unique operators.
@@ -604,7 +615,7 @@ The 2025 review has 23 records across 20 conservative groups. Some malicious art
 Next:
 Move to the bounded 2024 sample if useful.
 
-## Slide 64
+## Slide 65
 
 Say:
 The 2024 historical sample contains 18 records across 17 bundles. It is a bounded sample with different coverage, not a complete annual census or a directly comparable growth series.
@@ -612,7 +623,7 @@ The 2024 historical sample contains 18 records across 17 bundles. It is a bounde
 Next:
 Use 2023 for another historical example.
 
-## Slide 65
+## Slide 66
 
 Say:
 The 2023 historical sample contains 14 records across 14 bundles and includes vendor-delivery cases. Follow the source for the chosen example; do not compare totals as equal-coverage measurements.
