@@ -752,7 +752,7 @@ Say:
 The preinstall hook starts the loader and payload with the installing process's access. A development dependency can run before the application starts and still reach valuable identity.
 
 Next:
-Follow the credential search.
+First, see how publishing authority turns one install into distribution.
 
 Reference detail (not read aloud):
 This excerpt shows the reported hook, not a complete malicious package. Socket documents a Bun loader and detached payload. Execution happens with the installing environment’s access, before the application proves anything about itself. Explain why “devDependency” does not mean low privilege.
@@ -760,81 +760,6 @@ Sources:
 - https://socket.dev/blog/shai-hulud-strikes-again-v2
 
 Composition source: GEECon 19
-
-Artwork selected by the speaker; previous artwork files are retained as unused assets.
--->
-
-
-
-
-
-
----
-
-<!-- _class: chapter-attacks attack-step -->
-![bg left:38%](assets/img/shai-step-2-cartoon-alternative-v1.png)
-
-<style scoped>
-.hunt-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.hunt-item {
-  background: rgba(251, 191, 36, 0.1);
-  border: 1px solid rgba(251, 191, 36, 0.2);
-  border-radius: 8px;
-  padding: 10px;
-}
-.hunt-item h3 { color: #fbbf24; margin: 0 0 5px 0; font-size: 0.8em; }
-.hunt-item p { margin: 0; font-size: 0.68em; color: #cbd5e1; line-height: 1.4; }
-code { font-size: 0.8em; }
-.irony { color: #f87171; font-style: italic; font-size: 0.75em; margin-top: 0.8em; text-align: center; }
-</style>
-
-<div class="attack-step-label">Shai-Hulud 2.0 · Step 2</div>
-
-# Secret hunting
-
-## Every trick in the book - including security tools
-
-<div class="hunt-grid">
-<div class="hunt-item">
-<h3>Environment Variables</h3>
-<p>Search environment variables for usable credentials</p>
-</div>
-<div class="hunt-item">
-<h3>Cloud Credentials</h3>
-<p>Scan <code>~/.aws</code>, <code>~/.config/gcloud</code>, Azure configs</p>
-</div>
-<div class="hunt-item">
-<h3>TruffleHog</h3>
-<p>Use the <strong>security tool</strong> to scan filesystem and git history</p>
-</div>
-<div class="hunt-item">
-<h3>GitHub Actions</h3>
-<p>Create workflow to exfiltrate <code>secrets.*</code> context</p>
-</div>
-</div>
-
-<div class="irony">The attacker uses TruffleHog,<br>a tool built to protect you, against you.</div>
-
-<!--
-SLIDE 13 · SPEAKER NOTES
-
-Say:
-The payload looks through the environment and filesystem for usable credentials. It can even use security tools to help discovery. What it finds depends on the host and permissions.
-
-Next:
-A publishing token turns one compromise into distribution.
-
-Reference detail (not read aloud):
-Walk through environment, cloud credentials, filesystem/history scanning and CI secrets. Presence and usable scope vary by machine. The point is inherited process access. The security tool itself can help an attacker discover identity.
-Sources:
-- https://socket.dev/blog/shai-hulud-strikes-again-v2
-- https://posthog.com/blog/nov-24-shai-hulud-attack-post-mortem
-
-Composition source: GEECon 20
 
 Artwork selected by the speaker; previous artwork files are retained as unused assets.
 -->
@@ -884,7 +809,7 @@ Artwork selected by the speaker; previous artwork files are retained as unused a
 .stat-box .lbl { font-size: 0.85em; color: #fde68a; }
 </style>
 
-<div class="attack-step-label">Shai-Hulud 2.0 · Step 3</div>
+<div class="attack-step-label">Shai-Hulud 2.0 · Step 2</div>
 
 # Worm propagation
 
@@ -903,7 +828,7 @@ Artwork selected by the speaker; previous artwork files are retained as unused a
 <div class="stat-box">Each new maintainer environment<br>can close the loop.</div>
 
 <!--
-SLIDE 14 · SPEAKER NOTES
+SLIDE 13 · SPEAKER NOTES
 
 Say:
 Install, find a usable npm token, modify packages that identity can publish, then reach the next install. Not every machine completes this loop, but publishing authority creates the propagation opportunity.
@@ -912,7 +837,7 @@ Delivery:
 Trace one complete propagation loop before moving on.
 
 Next:
-Follow the GitHub branch of the chain.
+Now look at where the worm finds those credentials.
 
 Reference detail (not read aloud):
 Slow down here. Publishing authority converts a compromised consumer into a distribution channel. Walk one complete cycle: install, token, owned package, altered release, next install. The package remains useful enough to be adopted. Different environments supply different opportunities; the loop does not require every machine to publish successfully. This is why a package list alone fails to describe the incident. Let the audience identify the edge they would break, then defer the full answer to controls.
@@ -930,6 +855,81 @@ Artwork selected by the speaker; previous artwork files are retained as unused a
 
 
 
+
+
+
+
+
+
+---
+
+<!-- _class: chapter-attacks attack-step -->
+![bg left:38%](assets/img/shai-step-2-cartoon-alternative-v1.png)
+
+<style scoped>
+.hunt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.hunt-item {
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+}
+.hunt-item h3 { color: #fbbf24; margin: 0 0 5px 0; font-size: 0.8em; }
+.hunt-item p { margin: 0; font-size: 0.68em; color: #cbd5e1; line-height: 1.4; }
+code { font-size: 0.8em; }
+.irony { color: #f87171; font-style: italic; font-size: 0.75em; margin-top: 0.8em; text-align: center; }
+</style>
+
+<div class="attack-step-label">Shai-Hulud 2.0 · Step 3</div>
+
+# Secret hunting
+
+## Every trick in the book - including security tools
+
+<div class="hunt-grid">
+<div class="hunt-item">
+<h3>Environment Variables</h3>
+<p>Search environment variables for usable credentials</p>
+</div>
+<div class="hunt-item">
+<h3>Cloud Credentials</h3>
+<p>Scan <code>~/.aws</code>, <code>~/.config/gcloud</code>, Azure configs</p>
+</div>
+<div class="hunt-item">
+<h3>TruffleHog</h3>
+<p>Use the <strong>security tool</strong> to scan filesystem and git history</p>
+</div>
+<div class="hunt-item">
+<h3>GitHub Actions</h3>
+<p>Create workflow to exfiltrate <code>secrets.*</code> context</p>
+</div>
+</div>
+
+<div class="irony">The attacker uses TruffleHog,<br>a tool built to protect you, against you.</div>
+
+<!--
+SLIDE 14 · SPEAKER NOTES
+
+Say:
+The payload looks through the environment and filesystem for usable credentials. It can even use security tools to help discovery. What it finds depends on the host and permissions.
+
+Next:
+Follow the GitHub branch of the chain.
+
+Reference detail (not read aloud):
+Walk through environment, cloud credentials, filesystem/history scanning and CI secrets. Presence and usable scope vary by machine. The point is inherited process access. The security tool itself can help an attacker discover identity.
+Sources:
+- https://socket.dev/blog/shai-hulud-strikes-again-v2
+- https://posthog.com/blog/nov-24-shai-hulud-attack-post-mortem
+
+Composition source: GEECon 20
+
+Artwork selected by the speaker; previous artwork files are retained as unused assets.
+-->
 
 
 
@@ -1387,7 +1387,7 @@ Say:
 The Axios maintainer describes a fake meeting and supposed Teams update that compromised his workstation. The attacker published through his account on 31 March. The bad versions were live for only about three hours, but Axios is downloaded around 18 million times a day, so that short window still meant roughly two million fetches. Mastra is a separate account-takeover example. Microsoft attributes Mastra with high confidence; Amazon's Axios attribution is medium confidence. Keep those assessments separate.
 
 Next:
-Follow another workstation identity into an editor release.
+Introduce the AI section without changing the trust model.
 
 Reference detail (not read aloud):
 The Axios maintainer describes a convincing recruitment-style invitation, staged company Slack workspace and apparent Teams meeting. An error prompted him to install a supposed update, which was a RAT. The attacker then published Axios 1.14.1 and 0.30.4 on 31 March through the compromised account. These depended on plain-crypto-js. The owner says about three hours of availability; avoid exact endpoints here because the owner and Google differ by several minutes.
@@ -1406,50 +1406,6 @@ Sources:
 - https://aws.amazon.com/blogs/security/amazon-identifies-north-korean-hacker-group-behind-open-source-supply-chain-attacks/
 - https://cloud.google.com/blog/topics/threat-intelligence/north-korea-threat-actor-targets-axios-npm-package/
 - https://cloud.google.com/blog/topics/threat-intelligence/mitigation-guidance-for-supply-chain-compromise
--->
-
----
-
-<!-- _class: risk chapter-attacks -->
-![bg](assets/img/nx-editor-art-v1.png)
-<style scoped>
-section { padding:0; }
-.art-shade { position:absolute!important; inset:0; z-index:0!important; background:linear-gradient(90deg,#0B1111F2 0%,#0B1111D9 34%,#0B111100 63%); }
-.art-copy { position:absolute!important; top:54px; left:64px; width:495px; }
-.art-label { font:600 15px/1.4 'JetBrains Mono',monospace; color:#E6B65E; margin-bottom:27px; }
-.art-copy h1 { font-size:59px; line-height:1.04; margin-bottom:34px; }
-.art-line { border-left:3px solid #E6B65E; padding-left:17px; margin:22px 0; }
-.art-line b { display:block; color:#F7F4EE; font-size:25px; margin-bottom:5px; }
-.art-line span { display:block; color:#C9D4CD; font-size:21px; line-height:1.4; }
-.art-foot { position:absolute!important; bottom:41px; left:64px; right:64px; background:#101819E8; border-top:1px solid #A5D7BB66; padding:16px 20px; color:#E6C797; font-size:21px; }
-.art-foot small { display:block; color:#B9C9BE; font-size:17px; margin-top:7px; }
-</style>
-<div class="art-shade"></div>
-<div class="art-copy"><div class="art-label">NX CONSOLE · VS CODE · 18 MAY 2026</div><h1>Package install<br>Editor release</h1>
-<div class="art-line"><b>TanStack dependency → identity</b><span>An install stole a contributor’s GitHub CLI access.</span></div>
-<div class="art-line"><b>Identity → Nx Console 18.95.0</b><span>Published to Marketplace and Open VSX.</span></div>
-<div class="art-line"><b>Extension activation → payload</b><span>Credential harvesting and persistence.</span></div></div>
-<div class="art-foot">A stolen identity connected two delivery surfaces.<small>Nx owner postmortem · May 2026 extension incident</small></div>
-
-<!--
-SLIDE 23 · SPEAKER NOTES
-
-Say:
-Nx traces a malicious TanStack install to theft of a contributor's GitHub CLI identity, then the 18 May Nx Console release to both extension marketplaces. The owner scopes this incident to the extension. This is separate from the 2025 Nx npm incident we will see next.
-
-Next:
-Introduce the AI section without changing the trust model.
-
-Reference detail (not read aloud):
-Nx's owner postmortem traces a malicious TanStack dependency installed on 11 May to theft of a contributor's GitHub CLI OAuth identity. On 18 May, the attacker published Nx Console 18.95.0 to Visual Studio Marketplace and Open VSX. The extension payload executed on activation and harvested credentials and installed persistence. This gives us an open-source cross-surface chain without naming downstream corporate victims.
-
-Do not confuse the May 2026 Nx Console extension with the August 2025 Nx npm/S1ngularity incident shown later on slide 25. The owner scopes the 2026 incident to the extension; Nx CLI, official @nx plugins and Nx Cloud were outside that stated scope. Both marketplaces were affected, correcting the earlier StepSecurity report that Open VSX was unaffected.
-
-Keep disputed install/activation numbers out of the slide: the owner lists 28 Marketplace installs, 41 Open VSX downloads and approximately 6.000 extension activations, which are different units. Its headline 11-minute Marketplace description also differs from the upload/unpublish timeline. The date and cross-surface mechanism are sufficient here. Link back to cooldown enforcement and forward to coding isolation: extensions also run beside workstation identity. A devcontainer does not automatically isolate every extension or inherited session; inspect where extension hosts run.
-
-Sources:
-- https://nx.dev/blog/nx-console-v18-95-0-postmortem
-- https://github.com/nrwl/nx-console/security/advisories/GHSA-c9j4-9m59-847w
 -->
 
 ---
@@ -1473,7 +1429,7 @@ section { padding:0; }
 <div class="ai3-slogans"><h2>Build and adapt<br>attacks</h2><h2>Turn our AI<br>against us</h2></div>
 
 <!--
-SLIDE 24 · SPEAKER NOTES
+SLIDE 23 · SPEAKER NOTES
 
 Say:
 AI plays two roles here. It can help attackers build and adapt an attack. And attackers can turn our own AI against us: a prompt injection steers an agent that already has our access, or malware runs the AI tools on a developer's machine to hunt for secrets.
@@ -1596,7 +1552,7 @@ h1 { display: none; }
 </div><div style="font:14px Menlo,monospace;color:#B4B6B5;margin-top:9px">S1ngularity · August 2025 · illustrative reconstruction</div>
 
 <!--
-SLIDE 25 · SPEAKER NOTES
+SLIDE 24 · SPEAKER NOTES
 
 Say:
 Nx reported malicious postinstall code attempting to use local Claude and Gemini tools, then upload through existing GitHub CLI access. These terminals reconstruct the behavior; not every prompt necessarily succeeded.
@@ -1668,7 +1624,7 @@ h1 {
 </div>
 
 <!--
-SLIDE 26 · SPEAKER NOTES
+SLIDE 25 · SPEAKER NOTES
 
 Say:
 This is the attacker side of the AI distinction. StepSecurity and Wiz assess AI assistance in campaigns that scanned repositories and adapted payloads around known workflow flaws. The evidence shows systematic exploitation, without measuring an AI-versus-human speedup or establishing a shared operator.
@@ -1824,7 +1780,7 @@ h1 {
 </div>
 <div class="wed-body" id="wed-left">
 
-<div class="wl" data-d="200" data-t="600"><span class="wed-prompt">❯</span> <span class="wed-typed" style="color:#e2e8f0;font-weight:700" data-text='/wed "my startup idea"'>/wed &quot;my startup idea&quot;</span></div>
+<div class="wl" data-d="10200" data-t="600"><span class="wed-prompt">❯</span> <span class="wed-typed" style="color:#e2e8f0;font-weight:700" data-text='/wed "my startup idea"'>/wed &quot;my startup idea&quot;</span></div>
 <div class="wl" data-d="400"><span class="wed-dim">  skill orlyjamie/wed@1.0.3 loaded</span></div>
 <div class="wl" data-d="300"></div>
 <div class="wl" data-d="300"><span class="wed-p">⏺</span> <span class="wed-agent">Great idea! Let me analyze this using</span></div>
@@ -1858,7 +1814,7 @@ h1 {
 </div>
 <div class="wed-body" id="wed-right">
 
-<div class="wl" data-d="200"><span class="wed-dim">Listening on en0, capture size 262144 bytes</span></div>
+<div class="wl" data-d="10200"><span class="wed-dim">Listening on en0, capture size 262144 bytes</span></div>
 <div class="wl" data-d="3400"><span class="wed-d">--------------------------------------</span></div>
 <div class="wl" data-d="200"><span class="wed-net-warn">20:14:03.241</span> <span class="wed-dim">POST</span> <span class="wed-b">workers.dev/log</span></div>
 <div class="wl" data-d="100"><span class="wed-d">&nbsp;&nbsp;src</span> <span class="wed-w">192.168.1.42:58201</span> → <span class="wed-r">104.18.12.47:443</span></div>
@@ -1885,19 +1841,19 @@ The observed PoC sent a ping. <strong>Red secret-transfer lines show a hypotheti
 </div>
 
 <!--
-SLIDE 27 · SPEAKER NOTES
+SLIDE 26 · SPEAKER NOTES
 
 Say:
 The WED research skill sent a ping while returning useful advice. The secret-transfer example is a hypothetical modification, not observed key theft. Review what the instructions cause a tool to do, even when the answer looks useful.
 
 Delivery:
-Both reconstructed terminals animate. Clearly distinguish the observed ping from the hypothetical secret transfer.
+Hold for an extra ten seconds before both reconstructed terminals animate. Clearly distinguish the observed ping from the hypothetical secret transfer.
 
 Next:
 Broaden the view across delivery surfaces.
 
 Reference detail (not read aloud):
-Retain the WED double-terminal storytelling. Both terminals play automatically on entry; click either to replay. The original PoC sent a ping and returned useful advice. The red secret-transfer sequence illustrates a possible modification; it does not report actual key theft. The network display is a reconstruction, not plaintext captured from encrypted traffic. A benign-looking skill can ask an authorized tool to act.
+Retain the WED double-terminal storytelling. Both terminals play automatically after an extra ten-second pause on entry; click either to replay with the same pause. The original PoC sent a ping and returned useful advice. The red secret-transfer sequence illustrates a possible modification; it does not report actual key theft. The network display is a reconstruction, not plaintext captured from encrypted traffic. A benign-looking skill can ask an authorized tool to act.
 
 Sources:
 - https://x.com/theonejvo/status/2015892980851474595
@@ -1932,7 +1888,7 @@ section { padding:0; }
 <div class="names-foot">Different entry points. Code execution. An identity already there.</div>
 
 <!--
-SLIDE 28 · SPEAKER NOTES
+SLIDE 27 · SPEAKER NOTES
 
 Say:
 Do not read every name. Packages, automation, editors and agent context give attackers different routes to execution and available identity. Names can cover multiple recorded waves, and some records cross surfaces.
@@ -1992,7 +1948,7 @@ h1 { color:#F7F2E8; font-size:60px; font-weight:900; line-height:1.04; letter-sp
 <div class="amplifier">AI adds input, reach and adaptation.</div>
 
 <!--
-SLIDE 29 · SPEAKER NOTES
+SLIDE 28 · SPEAKER NOTES
 
 Say:
 The selected reviews contain 23 incidents and waves for 2025 and 95 for 2026, across 20 and 61 conservative campaign groups. Coverage differs; this is not a growth rate or an operator count. Across the examples, the trust relationship repeats.
@@ -2061,7 +2017,7 @@ h1 { color:#F7F2E8; font-size:60px; font-weight:900; line-height:1.04; letter-sp
 <div class="boundary">Separate observed cases.<br>Not a typical attack duration.</div>
 
 <!--
-SLIDE 30 · SPEAKER NOTES
+SLIDE 29 · SPEAKER NOTES
 
 Say:
 These are two separate observations, not typical attack durations or stages of one operation. They illustrate adaptation after access; they do not explain the difference between annual inventory counts.
@@ -2091,7 +2047,7 @@ Composition source: Selected order-ticket pair with native case metrics. Built-i
 <div class="copy"><div class="eyebrow">04 · Engineering controls</div><h1>Breaking<br>the chain</h1><div class="divider-caption">Every attack step gives us<br>an engineering decision.</div></div>
 
 <!--
-SLIDE 31 · SPEAKER NOTES
+SLIDE 30 · SPEAKER NOTES
 
 Say:
 Every step creates a boundary we can design: review incoming inputs, constrain execution, scope identity and prepare to recover. We will connect each control to a path already shown.
@@ -2112,11 +2068,11 @@ Composition source: Selected order-ticket kitchen variation, deliberately separa
 <!-- _class: control-scene safe chapter-controls -->
 ![bg](assets/img/controls-kitchen-intake-v1.png)
 <div class="c3shade"></div>
-<div class="c3head"><div class="c3kicker">01 · Input → execution · principle</div><h1>Control<br>what enters</h1><div class="c3lede">Review before<br>the first execution.</div><div class="c3points"><div>Review inputs; allowlist Actions</div><div>Lock reviewed dependencies</div><div>Delay fresh releases</div><div>Enforce intake through a mirror</div></div></div>
+<div class="c3head"><div class="c3kicker">Input → execution · principle</div><h1>Control<br>what enters</h1><div class="c3lede">Review before<br>the first execution.</div><div class="c3points"><div>Review inputs; allowlist Actions</div><div>Lock reviewed dependencies</div><div>Delay fresh releases</div><div>Enforce intake through a mirror</div></div></div>
 <div class="c3edge">Opening install hook · Shai-Hulud · tag hijacking</div>
 
 <!--
-SLIDE 32 · SPEAKER NOTES
+SLIDE 31 · SPEAKER NOTES
 
 Say:
 Review inputs and allowlist Actions before they run. A publisher badge is not a review. Delay fresh releases, keep reviewed selections fixed and enforce intake where practical.
@@ -2125,7 +2081,7 @@ Next:
 First consider when to accept a new release.
 
 Reference detail (not read aloud):
-Return to the ingredient receiving bench. The incoming crate has not automatically joined the preparation bench. Connect this to the opening install hook and to mutable action selection in Trivy. Review origin and executable behavior, including helper downloads. Use an allowlist for reviewed external Actions and reusable workflows; do not treat all public Actions or a verified creator badge as approval. The practical policy is on slide 34. Delay buys some observation time; it cannot certify an old package or remove a bad artifact already locked. Immutable selection fixes which bytes are selected, not whether they are appropriate. A mirror can enforce intake decisions when blocking policies are configured and requests cannot bypass it. Review origin, executable content, helper downloads and required approval. Inspect cached and pending artifacts, missing publication metadata, exceptions and request logs. A plain caching proxy is not an approval policy. See examples/mirror-intake.md.
+Return to the ingredient receiving bench. The incoming crate has not automatically joined the preparation bench. Connect this to the opening install hook and to mutable action selection in Trivy. Review origin and executable behavior, including helper downloads. Use an allowlist for reviewed external Actions and reusable workflows; do not treat all public Actions or a verified creator badge as approval. The practical policy is on slide 33. Delay buys some observation time; it cannot certify an old package or remove a bad artifact already locked. Immutable selection fixes which bytes are selected, not whether they are appropriate. A mirror can enforce intake decisions when blocking policies are configured and requests cannot bypass it. Review origin, executable content, helper downloads and required approval. Inspect cached and pending artifacts, missing publication metadata, exceptions and request logs. A plain caching proxy is not an approval policy. See examples/mirror-intake.md.
 Sources:
 - https://docs.github.com/en/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization
 - https://docs.jfrog.com/security/docs/create-policies-1
@@ -2160,7 +2116,7 @@ section { padding:0; }
 </style>
 
 <div class="iv-shade"></div>
-<div class="iv-head"><div class="eyebrow">01 · Input → execution</div><h1>Give fresh releases<br>a cooldown</h1></div>
+<div class="iv-head"><div class="eyebrow">Input → execution</div><h1>Give fresh releases<br>a cooldown</h1></div>
 <p class="iv-message">Wait. Observe. Review.</p>
 <div class="iv-delay"><b>7 days</b><span>An example policy</span></div>
 
@@ -2173,7 +2129,7 @@ section { padding:0; }
 <p class="iv-foot">Keep a reviewed exception path for urgent fixes.</p>
 
 <!--
-SLIDE 33 · SPEAKER NOTES
+SLIDE 32 · SPEAKER NOTES
 
 Say:
 Wait, observe, then review. Seven days is an example team policy. The same intention can sit at different enforcement points: pnpm dependency resolution, Renovate proposals or Dependabot version-update PRs. Choose what fits the ecosystem and keep a reviewed path for urgent fixes.
@@ -2220,7 +2176,7 @@ section { padding:0; }
 </style>
 
 <div class="ip-shade"></div>
-<div class="ip-head"><div class="eyebrow">01 · Input → execution</div><h1>Pin to immutable<br>references</h1></div>
+<div class="ip-head"><div class="eyebrow">Input → execution</div><h1>Pin to immutable<br>references</h1></div>
 <p class="ip-message">Review first.<br>Pin what you reviewed.</p>
 
 <div class="ip-options">
@@ -2231,7 +2187,7 @@ section { padding:0; }
 <p class="ip-foot">Review updates before changing the selection.</p>
 
 <!--
-SLIDE 34 · SPEAKER NOTES
+SLIDE 33 · SPEAKER NOTES
 
 Say:
 Review first, then pin which input runs to an immutable reference. Packages use committed lockfiles and integrity data, Actions use reviewed full commit SHAs, and images use reviewed digests. Keep those selections maintained through reviewed updates.
@@ -2278,7 +2234,7 @@ section { padding:0; }
 </style>
 
 <div class="av-shade"></div>
-<div class="av-head"><div class="eyebrow">01 · Input → execution</div><h1>Assess changes<br>before merging</h1></div>
+<div class="av-head"><div class="eyebrow">Input → execution</div><h1>Assess changes<br>before merging</h1></div>
 <p class="av-message">Three signals.<br>One review decision.</p>
 <div class="av-options">
 <div class="av-option"><h2>Upstream practices</h2><small>OpenSSF Scorecard</small><p>Inspect the findings</p></div>
@@ -2288,7 +2244,7 @@ section { padding:0; }
 <p class="av-foot">A score or clean scan cannot certify a release.</p>
 
 <!--
-SLIDE 35 · SPEAKER NOTES
+SLIDE 34 · SPEAKER NOTES
 
 Say:
 Use three signals to assess the change: upstream practices, published advisories and the dependency diff. Inspect the findings and require the PR check under an explicit policy. A strong score or clean advisory result cannot certify a release.
@@ -2300,7 +2256,7 @@ Next:
 Put the intake decision on the download path too.
 
 Reference detail (not read aloud):
-Selected illustrated slide 35. Previous design preserved in assurance-visual-alternatives.md. Detailed evidence and configuration caveats follow.
+Selected illustrated slide 34. Previous design preserved in assurance-visual-alternatives.md. Detailed evidence and configuration caveats follow.
 
 The supporting `with:` configuration excerpt lives in examples/dependency-review.example.yml; it is not a complete workflow. Use a reviewed full Action commit. `fail-on-severity: high` is an illustrative team choice, not a universal threshold. `warn-on-openssf-scorecard-level` is a warning threshold; it does not fail the Action. An aggregate score is a heuristic, and individual findings are more useful than treating one numeric threshold as certification. Public data can be absent or out of date. A compromised maintainer or build can still publish malware from a project with strong practices.
 
@@ -2337,7 +2293,7 @@ section { padding:0; }
 </style>
 
 <div class="mv-shade"></div>
-<div class="mv-head"><div class="eyebrow">01 · Input → execution</div><h1>Enforce intake<br>through a mirror</h1></div>
+<div class="mv-head"><div class="eyebrow">Input → execution</div><h1>Enforce intake<br>through a mirror</h1></div>
 <p class="mv-message">One enforced route.<br>Allow. Hold. Reject.</p>
 <div class="mv-options">
 <div class="mv-option"><h2>Public registries</h2><small>Incoming packages</small><p>New versions</p></div>
@@ -2347,7 +2303,7 @@ section { padding:0; }
 <p class="mv-foot">Set blocking rules. Reassess caches and exceptions.</p>
 
 <!--
-SLIDE 36 · SPEAKER NOTES
+SLIDE 35 · SPEAKER NOTES
 
 Say:
 Put a policy decision on the download route. A configured mirror can allow, hold or reject requests before developers and CI receive the artifacts. Enforce that route and handle cached components, pending analysis and exceptions deliberately.
@@ -2359,7 +2315,7 @@ Next:
 Retain enough inventory to find affected releases later.
 
 Reference detail (not read aloud):
-Selected illustrated slide 36. Previous design preserved in assurance-visual-alternatives.md. Detailed evidence and configuration caveats follow.
+Selected illustrated slide 35. Previous design preserved in assurance-visual-alternatives.md. Detailed evidence and configuration caveats follow.
 
 The receiving-hatch illustration and editable flow labels are conceptual, not a deployed product or a universal feature matrix. Release-age checks, malware analysis, ecosystem coverage and fail-closed behavior vary by product and configuration. A mirror is not a sandbox and does not automatically capture a package script downloading another executable over HTTPS. Network egress controls, package-manager origin settings and scoped registry routing must make the intended route effective. Cover developer machines as well as CI. Avoid making credentials available to arbitrary configured registry URLs.
 
@@ -2394,7 +2350,7 @@ section { padding:0; }
 </style>
 
 <div class="bv-shade"></div>
-<div class="bv-head"><div class="eyebrow">01 · Input → execution</div><h1>Know which releases<br>are affected</h1></div>
+<div class="bv-head"><div class="eyebrow">Input → execution</div><h1>Know which releases<br>are affected</h1></div>
 <p class="bv-message">A bad version.<br>Which releases used it?</p>
 <div class="bv-options">
 <div class="bv-option"><h2>Generate</h2><small>Syft · final artifact</small><p>SBOM per release</p></div>
@@ -2404,7 +2360,7 @@ section { padding:0; }
 <p class="bv-foot">Track build-tool exposure too: it may never ship.</p>
 
 <!--
-SLIDE 37 · SPEAKER NOTES
+SLIDE 36 · SPEAKER NOTES
 
 Say:
 Generate a Software Bill of Materials for the final release artifact and check its coverage. Connect it to the artifact digest and deployed environments. Recheck known advisories as they change, while keeping build-tool exposure records separately.
@@ -2416,7 +2372,7 @@ Next:
 Assume a bad component can still run.
 
 Reference detail (not read aloud):
-Selected illustrated slide 37. Previous design preserved in assurance-visual-alternatives.md. Detailed evidence and configuration caveats follow.
+Selected illustrated slide 36. Previous design preserved in assurance-visual-alternatives.md. Detailed evidence and configuration caveats follow.
 
 Software Bill of Materials (SBOM) means an inventory, not a safety verdict or evidence of actual execution. The commands in examples/release-inventory.md are supported presentation examples; they are not executed. `./dist` must actually be the final extracted package directory in the adopting project. Choose an image target where appropriate, including operating system packages and bundled/vendored content. Syft's supported catalogers and the analyzed artifact determine coverage; source/lockfile and final-artifact inventories can differ. Do not imply one directory scan perfectly captures every ecosystem or the build toolchain. Record scope and gaps, validate the SBOM and reconcile it with the release. An absent component is not proof of absence.
 
@@ -2451,7 +2407,7 @@ section { padding:0; }
 </style>
 
 <div class="wb-shade"></div>
-<div class="wb-head"><div class="eyebrow">02 · Trusted environment</div><h1>Harden builds<br>and workflows</h1></div>
+<div class="wb-head"><div class="eyebrow">Trusted environment</div><h1>Harden builds<br>and workflows</h1></div>
 <p class="wb-message">Separate the work<br>from the authority.</p>
 
 <div class="wb-options">
@@ -2462,7 +2418,7 @@ section { padding:0; }
 <p class="wb-foot">Verify the release handoff.</p>
 
 <!--
-SLIDE 38 · SPEAKER NOTES
+SLIDE 37 · SPEAKER NOTES
 
 Say:
 Make three decisions. Start each job in a fresh environment and dispose of it afterward. Bound the files, network and identity that running code can reach. Keep publishing authority outside untrusted build jobs, and verify the source and artifacts entering release.
@@ -2474,7 +2430,7 @@ Next:
 Make install-time execution explicit.
 
 Reference detail (not read aloud):
-Selected revised slide 38. Previous designs are preserved in workflow-boundaries-alternative.md. Existing kitchen artwork is reused with editable native labels. Freshness limits state surviving across jobs; it does not stop current-run credential abuse. A runner registered with --ephemeral still needs disposal or reimaging of its host. Filesystem, network and credential boundaries require deliberate enforcement. Separate jobs alone do not create the required boundary if they share a host, workspace or available credentials. The release handoff needs review of source/ref, artifact identity and cache trust; a digest alone does not prove benign behavior. Keep release credentials out of untrusted execution and retain useful logs outside disposable hosts. Subsequent slides cover install-script approval, workflow findings and concrete identity design.
+Selected revised slide 37. Previous designs are preserved in workflow-boundaries-alternative.md. Existing kitchen artwork is reused with editable native labels. Freshness limits state surviving across jobs; it does not stop current-run credential abuse. A runner registered with --ephemeral still needs disposal or reimaging of its host. Filesystem, network and credential boundaries require deliberate enforcement. Separate jobs alone do not create the required boundary if they share a host, workspace or available credentials. The release handoff needs review of source/ref, artifact identity and cache trust; a digest alone does not prove benign behavior. Keep release credentials out of untrusted execution and retain useful logs outside disposable hosts. Subsequent slides cover install-script approval, workflow findings and concrete identity design.
 
 Sources:
 - https://docs.github.com/en/actions/reference/runners/self-hosted-runners
@@ -2510,7 +2466,7 @@ section { padding:0; }
 </style>
 
 <div class="sa-shade"></div>
-<div class="sa-head"><div class="eyebrow">02 · Trusted environment</div><h1>Approve dependency<br>install scripts</h1></div>
+<div class="sa-head"><div class="eyebrow">Trusted environment</div><h1>Approve dependency<br>install scripts</h1></div>
 <p class="sa-message">Choose what may execute.</p>
 <div class="sa-panel"><div class="sa-file">pnpm ≥ 10.26 · pnpm-workspace.yaml</div><pre><code>strictDepBuilds: <span class="sa-value">true</span>
 allowBuilds: <span class="sa-value">{}</span></code></pre></div>
@@ -2522,7 +2478,7 @@ allowBuilds: <span class="sa-value">{}</span></code></pre></div>
 <p class="sa-foot">Project scripts and later execution remain separate.</p>
 
 <!--
-SLIDE 39 · SPEAKER NOTES
+SLIDE 38 · SPEAKER NOTES
 
 Say:
 Choose which dependency install scripts may run. This pnpm example rejects unreviewed builds and starts with no exceptions. Review required exceptions and narrow them to reviewed versions. Approval permits execution; keep its filesystem, network and identity boundary too.
@@ -2534,7 +2490,7 @@ Next:
 Apply the same deliberate decisions to the workflow.
 
 Reference detail (not read aloud):
-Selected revised slide 39. Previous designs are preserved in workflow-boundaries-alternative.md. The supported configuration matches examples/intake-policy.yaml. allowBuilds was added in pnpm 10.26 and strictDepBuilds in 10.3; keep the displayed version requirement. Explicit settings avoid relying on version-dependent defaults. Empty allowBuilds plus strictDepBuilds can fail projects until required script decisions are reviewed. Version-qualified exceptions can narrow allowed builds. This does not sandbox approved scripts or prevent root/project scripts, .pnpmfile.mjs, imports, tests, agents and downloaded helpers from executing code. Review package-manager settings, manual bypass paths and restored build/cache trust. No command is executed by the presentation.
+Selected revised slide 38. Previous designs are preserved in workflow-boundaries-alternative.md. The supported configuration matches examples/intake-policy.yaml. allowBuilds was added in pnpm 10.26 and strictDepBuilds in 10.3; keep the displayed version requirement. Explicit settings avoid relying on version-dependent defaults. Empty allowBuilds plus strictDepBuilds can fail projects until required script decisions are reviewed. Version-qualified exceptions can narrow allowed builds. This does not sandbox approved scripts or prevent root/project scripts, .pnpmfile.mjs, imports, tests, agents and downloaded helpers from executing code. Review package-manager settings, manual bypass paths and restored build/cache trust. No command is executed by the presentation.
 
 Source:
 - https://pnpm.io/settings/build
@@ -2574,7 +2530,7 @@ section.playing .wh-terminal .al.v { opacity:1; }
 .wh-caption { position:absolute!important; left:54px; right:54px; bottom:32px; margin:0; color:#B6C5BC; font:15px/1.3 'JetBrains Mono',monospace; }
 </style>
 
-<div class="wh-head"><div class="eyebrow">02 · Trusted environment</div><h1>Harden your workflow</h1></div>
+<div class="wh-head"><div class="eyebrow">Trusted environment</div><h1>Harden your workflow</h1></div>
 <p class="wh-message">Inspect. Change. Verify.</p>
 
 <div class="terminal wh-terminal">
@@ -2598,7 +2554,7 @@ section.playing .wh-terminal .al.v { opacity:1; }
 <p class="wh-caption">Illustrative terminal · plays on entry · click to replay</p>
 
 <!--
-SLIDE 40 · SPEAKER NOTES
+SLIDE 39 · SPEAKER NOTES
 
 Say:
 Inspect two findings: a mutable Action reference and broad token grants. Apply available safe fixes, inspect the diff and run the audit again. Pin a reviewed commit, grant job-specific token rights and keep attacker-controlled event text out of executable shell interpolation.
@@ -2610,7 +2566,7 @@ Next:
 Apply those boundaries during coding too.
 
 Reference detail (not read aloud):
-Selected revised slide 40. Previous designs are preserved in workflow-boundaries-alternative.md. Diagnostics are abbreviated illustrative examples; exact locations, severity and available fixes vary by scanner version and configuration. --fix=safe is not a promise to repair every displayed finding or release design. Review the diff and remaining findings. Full Action pins select code, while runtime downloads remain separate inputs. Workflow permissions control GITHUB_TOKEN, not separately supplied App tokens, PATs or cloud credentials. Keep fresh execution, sandbox boundaries, release authority, artifact/cache trust and trigger handling in scope. An event can be treated as data and still need safe handling by the receiving command. None of these depicted commands is executed.
+Selected revised slide 39. Previous designs are preserved in workflow-boundaries-alternative.md. Diagnostics are abbreviated illustrative examples; exact locations, severity and available fixes vary by scanner version and configuration. --fix=safe is not a promise to repair every displayed finding or release design. Review the diff and remaining findings. Full Action pins select code, while runtime downloads remain separate inputs. Workflow permissions control GITHUB_TOKEN, not separately supplied App tokens, PATs or cloud credentials. Keep fresh execution, sandbox boundaries, release authority, artifact/cache trust and trigger handling in scope. An event can be treated as data and still need safe handling by the receiving command. None of these depicted commands is executed.
 
 The September issue/comment campaign remains supporting context: the reported main posting burst was on 1 September, with suspected account compromise and evidence of command execution in two workflow runs. Successful downstream repository writes and token provenance were unconfirmed. No incident count or actor linkage is added by this visual revision. The original evidence discussion and report link are preserved in the comparison source.
 
@@ -2642,7 +2598,7 @@ section { padding:0; }
 .ci-foot { position:absolute!important; left:64px; right:64px; bottom:28px; color:#D8C4A2; font-size:21px; line-height:1.3; margin:0; }
 </style>
 <div class="ci-shade"></div>
-<div class="ci-head"><div class="eyebrow">03 · Developer execution</div><h1>Isolate the<br>coding environment</h1></div>
+<div class="ci-head"><div class="eyebrow">Developer execution</div><h1>Isolate the<br>coding environment</h1></div>
 <p class="ci-message">Give the task what it needs.</p>
 <div class="ci-options">
 <div class="ci-option"><h2>Files</h2><p>Share the project.</p></div>
@@ -2652,7 +2608,7 @@ section { padding:0; }
 <p class="ci-foot">Check the IDE, extensions, hooks and agent tools.</p>
 
 <!--
-SLIDE 41 · SPEAKER NOTES
+SLIDE 40 · SPEAKER NOTES
 
 Say:
 Give the coding task the project, services and identity it needs. Inspect the IDE, extensions, hooks and agent tools together; they can have different execution locations and inherited access.
@@ -2664,7 +2620,7 @@ Next:
 Inspect the authority already reachable there.
 
 Reference detail (not read aloud):
-Selected revised slide 41. Previous designs are preserved in coding-boundary-alternatives.md. Existing detailed evidence and product caveats follow. Artwork is reused; titles and control labels remain editable native content.
+Selected revised slide 40. Previous designs are preserved in coding-boundary-alternatives.md. Existing detailed evidence and product caveats follow. Artwork is reused; titles and control labels remain editable native content.
 
 The coding environment includes more than the agent process. Package hooks, IDE extensions, startup tasks, dev servers and agent tools may execute there. The limited prep bay is a physical callback to workspace, filesystem, network and identity boundaries. A devcontainer or container is a packaging choice; inspect its real mounts, sockets, process privileges, credential forwarding and egress. Do not assume default tool behavior supplies the desired boundary. The exact implementation can be a VM, evaluated sandbox or configured container appropriate to the threat.
 Sources:
@@ -2693,7 +2649,7 @@ section { padding:0; }
 .cr-foot { position:absolute!important; left:64px; right:64px; bottom:28px; color:#D8C4A2; font-size:21px; line-height:1.3; margin:0; }
 </style>
 <div class="cr-shade"></div>
-<div class="cr-head"><div class="eyebrow">03 · Developer execution</div><h1>The agent may<br>inherit your reach</h1></div>
+<div class="cr-head"><div class="eyebrow">Developer execution</div><h1>The agent may<br>inherit your reach</h1></div>
 <p class="cr-message">Inspect what it can reach.</p>
 <div class="cr-options">
 <div class="cr-option"><h2>Files</h2><p>Workspace<br>and repos</p></div>
@@ -2705,7 +2661,7 @@ section { padding:0; }
 <p class="cr-foot">Inspect the effective configuration.</p>
 
 <!--
-SLIDE 42 · SPEAKER NOTES
+SLIDE 41 · SPEAKER NOTES
 
 Say:
 Inspect five kinds of reach: files, data, identity, network and tools. An agent may choose another action after reading a result, but its actual reach depends on the effective configuration.
@@ -2717,9 +2673,9 @@ Next:
 Choose an implementation for the same coding task.
 
 Reference detail (not read aloud):
-Selected revised slide 42. Previous designs are preserved in coding-boundary-alternatives.md. Existing detailed evidence and product caveats follow. Artwork is reused; titles and control labels remain editable native content.
+Selected revised slide 41. Previous designs are preserved in coding-boundary-alternatives.md. Existing detailed evidence and product caveats follow. Artwork is reused; titles and control labels remain editable native content.
 
-Point to files, data, identity, network and tools. Explain that AI adds instruction-bearing context and can interpret results to choose another action. Access depends on configuration; some products isolate by default, others inherit considerable local or connected authority. Build execution and release authority will be separated in the identity example on slide 45. Now identify the files, data, identities, network and tools available during coding.
+Point to files, data, identity, network and tools. Explain that AI adds instruction-bearing context and can interpret results to choose another action. Access depends on configuration; some products isolate by default, others inherit considerable local or connected authority. Build execution and release authority will be separated in the identity example on slide 44. Now identify the files, data, identities, network and tools available during coding.
 Composition source: Prompt to Product 16
 -->
 
@@ -2741,7 +2697,7 @@ section { background:#101414; padding:0; }
 .co-maturity { position:absolute!important; left:64px; right:64px; bottom:70px; color:#B8C8BF; font-size:19px; line-height:1.3; margin:0; }
 .co-foot { position:absolute!important; left:64px; right:64px; bottom:28px; color:#D8C4A2; font-size:21px; line-height:1.3; margin:0; }
 </style>
-<div class="co-head"><div class="eyebrow">03 · Developer execution</div><h1>Choose the coding boundary</h1></div>
+<div class="co-head"><div class="eyebrow">Developer execution</div><h1>Choose the coding boundary</h1></div>
 <p class="co-message">Same task. Different boundaries. Options can combine.</p>
 <div class="co-options">
 <div class="co-option"><h2>Project environments</h2><p class="co-scope">Devcontainers · hosted workspaces</p><p class="co-inspect">Inspect mounts, startup code and forwarding.</p></div>
@@ -2753,7 +2709,7 @@ section { background:#101414; padding:0; }
 <p class="co-foot">Then scope the identity inside the boundary.</p>
 
 <!--
-SLIDE 43 · SPEAKER NOTES
+SLIDE 42 · SPEAKER NOTES
 
 Say:
 Use the same lunch-poll task across four choices: a project environment, tool or process restrictions, a VM-backed workspace, or a policy-managed agent runtime. These can combine. OpenShell manages agent access policy across multiple compute drivers; inspect both the selected driver and the effective policy. Then scope the identity available inside the chosen boundary.
@@ -2765,7 +2721,7 @@ Next:
 Scope that remaining authority deliberately.
 
 Reference detail (not read aloud):
-Selected revised slide 43. Previous designs are preserved in coding-boundary-alternatives.md. Existing detailed evidence and product caveats follow. Artwork is reused; titles and control labels remain editable native content.
+Selected revised slide 42. Previous designs are preserved in coding-boundary-alternatives.md. Existing detailed evidence and product caveats follow. Artwork is reused; titles and control labels remain editable native content.
 
 Research refresh · 2 November 2026:
 The four groups are a teaching aid, not mutually exclusive security categories. OpenShell v0.1.6 documents Docker, Podman, Kubernetes and MicroVM compute drivers, a trusted supervisor, declared access policy, mediated egress and credential injection into approved requests. Its actual isolation depends on the driver and effective configuration; do not describe every OpenShell deployment as a VM or equate the software with NVIDIA's Sentry hardware reference system. NemoClaw is the OpenClaw-oriented stack, while OpenShell is the relevant general runtime example here. The October reference-architecture announcement is distinct from individual feature availability.
@@ -2821,11 +2777,11 @@ Composition source: One coding task, concrete environment choices and inspection
 <!-- _class: control-scene safe chapter-controls -->
 ![bg](assets/img/controls-kitchen-privilege-v1.png)
 <div class="c3shade"></div>
-<div class="c3head"><div class="c3kicker">04 · Identity → action · principle</div><h1>Least privilege<br>is a design task</h1><div class="c3lede">Which process can spend which&nbsp;identity?</div><div class="c3points"><div>For this resource and action</div><div>For this job and time window</div><div>Through an explicit trust boundary</div></div></div>
+<div class="c3head"><div class="c3kicker">Identity → action · principle</div><h1>Least privilege<br>is a design task</h1><div class="c3lede">Which process can spend which&nbsp;identity?</div><div class="c3points"><div>For this resource and action</div><div>For this job and time window</div><div>Through an explicit trust boundary</div></div></div>
 <div class="c3edge">Credential theft · token reuse · propagation</div>
 
 <!--
-SLIDE 44 · SPEAKER NOTES
+SLIDE 43 · SPEAKER NOTES
 
 Say:
 Ask which process can spend which identity, for which resource, action and time window. Inventory every credential path; one permission block does not cover tokens, sessions, registry access and cloud roles.
@@ -2864,7 +2820,7 @@ Composition source: Kitchen station-specific access; least privilege as identity
 .identity-app pre { margin:0; padding:0; background:transparent; border:0; box-shadow:none; color:#DCE9E0; font:18px/1.45 'JetBrains Mono',monospace; }
 .identity-app code { background:transparent; padding:0; font:inherit; }
 </style>
-<div class="c3head"><div class="c3kicker">04 · Identity → action · in practice</div><h1>Keep publishing access out of builds</h1></div>
+<div class="c3head"><div class="c3kicker">Identity → action · in practice</div><h1>Keep publishing access out of builds</h1></div>
 <div class="identity-default"><b>Workflow default · GITHUB_TOKEN</b><code>permissions: {}</code></div>
 <div class="identity-jobs">
 <div class="identity-job"><h2>Build and test</h2><div class="c3panel"><div class="c3file">jobs: excerpt · read source only</div><pre><code>build:&#10;  permissions:&#10;    contents: <span class="c3good">read</span></code></pre></div><div class="identity-authority">Keep publishing credentials out.</div></div>
@@ -2875,7 +2831,7 @@ Composition source: Kitchen station-specific access; least privilege as identity
 <div class="c3bottom">No workflow-wide grants. Give each job only what it needs.</div>
 
 <!--
-SLIDE 45 · SPEAKER NOTES
+SLIDE 44 · SPEAKER NOTES
 
 Say:
 Start with workflow-level permissions: {} and give each job only its required GITHUB_TOKEN rights. Here the release writes a GitHub Release. Separately narrow an App token's repositories and permissions. Keep its private key away from untrusted execution.
@@ -2886,7 +2842,7 @@ Name the stored-secret problem, then the workload identity exchange.
 Reference detail (not read aloud):
 These are literal configuration excerpts, not a complete workflow. permissions: {} removes default GITHUB_TOKEN grants; explicit job permissions add the required access. It is not a policy ceiling preventing later jobs from requesting broader rights. These settings do not restrict an App token, PAT, registry credential or cloud identity. contents: write permits more repository operations than creating releases, so keep that token away from untrusted execution. For private dependency reads, scope any separate credential too.
 
-environment: release references an environment; configure reviewers, branch restrictions and bypass controls separately (worked example on 48–49). Plan/visibility limits apply. Separate jobs still need fresh execution and careful artifact/cache validation; verify source/ref and artifact digest. Provenance is not a benign-behavior guarantee.
+environment: release references an environment; configure reviewers, branch restrictions and bypass controls separately (worked example on 47–48). Plan/visibility limits apply. Separate jobs still need fresh execution and careful artifact/cache validation; verify source/ref and artifact digest. Provenance is not a benign-behavior guarantee.
 
 The App snippet is the with: input body for actions/create-github-app-token, not workflow permissions. Required client-id/private-key inputs and a reviewed pinned Action reference are omitted here; see examples/actions-and-token-scope.md. Explicit repositories and permission-contents narrow the issued installation token within the App's existing access. In this Action, omitting both owner and repositories defaults to the current repository, while supplying owner without repositories can select the owner's whole installation. Omitting permission inputs inherits installation permissions. Direct REST token creation has different repository defaults. Keep the App private key out of untrusted jobs: limiting a minted token does not limit a stolen key's ability to mint other tokens. This read-only App token illustrates a separate read use case, not the GitHub Release writer. No live policy or workflow was changed.
 
@@ -2906,10 +2862,10 @@ Sources fetched 21 October 2026:
 .c3lede { width:520px; }
 </style>
 <div class="c3shade"></div>
-<div class="c3head"><div class="c3kicker">04 · Identity → action · long-lived secrets</div><h1>Short-lived jobs<br>Long-lived secrets</h1><div class="c3lede">A copied token or key can retain access<br>until expiry or revocation.</div></div>
+<div class="c3head"><div class="c3kicker">Identity → action · long-lived secrets</div><h1>Short-lived jobs<br>Long-lived secrets</h1><div class="c3lede">A copied token or key can retain access<br>until expiry or revocation.</div></div>
 
 <!--
-SLIDE 46 · SPEAKER NOTES
+SLIDE 45 · SPEAKER NOTES
 
 Say:
 The job finishes. Its stored publishing token or cloud key may remain valid. If malicious code copies that credential while it is available, ending the job does not revoke the copy. It can still authorize the actions and resources that credential permits, until it expires or is revoked.
@@ -2959,7 +2915,7 @@ section { background:linear-gradient(135deg,#11181A,#171D1C); padding:0; }
 
 
 <!--
-SLIDE 47 · SPEAKER NOTES
+SLIDE 46 · SPEAKER NOTES
 
 Say:
 The previous slide showed a credential that outlives its job. OIDC changes how the job gets access: the job presents GitHub-signed identity claims, a registry or cloud provider checks them against its trust rules and grants short-lived access. Requesting a token is separate from permission to use a target resource.
@@ -2995,7 +2951,7 @@ section { padding:0; background:linear-gradient(135deg,#101819,#17211E); }
 .oidc-change { color:#ED8A85; font-weight:700; }
 .oidc-bottom { position:absolute!important; left:64px; right:64px; bottom:25px; border-top:1px solid #A5D7BB55; padding-top:15px; font-size:21px; color:#E6C797; }
 </style>
-<div class="oidc-head"><div class="oidc-kicker">04 · IDENTITY → ACTION · 01 · BROAD TRUST</div><h1>OIDC release controls</h1></div>
+<div class="oidc-head"><div class="oidc-kicker">IDENTITY → ACTION · BROAD TRUST</div><h1>OIDC release controls</h1></div>
 <div class="oidc-grid">
 <div class="oidc-side"><h2>GitHub release gates</h2><div class="oidc-file">github-release-controls-before.example.tf · excerpts</div><pre><code># environment.release&#10;environment         = &quot;release&quot;&#10;reviewers { <span class="oidc-change">teams = []</span> }&#10;<span class="oidc-change">prevent_self_review = false</span>&#10;<span class="oidc-change">can_admins_bypass   = true</span>&#10;# <span class="oidc-change">No deployment branch restriction</span>&#10;&#10;# branch_protection.main&#10;pattern        = &quot;main&quot;&#10;<span class="oidc-change">enforce_admins = false</span>&#10;required_pull_request_reviews {&#10;  required_approving_review_count = 1&#10;  pull_request_bypassers          = []&#10;}</code></pre><p>main is protected, but release has no approval<br>Other branches can still enter release</p></div>
 <div class="oidc-side"><h2>AWS role trust</h2><div class="oidc-file">oidc-trust-before.example.json · Condition excerpt</div><pre><code>&quot;Condition&quot;: {&#10;  &quot;StringEquals&quot;: {&#10;    &quot;token.actions.githubusercontent.com:aud&quot;:&#10;      &quot;sts.amazonaws.com&quot;&#10;  },&#10;  &quot;<span class="oidc-change">StringLike</span>&quot;: {&#10;    &quot;token.actions.githubusercontent.com:sub&quot;:&#10;      &quot;<span class="oidc-change">repo:example-org@123456/lunch-poll@654321:*</span>&quot;&#10;  }&#10;}</code></pre><p>Valid tokens from any branch match the wildcard<br>A release environment name is not an approval gate</p></div>
@@ -3003,7 +2959,7 @@ section { padding:0; background:linear-gradient(135deg,#101819,#17211E); }
 <div class="oidc-bottom">Protecting main does not restrict which branches can assume this role</div>
 
 <!--
-SLIDE 48 · SPEAKER NOTES
+SLIDE 47 · SPEAKER NOTES
 
 Say:
 main is protected and an environment is named, but release has no approval or branch restriction. AWS accepts every subject suffix for this repository. A valid token from another permitted branch can still match. Protecting main alone does not close this path.
@@ -3052,7 +3008,7 @@ section { padding:0; background:linear-gradient(135deg,#101819,#17211E); }
 .oidc-bottom { position:absolute!important; left:64px; right:64px; bottom:25px; border-top:1px solid #A5D7BB55; padding-top:15px; font-size:21px; color:#E6C797; }
 .oidc-case-source { color:var(--green); font-weight:600; text-decoration:underline; text-underline-offset:4px; }
 </style>
-<div class="oidc-head"><div class="oidc-kicker">04 · IDENTITY → ACTION · 02 · SCOPED TRUST</div><h1>OIDC release controls</h1></div>
+<div class="oidc-head"><div class="oidc-kicker">IDENTITY → ACTION · SCOPED TRUST</div><h1>OIDC release controls</h1></div>
 <div class="oidc-grid">
 <div class="oidc-side"><h2>GitHub release gates</h2><div class="oidc-file">github-release-controls.example.tf · excerpts</div><pre><code># environment.release&#10;environment         = &quot;release&quot;&#10;reviewers { <span class="oidc-change">teams = [123456]</span> }&#10;<span class="oidc-change">prevent_self_review = true</span>&#10;<span class="oidc-change">can_admins_bypass   = false</span>&#10;# environment_deployment_policy.main&#10;<span class="oidc-change">branch_pattern = &quot;main&quot;</span>&#10;# branch_protection.main&#10;pattern        = &quot;main&quot;&#10;<span class="oidc-change">enforce_admins = true</span>&#10;required_pull_request_reviews {&#10;  required_approving_review_count = 1&#10;  pull_request_bypassers          = []&#10;}</code></pre><p>Only main can enter release, with approval<br>Admin bypass is disabled</p></div>
 <div class="oidc-side"><h2>AWS role trust</h2><div class="oidc-file">oidc-trust.example.json · Condition excerpt</div><pre><code>&quot;Condition&quot;: {&#10;  &quot;<span class="oidc-change">StringEquals</span>&quot;: {&#10;    &quot;token.actions.githubusercontent.com:aud&quot;:&#10;      &quot;sts.amazonaws.com&quot;,&#10;    &quot;token.actions.githubusercontent.com:sub&quot;:&#10;      &quot;<span class="oidc-change">repo:example-org@123456/lunch-poll@654321:environment:release</span>&quot;&#10;  }&#10;}</code></pre><div class="oidc-permissions"><strong>Role permissions</strong><code>s3:PutObject</code><span>Only under example-lunch-poll/releases/*</span></div><p>Exact audience, repository IDs and environment<br>GitHub enforces the branch and approval gates</p></div>
@@ -3060,7 +3016,7 @@ section { padding:0; background:linear-gradient(135deg,#101819,#17211E); }
 <div class="oidc-bottom"><a class="oidc-case-source" href="https://github.com/BerriAI/litellm/issues/47826#issuecomment-6326854488" target="_blank" rel="noopener noreferrer">LiteLLM · 21 Oct 2026</a>: reports stolen owner credentials used to disable branch protection</div>
 
 <!--
-SLIDE 49 · SPEAKER NOTES
+SLIDE 48 · SPEAKER NOTES
 
 Say:
 Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources: only s3:PutObject under the example-lunch-poll/releases/ prefix. Review the actual source and artifact entering the job. LiteLLM's October update reports stolen owner credentials were used to disable branch protection. Protect the identities that can change these rules too.
@@ -3118,7 +3074,7 @@ section { background:linear-gradient(135deg,#11181A,#171D1C); padding:0; }
 
 
 <!--
-SLIDE 50 · SPEAKER NOTES
+SLIDE 49 · SPEAKER NOTES
 
 Say:
 A real case shows why. An unauthorised comment triggered openapi's release job, which checked out fork code and published using the repository's OIDC identity. All ten malicious versions had valid provenance. The job identity was genuine; its input selection was unsafe.
@@ -3143,11 +3099,11 @@ Sources:
 <!-- _class: control-scene safe c3long chapter-controls -->
 ![bg](assets/img/controls-kitchen-intake-v1.png)
 <div class="c3shade"></div>
-<div class="c3head"><div class="c3kicker">05 · Instructions → tools · principle</div><h1>Follow instructions<br>into the code</h1><div class="c3lede">Review what the instructions cause&nbsp;to&nbsp;run.</div><div class="c3points"><div>Project instructions<small>TrapDoor: .cursorrules and CLAUDE.md</small></div><div>Workspace settings<small>OX report: MCP listing linked a poisoned repo</small></div><div>Helpers and downloads<small>Match command, destination and access to the task</small></div></div></div>
+<div class="c3head"><div class="c3kicker">Instructions → tools · principle</div><h1>Follow instructions<br>into the code</h1><div class="c3lede">Review what the instructions cause&nbsp;to&nbsp;run.</div><div class="c3points"><div>Project instructions<small>TrapDoor: .cursorrules and CLAUDE.md</small></div><div>Workspace settings<small>OX report: MCP listing linked a poisoned repo</small></div><div>Helpers and downloads<small>Match command, destination and access to the task</small></div></div></div>
 <div class="c3edge">Skills · MCP · repo instructions · IDE extensions</div>
 
 <!--
-SLIDE 51 · SPEAKER NOTES
+SLIDE 50 · SPEAKER NOTES
 
 Say:
 TrapDoor placed malicious project instructions; OX reported an MCP listing linked to a poisoned repository. Keep observed artifacts separate from proof an agent obeyed them. Follow instructions into commands, downloaded helpers, destinations and access.
@@ -3175,11 +3131,11 @@ Composition source: Kitchen intake callback with a concrete instruction-to-helpe
 <!-- _class: control-scene safe chapter-controls -->
 ![bg](assets/img/controls-kitchen-recovery-v1.png)
 <div class="c3shade"></div>
-<div class="c3head"><div class="c3kicker">06 · Persistence → recovery · principle</div><h1>Prepare<br>to recover</h1><div class="c3lede">Know what to distrust,<br>revoke and rebuild.</div><div class="c3points"><div>Detect unexpected execution and changes</div><div>Keep evidence and logs outside the host</div><div>Restore from a clean environment</div></div></div>
+<div class="c3head"><div class="c3kicker">Persistence → recovery · principle</div><h1>Prepare<br>to recover</h1><div class="c3lede">Know what to distrust,<br>revoke and rebuild.</div><div class="c3points"><div>Detect unexpected execution and changes</div><div>Keep evidence and logs outside the host</div><div>Restore from a clean environment</div></div></div>
 <div class="c3edge">Shai-Hulud persistence · downstream publishing exposure</div>
 
 <!--
-SLIDE 52 · SPEAKER NOTES
+SLIDE 51 · SPEAKER NOTES
 
 Say:
 Removing the package does not revoke copied sessions or remove installed persistence. Keep useful evidence outside the suspect host, identify recovery owners and restore from a clean environment.
@@ -3198,7 +3154,7 @@ Composition source: Kitchen isolation and clean replacement scene; recovery prin
 
 ---
 <!-- _class: control-example safe chapter-controls -->
-<div class="c3head"><div class="c3kicker">06 · Persistence → recovery · in practice</div><h1>Rehearse one compromised publisher</h1></div>
+<div class="c3head"><div class="c3kicker">Persistence → recovery · in practice</div><h1>Rehearse one compromised publisher</h1></div>
 <div class="c3steps">
 <div class="c3step"><div class="c3num">DEVELOPER + PLATFORM</div><h2>Contain<br>execution</h2><p>Isolate the host.<br>Pause affected automation.<br>Preserve useful evidence.</p><small>Which hosts, jobs and logs?</small></div>
 <div class="c3step"><div class="c3num">IDENTITY OWNERS</div><h2>Revoke<br>copied access</h2><p>Tokens, sessions and roles.<br>Check workflows and runners<br>for durable access.</p><small>Who can revoke each identity?</small></div>
@@ -3207,7 +3163,7 @@ Composition source: Kitchen isolation and clean replacement scene; recovery prin
 <div class="c3bottom">Scenario: a malicious install ran on a laptop with publishing access.</div>
 
 <!--
-SLIDE 53 · SPEAKER NOTES
+SLIDE 52 · SPEAKER NOTES
 
 Say:
 Take one laptop that installed malware while holding publishing access. Who contains execution, revokes each identity and validates downstream artifacts? These are coordinated workstreams, not a universal fixed response order.
@@ -3318,7 +3274,7 @@ section { padding: 0; font-family: 'JetBrains Mono', monospace; }
 <div class="slogan">Start with one dependency-policy change in one repository.</div>
 
 <!--
-SLIDE 54 · SPEAKER NOTES
+SLIDE 53 · SPEAKER NOTES
 
 Say:
 Choose one project you maintain. Propose a supported cooldown, review the diff and open a small PR. Seven days is an example; preserve a route for urgent fixes. Pick one action rather than attempting the whole programme on Monday.
@@ -3431,7 +3387,7 @@ section { padding: 0; font-family: 'JetBrains Mono', monospace; }
 <div class="slogan">One workflow, one reviewed finding, one focused PR.</div>
 
 <!--
-SLIDE 55 · SPEAKER NOTES
+SLIDE 54 · SPEAKER NOTES
 
 Say:
 Run zizmor on one existing workflow and understand one finding. Pin a reviewed Action commit or reduce token access. Use permissions: {} as the workflow default and grant each job only what it needs. Review behavior and open one focused PR.
@@ -3545,7 +3501,7 @@ section { padding: 0; font-family: 'JetBrains Mono', monospace; }
 <div class="slogan">Inspect one project setup before starting the next coding task.</div>
 
 <!--
-SLIDE 56 · SPEAKER NOTES
+SLIDE 55 · SPEAKER NOTES
 
 Say:
 List tracked setup and instruction files, then use cat to read devcontainer.json. Follow startup commands and downloads. Check the actual mounts, tools and forwarded credentials, including local settings the tracked files do not show.
@@ -3557,7 +3513,7 @@ Next:
 Use the original devcontainer-to-agent closing example.
 
 Reference detail (not read aloud):
-git ls-files lists tracked files only; it does not execute the listed hooks and does not prove the full context is safe or complete. Check untracked/local files, global instructions, installed extensions, MCP configuration and the actual running tool settings where relevant. Do not start an unfamiliar project's container or agent merely to inspect it. The example targets one person's project/task configuration; it does not require building a new platform. Use a local setting change or a proposed repository PR, depending on ownership. A devcontainer may forward Git credentials or an SSH agent; its name alone does not describe isolation. Review the instruction-to-helper path as taught earlier. This inspection now precedes the speaker-selected original GEECon devcontainer and Copilot recap on slide 57. Larger network/isolation changes remain engineering follow-up.
+git ls-files lists tracked files only; it does not execute the listed hooks and does not prove the full context is safe or complete. Check untracked/local files, global instructions, installed extensions, MCP configuration and the actual running tool settings where relevant. Do not start an unfamiliar project's container or agent merely to inspect it. The example targets one person's project/task configuration; it does not require building a new platform. Use a local setting change or a proposed repository PR, depending on ownership. A devcontainer may forward Git credentials or an SSH agent; its name alone does not describe isolation. Review the instruction-to-helper path as taught earlier. This inspection now precedes the speaker-selected original GEECon devcontainer and Copilot recap on slide 56. Larger network/isolation changes remain engineering follow-up.
 
 All commands/output are illustrative presentation text; nothing is executed. The existing controller reveals these lines on entry and supports click replay. This is a small starting action, not a complete security program or an assertion that one change secures a repository.
 
@@ -3814,7 +3770,7 @@ section.answer-on .answer-panel {
 
 
 <!--
-SLIDE 57 · SPEAKER NOTES
+SLIDE 56 · SPEAKER NOTES
 
 Say:
 Start the reviewed devcontainer and launch Copilot inside it. Ask: What principles keep this repo safe from supply chain attacks? Let the answer recap the controls, ending with revoking exposed access and restoring trusted execution. This is an illustrative session; the boundary comes from reviewed configuration, not the startup command alone.
@@ -3869,7 +3825,7 @@ section.closing-cinematic .closing-qr img { width:180px; height:180px; }
 </div>
 
 <!--
-SLIDE 58 · SPEAKER NOTES
+SLIDE 57 · SPEAKER NOTES
 
 Say:
 You trust more code than you ship. The hidden machinery is still there. Review what enters it, constrain what can execute, and scope the identity it can use. Make that trust an engineering decision. Scan for the deck and resources. Thank you.
@@ -3899,7 +3855,7 @@ section.section-divider h1 { font-size:85px; line-height:1.04; }
 <div class="copy"><div class="eyebrow">Appendix</div><h1>Incident<br>catalogue</h1><div class="catalogue-years">2023–2026</div></div>
 
 <!--
-SLIDE 59 · APPENDIX
+SLIDE 58 · APPENDIX
 
 Say:
 The appendix contains the incident catalogue. Names link to sources and the dates preserve activity, verified availability and disclosure distinctions. Use it for a specific question rather than reading every entry.
@@ -3939,7 +3895,7 @@ section { padding:0; background:#151411; color:#F7F2E8; }
 <div class="catalog-head"><h1>Incidents</h1><div class="catalog-year">2026</div></div><div class="catalog-grid"><div><div class="catalog-row"><div class="catalog-date">JAN</div><a href="https://socket.dev/blog/malicious-dydx-packages-published-to-npm-and-pypi" target="_blank" rel="noopener noreferrer" title="dYdX npm/PyPI compromise — 27 Jan 2026">dYdX (npm / PyPI)</a></div><div class="catalog-row"><div class="catalog-date">JAN</div><a href="https://socket.dev/blog/glassworm-loader-hits-open-vsx-via-suspected-developer-account-compromise" target="_blank" rel="noopener noreferrer" title="GlassWorm Open VSX publisher compromise — 30 Jan 2026">GlassWorm publisher compromise</a></div><div class="catalog-row"><div class="catalog-date">JAN</div><a href="https://socket.dev/blog/malicious-go-module-exposes-github-malware-lure-network" target="_blank" rel="noopener noreferrer" title="Muck and Load Go/GitHub lure network — 2026 malicious module releases; first module version 24 Jan">Muck and Load</a></div><div class="catalog-row"><div class="catalog-date">JAN–MAR</div><a href="https://opensourcemalware.com/blog/active-malware-campaigns-in-january-may-2026" target="_blank" rel="noopener noreferrer" title="TasksJacker: malicious .vscode/tasks.json repository wave — 15 Jan-late Mar 2026 (peak 29 Jan; DataStax 31 Jan)">TasksJacker</a></div><div class="catalog-row"><div class="catalog-date">JAN<small>report</small></div><a href="https://www.bleepingcomputer.com/news/security/malicious-ai-extensions-on-vscode-marketplace-steal-developer-data/" target="_blank" rel="noopener noreferrer" title="MaliciousCorgi AI coding extensions — Reported 23 Jan 2026">MaliciousCorgi</a></div><div class="catalog-row"><div class="catalog-date">JAN–JUN<small>ongoing</small></div><a href="https://www.aikido.dev/blog/multiple-jetbrains-ide-plugins-caught-stealing-ai-keys" target="_blank" rel="noopener noreferrer" title="Fifteen malicious JetBrains Marketplace plugins — Oct 2025-Jun 2026">JetBrains malicious AI plugins</a></div><div class="catalog-row"><div class="catalog-date">FEB<small>by</small></div><a href="https://socket.dev/blog/sandworm-mode-npm-worm-ai-toolchain-poisoning" target="_blank" rel="noopener noreferrer" title="SANDWORM_MODE — Active malicious artifacts by 20 Feb 2026; exact onset unresolved">SANDWORM_MODE</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://adnanthekhan.com/posts/clinejection/" target="_blank" rel="noopener noreferrer" title="Cline malicious CLI release / Clinejection — 17 Feb 2026 malicious release; earlier researcher demonstration is separate">Cline / Clinejection</a></div></div><div><div class="catalog-row"><div class="catalog-date">FEB<small>by</small></div><a href="https://socket.dev/blog/stegabin-26-malicious-npm-packages-use-pastebin-steganography" target="_blank" rel="noopener noreferrer" title="Contagious Interview / StegaBin wave — Malicious packages verified in Feb 2026">Contagious Interview / StegaBin</a></div><div class="catalog-row"><div class="catalog-date">FEB–MAY</div><a href="https://unit42.paloaltonetworks.com/openclaw-ai-supply-chain-risk/" target="_blank" rel="noopener noreferrer" title="ClawHavoc malicious agent skills — Feb 2026; continuing delivery observed through May">ClawHavoc</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://www.stepsecurity.io/blog/hackerbot-claw-github-actions-exploitation" target="_blank" rel="noopener noreferrer" title="hackerbot-claw workflow exploitation — 21–28 Feb 2026">hackerbot-claw</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://socket.dev/blog/unauthorized-ai-agent-execution-code-published-to-openvsx-in-aqua-trivy-vs-code-extension" target="_blank" rel="noopener noreferrer" title="Aqua Trivy Open VSX prompt-injection follow-on — 27–28 Feb 2026; owner incident dated 1 Mar">Aqua Trivy Open VSX follow-on</a></div><div class="catalog-row"><div class="catalog-date">FEB–MAR</div><a href="https://socket.dev/blog/5-malicious-rust-crates-posed-as-time-utilities-to-exfiltrate-env-files" target="_blank" rel="noopener noreferrer" title="Rust time-utility credential-stealer cluster — Late Feb–early Mar 2026">Rust time-utility cluster</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://rustsec.org/advisories/RUSTSEC-2026-0010.html" target="_blank" rel="noopener noreferrer" title="polymarket-clients-sdk Rust typosquat — 5 Feb 2026">polymarket-clients-sdk</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.stepsecurity.io/blog/forcememo-hundreds-of-github-python-repos-compromised-via-account-takeover-and-force-push" target="_blank" rel="noopener noreferrer" title="ForceMemo / GlassWorm repository wave — Mar 2026">ForceMemo / GlassWorm</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.aikido.dev/blog/glassworm-strikes-react-packages-phone-numbers" target="_blank" rel="noopener noreferrer" title="GlassWorm React Native dependency wave — 16 Mar 2026">GlassWorm React Native</a></div></div><div><div class="catalog-row"><div class="catalog-date">MAR<small>by</small></div><a href="https://www.aikido.dev/blog/fast-draft-open-vsx-bloktrooper" target="_blank" rel="noopener noreferrer" title="fast-draft / BlokTrooper — Mar 2026 malicious extension verified">fast-draft / BlokTrooper</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://github.com/aquasecurity/trivy/security/advisories/GHSA-69fq-xp46-6x23" target="_blank" rel="noopener noreferrer" title="Trivy March security-tool cascade — 19–22 Mar 2026">Trivy security-tool cascade</a></div><div class="catalog-row"><div class="catalog-date">MAR–APR</div><a href="https://checkmarx.com/blog/checkmarx-security-update/" target="_blank" rel="noopener noreferrer" title="Checkmarx AST/KICS delivery-channel compromise — Mar 2026; Apr recurrence">Checkmarx AST / KICS</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://docs.litellm.ai/blog/security-update-march-2026" target="_blank" rel="noopener noreferrer" title="LiteLLM poisoned PyPI releases — 24 Mar 2026">LiteLLM · March</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://github.com/axios/axios/issues/10636" target="_blank" rel="noopener noreferrer" title="Axios npm compromise — 31 Mar 2026 UTC">Axios</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://telnyx.com/resources/telnyx-python-sdk-supply-chain-security-notice-march-2026" target="_blank" rel="noopener noreferrer" title="Telnyx Python SDK compromise — 27 Mar 2026">Telnyx (PyPI)</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://opensourcemalware.com/blog/neutralinojs-compromised-in-dprk-attack" target="_blank" rel="noopener noreferrer" title="Neutralinojs org repository compromise (early PolinRider) — 2 Mar 2026 04:38-04:40 UTC (commits backdated 26 Jan-27 Feb)">Neutralinojs</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.wiz.io/blog/six-accounts-one-actor-inside-the-prt-scan-supply-chain-campaign" target="_blank" rel="noopener noreferrer" title="prt-scan pull_request_target campaign — First 11 Mar 2026; six waves">prt-scan</a></div></div></div><div class="catalog-foot">Month: activity · by: verified availability · report: disclosure · names link to sources</div>
 
 <!--
-SLIDE 60 · APPENDIX
+SLIDE 59 · APPENDIX
 
 Say:
 This first 2026 page covers early-year entries. Pick the relevant incident and open its source. The page is part of the selected 95-record inventory, not an additional count.
@@ -4079,7 +4035,7 @@ section { padding:0; background:#151411; color:#F7F2E8; }
 <div class="catalog-head"><h1>Incidents</h1><div class="catalog-year">2026</div></div><div class="catalog-grid"><div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.stepsecurity.io/blog/xygeni-action-compromised-c2-reverse-shell-backdoor-injected-via-tag-poisoning" target="_blank" rel="noopener noreferrer" title="xygeni-action tag poisoning — 3 Mar 2026 (v5 tag moved ~10:49 UTC; removed 10 Mar)">xygeni-action</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.stepsecurity.io/blog/kubernetes-el-compromised-how-a-pwn-request-exploited-a-popular-emacs-package" target="_blank" rel="noopener noreferrer" title="kubernetes-el (Emacs) pwn request — 5 Mar 2026">kubernetes-el (Emacs)</a></div><div class="catalog-row"><div class="catalog-date">MAR–JUN</div><a href="https://www.sentinelone.com/labs/dont-call-us-well-call-your-apis-tradertraitor-backdoors-resurface-on-victim-with-no-crypto-ties/" target="_blank" rel="noopener noreferrer" title="TraderTraitor Terraform lock-file lure — Intrusion Mar-Jun 2026">TraderTraitor Terraform lure</a></div><div class="catalog-row"><div class="catalog-date">MAR<small>by</small></div><a href="https://thehackernews.com/2026/10/fake-web3-accelerator-uses-npm-packages.html" target="_blank" rel="noopener noreferrer" title="Fake Web3 accelerator npm packages (REF8801) — Active by Mar 2026; SafeDep Jul; Elastic Oct">Fake Web3 accelerator</a></div><div class="catalog-row"><div class="catalog-date">MAR<small>by</small></div><a href="https://www.sonatype.com/blog/sonatype-discovers-two-malicious-npm-packages" target="_blank" rel="noopener noreferrer" title="sbx-mask / touch-adv secret-exfiltration cluster — Malicious artifacts analyzed by 19 Mar 2026; first publication unresolved">sbx-mask / touch-adv</a></div><div class="catalog-row"><div class="catalog-date">APR<small>by</small></div><a href="https://socket.dev/blog/contagious-interview-campaign-spreads-across-5-ecosystems" target="_blank" rel="noopener noreferrer" title="Contagious Interview golangorg cross-ecosystem wave — Malicious cluster verified by 7 Apr 2026; first publication unresolved">Contagious Interview / golangorg</a></div><div class="catalog-row"><div class="catalog-date">APR</div><a href="https://community.bitwarden.com/t/bitwarden-statement-on-checkmarx-supply-chain-incident/96127" target="_blank" rel="noopener noreferrer" title="Bitwarden CLI downstream compromise — 22 Apr 2026, 17:57–19:30 ET">Bitwarden CLI</a></div><div class="catalog-row"><div class="catalog-date">APR</div><a href="https://www.stepsecurity.io/blog/velora-dex-sdk-compromised-on-npm-malicious-version-drops-macos-backdoor-via-launchctl-persistence" target="_blank" rel="noopener noreferrer" title="@velora-dex/sdk registry compromise — 7 Apr 2026">@velora-dex/sdk</a></div></div><div><div class="catalog-row"><div class="catalog-date">APR<small>by</small></div><a href="https://www.aikido.dev/blog/gpt-proxy-backdoor-npm-pypi-chinese-llm-relay" target="_blank" rel="noopener noreferrer" title="GPT-Proxy Kubernetes-themed packages — Malicious artifacts verified Apr 2026; exact onset unresolved">GPT-Proxy</a></div><div class="catalog-row"><div class="catalog-date">APR<small>by</small></div><a href="https://socket.dev/blog/namastex-npm-packages-compromised-canisterworm" target="_blank" rel="noopener noreferrer" title="Namastex / CanisterSprawl distribution wave — Apr 2026 malicious releases verified">Namastex / CanisterSprawl</a></div><div class="catalog-row"><div class="catalog-date">APR</div><a href="https://www.elementary-data.com/post/security-incident-report-malicious-release-of-elementary-oss-python-cli-v0-23-3" target="_blank" rel="noopener noreferrer" title="Elementary Data forged Python/Docker release — 24 Apr 2026">Elementary Data</a></div><div class="catalog-row"><div class="catalog-date">APR</div><a href="https://socket.dev/supply-chain-attacks/mini-shai-hulud" target="_blank" rel="noopener noreferrer" title="Mini Shai-Hulud April cross-registry wave — 29–30 Apr 2026">Mini Shai-Hulud April</a></div><div class="catalog-row"><div class="catalog-date">APR</div><a href="https://socket.dev/blog/5-malicious-nuget-packages-impersonate-chinese-ui-libraries" target="_blank" rel="noopener noreferrer" title="NuGet Chinese UI-library impersonation cluster — 14 Apr 2026 malicious 2.1.55 wave explicitly dated; broader distribution history extends earlier">NuGet UI-library impersonation</a></div><div class="catalog-row"><div class="catalog-date">APR<small>report</small></div><a href="https://www.bleepingcomputer.com/news/security/glassworm-malware-attacks-return-via-73-openvsx-sleeper-extensions/" target="_blank" rel="noopener noreferrer" title="GlassWorm Open VSX &#x27;sleeper&#x27; extensions — Reported 27 Apr 2026">GlassWorm sleeper extensions</a></div><div class="catalog-row"><div class="catalog-date">MAY</div><a href="https://nx.dev/blog/nx-console-v18-95-0-postmortem" target="_blank" rel="noopener noreferrer" title="Nx Console v18.95.0 — malicious publish 18 May; advisory 18 May, postmortem 21 May. Confirmed compromise. The initiating developer infection was 11 May, outside the update window; the extension publication is new activity inside it.">Nx Console</a></div><div class="catalog-row"><div class="catalog-date">MAY</div><a href="https://socket.dev/blog/antv-packages-compromised" target="_blank" rel="noopener noreferrer" title="@antv and related npm publishing wave — 19 May, roughly 01:56–02:56 UTC; disclosed 19 May. Confirmed malicious releases.">@antv publishing wave</a></div></div><div><div class="catalog-row"><div class="catalog-date">MAY</div><a href="https://www.wiz.io/blog/durabletask-teampcp-supply-chain-attack" target="_blank" rel="noopener noreferrer" title="Microsoft durabletask PyPI — 19 May publication and disclosure. Confirmed malicious versions 1.4.1, 1.4.2, 1.4.3.">durabletask (PyPI)</a></div><div class="catalog-row"><div class="catalog-date">MAY</div><a href="https://safedep.io/megalodon-mass-github-repo-backdooring-ci-workflows/" target="_blank" rel="noopener noreferrer" title="Megalodon workflow poisoning — 18 May activity; SafeDep publication 21 May. Confirmed malicious commits, not proof every workflow executed.">Megalodon</a></div><div class="catalog-row"><div class="catalog-date">MAY</div><a href="https://tanstack.com/blog/npm-supply-chain-compromise-postmortem" target="_blank" rel="noopener noreferrer" title="Mini Shai-Hulud TanStack/Mistral release wave — 11–12 May 2026">TanStack / Mistral</a></div><div class="catalog-row"><div class="catalog-date">MAY<small>by</small></div><a href="https://socket.dev/blog/malicious-ruby-gems-and-go-modules-steal-secrets-poison-ci" target="_blank" rel="noopener noreferrer" title="BufferZoneCorp RubyGems/Go tooling impersonation — Malicious artifacts available by 1 May 2026; exact initial publish dates unresolved">BufferZoneCorp</a></div><div class="catalog-row"><div class="catalog-date">MAY<small>by</small></div><a href="https://socket.dev/blog/node-ipc-package-compromised" target="_blank" rel="noopener noreferrer" title="node-ipc credential-stealer releases — Malicious releases verified by 14 May 2026">node-ipc</a></div><div class="catalog-row"><div class="catalog-date">MAY</div><a href="https://socket.dev/blog/laravel-lang-compromise" target="_blank" rel="noopener noreferrer" title="Laravel-Lang Composer tag compromise — 22–23 May 2026">Laravel-Lang</a></div><div class="catalog-row"><div class="catalog-date">MAY</div><a href="https://socket.dev/blog/trapdoor-crypto-stealer-npm-pypi-crates" target="_blank" rel="noopener noreferrer" title="TrapDoor cross-ecosystem crypto/developer stealer — 22–24 May 2026">TrapDoor</a></div><div class="catalog-row"><div class="catalog-date">MAY<small>by</small></div><a href="https://www.aikido.dev/blog/codex-remote-ui-steals-ai-tokens" target="_blank" rel="noopener noreferrer" title="codexui-android credential exfiltration — Malicious build present by May 2026; approximately April onset per May report">codexui-android</a></div></div></div><div class="catalog-foot">Month: activity · by: verified availability · report: disclosure · names link to sources</div>
 
 <!--
-SLIDE 61 · APPENDIX
+SLIDE 60 · APPENDIX
 
 Say:
 Continue the 2026 catalogue with the next dated entries. Distinguish individual compromise episodes from recurring family names and preserve the qualifiers on dates.
@@ -4219,7 +4175,7 @@ section { padding:0; background:#151411; color:#F7F2E8; }
 <div class="catalog-head"><h1>Incidents</h1><div class="catalog-year">2026</div></div><div class="catalog-grid"><div><div class="catalog-row"><div class="catalog-date">MAY–JUN</div><a href="https://research.jfrog.com/post/iron-worm-shai-hulud-rustier-cousin/" target="_blank" rel="noopener noreferrer" title="IronWorm initial npm/repository wave — Late May–early Jun 2026; observed before 3 Jun report">IronWorm initial wave</a></div><div class="catalog-row"><div class="catalog-date">MAY</div><a href="https://socket.dev/blog/malicious-nuget-package-impersonates-sicoob-sdk" target="_blank" rel="noopener noreferrer" title="Sicoob NuGet SDK impersonation — 5–6 May 2026">Sicoob NuGet SDK</a></div><div class="catalog-row"><div class="catalog-date">MAY<small>by</small></div><a href="https://socket.dev/blog/coruna-respawned-compromised-art-template-npm-package" target="_blank" rel="noopener noreferrer" title="art-template / Coruna-like exploit delivery — 2026 malicious package verified by 20 May; exact onset unresolved">art-template</a></div><div class="catalog-row"><div class="catalog-date">MAY</div><a href="https://www.bleepingcomputer.com/news/security/official-checkmarx-jenkins-package-compromised-with-infostealer/" target="_blank" rel="noopener noreferrer" title="Checkmarx Jenkins AST plugin rogue build — 9 May 2026">Checkmarx Jenkins plugin</a></div><div class="catalog-row"><div class="catalog-date">MAY/SEP</div><a href="https://socket.dev/blog/mini-shai-hulud-actions" target="_blank" rel="noopener noreferrer" title="actions-cool/issues-helper and maintain-one-comment tag poisoning — 18 May 2026; disabled 19 May; re-enabled 16 Sep with malicious tags; disabled 25 Sep">actions-cool</a></div><div class="catalog-row"><div class="catalog-date">MAY</div><a href="https://securitylabs.datadoghq.com/articles/backdoored-cemu-release-teampcp-supply-chain-campaign/" target="_blank" rel="noopener noreferrer" title="Cemu v2.6 release assets replaced — 7-8 May 2026">Cemu release assets</a></div><div class="catalog-row"><div class="catalog-date">MAY<small>by</small></div><a href="https://www.bleepingcomputer.com/news/security/fake-openai-repository-on-hugging-face-pushes-infostealer-malware/" target="_blank" rel="noopener noreferrer" title="Fake OpenAI privacy-filter repo on Hugging Face — Found ~7 May 2026">Fake privacy-filter model repo</a></div><div class="catalog-row"><div class="catalog-date">MAY<small>report</small></div><a href="https://securitylabs.datadoghq.com/articles/malicious-skills-supply-chain-risks-in-coding-agents-with-dynamic-context/" target="_blank" rel="noopener noreferrer" title="Clawsights malicious coding-agent skill — Reported 11 May 2026">Clawsights</a></div></div><div><div class="catalog-row"><div class="catalog-date">MAY<small>by</small></div><a href="https://www.sonatype.com/blog/hijacked-npm-package-attempts-to-deliver-polinrider-linked-rat" target="_blank" rel="noopener noreferrer" title="@common-stack/generate-plugin PolinRider-related takeover — Malicious releases verified by 21 May 2026; onset unresolved">@common-stack plugin</a></div><div class="catalog-row"><div class="catalog-date">MAY<small>by</small></div><a href="https://www.sonatype.com/blog/inside-a-176-package-npm-campaign-built-to-beat-your-internal-dependencies" target="_blank" rel="noopener noreferrer" title="99.99.99 dependency-confusion distribution wave — Malicious packages verified by 28 May 2026; onset unresolved">99.99.99 dependency confusion</a></div><div class="catalog-row"><div class="catalog-date">JUN<small>report</small></div><a href="https://www.microsoft.com/en-us/security/blog/2026/06/02/preinstall-persistence-inside-red-hat-npm-miasma-credential-stealing-campaign/" target="_blank" rel="noopener noreferrer" title="Red Hat Cloud Services / Miasma — malicious artifacts reported by 1 June; Microsoft technical report 2 June. Precise initial publish window not established in this review. Confirmed artifacts, included in disclosure inventory but excluded from the strict dated-activity subtotal.">Red Hat / Miasma</a></div><div class="catalog-row"><div class="catalog-date">JUN<small>report</small></div><a href="https://socket.dev/blog/shai-hulud-descends-to-hades-miasma-pypi-wave" target="_blank" rel="noopener noreferrer" title="Hades PyPI wheels and MCP-themed loaders — reports 7–8 June; exact onset unresolved here. Verified malicious wheel artifacts; excluded from strict dated-activity subtotal.">Hades (PyPI)</a></div><div class="catalog-row"><div class="catalog-date">JUN</div><a href="https://www.microsoft.com/en-us/security/blog/2026/06/17/postinstall-payload-inside-mastra-npm-supply-chain-compromise/" target="_blank" rel="noopener noreferrer" title="Mastra / easy-day-js — 17 June publish wave and report. Confirmed malicious dependency injection.">Mastra / easy-day-js</a></div><div class="catalog-row"><div class="catalog-date">JUN</div><a href="https://socket.dev/blog/glasswasm-malware-open-vsx-extensions" target="_blank" rel="noopener noreferrer" title="GlassWASM Open VSX impersonation — extension uploads 9–10 June; report 15 June. Confirmed trojanized artifacts.">GlassWASM</a></div><div class="catalog-row"><div class="catalog-date">JUN</div><a href="https://www.aikido.dev/blog/compromised-github-action-codfish-steals-secrets" target="_blank" rel="noopener noreferrer" title="codfish/semantic-release-action — 24 June compromise and Aikido disclosure. Confirmed poisoned action tags.">codfish release Action</a></div><div class="catalog-row"><div class="catalog-date">JUN–SEP</div><a href="https://socket.dev/blog/polinrider-github-packagist" target="_blank" rel="noopener noreferrer" title="PolinRider / Visanduma Packagist development branches — organization compromise since mid-June; this disclosure 17 September, building on July research. Confirmed malicious development versions.">PolinRider / Visanduma</a></div></div><div><div class="catalog-row"><div class="catalog-date">JUN</div><a href="https://www.stepsecurity.io/blog/miasma-worm-hits-microsoft-again-azure-functions-action-and-72-other-repositories-disabled-after-supply-chain-attack-targeting-ai-coding-agents" target="_blank" rel="noopener noreferrer" title="Miasma Microsoft repository/configuration wave — 5–6 Jun 2026">Miasma repository/config wave</a></div><div class="catalog-row"><div class="catalog-date">JUN</div><a href="https://www.stepsecurity.io/blog/binding-gyp-npm-supply-chain-attack-spreads-like-worm" target="_blank" rel="noopener noreferrer" title="Miasma Phantom Gyp wave — 2–3 Jun 2026">Miasma Phantom Gyp</a></div><div class="catalog-row"><div class="catalog-date">JUN</div><a href="https://socket.dev/blog/compromised-injective-sdk-npm-package" target="_blank" rel="noopener noreferrer" title="Injective SDK fake-telemetry implant — 8 Jun 2026 per Socket body; some later reporting labels July">Injective SDK</a></div><div class="catalog-row"><div class="catalog-date">JUN<small>report</small></div><a href="https://www.aikido.dev/blog/compromised-rust-crate-onering-performs-code-exfiltration" target="_blank" rel="noopener noreferrer" title="onering Rust crate build.rs exfiltration — Reported 10 Jun 2026">onering</a></div><div class="catalog-row"><div class="catalog-date">JUN</div><a href="https://www.sonatype.com/blog/atomic-arch-npm-campaign-adds-malicious-dependency" target="_blank" rel="noopener noreferrer" title="Arch AUR takeover of 400+ packages (&#x27;Atomic Arch&#x27;) — ~10-12 Jun 2026">Atomic Arch / AUR</a></div><div class="catalog-row"><div class="catalog-date">JUN<small>by</small></div><a href="https://www.sonatype.com/blog/lazarus-groups-latest-brandjacking-campaign-on-npm" target="_blank" rel="noopener noreferrer" title="buffer-utilities developer-library impersonation wave — Malicious artifacts analyzed by 3 Jun 2026; first publication unresolved">buffer-utilities / brandjacking</a></div><div class="catalog-row"><div class="catalog-date">JUN</div><a href="https://www.sonatype.com/blog/miasma-returns-leo-platform-compromise-in-npm" target="_blank" rel="noopener noreferrer" title="Leo Platform / RStreams Miasma recurrence — 24 Jun 2026 23:04:55 UTC coordinated publication (StepSecurity)">Leo Platform / RStreams</a></div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://socket.dev/blog/jscrambler-supply-chain-attack" target="_blank" rel="noopener noreferrer" title="Jscrambler repeated malicious releases — 11 July activity and report. Confirmed compromised releases.">Jscrambler</a></div></div></div><div class="catalog-foot">Month: activity · by: verified availability · report: disclosure · names link to sources</div>
 
 <!--
-SLIDE 62 · APPENDIX
+SLIDE 61 · APPENDIX
 
 Say:
 These are further entries in the same selected 2026 inventory. Use the linked source and detailed record when a date or affected scope is in question.
@@ -4362,7 +4318,7 @@ section { padding:0; background:#151411; color:#F7F2E8; }
 <div class="catalog-head"><h1>Incidents</h1><div class="catalog-year">2026</div></div><div class="catalog-grid"><div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://socket.dev/blog/asyncapi-supply-chain-attack" target="_blank" rel="noopener noreferrer" title="AsyncAPI trusted-publishing releases — 14 July publication and disclosure. Confirmed source and package implants.">AsyncAPI</a></div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://socket.dev/blog/braintree-nuget-typosquat-skims-credit-cards" target="_blank" rel="noopener noreferrer" title="Braintree.Net NuGet implant — first malicious version 3 July; report 9 July. Confirmed malicious packages, successful production victim count unknown.">Braintree.Net</a></div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://www.aikido.dev/blog/sleepergem-rubygems-supply-chain-attack" target="_blank" rel="noopener noreferrer" title="SleeperGem RubyGems dormant-account hijack — 19-22 Jul 2026">SleeperGem</a></div><div class="catalog-row"><div class="catalog-date">JUL–AUG<small>by</small></div><a href="https://www.bleepingcomputer.com/news/security/77-open-vsx-extensions-found-harvesting-developer-info/" target="_blank" rel="noopener noreferrer" title="Evil Twin Open VSX extensions (77) — Detected 26 Jul-1 Aug 2026; removed by 3 Aug">Evil Twin Open VSX</a></div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://socket.dev/blog/popular-npm-packages-in-the-keyv-and-cacheable-namespaces-compromised-in-active-supply-chain" target="_blank" rel="noopener noreferrer" title="keyv / Cacheable / ChainDrop — 4 August activity and report. Confirmed malicious publishing wave.">keyv / Cacheable / ChainDrop</a></div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://blog.rust-lang.org/2026/08/20/supply-chain-attack-on-arrayref/" target="_blank" rel="noopener noreferrer" title="arrayref, internment, append-only-vec / proc-macro1 — 20 August attack, removal and Rust disclosure. Confirmed registry incident.">Rust proc-macro cluster</a></div><div class="catalog-row"><div class="catalog-date">AUG–SEP</div><a href="https://www.aikido.dev/blog/graphalgo-terraform-go-modules" target="_blank" rel="noopener noreferrer" title="Graphalgo Terraform and Go expansion — orderedbtree published 11 August; Terraform carriers in early September; btreex first published 8 September; report 22 September. Confirmed malicious artifacts.">Graphalgo (Go / Terraform)</a></div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://github.com/coder/coder/security/advisories/GHSA-vx42-ghc9-gw65" target="_blank" rel="noopener noreferrer" title="Coder registry (registry.coder.com) module tampering — 31 Aug 2026 07:35-21:45 UTC">Coder module registry</a></div></div><div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://socket.dev/blog/openapi-react-query-codegen-npm-compromise" target="_blank" rel="noopener noreferrer" title="@7nohe/openapi-react-query-codegen trusted-publishing abuse — 28 Aug 2026 (two waves ~20 min apart)">openapi-react-query-codegen</a></div><div class="catalog-row"><div class="catalog-date">AUG<small>report</small></div><a href="https://www.ox.security/blog/shai-hulud-outbreak-debrief-the-worm-evolves-into-mcp/" target="_blank" rel="noopener noreferrer" title="Shai-Hulud variant via the official MCP Registry — Reported ~9-10 Aug 2026">MCP Registry Shai-Hulud</a></div><div class="catalog-row"><div class="catalog-date">AUG<small>by</small></div><a href="https://www.sonatype.com/blog/flooding-dropper-hits-npm-with-850-malicious-packages" target="_blank" rel="noopener noreferrer" title="Flooding Dropper August npm distribution wave — Malicious packages verified on 5 Aug 2026; onset unresolved">Flooding Dropper</a></div><div class="catalog-row"><div class="catalog-date">AUG<small>by</small></div><a href="https://www.sonatype.com/blog/six-npm-packages-use-ethereum-transactions-to-retrieve-malicious-payloads" target="_blank" rel="noopener noreferrer" title="NullReceiver six-carrier Ethereum payload wave — Six malicious artifacts identified 10 Aug 2026; first publication unresolved">NullReceiver Ethereum carriers</a></div><div class="catalog-row"><div class="catalog-date">SEP</div><a href="https://www.aikido.dev/blog/shai-hulud-npm-resurfaces" target="_blank" rel="noopener noreferrer" title="September replay of May @antv payload — 7 September publication and report. Confirmed new releases containing an old payload.">@antv September replay</a></div><div class="catalog-row"><div class="catalog-date">SEP</div><a href="https://www.aikido.dev/blog/supplychain-local-memtensor-npm-pypi" target="_blank" rel="noopener noreferrer" title="MemTensor / MemoryOS supplychain.local — 23 September malicious publications and report, updated 24 September. Confirmed carriers, preliminary payload analysis.">MemTensor / MemoryOS</a></div><div class="catalog-row"><div class="catalog-date">SEP<small>report</small></div><a href="https://checkmarx.com/zero-post/npm-btree-malware-campaign-affects-millions-of-downloads-no-need-for-install-script/" target="_blank" rel="noopener noreferrer" title="indexed-btree runtime loader (sorted-btree impersonation) — Reported 17-20 Sep 2026">indexed-btree</a></div><div class="catalog-row"><div class="catalog-date">SEP<small>report</small></div><a href="https://www.aikido.dev/blog/compromised-flutter-package-on-pub-dev-contains-xcsset-malware" target="_blank" rel="noopener noreferrer" title="pub.dev universal_file_viewer 0.1.5 (XCSSET) — Reported 8 Sep 2026">universal_file_viewer</a></div></div><div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://socket.dev/blog/tensorlake-compromise" target="_blank" rel="noopener noreferrer" title="Tensorlake SDK / ChainDrop — 8 October, publish 01:12:07 UTC, Socket flag 01:23:10 UTC; report 8 October. Confirmed malicious version 0.5.144.">Tensorlake / ChainDrop</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://www.stepsecurity.io/blog/ghostaction-returns" target="_blank" rel="noopener noreferrer" title="GhostAction October return — activity since 7 October, detailed 8 October burst; report 9 October. Confirmed workflow implants and successful runs, with theft dependent on available secrets.">GhostAction October</a></div><div class="catalog-row"><div class="catalog-date">OCT<small>report</small></div><a href="https://socket.dev/blog/glassworm-vscode-themes" target="_blank" rel="noopener noreferrer" title="GlassWorm themes on VS Code Marketplace and Open VSX — Reported 2 Oct 2026">GlassWorm themes</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://thehackernews.com/2026/10/malfex-npm-package-imgdecode-hides.html" target="_blank" rel="noopener noreferrer" title="MALFEX imgdecode npm package — imgdecode 1.0.3 published 11 Oct 2026 (campaign since Aug 2023)">MALFEX / imgdecode</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://www.stepsecurity.io/blog/subql-ecosystem-compromised" target="_blank" rel="noopener noreferrer" title="@subql/common 5.8.3 release-workflow compromise — 5 Oct 2026 11:56:29 UTC">@subql/common</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://socket.dev/blog/litellm-compromise" target="_blank" rel="noopener noreferrer" title="LiteLLM October release compromise — 21 Oct 2026; 1.107.0 wheels and containers; initial access provisional">LiteLLM · October</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://cursor.com/blog/claude-code-extension-security-notice" target="_blank" rel="noopener noreferrer" title="Cursor marketplace / Claude Code extension — 29 Oct 2026, 02:27–13:35 PT; modified 2.1.312 and 2.1.313 for macOS and Windows. Cursor confirms marketplace distribution; official npm/Open VSX compromise not established.">Cursor / Claude Code</a></div></div></div><div class="catalog-foot">Month: activity · by: verified availability · report: disclosure · names link to sources</div>
 
 <!--
-SLIDE 63 · APPENDIX
+SLIDE 62 · APPENDIX
 
 Say:
 This is the final selected 2026 catalogue page. The 21 October baseline was reconciled on 22 October. A targeted refresh checked on 31 October adds the vendor-confirmed 29 October Cursor/Claude Code extension compromise after LiteLLM. This is not a complete daily sweep; absence from this selection does not establish that another incident never happened.
@@ -4510,7 +4466,7 @@ section { padding:0; background:#151411; color:#F7F2E8; }
 <div class="catalog-head"><h1>Incidents</h1><div class="catalog-year">2025</div></div><div class="catalog-grid"><div><div class="catalog-row"><div class="catalog-date">JAN</div><a href="https://www.sonatype.com/blog/npm-packages-target-solana-devs-drop-keylogging-trojans" target="_blank" rel="noopener noreferrer" title="Fake Solana npm cluster — January 2025 publication; report 8 Jan">Fake Solana npm cluster</a></div><div class="catalog-row"><div class="catalog-date">FEB<small>by</small></div><a href="https://socket.dev/blog/malicious-package-exploits-go-module-proxy-caching-for-persistence" target="_blank" rel="noopener noreferrer" title="BoltDB Go proxy backdoor — Published Nov 2021; still served at 4 Feb 2025 disclosure">BoltDB Go proxy backdoor</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://socket.dev/blog/malicious-go-crypto-module-steals-passwords-and-deploys-rekoobe-backdoor" target="_blank" rel="noopener noreferrer" title="xinfeisoft/crypto Go backdoor — Published 20 Feb 2025; fetched malicious artifact 16 Dec 2025; report 26 Feb 2026">xinfeisoft/crypto Go backdoor</a></div><div class="catalog-row"><div class="catalog-date">FEB<small>by</small></div><a href="https://www.sonatype.com/blog/fake-vs-code-extension-on-npm-uses-altered-screenconnect-utility-as-spyware" target="_blank" rel="noopener noreferrer" title="trufflevscode npm impersonation — Malicious artifact verified by 5 Feb 2025 report; first publication unresolved">trufflevscode impersonation</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.wiz.io/blog/new-github-action-supply-chain-attack-reviewdog-action-setup" target="_blank" rel="noopener noreferrer" title="reviewdog → tj-actions cascade — 11–15 Mar 2025; CISA 18 Mar">reviewdog → tj-actions</a></div><div class="catalog-row"><div class="catalog-date">MAR<small>by</small></div><a href="https://socket.dev/blog/lazarus-strikes-npm-again-with-a-new-wave-of-malicious-packages" target="_blank" rel="noopener noreferrer" title="Contagious Interview March npm wave — Malicious packages live at 10 Mar 2025 report">Contagious Interview March wave</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://www.sonatype.com/blog/multiple-crypto-packages-hijacked-turned-into-info-stealers" target="_blank" rel="noopener noreferrer" title="March crypto/developer package hijacking — Malicious publication 26 Mar; report 27 Mar 2025">March crypto-package hijacking</a></div><div class="catalog-row"><div class="catalog-date">APR<small>by</small></div><a href="https://www.sonatype.com/blog/revived-cryptojs-library-is-a-crypto-stealer-in-disguise" target="_blank" rel="noopener noreferrer" title="crypto-encrypt-ts CryptoJS impersonation — Malicious versions analyzed by 30 Apr 2025; onset unresolved">crypto-encrypt-ts impersonation</a></div></div><div><div class="catalog-row"><div class="catalog-date">JUN</div><a href="https://about.gitlab.com/blog/gitlab-catches-mongodb-go-module-supply-chain-attack/" target="_blank" rel="noopener noreferrer" title="Fake MongoDB Go modules — June 2025; report 30 June">Fake MongoDB Go modules</a></div><div class="catalog-row"><div class="catalog-date">JUN</div><a href="https://gluestack.io/blogs/public-incident-report" target="_blank" rel="noopener noreferrer" title="React Native ARIA / GlueStack — 6–8 June 2025; public disclosure 9 June">React Native ARIA / GlueStack</a></div><div class="catalog-row"><div class="catalog-date">JUN–DEC</div><a href="https://securelist.com/tr/notepad-supply-chain-attack/120106/" target="_blank" rel="noopener noreferrer" title="Notepad++ update infrastructure — June–Dec 2025; owner disclosure 2 Feb 2026">Notepad++ update hijack</a></div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://www.stepsecurity.io/blog/supply-chain-security-alert-eslint-config-prettier-package-shows-signs-of-compromise" target="_blank" rel="noopener noreferrer" title="Prettier tooling npm phishing — 18–19 July 2025; contemporary disclosure">Prettier tooling phishing</a></div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://socket.dev/blog/toptal-s-github-organization-hijacked-10-malicious-packages-published" target="_blank" rel="noopener noreferrer" title="Toptal packages/repositories — 20 July 2025 activity; report 23 July">Toptal packages / repositories</a></div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://nx.dev/blog/s1ngularity-postmortem" target="_blank" rel="noopener noreferrer" title="Nx S1ngularity — 26 Aug 2025; owner postmortem Aug">Nx S1ngularity</a></div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://www.sonatype.com/blog/sonatype-uncovers-global-espionage-campaign-in-open-source-ecosystems" target="_blank" rel="noopener noreferrer" title="BeaverTail August LICENSE-loader wave — Early August 2025; exact report-update date unstated">BeaverTail August loader wave</a></div><div class="catalog-row"><div class="catalog-date">SEP</div><a href="https://socket.dev/blog/npm-author-qix-compromised-in-major-supply-chain-attack" target="_blank" rel="noopener noreferrer" title="Qix/chalk account phishing — 8 Sept 2025; same-day analysis">Qix / chalk phishing</a></div></div><div><div class="catalog-row"><div class="catalog-date">SEP</div><a href="https://www.sonatype.com/blog/ongoing-npm-software-supply-chain-attack-exposes-new-risks" target="_blank" rel="noopener noreferrer" title="September Shai-Hulud propagation — 15–18 Sept 2025; September disclosures">September Shai-Hulud</a></div><div class="catalog-row"><div class="catalog-date">SEP–DEC</div><a href="https://blog.gitguardian.com/ghostaction-github-actions-supply-chain-attack-returns/" target="_blank" rel="noopener noreferrer" title="GhostAction workflow theft — Sept–Dec 2025; initial report 5 Sept">GhostAction workflow theft</a></div><div class="catalog-row"><div class="catalog-date">OCT–DEC</div><a href="https://socket.dev/supply-chain-attacks/glassworm-v2" target="_blank" rel="noopener noreferrer" title="GlassWorm extension distribution — Oct–Dec 2025; successive original reports">GlassWorm extensions</a></div><div class="catalog-row"><div class="catalog-date">NOV</div><a href="https://socket.dev/blog/shai-hulud-strikes-again-v2" target="_blank" rel="noopener noreferrer" title="Shai-Hulud 2.0 — 24 Nov 2025; original reports/postmortem in Nov">Shai-Hulud 2.0</a></div><div class="catalog-row"><div class="catalog-date">NOV<small>by</small></div><a href="https://socket.dev/blog/9-malicious-nuget-packages-deliver-time-delayed-destructive-payloads" target="_blank" rel="noopener noreferrer" title="NuGet shanhai666 sabotage packages — Published 2023–2024; live at 6 Nov 2025 disclosure">NuGet shanhai666 sabotage</a></div><div class="catalog-row"><div class="catalog-date">DEC</div><a href="https://snyk.io/blog/shai-hulud-3-0/" target="_blank" rel="noopener noreferrer" title="Shai-Hulud “Holiday Whisper” variant — Dec 2025; Snyk Dec report">Shai-Hulud Holiday Whisper</a></div><div class="catalog-row"><div class="catalog-date">DEC</div><a href="https://www.aikido.dev/blog/maven-central-jackson-typosquatting-malware" target="_blank" rel="noopener noreferrer" title="Jackson Maven namespace impersonation — Dec 2025; report 25 Dec">Jackson Maven impersonation</a></div></div></div><div class="catalog-foot">Month: activity · by: verified availability · report: disclosure · names link to sources</div>
 
 <!--
-SLIDE 64 · APPENDIX
+SLIDE 63 · APPENDIX
 
 Say:
 The 2025 review has 23 records across 20 conservative groups. Some malicious artifacts were published earlier but were verified available during 2025. Do not add annual groups as unique operators.
@@ -4650,7 +4606,7 @@ section { padding:0; background:#151411; color:#F7F2E8; }
 <div class="catalog-head"><h1>Incidents</h1><div class="catalog-year">2024</div></div><div class="catalog-grid"><div><div class="catalog-row"><div class="catalog-date">JAN<small>by</small></div><a href="https://www.sonatype.com/blog/fake-distube-config-npm-package-drops-windows-info-stealing-malware" target="_blank" rel="noopener noreferrer" title="distube-config npm Trojan — Malicious artifact verified by 24 January 2024; onset unresolved.">distube-config</a></div><div class="catalog-row"><div class="catalog-date">FEB<small>by</small></div><a href="https://www.sonatype.com/blog/npm-packages-caught-spreading-bladeroid-info-stealer" target="_blank" rel="noopener noreferrer" title="Bladeroid same-publisher npm cluster — Malicious same-publisher artifacts verified by 29 February 2024.">Bladeroid npm cluster</a></div><div class="catalog-row"><div class="catalog-date">MAR<small>by</small></div><a href="https://www.openwall.com/lists/oss-security/2024/03/29/4" target="_blank" rel="noopener noreferrer" title="XZ / liblzma release backdoor — Malicious 5.6.0/5.6.1 tarballs available by 29 March 2024 disclosure.">XZ / liblzma</a></div><div class="catalog-row"><div class="catalog-date">MAY<small>by</small></div><a href="https://www.sonatype.com/blog/crytic-compilers-typosquats-known-crypto-library-drops-windows-trojan" target="_blank" rel="noopener noreferrer" title="crytic-compilers PyPI impersonation — Malicious counterfeit identified 1 May 2024.">crytic-compilers</a></div><div class="catalog-row"><div class="catalog-date">MAY</div><a href="https://www.sonatype.com/blog/pypi-crypto-stealer-targets-windows-users-revives-malware-campaign" target="_blank" rel="noopener noreferrer" title="pytoileur / Cool Package May wave — New malicious package published 28 May 2024.">pytoileur / Cool Package</a></div><div class="catalog-row"><div class="catalog-date">JUN<small>by</small></div><a href="https://www.sonatype.com/blog/cors-parser-npm-package-hides-cross-platform-backdoor-in-png-files" target="_blank" rel="noopener noreferrer" title="cors-parser cross-platform loader — Malicious artifacts analyzed by 11 June 2024.">cors-parser</a></div></div><div><div class="catalog-row"><div class="catalog-date">JUL<small>by</small></div><a href="https://www.sonatype.com/blog/npm-packages-use-travis.yml-files-to-conceal-macos-malware-disguised-as-safari-updates" target="_blank" rel="noopener noreferrer" title="Fake Safari-update npm cluster — Malicious cluster verified by 26 July 2024.">Fake Safari update cluster</a></div><div class="catalog-row"><div class="catalog-date">AUG</div><a href="https://www.sonatype.com/blog/an-ideal-pypi-typosquat-solana-py-is-here-to-steal-your-crypto-keys" target="_blank" rel="noopener noreferrer" title="solana-py PyPI impersonation — Counterfeit appeared in the week of 7 August 2024.">solana-py impersonation</a></div><div class="catalog-row"><div class="catalog-date">AUG<small>by</small></div><a href="https://www.sonatype.com/blog/pyfetcher-netfetch-drop-netflix-checker-on-windows" target="_blank" rel="noopener noreferrer" title="netfetcher / pyfetcher malware cluster — Malicious artifacts verified by 22 August 2024.">netfetcher / pyfetcher</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://www.sonatype.com/blog/lottie-player-compromised-in-supply-chain-attack-all-you-need-to-know" target="_blank" rel="noopener noreferrer" title="Lottie Player npm publishing compromise — Malicious versions 2.0.5–2.0.7 published 30 October 2024.">Lottie Player</a></div><div class="catalog-row"><div class="catalog-date">NOV<small>by</small></div><a href="https://www.sonatype.com/blog/fake-ip-checker-utilities-on-npm-are-crypto-stealers" target="_blank" rel="noopener noreferrer" title="Fake npm IP-checker stealer cluster — Malicious artifacts verified by 14 November 2024.">Fake IP-checker utilities</a></div><div class="catalog-row"><div class="catalog-date">NOV</div><a href="https://blog.pypi.org/posts/2024-11-25-aiocpa-attack-analysis/" target="_blank" rel="noopener noreferrer" title="aiocpa maintainer-injected stealer — First malicious version 0.1.13 published 20 November 2024; 0.1.14 also malicious.">aiocpa</a></div></div><div><div class="catalog-row"><div class="catalog-date">DEC</div><a href="https://www.anza.xyz/blog/web3-js-exploit-root-cause-analysis" target="_blank" rel="noopener noreferrer" title="Solana web3.js publishing compromise — 3 December 2024, 15:20–20:25 UTC per owner advisory.">Solana web3.js</a></div><div class="catalog-row"><div class="catalog-date">DEC</div><a href="https://blog.pypi.org/posts/2024-12-11-ultralytics-attack-analysis/" target="_blank" rel="noopener noreferrer" title="Ultralytics December publishing compromise — 4–7 December 2024 episode; four malicious releases removed.">Ultralytics</a></div><div class="catalog-row"><div class="catalog-date">DEC<small>by</small></div><a href="https://www.sonatype.com/blog/counterfeit-eslint-and-node-types-libraries-downloaded-thousands-of-times-abuse-pastebin" target="_blank" rel="noopener noreferrer" title="Fake ESLint/Prettier publisher cluster — Malicious artifacts discovered in December, verified by 18 December 2024.">Fake ESLint / Prettier</a></div><div class="catalog-row"><div class="catalog-date">DEC<small>by</small></div><a href="https://www.sonatype.com/blog/counterfeit-eslint-and-node-types-libraries-downloaded-thousands-of-times-abuse-pastebin" target="_blank" rel="noopener noreferrer" title="types-node Pastebin loader — Malicious artifact discovered in December, verified by 18 December 2024.">types-node</a></div><div class="catalog-row"><div class="catalog-date">DEC</div><a href="https://github.com/web-infra-dev/rspack/releases/tag/v1.1.8" target="_blank" rel="noopener noreferrer" title="Rspack npm token compromise — Malicious @rspack/core and @rspack/cli 1.1.7 on 19 December 2024.">Rspack</a></div><div class="catalog-row"><div class="catalog-date">DEC</div><a href="https://github.com/youzan/vant/releases/tag/v4.9.15" target="_blank" rel="noopener noreferrer" title="Vant npm token compromise — Malicious releases on 19 December 2024; owner fixes in v4.9.15.">Vant</a></div></div></div><div class="catalog-foot">Month: activity · by: verified availability · names link to sources</div>
 
 <!--
-SLIDE 65 · APPENDIX
+SLIDE 64 · APPENDIX
 
 Say:
 The 2024 historical sample contains 18 records across 17 bundles. It is a bounded sample with different coverage, not a complete annual census or a directly comparable growth series.
@@ -4783,7 +4739,7 @@ section { padding:0; background:#151411; color:#F7F2E8; }
 <div class="catalog-head"><h1>Incidents</h1><div class="catalog-year">2023</div></div><div class="catalog-grid"><div><div class="catalog-row"><div class="catalog-date">JAN<small>by</small></div><a href="https://www.sonatype.com/blog/malware-monthly-january-2023" target="_blank" rel="noopener noreferrer" title="minimums PyPI install-time Trojan — Malicious package identified in the January 2023 review; first publication unresolved.">minimums</a></div><div class="catalog-row"><div class="catalog-date">JAN<small>by</small></div><a href="https://www.sonatype.com/blog/malware-monthly-january-2023" target="_blank" rel="noopener noreferrer" title="trendava npm miner cluster — Same-publisher malicious miner packages observed during January 2023.">trendava / speedtestgod</a></div><div class="catalog-row"><div class="catalog-date">FEB<small>by</small></div><a href="https://www.sonatype.com/blog/malicious-aptx-python-package-drops-meterpreter-shell-deletes-netstat" target="_blank" rel="noopener noreferrer" title="aptx PyPI Meterpreter delivery — Malicious artifact analyzed by 8 February 2023; onset unresolved.">aptx</a></div><div class="catalog-row"><div class="catalog-date">FEB</div><a href="https://www.sonatype.com/blog/attacker-floods-pypi-with-450-malicious-packages-that-drop-windows-trojan-via-dropbox" target="_blank" rel="noopener noreferrer" title="EsqueleSquad PyPI flooding wave — February 2023 weekend publication burst, ongoing at 27 February report.">EsqueleSquad PyPI wave</a></div><div class="catalog-row"><div class="catalog-date">MAR<small>by</small></div><a href="https://www.sonatype.com/blog/malware-monthly-march-2023" target="_blank" rel="noopener noreferrer" title="microsoft-helper / pyezstyle March stealer wave — Malicious packages observed in March 2023; pyezstyle endpoint activity dated 21 March.">microsoft-helper / pyezstyle</a></div></div><div><div class="catalog-row"><div class="catalog-date">MAR<small>by</small></div><a href="https://www.sonatype.com/blog/malware-monthly-march-2023" target="_blank" rel="noopener noreferrer" title="12build-scoped npm environment exfiltration — Scoped malicious package cluster observed in March 2023.">12build npm exfiltration</a></div><div class="catalog-row"><div class="catalog-date">MAR</div><a href="https://cloud.google.com/blog/topics/threat-intelligence/3cx-software-supply-chain-compromise" target="_blank" rel="noopener noreferrer" title="3CX Desktop App compromise — Trojanized desktop software distributed in late March 2023.">3CX Desktop App</a></div><div class="catalog-row"><div class="catalog-date">JUN<small>by</small></div><a href="https://www.sonatype.com/blog/pypi-attackers-still-at-it-malicious-packages-drop-trojans-and-info-stealers" target="_blank" rel="noopener noreferrer" title="broke publisher PyPI Trojan cluster — Identical malicious packages analyzed during June 2023.">broke / colors impostors</a></div><div class="catalog-row"><div class="catalog-date">JUN<small>by</small></div><a href="https://www.sonatype.com/blog/pypi-attackers-still-at-it-malicious-packages-drop-trojans-and-info-stealers" target="_blank" rel="noopener noreferrer" title="libiobe PyPI cross-platform malware — Malicious package analyzed during June 2023.">libiobe</a></div><div class="catalog-row"><div class="catalog-date">JUN</div><a href="https://cloud.google.com/blog/topics/threat-intelligence/north-korea-supply-chain" target="_blank" rel="noopener noreferrer" title="JumpCloud agent commands compromise — Malicious Ruby executed at a downstream customer on 27 June 2023.">JumpCloud agent commands</a></div></div><div><div class="catalog-row"><div class="catalog-date">JUL</div><a href="https://www.sonatype.com/blog/malicious-pypi-package-vmconnect-imitates-vmware-vsphere-connector-module" target="_blank" rel="noopener noreferrer" title="VMConnect / PaperPin PyPI impersonation — VMConnect published and detected 28 July 2023.">VMConnect / PaperPin</a></div><div class="catalog-row"><div class="catalog-date">SEP<small>by</small></div><a href="https://www.sonatype.com/blog/npm-packages-caught-exfiltrating-kubernetes-config-ssh-keys" target="_blank" rel="noopener noreferrer" title="Kubernetes/SSH npm exfiltration cluster — Malicious exfiltration artifacts verified by 19 September 2023.">Kubernetes / SSH impostors</a></div><div class="catalog-row"><div class="catalog-date">OCT</div><a href="https://www.microsoft.com/en-us/security/blog/2023/11/22/diamond-sleet-supply-chain-compromise-distributes-a-modified-cyberlink-installer/" target="_blank" rel="noopener noreferrer" title="CyberLink modified signed installer — Modified installer observed from 20 October 2023.">CyberLink installer</a></div><div class="catalog-row"><div class="catalog-date">DEC</div><a href="https://www.sonatype.com/blog/decrypting-the-ledger-connect-kit-compromise-a-deep-dive-into-the-crypto-drainer-attack" target="_blank" rel="noopener noreferrer" title="Ledger Connect Kit npm compromise — Malicious npm versions distributed 14 December 2023.">Ledger Connect Kit</a></div></div></div><div class="catalog-foot">Month: activity · by: verified availability · names link to sources</div>
 
 <!--
-SLIDE 66 · APPENDIX
+SLIDE 65 · APPENDIX
 
 Say:
 The 2023 historical sample contains 14 records across 14 bundles and includes vendor-delivery cases. Follow the source for the chosen example; do not compare totals as equal-coverage measurements.
