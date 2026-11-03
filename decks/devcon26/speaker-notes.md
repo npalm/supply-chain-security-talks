@@ -432,12 +432,12 @@ Say:
 Start with workflow-level permissions: {} and give each job only its required GITHUB_TOKEN rights. Here the release writes a GitHub Release. Separately narrow an App token's repositories and permissions. Keep its private key away from untrusted execution.
 
 Next:
-Introduce the workload identity exchange.
+Name the stored-secret problem, then the workload identity exchange.
 
 ## Slide 46
 
 Say:
-OIDC lets a job present GitHub-signed identity claims to a provider instead of storing a long-lived publishing secret. The provider checks trust and grants temporary access. Requesting a token is separate from permission to use a target resource.
+Most pipelines still publish or deploy with a long-lived token or cloud key stored in CI secrets. Whoever copies it can use it from anywhere until someone revokes it. OIDC changes that: the job presents GitHub-signed identity claims, a registry or cloud provider checks them against its trust rules and grants short-lived access. Requesting a token is separate from permission to use a target resource.
 
 Next:
 What if an accepted job runs a stranger's code?

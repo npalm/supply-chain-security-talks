@@ -2881,7 +2881,7 @@ Say:
 Start with workflow-level permissions: {} and give each job only its required GITHUB_TOKEN rights. Here the release writes a GitHub Release. Separately narrow an App token's repositories and permissions. Keep its private key away from untrusted execution.
 
 Next:
-Introduce the workload identity exchange.
+Name the stored-secret problem, then the workload identity exchange.
 
 Reference detail (not read aloud):
 These are literal configuration excerpts, not a complete workflow. permissions: {} removes default GITHUB_TOKEN grants; explicit job permissions add the required access. It is not a policy ceiling preventing later jobs from requesting broader rights. These settings do not restrict an App token, PAT, registry credential or cloud identity. contents: write permits more repository operations than creating releases, so keep that token away from untrusted execution. For private dependency reads, scope any separate credential too.
@@ -2906,7 +2906,10 @@ section { background:linear-gradient(135deg,#11181A,#171D1C); padding:0; }
 .draft-head { position:absolute!important; top:48px; left:64px; right:64px; }
 .draft-head h1 { font-size:61px; max-width:1110px; }
 .draft-label { color:#A5D7BB; font:600 16px/1.4 'JetBrains Mono',monospace; margin-bottom:20px; }
-.draft-steps { position:absolute!important; top:249px; left:64px; right:64px; display:grid; grid-template-columns:repeat(3,1fr); gap:38px; }
+.draft-problem { position:absolute!important; top:180px; left:64px; right:64px; display:flex; align-items:baseline; gap:26px; padding:13px 22px; border:1px solid #E8857255; background:#2A1C1A; }
+.draft-problem b { flex:none; color:#E88572; font:600 16px/1.4 'JetBrains Mono',monospace; }
+.draft-problem span { color:#F2E3DA; font-size:23px; line-height:1.35; }
+.draft-steps { position:absolute!important; top:266px; left:64px; right:64px; display:grid; grid-template-columns:repeat(3,1fr); gap:38px; }
 .draft-step { border-top:2px solid #A5D7BB88; padding-top:20px; }
 .draft-step b { color:#A5D7BB; font:600 16px/1.4 'JetBrains Mono',monospace; }
 .draft-step h2 { color:#F7F2E8; font-size:33px; margin:24px 0 20px; }
@@ -2916,19 +2919,20 @@ section { background:linear-gradient(135deg,#11181A,#171D1C); padding:0; }
 </style>
 
 <div class="draft-head"><div class="draft-label">Workload identity · OpenID Connect (OIDC)</div><h1>A workflow can prove its identity</h1></div>
+<div class="draft-problem"><b>TODAY · STORED SECRETS</b><span>Long-lived tokens and keys in CI secrets: copy once, use anywhere.</span></div>
 <div class="draft-steps">
 <div class="draft-step"><b>01 · GITHUB SIGNS A PROOF</b><h2>“This is the job”</h2><p>The job requests an identity<br>token with repository and<br>workflow context.</p></div>
-<div class="draft-step"><b>02 · THE PROVIDER CHECKS</b><h2>“Do I trust this job?”</h2><p>npm or a cloud provider<br>checks the signed claims<br>against its trust rules.</p></div>
-<div class="draft-step"><b>03 · ACCESS FOR THE JOB</b><h2>Temporary credentials</h2><p>The provider grants<br>publishing or deployment<br>access for a limited time.</p></div>
+<div class="draft-step"><b>02 · THE PROVIDER CHECKS</b><h2>“Do I trust this job?”</h2><p>A registry or cloud provider<br>checks the signed claims<br>against its trust rules.</p></div>
+<div class="draft-step"><b>03 · ACCESS FOR THE JOB</b><h2>Short-lived access</h2><p>The provider grants<br>publishing or deployment<br>access for a limited time.</p></div>
 </div>
-<div class="draft-bottom">This replaces a stored, long-lived credential with a trusted token exchange.<small>The code running inside the accepted job still matters.</small></div>
+<div class="draft-bottom">Instead of a stored secret, each job exchanges proof for short-lived access.<small>The code running inside the accepted job still matters.</small></div>
 
 
 <!--
 SLIDE 46 · SPEAKER NOTES
 
 Say:
-OIDC lets a job present GitHub-signed identity claims to a provider instead of storing a long-lived publishing secret. The provider checks trust and grants temporary access. Requesting a token is separate from permission to use a target resource.
+Most pipelines still publish or deploy with a long-lived token or cloud key stored in CI secrets. Whoever copies it can use it from anywhere until someone revokes it. OIDC changes that: the job presents GitHub-signed identity claims, a registry or cloud provider checks them against its trust rules and grants short-lived access. Requesting a token is separate from permission to use a target resource.
 
 Next:
 What if an accepted job runs a stranger's code?
