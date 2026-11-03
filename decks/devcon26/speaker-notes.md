@@ -216,7 +216,7 @@ Say:
 AI plays two roles here. It can help attackers build and adapt an attack. And attackers can turn our own AI against us: a prompt injection steers an agent that already has our access, or malware runs the AI tools on a developer's machine to hunt for secrets.
 
 Delivery:
-Point to the first slogan for attacker assistance and the second for AI acting inside our environment. Keep the explanation spoken; the slide carries only the chapter title and the two slogans.
+Point to the first slogan for attacker assistance and the second for our own AI used as the attacker's tool (prompt injection, or S1ngularity-style use of local AI tools). Keep the explanation spoken; the slide carries only the chapter title and the two slogans.
 
 Next:
 Start with S1ngularity, an August 2025 precedent for attempted use of local AI tools. Introduce the backward step in time explicitly.
@@ -257,7 +257,7 @@ Say:
 Do not read every name. Packages, automation, editors and agent context give attackers different routes to execution and available identity. Names can cover multiple recorded waves, and some records cross surfaces.
 
 Delivery:
-The 32 names appear one by one in random order, every 0.25 s (about 8 s); click the grid to replay.
+On entry the 32 names appear one by one in random order, every 0.25 s (about 8 s in total); click the grid to replay. Keep talking over the reveal; do not narrate the full name list.
 
 Next:
 Explain what the inventory does and does not count.
@@ -314,7 +314,7 @@ Say:
 Review first, then pin which input runs to an immutable reference. Packages use committed lockfiles and integrity data, Actions use reviewed full commit SHAs, and images use reviewed digests. Keep those selections maintained through reviewed updates.
 
 Delivery:
-The fixed jig represents an exact selection that cannot drift when a name or tag moves. It does not establish the selected input's safety. Use the three examples as corresponding mechanisms; the full reviewed Action pin remains in the existing examples and original comparison slide.
+The fixed jig represents an exact selection that cannot drift when a name or tag moves. Immutable describes the reference, not the code: it does not establish the selected input's safety. Do not confuse this consumer-side pinning with GitHub's publisher-side immutable releases. Use the three examples as corresponding mechanisms; the full reviewed Action pin remains in the existing examples and original comparison slide.
 
 Next:
 Assess the change before merging it.
