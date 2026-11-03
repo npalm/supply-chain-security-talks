@@ -357,7 +357,7 @@
       "duration": "00:45",
       "end": "22:35",
       "backup": false,
-      "source_composition": "Keep reviewed inputs fixed",
+      "source_composition": "Pin to immutable references",
       "section": "Input and execution controls"
     },
     {
