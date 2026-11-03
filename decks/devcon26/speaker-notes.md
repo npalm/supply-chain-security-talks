@@ -440,17 +440,9 @@ Say:
 Most pipelines still publish or deploy with a long-lived token or cloud key stored in CI secrets. Whoever copies it can use it from anywhere until someone revokes it. OIDC changes that: the job presents GitHub-signed identity claims, a registry or cloud provider checks them against its trust rules and grants short-lived access. Requesting a token is separate from permission to use a target resource.
 
 Next:
-What if an accepted job runs a stranger's code?
+How broad is the trust behind that exchange?
 
 ## Slide 47
-
-Say:
-An unauthorised comment triggered openapi's release job, which checked out fork code and published using the repository's OIDC identity. All ten malicious versions had valid provenance. The job identity was genuine; its input selection was unsafe.
-
-Next:
-Separate provider trust from GitHub release enforcement.
-
-## Slide 48
 
 Say:
 main is protected and an environment is named, but release has no approval or branch restriction. AWS accepts every subject suffix for this repository. A valid token from another permitted branch can still match. Protecting main alone does not close this path.
@@ -461,13 +453,21 @@ Hold the before state, then advance to the matching layout without changing the 
 Next:
 Advance once and point to the changed lines.
 
-## Slide 49
+## Slide 48
 
 Say:
 Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources: only s3:PutObject under the example-lunch-poll/releases/ prefix. Review the actual source and artifact entering the job. LiteLLM's October update reports stolen owner credentials were used to disable branch protection. Protect the identities that can change these rules too.
 
 Delivery:
 Point to exact subject matching, branch selection, approval and bypass changes, then the compact role-permissions box. Trust controls who can assume the role; permissions control what that role can do.
+
+Next:
+Even a genuine job identity can publish a stranger's code.
+
+## Slide 49
+
+Say:
+A real case shows why. An unauthorised comment triggered openapi's release job, which checked out fork code and published using the repository's OIDC identity. All ten malicious versions had valid provenance. The job identity was genuine; its input selection was unsafe.
 
 Next:
 Apply input review to instructions and their helpers.

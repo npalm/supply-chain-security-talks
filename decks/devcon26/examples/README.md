@@ -47,7 +47,7 @@ The slide shows labelled literal attribute excerpts; the `.tf` file contains com
 
 ## Two-step OIDC example
 
-Slides 48–49 use matching layouts, with GitHub controls left and AWS role trust right. The before configuration deliberately leaves a gap despite protecting main: [GitHub before](github-release-controls-before.example.tf) has no required environment reviewers and no deployment branch restriction, while [AWS before](oidc-trust-before.example.json) accepts all context suffixes for the named repository through StringLike. The subject is scoped to the fictional repository, not repo:* across GitHub. Jobs still need a valid token and id-token: write. These are anti-examples for explanation; do not deploy them. The after files remain [GitHub release controls](github-release-controls.example.tf) and [exact AWS trust](oidc-trust.example.json).
+Slides 47–48 use matching layouts, with GitHub controls left and AWS role trust right. The before configuration deliberately leaves a gap despite protecting main: [GitHub before](github-release-controls-before.example.tf) has no required environment reviewers and no deployment branch restriction, while [AWS before](oidc-trust-before.example.json) accepts all context suffixes for the named repository through StringLike. The subject is scoped to the fictional repository, not repo:* across GitHub. Jobs still need a valid token and id-token: write. These are anti-examples for explanation; do not deploy them. The after files remain [GitHub release controls](github-release-controls.example.tf) and [exact AWS trust](oidc-trust.example.json).
 
 
 ## Dependency assessment and release inventory · 21 October 2026

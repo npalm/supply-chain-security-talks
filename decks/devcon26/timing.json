@@ -471,28 +471,28 @@
     {
       "slide": 47,
       "start": "31:50",
-      "duration": "00:55",
-      "end": "32:45",
+      "duration": "00:45",
+      "end": "32:35",
       "backup": false,
-      "source_composition": "The publishing job trusted a stranger",
+      "source_composition": "OIDC release controls",
       "section": "Identity, instructions and recovery"
     },
     {
       "slide": 48,
-      "start": "32:45",
-      "duration": "00:45",
-      "end": "33:30",
+      "start": "32:35",
+      "duration": "01:05",
+      "end": "33:40",
       "backup": false,
       "source_composition": "OIDC release controls",
       "section": "Identity, instructions and recovery"
     },
     {
       "slide": 49,
-      "start": "33:30",
-      "duration": "01:05",
+      "start": "33:40",
+      "duration": "00:55",
       "end": "34:35",
       "backup": false,
-      "source_composition": "OIDC release controls",
+      "source_composition": "The publishing job trusted a stranger",
       "section": "Identity, instructions and recovery"
     },
     {

@@ -2886,7 +2886,7 @@ Name the stored-secret problem, then the workload identity exchange.
 Reference detail (not read aloud):
 These are literal configuration excerpts, not a complete workflow. permissions: {} removes default GITHUB_TOKEN grants; explicit job permissions add the required access. It is not a policy ceiling preventing later jobs from requesting broader rights. These settings do not restrict an App token, PAT, registry credential or cloud identity. contents: write permits more repository operations than creating releases, so keep that token away from untrusted execution. For private dependency reads, scope any separate credential too.
 
-environment: release references an environment; configure reviewers, branch restrictions and bypass controls separately (worked example on 48–49). Plan/visibility limits apply. Separate jobs still need fresh execution and careful artifact/cache validation; verify source/ref and artifact digest. Provenance is not a benign-behavior guarantee.
+environment: release references an environment; configure reviewers, branch restrictions and bypass controls separately (worked example on 47–48). Plan/visibility limits apply. Separate jobs still need fresh execution and careful artifact/cache validation; verify source/ref and artifact digest. Provenance is not a benign-behavior guarantee.
 
 The App snippet is the with: input body for actions/create-github-app-token, not workflow permissions. Required client-id/private-key inputs and a reviewed pinned Action reference are omitted here; see examples/actions-and-token-scope.md. Explicit repositories and permission-contents narrow the issued installation token within the App's existing access. In this Action, omitting both owner and repositories defaults to the current repository, while supplying owner without repositories can select the owner's whole installation. Omitting permission inputs inherits installation permissions. Direct REST token creation has different repository defaults. Keep the App private key out of untrusted jobs: limiting a minted token does not limit a stolen key's ability to mint other tokens. This read-only App token illustrates a separate read use case, not the GitHub Release writer. No live policy or workflow was changed.
 
@@ -2935,65 +2935,17 @@ Say:
 Most pipelines still publish or deploy with a long-lived token or cloud key stored in CI secrets. Whoever copies it can use it from anywhere until someone revokes it. OIDC changes that: the job presents GitHub-signed identity claims, a registry or cloud provider checks them against its trust rules and grants short-lived access. Requesting a token is separate from permission to use a target resource.
 
 Next:
-What if an accepted job runs a stranger's code?
+How broad is the trust behind that exchange?
 
 Reference detail (not read aloud):
 Start with the problem the audience knows: an NPM_TOKEN or cloud access key stored in GitHub secrets can be copied and reused. OpenID Connect lets the job request a signed identity token from GitHub. The registry or cloud provider checks that proof against configured trust and issues temporary access. This reduces stored long-lived credentials and gives the provider workload context to authorize.
 
-id-token: write authorizes a GitHub job to request an identity token; it does not itself grant AWS or npm access. The provider must trust the workload. npm calls this trusted publishing. The next incident uses npm, while our later concrete policy example uses AWS. The common principle is workload identity, with different provider configurations.
+id-token: write authorizes a GitHub job to request an identity token; it does not itself grant AWS or npm access. The provider must trust the workload. npm calls this trusted publishing. The concrete policy example that follows uses AWS, while the incident after it uses npm. The common principle is workload identity, with different provider configurations.
 
 Do not say there is nothing to steal or that temporary credentials stop malicious code inside a trusted job. Tokens and request material are still sensitive. No universal one-hour expiry is claimed.
 Sources:
 - https://docs.github.com/en/actions/concepts/security/openid-connect
 - https://docs.npmjs.com/trusted-publishers/
--->
-
----
-
-<!-- _class: control-example chapter-controls -->
-<style scoped>
-section { background:linear-gradient(135deg,#11181A,#171D1C); padding:0; }
-.draft-head { position:absolute!important; top:48px; left:64px; right:64px; }
-.draft-head h1 { font-size:61px; max-width:1110px; }
-.draft-label { color:#E6B65E; font:600 16px/1.4 'JetBrains Mono',monospace; margin-bottom:20px; }
-.draft-steps { position:absolute!important; top:249px; left:64px; right:64px; display:grid; grid-template-columns:repeat(3,1fr); gap:38px; }
-.draft-step { border-top:2px solid #E6B65E88; padding-top:20px; }
-.draft-step b { color:#E6B65E; font:600 16px/1.4 'JetBrains Mono',monospace; }
-.draft-step h2 { color:#F7F2E8; font-size:33px; margin:24px 0 20px; }
-.draft-step p { font-size:25px; color:#CED7D0; line-height:1.45; margin:0; }
-.draft-bottom { position:absolute!important; bottom:47px; left:64px; right:64px; border-top:1px solid #A5D7BB44; padding-top:19px; color:#E6C797; font-size:23px; }
-.draft-bottom small { display:block; font-size:18px; color:#AFBFB5; margin-top:12px; }
-</style>
-
-<div class="draft-head"><div class="draft-label">openapi-react-query-codegen · 28 August 2026</div><h1>The publishing job trusted a stranger</h1></div>
-<div class="draft-steps">
-<div class="draft-step"><b>01 · UNTRUSTED COMMENT</b><h2><code>npm publish</code></h2><p>Any GitHub account could<br>post the trigger comment<br>on a pull request.</p></div>
-<div class="draft-step"><b>02 · TRUSTED WORKFLOW</b><h2>Code from the fork</h2><p>The release job checked out<br>the PR head and published<br>using its OIDC identity.</p></div>
-<div class="draft-step"><b>03 · VALID PROVENANCE</b><h2>10 malicious versions</h2><p>All ten carried valid<br>npm provenance attestations<br>from the official workflow.</p></div>
-</div>
-<div class="draft-bottom">Review which code can enter a job that receives publishing authority.<small>Cemu: Datadog reports May release-asset swaps through the API, with no CI run.</small></div>
-
-
-<!--
-SLIDE 47 · SPEAKER NOTES
-
-Say:
-An unauthorised comment triggered openapi's release job, which checked out fork code and published using the repository's OIDC identity. All ten malicious versions had valid provenance. The job identity was genuine; its input selection was unsafe.
-
-Next:
-Separate provider trust from GitHub release enforcement.
-
-Reference detail (not read aloud):
-Socket finds release.yml triggered on issue_comment: created. The condition compared the comment body EXACTLY to npm publish and checked for a pull request, but did not authorize the commenter. The job checked out the fork PR head, installed dependencies and invoked pnpm publish --no-git-checks with id-token: write. All ten malicious versions had valid provenance. Aikido independently reports the affected versions and provenance.
-
-This was abuse of a correctly identified publishing workflow. A repository/default-branch assertion alone cannot prove the job's checked-out code was trusted: issue_comment used the default-branch context while the job selected fork code. Gate who may initiate publishing and validate source/artifact promotion before running privileged release work. The next AWS policy slide illustrates provider trust and resource permissions, not an exact npm configuration or proof that an AWS condition alone would fix this event.
-
-Cemu is a DIFFERENT path and a supporting single-investigator report: Datadog documents Linux assets re-uploaded 7–8 May through the Releases API with no CI workflow involved. Git tag unchanged does not establish asset immutability. Verify expected artifact identity against a trusted attestation or digest, rather than trusting a replacement checksum on the same compromised release. Keep Cemu in the small supporting note, with no additional actor claim. No Mini Shai-Hulud operator linkage is asserted for openapi.
-
-Sources:
-- https://socket.dev/blog/openapi-react-query-codegen-npm-compromise
-- https://www.aikido.dev/blog/popular-code-generator-for-tanstack-query-hit-by-supply-chain-worm
-- https://securitylabs.datadoghq.com/articles/backdoored-cemu-release-teampcp-supply-chain-campaign/
 -->
 
 ---
@@ -3021,7 +2973,7 @@ section { padding:0; background:linear-gradient(135deg,#101819,#17211E); }
 <div class="oidc-bottom">Protecting main does not restrict which branches can assume this role</div>
 
 <!--
-SLIDE 48 · SPEAKER NOTES
+SLIDE 47 · SPEAKER NOTES
 
 Say:
 main is protected and an environment is named, but release has no approval or branch restriction. AWS accepts every subject suffix for this repository. A valid token from another permitted branch can still match. Protecting main alone does not close this path.
@@ -3078,7 +3030,7 @@ section { padding:0; background:linear-gradient(135deg,#101819,#17211E); }
 <div class="oidc-bottom"><a class="oidc-case-source" href="https://github.com/BerriAI/litellm/issues/47826#issuecomment-6326854488" target="_blank" rel="noopener noreferrer">LiteLLM · 21 Oct 2026</a>: reports stolen owner credentials used to disable branch protection</div>
 
 <!--
-SLIDE 49 · SPEAKER NOTES
+SLIDE 48 · SPEAKER NOTES
 
 Say:
 Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources: only s3:PutObject under the example-lunch-poll/releases/ prefix. Review the actual source and artifact entering the job. LiteLLM's October update reports stolen owner credentials were used to disable branch protection. Protect the identities that can change these rules too.
@@ -3087,7 +3039,7 @@ Delivery:
 Point to exact subject matching, branch selection, approval and bypass changes, then the compact role-permissions box. Trust controls who can assume the role; permissions control what that role can do.
 
 Next:
-Apply input review to instructions and their helpers.
+Even a genuine job identity can publish a stranger's code.
 
 Reference detail (not read aloud):
 Two gates must agree. AWS validates the signed identity against the role trust policy: exact audience and exact subject, including immutable owner/repository IDs for a repository using that format. The preceding slide showed the broad trust example; this step uses StringEquals. Fictional owner/repository/team/account IDs must be replaced with verified real values. Newer GitHub.com repositories (created after 15 July 2026) use immutable subjects; older ones can retain name-only subjects unless opted in. Match the actual emitted subject, not a shape copied from this slide. AWS does not support arbitrary GitHub custom claim condition keys; the IDs here are inside sub.
@@ -3108,6 +3060,54 @@ Sources: GitHub/Terraform fetched 21 October; LiteLLM owner update fetched 22 Oc
 - https://raw.githubusercontent.com/integrations/terraform-provider-github/main/docs/resources/branch_protection.md
 -->
 
+
+---
+
+<!-- _class: control-example chapter-controls -->
+<style scoped>
+section { background:linear-gradient(135deg,#11181A,#171D1C); padding:0; }
+.draft-head { position:absolute!important; top:48px; left:64px; right:64px; }
+.draft-head h1 { font-size:61px; max-width:1110px; }
+.draft-label { color:#E6B65E; font:600 16px/1.4 'JetBrains Mono',monospace; margin-bottom:20px; }
+.draft-steps { position:absolute!important; top:249px; left:64px; right:64px; display:grid; grid-template-columns:repeat(3,1fr); gap:38px; }
+.draft-step { border-top:2px solid #E6B65E88; padding-top:20px; }
+.draft-step b { color:#E6B65E; font:600 16px/1.4 'JetBrains Mono',monospace; }
+.draft-step h2 { color:#F7F2E8; font-size:33px; margin:24px 0 20px; }
+.draft-step p { font-size:25px; color:#CED7D0; line-height:1.45; margin:0; }
+.draft-bottom { position:absolute!important; bottom:47px; left:64px; right:64px; border-top:1px solid #A5D7BB44; padding-top:19px; color:#E6C797; font-size:23px; }
+.draft-bottom small { display:block; font-size:18px; color:#AFBFB5; margin-top:12px; }
+</style>
+
+<div class="draft-head"><div class="draft-label">openapi-react-query-codegen · 28 August 2026</div><h1>The publishing job trusted a stranger</h1></div>
+<div class="draft-steps">
+<div class="draft-step"><b>01 · UNTRUSTED COMMENT</b><h2><code>npm publish</code></h2><p>Any GitHub account could<br>post the trigger comment<br>on a pull request.</p></div>
+<div class="draft-step"><b>02 · TRUSTED WORKFLOW</b><h2>Code from the fork</h2><p>The release job checked out<br>the PR head and published<br>using its OIDC identity.</p></div>
+<div class="draft-step"><b>03 · VALID PROVENANCE</b><h2>10 malicious versions</h2><p>All ten carried valid<br>npm provenance attestations<br>from the official workflow.</p></div>
+</div>
+<div class="draft-bottom">Review which code can enter a job that receives publishing authority.<small>Cemu: Datadog reports May release-asset swaps through the API, with no CI run.</small></div>
+
+
+<!--
+SLIDE 49 · SPEAKER NOTES
+
+Say:
+A real case shows why. An unauthorised comment triggered openapi's release job, which checked out fork code and published using the repository's OIDC identity. All ten malicious versions had valid provenance. The job identity was genuine; its input selection was unsafe.
+
+Next:
+Apply input review to instructions and their helpers.
+
+Reference detail (not read aloud):
+Socket finds release.yml triggered on issue_comment: created. The condition compared the comment body EXACTLY to npm publish and checked for a pull request, but did not authorize the commenter. The job checked out the fork PR head, installed dependencies and invoked pnpm publish --no-git-checks with id-token: write. All ten malicious versions had valid provenance. Aikido independently reports the affected versions and provenance.
+
+This was abuse of a correctly identified publishing workflow. A repository/default-branch assertion alone cannot prove the job's checked-out code was trusted: issue_comment used the default-branch context while the job selected fork code. Gate who may initiate publishing and validate source/artifact promotion before running privileged release work. The preceding AWS policy slides illustrate provider trust and resource permissions, not an exact npm configuration or proof that an AWS condition alone would have prevented this event.
+
+Cemu is a DIFFERENT path and a supporting single-investigator report: Datadog documents Linux assets re-uploaded 7–8 May through the Releases API with no CI workflow involved. Git tag unchanged does not establish asset immutability. Verify expected artifact identity against a trusted attestation or digest, rather than trusting a replacement checksum on the same compromised release. Keep Cemu in the small supporting note, with no additional actor claim. No Mini Shai-Hulud operator linkage is asserted for openapi.
+
+Sources:
+- https://socket.dev/blog/openapi-react-query-codegen-npm-compromise
+- https://www.aikido.dev/blog/popular-code-generator-for-tanstack-query-hit-by-supply-chain-worm
+- https://securitylabs.datadoghq.com/articles/backdoored-cemu-release-teampcp-supply-chain-campaign/
+-->
 
 ---
 <!-- _class: control-scene safe c3long chapter-controls -->
