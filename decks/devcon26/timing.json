@@ -1,12 +1,12 @@
 {
   "planned_seconds": 2400,
-  "main_slides": 57,
-  "scheduled_slides": 56,
+  "main_slides": 58,
+  "scheduled_slides": 57,
   "appendix_slides": 8,
-  "total_slides": 65,
-  "updated": "2026-11-02",
+  "total_slides": 66,
+  "updated": "2026-11-03",
   "status": "40-minute speaking plan; not yet validated by timed rehearsal",
-  "delivery_note": "All slides retained. Includes a four-minute live demo, terminal animations and transitions. Slide 8 is an alternative within the same demo budget. Appendix has no scheduled speaking time. Five minutes remain for questions in the 45-minute session.",
+  "delivery_note": "All slides retained. Includes a four-minute live demo, terminal animations and transitions. Slide 8 is an alternative within the same demo budget. Appendix has no scheduled speaking time. Five minutes remain for questions in the 45-minute session. The secret setup and OIDC explanation share the previous 65-second slot (20 seconds and 45 seconds).",
   "sections": [
     {
       "name": "Opening and controlled demo",
@@ -39,14 +39,14 @@
     {
       "name": "Identity, instructions and recovery",
       "first_slide": 44,
-      "last_slide": 52,
+      "last_slide": 53,
       "start": "29:30",
       "end": "37:00"
     },
     {
       "name": "Starting actions and closing",
-      "first_slide": 53,
-      "last_slide": 57,
+      "first_slide": 54,
+      "last_slide": 58,
       "start": "37:00",
       "end": "40:00"
     }
@@ -462,14 +462,23 @@
     {
       "slide": 46,
       "start": "30:45",
-      "duration": "01:05",
+      "duration": "00:20",
+      "end": "31:05",
+      "backup": false,
+      "source_composition": "Short-lived jobs / Long-lived secrets",
+      "section": "Identity, instructions and recovery"
+    },
+    {
+      "slide": 47,
+      "start": "31:05",
+      "duration": "00:45",
       "end": "31:50",
       "backup": false,
       "source_composition": "A workflow can prove its identity",
       "section": "Identity, instructions and recovery"
     },
     {
-      "slide": 47,
+      "slide": 48,
       "start": "31:50",
       "duration": "00:45",
       "end": "32:35",
@@ -478,7 +487,7 @@
       "section": "Identity, instructions and recovery"
     },
     {
-      "slide": 48,
+      "slide": 49,
       "start": "32:35",
       "duration": "01:05",
       "end": "33:40",
@@ -487,7 +496,7 @@
       "section": "Identity, instructions and recovery"
     },
     {
-      "slide": 49,
+      "slide": 50,
       "start": "33:40",
       "duration": "00:55",
       "end": "34:35",
@@ -496,7 +505,7 @@
       "section": "Identity, instructions and recovery"
     },
     {
-      "slide": 50,
+      "slide": 51,
       "start": "34:35",
       "duration": "00:35",
       "end": "35:10",
@@ -505,7 +514,7 @@
       "section": "Identity, instructions and recovery"
     },
     {
-      "slide": 51,
+      "slide": 52,
       "start": "35:10",
       "duration": "00:35",
       "end": "35:45",
@@ -514,7 +523,7 @@
       "section": "Identity, instructions and recovery"
     },
     {
-      "slide": 52,
+      "slide": 53,
       "start": "35:45",
       "duration": "01:15",
       "end": "37:00",
@@ -523,7 +532,7 @@
       "section": "Identity, instructions and recovery"
     },
     {
-      "slide": 53,
+      "slide": 54,
       "start": "37:00",
       "duration": "00:25",
       "end": "37:25",
@@ -532,7 +541,7 @@
       "section": "Starting actions and closing"
     },
     {
-      "slide": 54,
+      "slide": 55,
       "start": "37:25",
       "duration": "00:25",
       "end": "37:50",
@@ -541,7 +550,7 @@
       "section": "Starting actions and closing"
     },
     {
-      "slide": 55,
+      "slide": 56,
       "start": "37:50",
       "duration": "00:25",
       "end": "38:15",
@@ -550,7 +559,7 @@
       "section": "Starting actions and closing"
     },
     {
-      "slide": 56,
+      "slide": 57,
       "start": "38:15",
       "duration": "01:20",
       "end": "39:35",
@@ -559,7 +568,7 @@
       "section": "Starting actions and closing"
     },
     {
-      "slide": 57,
+      "slide": 58,
       "start": "39:35",
       "duration": "00:25",
       "end": "40:00",
@@ -568,21 +577,12 @@
       "section": "Starting actions and closing"
     },
     {
-      "slide": 58,
-      "start": "40:00",
-      "duration": "00:00",
-      "end": "40:00",
-      "backup": true,
-      "source_composition": "Incident catalogue",
-      "section": "Appendix / questions"
-    },
-    {
       "slide": 59,
       "start": "40:00",
       "duration": "00:00",
       "end": "40:00",
       "backup": true,
-      "source_composition": "Incidents",
+      "source_composition": "Incident catalogue",
       "section": "Appendix / questions"
     },
     {
@@ -632,6 +632,15 @@
     },
     {
       "slide": 65,
+      "start": "40:00",
+      "duration": "00:00",
+      "end": "40:00",
+      "backup": true,
+      "source_composition": "Incidents",
+      "section": "Appendix / questions"
+    },
+    {
+      "slide": 66,
       "start": "40:00",
       "duration": "00:00",
       "end": "40:00",
