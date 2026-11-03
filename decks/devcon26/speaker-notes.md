@@ -1,6 +1,6 @@
 # Speaker notes — You Trust More Code Than You Ship
 
-Current sequence: 58 main slides (including the recording fallback) and eight appendix slides. The selected closing uses dedicated iceberg artwork with review gates integrated into the machinery, one deck QR and short profile links. The speaker introduction uses the realistic Klokgebouw background. Updated 3 November 2026. timing.json plans 40 minutes, including the live demo and animations, with the appendix reserved for questions; validate pacing in rehearsal. Evidence and technical detail remain in the native slide notes.
+Current sequence: 57 main slides (including the recording fallback) and eight appendix slides. The selected closing uses dedicated iceberg artwork with review gates integrated into the machinery, one deck QR and short profile links. The speaker introduction uses the realistic Klokgebouw background. Updated 3 November 2026. timing.json plans 39 minutes and 20 seconds, including the live demo and animations, with the appendix reserved for questions; validate pacing in rehearsal. Evidence and technical detail remain in the native slide notes.
 
 ## Slide 1
 
@@ -111,23 +111,23 @@ Say:
 The preinstall hook starts the loader and payload with the installing process's access. A development dependency can run before the application starts and still reach valuable identity.
 
 Next:
-Follow the credential search.
+First, see how publishing authority turns one install into distribution.
 
 ## Slide 13
-
-Say:
-The payload looks through the environment and filesystem for usable credentials. It can even use security tools to help discovery. What it finds depends on the host and permissions.
-
-Next:
-A publishing token turns one compromise into distribution.
-
-## Slide 14
 
 Say:
 Install, find a usable npm token, modify packages that identity can publish, then reach the next install. Not every machine completes this loop, but publishing authority creates the propagation opportunity.
 
 Delivery:
 Trace one complete propagation loop before moving on.
+
+Next:
+Now look at where the worm finds those credentials.
+
+## Slide 14
+
+Say:
+The payload looks through the environment and filesystem for usable credentials. It can even use security tools to help discovery. What it finds depends on the host and permissions.
 
 Next:
 Follow the GitHub branch of the chain.
@@ -200,17 +200,10 @@ Say:
 The Axios maintainer describes a fake meeting and supposed Teams update that compromised his workstation. The attacker published through his account on 31 March. The bad versions were live for only about three hours, but Axios is downloaded around 18 million times a day, so that short window still meant roughly two million fetches. Mastra is a separate account-takeover example. Microsoft attributes Mastra with high confidence; Amazon's Axios attribution is medium confidence. Keep those assessments separate.
 
 Next:
-Follow another workstation identity into an editor release.
-
-## Slide 23
-
-Say:
-Nx traces a malicious TanStack install to theft of a contributor's GitHub CLI identity, then the 18 May Nx Console release to both extension marketplaces. The owner scopes this incident to the extension. This is separate from the 2025 Nx npm incident we will see next.
-
-Next:
 Introduce the AI section without changing the trust model.
 
-## Slide 24
+
+## Slide 23
 
 Say:
 AI plays two roles here. It can help attackers build and adapt an attack. And attackers can turn our own AI against us: a prompt injection steers an agent that already has our access, or malware runs the AI tools on a developer's machine to hunt for secrets.
@@ -221,7 +214,7 @@ Point to the first slogan for attacker assistance and the second for our own AI 
 Next:
 Start with S1ngularity, an August 2025 precedent for attempted use of local AI tools. Introduce the backward step in time explicitly.
 
-## Slide 25
+## Slide 24
 
 Say:
 Nx reported malicious postinstall code attempting to use local Claude and Gemini tools, then upload through existing GitHub CLI access. These terminals reconstruct the behavior; not every prompt necessarily succeeded.
@@ -232,7 +225,7 @@ Animated reconstruction starts on entry; click to replay.
 Next:
 Move from local tool use to delivery-workflow exploitation.
 
-## Slide 26
+## Slide 25
 
 Say:
 This is the attacker side of the AI distinction. StepSecurity and Wiz assess AI assistance in campaigns that scanned repositories and adapted payloads around known workflow flaws. The evidence shows systematic exploitation, without measuring an AI-versus-human speedup or establishing a shared operator.
@@ -240,18 +233,18 @@ This is the attacker side of the AI distinction. StepSecurity and Wiz assess AI 
 Next:
 Return inside our environment: an instruction can request an authorized tool action.
 
-## Slide 27
+## Slide 26
 
 Say:
 The WED research skill sent a ping while returning useful advice. The secret-transfer example is a hypothetical modification, not observed key theft. Review what the instructions cause a tool to do, even when the answer looks useful.
 
 Delivery:
-Both reconstructed terminals animate. Clearly distinguish the observed ping from the hypothetical secret transfer.
+Hold for an extra ten seconds before both reconstructed terminals animate. Clearly distinguish the observed ping from the hypothetical secret transfer.
 
 Next:
 Broaden the view across delivery surfaces.
 
-## Slide 28
+## Slide 27
 
 Say:
 Do not read every name. Packages, automation, editors and agent context give attackers different routes to execution and available identity. Names can cover multiple recorded waves, and some records cross surfaces.
@@ -262,7 +255,7 @@ On entry the 32 names appear one by one in random order, every 0.25 s (about 8 s
 Next:
 Explain what the inventory does and does not count.
 
-## Slide 29
+## Slide 28
 
 Say:
 The selected reviews contain 23 incidents and waves for 2025 and 95 for 2026, across 20 and 61 conservative campaign groups. Coverage differs; this is not a growth rate or an operator count. Across the examples, the trust relationship repeats.
@@ -270,7 +263,7 @@ The selected reviews contain 23 incidents and waves for 2025 and 95 for 2026, ac
 Next:
 Separate individual AI observations from annual inventory totals.
 
-## Slide 30
+## Slide 29
 
 Say:
 These are two separate observations, not typical attack durations or stages of one operation. They illustrate adaptation after access; they do not explain the difference between annual inventory counts.
@@ -281,7 +274,7 @@ Keep the two reports separate, including their activity and disclosure dates.
 Next:
 Turn the relationship into engineering decisions.
 
-## Slide 31
+## Slide 30
 
 Say:
 Every step creates a boundary we can design: review incoming inputs, constrain execution, scope identity and prepare to recover. We will connect each control to a path already shown.
@@ -289,7 +282,7 @@ Every step creates a boundary we can design: review incoming inputs, constrain e
 Next:
 Start before the first execution.
 
-## Slide 32
+## Slide 31
 
 Say:
 Review inputs and allowlist Actions before they run. A publisher badge is not a review. Delay fresh releases, keep reviewed selections fixed and enforce intake where practical.
@@ -297,7 +290,7 @@ Review inputs and allowlist Actions before they run. A publisher badge is not a 
 Next:
 First consider when to accept a new release.
 
-## Slide 33
+## Slide 32
 
 Say:
 Wait, observe, then review. Seven days is an example team policy. The same intention can sit at different enforcement points: pnpm dependency resolution, Renovate proposals or Dependabot version-update PRs. Choose what fits the ecosystem and keep a reviewed path for urgent fixes.
@@ -308,7 +301,7 @@ Use the waiting rack and timer to explain deliberate delay before intake. The co
 Next:
 Decide which exact reviewed input may run.
 
-## Slide 34
+## Slide 33
 
 Say:
 Review first, then pin which input runs to an immutable reference. Packages use committed lockfiles and integrity data, Actions use reviewed full commit SHAs, and images use reviewed digests. Keep those selections maintained through reviewed updates.
@@ -319,7 +312,7 @@ The fixed jig represents an exact selection that cannot drift when a name or tag
 Next:
 Assess the change before merging it.
 
-## Slide 35
+## Slide 34
 
 Say:
 Use three signals to assess the change: upstream practices, published advisories and the dependency diff. Inspect the findings and require the PR check under an explicit policy. A strong score or clean advisory result cannot certify a release.
@@ -330,7 +323,7 @@ The two ingredient samples and inspection bench stand for reviewing what changed
 Next:
 Put the intake decision on the download path too.
 
-## Slide 36
+## Slide 35
 
 Say:
 Put a policy decision on the download route. A configured mirror can allow, hold or reject requests before developers and CI receive the artifacts. Enforce that route and handle cached components, pending analysis and exceptions deliberately.
@@ -341,7 +334,7 @@ Use the single receiving hatch as the route through the policy boundary. A side 
 Next:
 Retain enough inventory to find affected releases later.
 
-## Slide 37
+## Slide 36
 
 Say:
 Generate a Software Bill of Materials for the final release artifact and check its coverage. Connect it to the artifact digest and deployed environments. Recheck known advisories as they change, while keeping build-tool exposure records separately.
@@ -352,7 +345,7 @@ The batch ledger and prepared packages illustrate traceability from ingredients 
 Next:
 Assume a bad component can still run.
 
-## Slide 38
+## Slide 37
 
 Say:
 Make three decisions. Start each job in a fresh environment and dispose of it afterward. Bound the files, network and identity that running code can reach. Keep publishing authority outside untrusted build jobs, and verify the source and artifacts entering release.
@@ -363,7 +356,7 @@ Give all three controls equal emphasis. The removable prep surface illustrates f
 Next:
 Make install-time execution explicit.
 
-## Slide 39
+## Slide 38
 
 Say:
 Choose which dependency install scripts may run. This pnpm example rejects unreviewed builds and starts with no exceptions. Review required exceptions and narrow them to reviewed versions. Approval permits execution; keep its filesystem, network and identity boundary too.
@@ -374,7 +367,7 @@ Read the two settings together, then walk the three short decisions. Configurati
 Next:
 Apply the same deliberate decisions to the workflow.
 
-## Slide 40
+## Slide 39
 
 Say:
 Inspect two findings: a mutable Action reference and broad token grants. Apply available safe fixes, inspect the diff and run the audit again. Pin a reviewed commit, grant job-specific token rights and keep attacker-controlled event text out of executable shell interpolation.
@@ -385,7 +378,7 @@ The enlarged terminal occupies the left side, with more line spacing. Three shor
 Next:
 Apply those boundaries during coding too.
 
-## Slide 41
+## Slide 40
 
 Say:
 Give the coding task the project, services and identity it needs. Inspect the IDE, extensions, hooks and agent tools together; they can have different execution locations and inherited access.
@@ -396,7 +389,7 @@ Use the bounded preparation station to introduce filesystem, network and identit
 Next:
 Inspect the authority already reachable there.
 
-## Slide 42
+## Slide 41
 
 Say:
 Inspect five kinds of reach: files, data, identity, network and tools. An agent may choose another action after reading a result, but its actual reach depends on the effective configuration.
@@ -407,7 +400,7 @@ Keep the existing robot and hidden-machinery artwork visible. Point across the f
 Next:
 Choose an implementation for the same coding task.
 
-## Slide 43
+## Slide 42
 
 Say:
 Use the same lunch-poll task across four choices: a project environment, tool or process restrictions, a VM-backed workspace, or a policy-managed agent runtime. These can combine. OpenShell manages agent access policy across multiple compute drivers; inspect both the selected driver and the effective policy. Then scope the identity available inside the chosen boundary.
@@ -418,7 +411,7 @@ Compare coverage and configuration, not a security ranking. The small maturity n
 Next:
 Scope that remaining authority deliberately.
 
-## Slide 44
+## Slide 43
 
 Say:
 Ask which process can spend which identity, for which resource, action and time window. Inventory every credential path; one permission block does not cover tokens, sessions, registry access and cloud roles.
@@ -426,7 +419,7 @@ Ask which process can spend which identity, for which resource, action and time 
 Next:
 Work through build and release permissions.
 
-## Slide 45
+## Slide 44
 
 Say:
 Start with workflow-level permissions: {} and give each job only its required GITHUB_TOKEN rights. Here the release writes a GitHub Release. Separately narrow an App token's repositories and permissions. Keep its private key away from untrusted execution.
@@ -434,7 +427,7 @@ Start with workflow-level permissions: {} and give each job only its required GI
 Next:
 Name the stored-secret problem, then the workload identity exchange.
 
-## Slide 46
+## Slide 45
 
 Say:
 The job finishes. Its stored publishing token or cloud key may remain valid. If malicious code copies that credential while it is available, ending the job does not revoke the copy. It can still authorize the actions and resources that credential permits, until it expires or is revoked.
@@ -445,7 +438,7 @@ Pause on the two matching kitchen keys. The kitchen has closed, but a duplicate 
 Next:
 What if the workflow proved which job it was, instead of carrying a stored long-lived secret?
 
-## Slide 47
+## Slide 46
 
 Say:
 The previous slide showed a credential that outlives its job. OIDC changes how the job gets access: the job presents GitHub-signed identity claims, a registry or cloud provider checks them against its trust rules and grants short-lived access. Requesting a token is separate from permission to use a target resource.
@@ -453,7 +446,7 @@ The previous slide showed a credential that outlives its job. OIDC changes how t
 Next:
 How broad is the trust behind that exchange?
 
-## Slide 48
+## Slide 47
 
 Say:
 main is protected and an environment is named, but release has no approval or branch restriction. AWS accepts every subject suffix for this repository. A valid token from another permitted branch can still match. Protecting main alone does not close this path.
@@ -464,7 +457,7 @@ Hold the before state, then advance to the matching layout without changing the 
 Next:
 Advance once and point to the changed lines.
 
-## Slide 49
+## Slide 48
 
 Say:
 Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources: only s3:PutObject under the example-lunch-poll/releases/ prefix. Review the actual source and artifact entering the job. LiteLLM's October update reports stolen owner credentials were used to disable branch protection. Protect the identities that can change these rules too.
@@ -475,7 +468,7 @@ Point to exact subject matching, branch selection, approval and bypass changes, 
 Next:
 Even a genuine job identity can publish a stranger's code.
 
-## Slide 50
+## Slide 49
 
 Say:
 A real case shows why. An unauthorised comment triggered openapi's release job, which checked out fork code and published using the repository's OIDC identity. All ten malicious versions had valid provenance. The job identity was genuine; its input selection was unsafe.
@@ -483,7 +476,7 @@ A real case shows why. An unauthorised comment triggered openapi's release job, 
 Next:
 Apply input review to instructions and their helpers.
 
-## Slide 51
+## Slide 50
 
 Say:
 TrapDoor placed malicious project instructions; OX reported an MCP listing linked to a poisoned repository. Keep observed artifacts separate from proof an agent obeyed them. Follow instructions into commands, downloaded helpers, destinations and access.
@@ -491,7 +484,7 @@ TrapDoor placed malicious project instructions; OX reported an MCP listing linke
 Next:
 Prepare for a boundary being crossed anyway.
 
-## Slide 52
+## Slide 51
 
 Say:
 Removing the package does not revoke copied sessions or remove installed persistence. Keep useful evidence outside the suspect host, identify recovery owners and restore from a clean environment.
@@ -499,7 +492,7 @@ Removing the package does not revoke copied sessions or remove installed persist
 Next:
 Rehearse one compromised publisher.
 
-## Slide 53
+## Slide 52
 
 Say:
 Take one laptop that installed malware while holding publishing access. Who contains execution, revokes each identity and validates downstream artifacts? These are coordinated workstreams, not a universal fixed response order.
@@ -507,7 +500,7 @@ Take one laptop that installed malware while holding publishing access. Who cont
 Next:
 Offer a small starting action within one person's scope.
 
-## Slide 54
+## Slide 53
 
 Say:
 Choose one project you maintain. Propose a supported cooldown, review the diff and open a small PR. Seven days is an example; preserve a route for urgent fixes. Pick one action rather than attempting the whole programme on Monday.
@@ -518,7 +511,7 @@ This begins a choice of small individual actions; the audience need not complete
 Next:
 Another option is one workflow finding.
 
-## Slide 55
+## Slide 54
 
 Say:
 Run zizmor on one existing workflow and understand one finding. Pin a reviewed Action commit or reduce token access. Use permissions: {} as the workflow default and grant each job only what it needs. Review behavior and open one focused PR.
@@ -529,7 +522,7 @@ The scan and edits are illustrative. No all-clear output is implied.
 Next:
 Inspect the coding setup before starting the next task.
 
-## Slide 56
+## Slide 55
 
 Say:
 List tracked setup and instruction files, then use cat to read devcontainer.json. Follow startup commands and downloads. Check the actual mounts, tools and forwarded credentials, including local settings the tracked files do not show.
@@ -540,7 +533,7 @@ Read-only inspection first. cat displays the settings file; it does not establis
 Next:
 Use the original devcontainer-to-agent closing example.
 
-## Slide 57
+## Slide 56
 
 Say:
 Start the reviewed devcontainer and launch Copilot inside it. Ask: What principles keep this repo safe from supply chain attacks? Let the answer recap the controls, ending with revoking exposed access and restoring trusted execution. This is an illustrative session; the boundary comes from reviewed configuration, not the startup command alone.
@@ -552,7 +545,7 @@ After devcontainer exec, hold the terminal for 3.5 seconds before Copilot appear
 Next:
 Close on making trust an engineering decision.
 
-## Slide 58
+## Slide 57
 
 Say:
 You trust more code than you ship. The hidden machinery is still there. Review what enters it, constrain what can execute, and scope the identity it can use. Make that trust an engineering decision. Scan for the deck and resources. Thank you.
@@ -564,7 +557,7 @@ End prepared content here and leave this slide visible for questions. The 40-min
 Next:
 Take questions; use the catalogue only when useful.
 
-## Slide 59
+## Slide 58
 
 Say:
 The appendix contains the incident catalogue. Names link to sources and the dates preserve activity, verified availability and disclosure distinctions. Use it for a specific question rather than reading every entry.
@@ -575,7 +568,7 @@ Appendix only; the seven entry pages use the dimmed divider artwork.
 Next:
 Open the relevant year or delivery example.
 
-## Slide 60
+## Slide 59
 
 Say:
 This first 2026 page covers early-year entries. Pick the relevant incident and open its source. The page is part of the selected 95-record inventory, not an additional count.
@@ -583,7 +576,7 @@ This first 2026 page covers early-year entries. Pick the relevant incident and o
 Next:
 Continue chronologically if the question needs it.
 
-## Slide 61
+## Slide 60
 
 Say:
 Continue the 2026 catalogue with the next dated entries. Distinguish individual compromise episodes from recurring family names and preserve the qualifiers on dates.
@@ -591,7 +584,7 @@ Continue the 2026 catalogue with the next dated entries. Distinguish individual 
 Next:
 Move to the next page of the same inventory.
 
-## Slide 62
+## Slide 61
 
 Say:
 These are further entries in the same selected 2026 inventory. Use the linked source and detailed record when a date or affected scope is in question.
@@ -599,7 +592,7 @@ These are further entries in the same selected 2026 inventory. Use the linked so
 Next:
 Continue to the remaining 2026 entries.
 
-## Slide 63
+## Slide 62
 
 Say:
 This is the final selected 2026 catalogue page. The 21 October baseline was reconciled on 22 October. A targeted refresh checked on 31 October adds the vendor-confirmed 29 October Cursor/Claude Code extension compromise after LiteLLM. This is not a complete daily sweep; absence from this selection does not establish that another incident never happened.
@@ -607,7 +600,7 @@ This is the final selected 2026 catalogue page. The 21 October baseline was reco
 Next:
 Use the earlier-year pages for historical examples.
 
-## Slide 64
+## Slide 63
 
 Say:
 The 2025 review has 23 records across 20 conservative groups. Some malicious artifacts were published earlier but were verified available during 2025. Do not add annual groups as unique operators.
@@ -615,7 +608,7 @@ The 2025 review has 23 records across 20 conservative groups. Some malicious art
 Next:
 Move to the bounded 2024 sample if useful.
 
-## Slide 65
+## Slide 64
 
 Say:
 The 2024 historical sample contains 18 records across 17 bundles. It is a bounded sample with different coverage, not a complete annual census or a directly comparable growth series.
@@ -623,7 +616,7 @@ The 2024 historical sample contains 18 records across 17 bundles. It is a bounde
 Next:
 Use 2023 for another historical example.
 
-## Slide 66
+## Slide 65
 
 Say:
 The 2023 historical sample contains 14 records across 14 bundles and includes vendor-delivery cases. Follow the source for the chosen example; do not compare totals as equal-coverage measurements.
