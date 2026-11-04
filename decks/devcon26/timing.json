@@ -1,12 +1,12 @@
 {
-  "planned_seconds": 2360,
-  "main_slides": 57,
-  "scheduled_slides": 56,
+  "planned_seconds": 2310,
+  "main_slides": 56,
+  "scheduled_slides": 55,
   "appendix_slides": 8,
-  "total_slides": 65,
-  "updated": "2026-11-03",
-  "status": "39-minute 20-second speaking plan; not yet validated by timed rehearsal",
-  "delivery_note": "Includes a four-minute live demo, terminal animations and transitions. Slide 8 is an alternative within the same demo budget. Appendix has no scheduled speaking time. Five minutes and 40 seconds remain for questions in the 45-minute session. The secret setup and OIDC explanation share the previous 65-second slot (20 seconds and 45 seconds). Both WED terminals have an extra ten-second opening pause.",
+  "total_slides": 64,
+  "updated": "2026-11-04",
+  "status": "38-minute 30-second speaking plan; not yet validated by timed rehearsal",
+  "delivery_note": "Includes a four-minute live demo, terminal animations and transitions. Slide 8 is an alternative within the same demo budget. Appendix has no scheduled speaking time. Six minutes and 30 seconds remain for questions in the 45-minute session. The secret setup and OIDC explanation share the previous 65-second slot (20 seconds and 45 seconds). Both WED terminals have an extra ten-second opening pause. Includes a 40-second OIDC workflow and S3 upload example.",
   "sections": [
     {
       "name": "Opening and controlled demo",
@@ -39,16 +39,16 @@
     {
       "name": "Identity, instructions and recovery",
       "first_slide": 43,
-      "last_slide": 52,
+      "last_slide": 51,
       "start": "28:50",
-      "end": "36:20"
+      "end": "35:30"
     },
     {
       "name": "Starting actions and closing",
-      "first_slide": 53,
-      "last_slide": 57,
-      "start": "36:20",
-      "end": "39:20"
+      "first_slide": 52,
+      "last_slide": 56,
+      "start": "35:30",
+      "end": "38:30"
     }
   ],
   "slides": [
@@ -471,170 +471,161 @@
     {
       "slide": 47,
       "start": "31:10",
-      "duration": "00:45",
-      "end": "31:55",
+      "duration": "00:40",
+      "end": "31:50",
       "backup": false,
-      "source_composition": "OIDC release controls",
+      "source_composition": "OIDC release controls \u00b7 workflow example",
       "section": "Identity, instructions and recovery"
     },
     {
       "slide": 48,
-      "start": "31:55",
-      "duration": "01:05",
-      "end": "33:00",
+      "start": "31:50",
+      "duration": "00:45",
+      "end": "32:35",
       "backup": false,
       "source_composition": "OIDC release controls",
       "section": "Identity, instructions and recovery"
     },
     {
       "slide": 49,
-      "start": "33:00",
-      "duration": "00:55",
-      "end": "33:55",
+      "start": "32:35",
+      "duration": "01:05",
+      "end": "33:40",
       "backup": false,
-      "source_composition": "The publishing job trusted a stranger",
+      "source_composition": "OIDC release controls",
       "section": "Identity, instructions and recovery"
     },
     {
       "slide": 50,
-      "start": "33:55",
+      "start": "33:40",
       "duration": "00:35",
-      "end": "34:30",
-      "backup": false,
-      "source_composition": "Follow instructions into the code",
-      "section": "Identity, instructions and recovery"
-    },
-    {
-      "slide": 51,
-      "start": "34:30",
-      "duration": "00:35",
-      "end": "35:05",
+      "end": "34:15",
       "backup": false,
       "source_composition": "Prepare to recover",
       "section": "Identity, instructions and recovery"
     },
     {
-      "slide": 52,
-      "start": "35:05",
+      "slide": 51,
+      "start": "34:15",
       "duration": "01:15",
-      "end": "36:20",
+      "end": "35:30",
       "backup": false,
       "source_composition": "Rehearse one compromised publisher",
       "section": "Identity, instructions and recovery"
     },
     {
-      "slide": 53,
-      "start": "36:20",
+      "slide": 52,
+      "start": "35:30",
       "duration": "00:25",
-      "end": "36:45",
+      "end": "35:55",
       "backup": false,
       "source_composition": "One project: dependency policy",
       "section": "Starting actions and closing"
     },
     {
-      "slide": 54,
-      "start": "36:45",
+      "slide": 53,
+      "start": "35:55",
       "duration": "00:25",
-      "end": "37:10",
+      "end": "36:20",
       "backup": false,
       "source_composition": "One workflow: one finding",
       "section": "Starting actions and closing"
     },
     {
-      "slide": 55,
-      "start": "37:10",
+      "slide": 54,
+      "start": "36:20",
       "duration": "00:25",
-      "end": "37:35",
+      "end": "36:45",
       "backup": false,
       "source_composition": "One coding setup: inspect access",
       "section": "Starting actions and closing"
     },
     {
-      "slide": 56,
-      "start": "37:35",
+      "slide": 55,
+      "start": "36:45",
       "duration": "01:20",
-      "end": "38:55",
+      "end": "38:05",
       "backup": false,
       "source_composition": "Copilot control recap",
       "section": "Starting actions and closing"
     },
     {
-      "slide": 57,
-      "start": "38:55",
+      "slide": 56,
+      "start": "38:05",
       "duration": "00:25",
-      "end": "39:20",
+      "end": "38:30",
       "backup": false,
       "source_composition": "You Trust More Code Than You Ship",
       "section": "Starting actions and closing"
     },
     {
-      "slide": 58,
-      "start": "39:20",
+      "slide": 57,
+      "start": "38:30",
       "duration": "00:00",
-      "end": "39:20",
+      "end": "38:30",
       "backup": true,
       "source_composition": "Incident catalogue",
       "section": "Appendix / questions"
     },
     {
-      "slide": 59,
-      "start": "39:20",
+      "slide": 58,
+      "start": "38:30",
       "duration": "00:00",
-      "end": "39:20",
+      "end": "38:30",
+      "backup": true,
+      "source_composition": "Incidents",
+      "section": "Appendix / questions"
+    },
+    {
+      "slide": 59,
+      "start": "38:30",
+      "duration": "00:00",
+      "end": "38:30",
       "backup": true,
       "source_composition": "Incidents",
       "section": "Appendix / questions"
     },
     {
       "slide": 60,
-      "start": "39:20",
+      "start": "38:30",
       "duration": "00:00",
-      "end": "39:20",
+      "end": "38:30",
       "backup": true,
       "source_composition": "Incidents",
       "section": "Appendix / questions"
     },
     {
       "slide": 61,
-      "start": "39:20",
+      "start": "38:30",
       "duration": "00:00",
-      "end": "39:20",
+      "end": "38:30",
       "backup": true,
       "source_composition": "Incidents",
       "section": "Appendix / questions"
     },
     {
       "slide": 62,
-      "start": "39:20",
+      "start": "38:30",
       "duration": "00:00",
-      "end": "39:20",
+      "end": "38:30",
       "backup": true,
       "source_composition": "Incidents",
       "section": "Appendix / questions"
     },
     {
       "slide": 63,
-      "start": "39:20",
+      "start": "38:30",
       "duration": "00:00",
-      "end": "39:20",
+      "end": "38:30",
       "backup": true,
       "source_composition": "Incidents",
       "section": "Appendix / questions"
     },
     {
       "slide": 64,
-      "start": "39:20",
+      "start": "38:30",
       "duration": "00:00",
-      "end": "39:20",
-      "backup": true,
-      "source_composition": "Incidents",
-      "section": "Appendix / questions"
-    },
-    {
-      "slide": 65,
-      "start": "39:20",
-      "duration": "00:00",
-      "end": "39:20",
+      "end": "38:30",
       "backup": true,
       "source_composition": "Incidents",
       "section": "Appendix / questions"

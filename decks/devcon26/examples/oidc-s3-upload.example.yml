@@ -1,0 +1,26 @@
+# Presentation example only; this is not an installed workflow.
+# Configure AWS_RELEASE_ROLE as the fictional role ARN below:
+# arn:aws:iam::123456789012:role/lunch-poll-release
+# Configure the release environment and use the SCOPED trust/permissions
+# examples before adapting this file. The broad trust slide is an anti-example.
+name: Example OIDC S3 upload
+on:
+  workflow_dispatch:
+permissions: {}
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: release
+    permissions: { id-token: write }
+    steps:
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ vars.AWS_RELEASE_ROLE }}
+          aws-region: eu-west-1
+      - name: Upload a demonstration object
+        run: |
+          printf 'release demo\n' > release.txt
+          aws s3api put-object \
+            --bucket example-lunch-poll \
+            --key releases/demo.txt \
+            --body release.txt

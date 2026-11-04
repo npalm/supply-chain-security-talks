@@ -47,7 +47,7 @@ The slide shows labelled literal attribute excerpts; the `.tf` file contains com
 
 ## Two-step OIDC example
 
-Slides 47–48 use matching layouts, with GitHub controls left and AWS role trust right. The before configuration deliberately leaves a gap despite protecting main: [GitHub before](github-release-controls-before.example.tf) has no required environment reviewers and no deployment branch restriction, while [AWS before](oidc-trust-before.example.json) accepts all context suffixes for the named repository through StringLike. The subject is scoped to the fictional repository, not repo:* across GitHub. Jobs still need a valid token and id-token: write. These are anti-examples for explanation; do not deploy them. The after files remain [GitHub release controls](github-release-controls.example.tf) and [exact AWS trust](oidc-trust.example.json).
+Slides 48–49 use matching layouts, with GitHub controls left and AWS role trust right. The before configuration deliberately leaves a gap despite protecting main: [GitHub before](github-release-controls-before.example.tf) has no required environment reviewers and no deployment branch restriction, while [AWS before](oidc-trust-before.example.json) accepts all context suffixes for the named repository through StringLike. The subject is scoped to the fictional repository, not repo:* across GitHub. Jobs still need a valid token and id-token: write. These are anti-examples for explanation; do not deploy them. The after files remain [GitHub release controls](github-release-controls.example.tf) and [exact AWS trust](oidc-trust.example.json).
 
 
 ## Dependency assessment and release inventory · 21 October 2026
@@ -56,3 +56,8 @@ Slides 47–48 use matching layouts, with GitHub controls left and AWS role trus
 - [SBOM command examples](release-inventory.md): Syft generation for a final package directory, OSV advisory matching and a release/deployment mapping checklist. Coverage depends on the actual artifact, catalogers and metadata. Preserve build-tool exposure evidence separately.
 
 Main slides 34–36 cover assessment, mirror enforcement and SBOM. Slide 38 puts install-script approval under workflow hardening. The existing intake-policy.yaml remains illustrative, not this repository's configuration.
+
+
+## OIDC workflow and S3 upload
+
+Slide 47 adds [a workflow example](oidc-s3-upload.example.yml) before the broad and scoped trust views. It grants only job-level `id-token: write`, pins `aws-actions/configure-aws-credentials` v6.3.0 to its full release commit, creates a small demonstration file and uploads it with `aws s3api put-object`. No checkout means no `contents: read` grant is needed. The slide retains the broad AWS trust as an anti-example; use the scoped trust and existing role permissions before adapting the workflow. Set `AWS_RELEASE_ROLE` as a repository or environment variable containing the actual role ARN, and preconfigure `release` gates. These files are presentation examples, not installed workflows or executed cloud operations.
