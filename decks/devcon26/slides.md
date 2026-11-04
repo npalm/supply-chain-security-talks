@@ -272,7 +272,7 @@ section::before {
   <img src="../../assets/shared/img/niek.jpg" class="speaker-photo" alt="Niek Palm" />
   <div>
     <div class="speaker-name">Niek Palm</div>
-    <div class="speaker-role">Security Architect</div>
+    <div class="speaker-role">Principal Engineer / Security Architect</div>
   </div>
 </div>
 
@@ -282,7 +282,7 @@ section::before {
 SLIDE 2 · SPEAKER NOTES
 
 Say:
-Hi, I'm Niek Palm, Security Architect. Today we'll follow how code uses the access already present in engineering environments. Let's start with a small application.
+Hi, I'm Niek Palm, Principal Engineer and Security Architect. Today we'll follow how code uses the access already present in engineering environments. Let's start with a small application.
 
 Delivery:
 Keep the introduction short. The portrait and name sit on the dark left side; the realistic Klokgebouw clock and Eindhoven skyline remain visible above and to the right.

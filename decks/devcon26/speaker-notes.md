@@ -13,7 +13,7 @@ Introduce yourself briefly.
 ## Slide 2
 
 Say:
-Hi, I'm Niek Palm, Security Architect. Today we'll follow how code uses the access already present in engineering environments. Let's start with a small application.
+Hi, I'm Niek Palm, Principal Engineer and Security Architect. Today we'll follow how code uses the access already present in engineering environments. Let's start with a small application.
 
 Delivery:
 Keep the introduction short. The portrait and name sit on the dark left side; the realistic Klokgebouw clock and Eindhoven skyline remain visible above and to the right.
