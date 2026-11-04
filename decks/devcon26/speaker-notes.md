@@ -1,6 +1,6 @@
 # Speaker notes — You Trust More Code Than You Ship
 
-Current sequence: 57 main slides (including the recording fallback) and eight appendix slides. The selected closing uses dedicated iceberg artwork with review gates integrated into the machinery, one deck QR and short profile links. The speaker introduction uses the realistic Klokgebouw background. Updated 3 November 2026. timing.json plans 39 minutes and 20 seconds, including the live demo and animations, with the appendix reserved for questions; validate pacing in rehearsal. Evidence and technical detail remain in the native slide notes.
+Current sequence: 56 main slides (including the recording fallback) and eight appendix slides. The selected closing uses dedicated iceberg artwork with review gates integrated into the machinery, one deck QR and short profile links. The speaker introduction uses the realistic Klokgebouw background. Updated 4 November 2026. timing.json plans 38 minutes and 30 seconds, including the live demo and animations, with the appendix reserved for questions; validate pacing in rehearsal. Evidence and technical detail remain in the native slide notes.
 
 ## Slide 1
 
@@ -449,6 +449,17 @@ How broad is the trust behind that exchange?
 ## Slide 47
 
 Say:
+This job grants only id-token: write. It needs no repository-content access because it creates a small demonstration file itself. The AWS credentials action is pinned to a full release commit. It exchanges the job identity for temporary AWS credentials, then the CLI writes one object under releases/. The broad AWS trust policy is unchanged: a careful workflow does not restrict other jobs that can match that wildcard.
+
+Delivery:
+Point to permissions: {}, the job's single id-token grant, the pinned Action reference, and the S3 put-object command. Then return to the wildcard on the right.
+
+Next:
+Inspect the release gates that accompany this trust policy.
+
+## Slide 48
+
+Say:
 main is protected and an environment is named, but release has no approval or branch restriction. AWS accepts every subject suffix for this repository. A valid token from another permitted branch can still match. Protecting main alone does not close this path.
 
 Delivery:
@@ -457,7 +468,7 @@ Hold the before state, then advance to the matching layout without changing the 
 Next:
 Advance once and point to the changed lines.
 
-## Slide 48
+## Slide 49
 
 Say:
 Now require the exact repository and environment subject. GitHub separately restricts release to main, requires approval and disables runtime admin bypass; protect main too. Then restrict the cloud role's actions and resources: only s3:PutObject under the example-lunch-poll/releases/ prefix. Review the actual source and artifact entering the job. LiteLLM's October update reports stolen owner credentials were used to disable branch protection. Protect the identities that can change these rules too.
@@ -466,25 +477,11 @@ Delivery:
 Point to exact subject matching, branch selection, approval and bypass changes, then the compact role-permissions box. Trust controls who can assume the role; permissions control what that role can do.
 
 Next:
-Even a genuine job identity can publish a stranger's code.
-
-## Slide 49
-
-Say:
-A real case shows why. An unauthorised comment triggered openapi's release job, which checked out fork code and published using the repository's OIDC identity. All ten malicious versions had valid provenance. The job identity was genuine; its input selection was unsafe.
-
-Next:
-Apply input review to instructions and their helpers.
-
-## Slide 50
-
-Say:
-TrapDoor placed malicious project instructions; OX reported an MCP listing linked to a poisoned repository. Keep observed artifacts separate from proof an agent obeyed them. Follow instructions into commands, downloaded helpers, destinations and access.
-
-Next:
 Prepare for a boundary being crossed anyway.
 
-## Slide 51
+
+
+## Slide 50
 
 Say:
 Removing the package does not revoke copied sessions or remove installed persistence. Keep useful evidence outside the suspect host, identify recovery owners and restore from a clean environment.
@@ -492,7 +489,7 @@ Removing the package does not revoke copied sessions or remove installed persist
 Next:
 Rehearse one compromised publisher.
 
-## Slide 52
+## Slide 51
 
 Say:
 Take one laptop that installed malware while holding publishing access. Who contains execution, revokes each identity and validates downstream artifacts? These are coordinated workstreams, not a universal fixed response order.
@@ -500,7 +497,7 @@ Take one laptop that installed malware while holding publishing access. Who cont
 Next:
 Offer a small starting action within one person's scope.
 
-## Slide 53
+## Slide 52
 
 Say:
 Choose one project you maintain. Propose a supported cooldown, review the diff and open a small PR. Seven days is an example; preserve a route for urgent fixes. Pick one action rather than attempting the whole programme on Monday.
@@ -511,7 +508,7 @@ This begins a choice of small individual actions; the audience need not complete
 Next:
 Another option is one workflow finding.
 
-## Slide 54
+## Slide 53
 
 Say:
 Run zizmor on one existing workflow and understand one finding. Pin a reviewed Action commit or reduce token access. Use permissions: {} as the workflow default and grant each job only what it needs. Review behavior and open one focused PR.
@@ -522,7 +519,7 @@ The scan and edits are illustrative. No all-clear output is implied.
 Next:
 Inspect the coding setup before starting the next task.
 
-## Slide 55
+## Slide 54
 
 Say:
 List tracked setup and instruction files, then use cat to read devcontainer.json. Follow startup commands and downloads. Check the actual mounts, tools and forwarded credentials, including local settings the tracked files do not show.
@@ -533,7 +530,7 @@ Read-only inspection first. cat displays the settings file; it does not establis
 Next:
 Use the original devcontainer-to-agent closing example.
 
-## Slide 56
+## Slide 55
 
 Say:
 Start the reviewed devcontainer and launch Copilot inside it. Ask: What principles keep this repo safe from supply chain attacks? Let the answer recap the controls, ending with revoking exposed access and restoring trusted execution. This is an illustrative session; the boundary comes from reviewed configuration, not the startup command alone.
@@ -545,7 +542,7 @@ After devcontainer exec, hold the terminal for 3.5 seconds before Copilot appear
 Next:
 Close on making trust an engineering decision.
 
-## Slide 57
+## Slide 56
 
 Say:
 You trust more code than you ship. The hidden machinery is still there. Review what enters it, constrain what can execute, and scope the identity it can use. Make that trust an engineering decision. Scan for the deck and resources. Thank you.
@@ -557,7 +554,7 @@ End prepared content here and leave this slide visible for questions. The 40-min
 Next:
 Take questions; use the catalogue only when useful.
 
-## Slide 58
+## Slide 57
 
 Say:
 The appendix contains the incident catalogue. Names link to sources and the dates preserve activity, verified availability and disclosure distinctions. Use it for a specific question rather than reading every entry.
@@ -568,7 +565,7 @@ Appendix only; the seven entry pages use the dimmed divider artwork.
 Next:
 Open the relevant year or delivery example.
 
-## Slide 59
+## Slide 58
 
 Say:
 This first 2026 page covers early-year entries. Pick the relevant incident and open its source. The page is part of the selected 95-record inventory, not an additional count.
@@ -576,7 +573,7 @@ This first 2026 page covers early-year entries. Pick the relevant incident and o
 Next:
 Continue chronologically if the question needs it.
 
-## Slide 60
+## Slide 59
 
 Say:
 Continue the 2026 catalogue with the next dated entries. Distinguish individual compromise episodes from recurring family names and preserve the qualifiers on dates.
@@ -584,7 +581,7 @@ Continue the 2026 catalogue with the next dated entries. Distinguish individual 
 Next:
 Move to the next page of the same inventory.
 
-## Slide 61
+## Slide 60
 
 Say:
 These are further entries in the same selected 2026 inventory. Use the linked source and detailed record when a date or affected scope is in question.
@@ -592,7 +589,7 @@ These are further entries in the same selected 2026 inventory. Use the linked so
 Next:
 Continue to the remaining 2026 entries.
 
-## Slide 62
+## Slide 61
 
 Say:
 This is the final selected 2026 catalogue page. The 21 October baseline was reconciled on 22 October. A targeted refresh checked on 31 October adds the vendor-confirmed 29 October Cursor/Claude Code extension compromise after LiteLLM. This is not a complete daily sweep; absence from this selection does not establish that another incident never happened.
@@ -600,7 +597,7 @@ This is the final selected 2026 catalogue page. The 21 October baseline was reco
 Next:
 Use the earlier-year pages for historical examples.
 
-## Slide 63
+## Slide 62
 
 Say:
 The 2025 review has 23 records across 20 conservative groups. Some malicious artifacts were published earlier but were verified available during 2025. Do not add annual groups as unique operators.
@@ -608,7 +605,7 @@ The 2025 review has 23 records across 20 conservative groups. Some malicious art
 Next:
 Move to the bounded 2024 sample if useful.
 
-## Slide 64
+## Slide 63
 
 Say:
 The 2024 historical sample contains 18 records across 17 bundles. It is a bounded sample with different coverage, not a complete annual census or a directly comparable growth series.
@@ -616,7 +613,7 @@ The 2024 historical sample contains 18 records across 17 bundles. It is a bounde
 Next:
 Use 2023 for another historical example.
 
-## Slide 65
+## Slide 64
 
 Say:
 The 2023 historical sample contains 14 records across 14 bundles and includes vendor-delivery cases. Follow the source for the chosen example; do not compare totals as equal-coverage measurements.
