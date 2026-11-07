@@ -1,0 +1,44 @@
+# dnscrypt-proxy configuration — STRICT mode
+# Logs all DNS queries AND enforces the domain allowlist.
+# Domains not in the allowlist receive NXDOMAIN.
+
+listen_addresses = ['127.0.0.1:5353', '[::1]:5353']
+
+# Use servers reachable via IP (no bootstrap DNS needed)
+server_names = ['cloudflare', 'google']
+
+# Accept both DoH and DNSCrypt
+doh_servers = true
+dnscrypt_servers = true
+require_dnssec = false
+require_nolog = false
+require_nofilter = true
+
+# Use IPv4 only (avoids issues in containers without IPv6)
+ipv4_servers = true
+ipv6_servers = false
+block_ipv6 = false
+
+# Performance
+cache = true
+cache_size = 1024
+
+[query_log]
+  file = '/var/log/dnscrypt-proxy/query.log'
+  format = 'tsv'
+
+[nx_log]
+  file = '/var/log/dnscrypt-proxy/nx.log'
+  format = 'tsv'
+
+# ── Allowlist enforcement ────────────────────────────────────────────
+# Only domains matching patterns in this file will be resolved.
+# Everything else gets NXDOMAIN.
+[allowed_names]
+  allowed_names_file = '/etc/dnscrypt-proxy/allowed-domains.txt'
+
+[sources]
+  [sources.'public-resolvers']
+    urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md', 'https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md']
+    cache_file = '/tmp/public-resolvers.md'
+    minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'

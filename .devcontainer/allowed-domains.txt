@@ -1,0 +1,44 @@
+# Domain allowlist for STRICT mode
+# One pattern per line. Wildcards supported: *.example.com
+# Lines starting with # are comments.
+#
+# Edit this file and rebuild the container to update the allowlist.
+# In strict mode, any domain NOT matching a pattern here gets NXDOMAIN.
+
+# ── GitHub ───────────────────────────────────────────────────────────
+github.com
+*.github.com
+*.githubusercontent.com
+*.githubassets.com
+*.github.io
+
+# ── npm / Node.js ───────────────────────────────────────────────────
+*.npmjs.org
+*.npmjs.com
+*.yarnpkg.com
+registry.npmmirror.com
+
+# ── Container registries ────────────────────────────────────────────
+*.docker.io
+*.docker.com
+*.ghcr.io
+*.gcr.io
+
+# ── OS package managers ─────────────────────────────────────────────
+*.ubuntu.com
+*.debian.org
+*.launchpad.net
+
+# ── VS Code / Dev Containers ────────────────────────────────────────
+*.visualstudio.com
+*.vscode-cdn.net
+*.microsoft.com
+*.azure.com
+
+# ── DNS resolvers (dnscrypt-proxy upstream) ──────────────────────────
+*.cloudflare.com
+*.cloudflare-dns.com
+*.dns.google
+dns.google
+
+# ── Add your domains below ──────────────────────────────────────────

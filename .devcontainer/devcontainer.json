@@ -1,0 +1,43 @@
+// Hardened devcontainer with tamper-proof DNS auditing/filtering.
+// DNS proxy + iptables are set up at startup, then CAP_NET_ADMIN is dropped
+// so the proxy and firewall rules cannot be disabled from inside the container.
+//
+// Reusable: copy the .devcontainer/ folder to any project and adjust
+// allowed-domains.txt for your needs.
+{
+  "name": "Hardened Dev Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  // NET_ADMIN is needed at startup for iptables setup, then dropped by entrypoint.sh
+  "runArgs": ["--cap-add=NET_ADMIN"],
+
+  // Preserve the Dockerfile ENTRYPOINT (entrypoint.sh sets up DNS proxy + iptables)
+  "overrideCommand": false,
+
+  // Default: audit mode (log all DNS, block nothing).
+  // Set to "strict" to enforce the domain allowlist.
+  "containerEnv": {
+    "NETWORK_MODE": "audit"
+  },
+
+  "remoteUser": "vscode",
+
+  // Node.js for the Marp slide toolchain
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+
+  "postCreateCommand": "npm ci",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "marp-team.marp-vscode"
+      ]
+    }
+  }
+}
